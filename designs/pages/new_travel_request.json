@@ -1,0 +1,570 @@
+[
+    {
+        "id": "sd_osEacZsdUBcy4IJg",
+        "type": "tab",
+        "createdDate": "2022-06-28T23:10:55.135Z",
+        "label": "new_travel_request",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_SXnm4ototMyRWa27",
+        "type": "OnInit",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_SXnm4ototMyRWa27",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 80,
+        "wires": [
+            [
+                "sd_MWBuy73tA0Xq4qCD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_MWBuy73tA0Xq4qCD",
+        "type": "PageVariables",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "personalDetailsForm",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "travelForm",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "date",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "futureDate",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "userInfo",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "showInternaionalTravel",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "'false'"
+                }
+            },
+            {
+                "textIp": "showVISA",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "'false'"
+                }
+            },
+            {
+                "textIp": "project",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_MWBuy73tA0Xq4qCD",
+        "category": "Function",
+        "x": 185,
+        "y": 80,
+        "wires": [
+            [
+                "sd_3vQvCLGHPR3YmnTB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_3vQvCLGHPR3YmnTB",
+        "type": "UseDependency",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FormGroup"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ValidationErrors",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ReactiveFormsModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "ReactiveFormsModule"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormBuilder",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "Fb"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_3vQvCLGHPR3YmnTB",
+        "category": "Function",
+        "x": 285,
+        "y": 80,
+        "wires": [
+            [
+                "sd_0eXmcODK8qapuwUY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_XoSN8pKbkzY3VXRC",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "pDetails ",
+        "script": "page.personalDetailsForm =new FormGroup({\n      firstName: new FormControl(page.user.personalDetails, [Validators.minLength(3),Validators.required]),\n       lastName: new FormControl('',[ Validators.minLength(3),Validators.required]),\n       dob: new FormControl('', [Validators.required]),\n       gender: new FormControl('', [Validators.required]),\n       email: new FormControl('', [Validators.required, Validators.email]),\n       position: new FormControl('', [Validators.required]),\n       idNumber: new FormControl('', [Validators.pattern(\"^-?[0-9]\\\\d*(\\\\.\\\\d{1,2})?$\"),Validators.max(13),Validators.required]),\n       panNumber: new FormControl('', [Validators.minLength(10),Validators.pattern(\"[A-Z]{5}[0-9]{4}[A-Z]{1}\"),Validators.required]),\n       passportNumber: new FormControl('', [Validators.required]),\n       nationality:new FormControl('', [Validators.required]),\n       station: new FormControl('', [Validators.required]),\n       lineManager: new FormControl('', [Validators.required]),\n       lineManagerEmail: new FormControl('', [Validators.required]),\n})\nconsole.log(\"user\",page.user)",
+        "functionName": "pDetails",
+        "category": "Function",
+        "x": 565,
+        "y": 80,
+        "wires": [
+            [
+                "sd_DFBceSl6hbfqJq3d"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_DFBceSl6hbfqJq3d",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "tDeatils",
+        "script": "// page.travelForm = new FormGroup({\n//        travelMode: new FormControl ('',[Validators.required]),\n//       travelType: new FormControl ('',[Validators.required]),\n//       travelRequestType : new FormControl ('',[Validators.required]),\n//       travelPurpose: new FormControl ('',[Validators.required]),\n//       projectID: new FormControl ('',[Validators.required]),\n//       fromCity: new FormControl ('',[Validators.required]),\n//       toCity: new FormControl ('',[Validators.required]),\n//       fromDate: new FormControl ('',[Validators.required]),\n//       toDate: new FormControl ('',[Validators.required]),\n//       localPreferredTime: new FormControl ('',[Validators.required]),\n//       locatoncomments: new FormControl ('',[Validators.required]),\n//       passportDocument: new FormControl ('',[Validators.required]),\n//       needShuttleLocal: new FormControl ('',[Validators.required]),\n//       hotelPreference: new FormControl('',[Validators.required]),\n//       city: new FormControl('',[Validators.required]),\n//       checkInDate: new FormControl ('',[Validators.required]),\n//       checkOutDate: new FormControl ('',[Validators.required]),\n//       accommodationType: new FormControl ('',[Validators.required]),\n//       checkInTime: new FormControl ('',[Validators.required]),\n//       checkOutTime: new FormControl ('',[Validators.required]),\n//       employeeComments: new FormControl ('',[Validators.required])\n \n// })\n// console.log(page.travelForm.travelDetails)\n\n// page.travelForm = new FormGroup({\n \npage.travelForm = new FormGroup({\n      travelDetails : page.Fb.group({\n      travelMode: ['',[Validators.required]],\n      travelType: ['',[Validators.required]],\n      travelRequestType : ['',[Validators.required]],\n      travelPurpose: ['',[Validators.required]],\n      projectID: ['',[Validators.required]],\n      fromCity: ['',[Validators.required]],\n      toCity: ['',[Validators.required]],\n      fromDate: ['',[Validators.required]],\n      toDate: ['',[Validators.required]],\n      tripType: ['',[Validators.required]],\n      requestedFor: ['',[Validators.required]],\n      requestType:['',[Validators.required]],\n      preferredTime: ['',[Validators.required]],\n      travelerComments: ['',[Validators.required]],\n      passportDocument: ['',[Validators.required]],\n      visaRequired: ['',[Validators.required]],\n      covidCertificate: ['',[Validators.required]],\n      needShuttleLocal: ['',[Validators.required]]\n      }),\naccommodationDetails: page.Fb.group({\n      hotelPreference:['',[Validators.required]],\n      city:['',[Validators.required]],\n      checkInDate: ['',[Validators.required]],\n      checkOutDate: ['',[Validators.required]],\n      accommodationType: ['',[Validators.required]],\n      checkInTime:['',[Validators.required]],\n      checkOutTime: ['',[Validators.required]],\n     // employeeComments: ['',[Validators.required]]\n    //  status: [),\n })\n  })\n\nconsole.log(page.travelForm.travelDetails)\n    // needVisa: [null,[Validators.required]],\n// },{\n   \n//   //international Travel\n//       , \n//       travelIntMode: ['',[Validators.required]],\n//       travelIntType: ['',[Validators.required]],\n//       travelIntPurpose: ['',[Validators.required]],\n//       projectIntID: ['',[Validators.required]],\n//       fromInternationCity: ['',[Validators.required]],\n//       toInternationalCity: ['',[Validators.required]],\n//       fromIntDate: ['',[Validators.required]],\n//       toIntDate: ['',[Validators.required]],\n//       preferredIntTime: ['',[Validators.required]],\n//       internationalcomments: ['',[Validators.required]],\n//       visaDocument: ['',[Validators.required]],\n//      // status: [\n//       needShuttleInternamtinal: ['',[Validators.required]],\n  //Accomodation Details ",
+        "functionName": "tDeatils",
+        "category": "Function",
+        "x": 645,
+        "y": 80,
+        "wires": [
+            [
+                "sd_bvYvWg7Xv6GTK5wB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Z1HHAwxxPpAGr8z8",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "select Data",
+        "script": "page.user = page.myformservice.userInfo;\nconsole.log(\"user\",page.user)\npage.city =[{viewvalue: \"Cape Town\"},{viewvalue: \"Johnnesburg\"},{viewvalue: \"Bangalore\"},{viewvalue: \"New York\"}]\npage.project = [{viewvalue : \"Woligo\"},{viewvalue : \"Assupol\"}];\npage.travelMode = [{viewvalue: \"Uber\"},{viewvalue: \"Flight\"},{viewvalue: \"Bus\"},{viewvalue: \"Train\"}];\npage.nationality = [{viewvalue: \"African\"},{viewvalue: \"Coloured\"},{viewvalue: \"White\"},{viewvalue: \"Indian\"},{viewvalue: \"Other\"}];\npage.gender =  [{viewvalue: \"Male\"},{viewvalue: \"Female\"},{viewvalue: \"Other\"}];\npage.purposeOfTravel = [{viewvalue: \"Meeting\"},{viewvalue: \"Shootout\"},{viewvalue: \"Sales\"}];\npage.accomodationPreferance =[{viewvalue: \"hotel\"},{viewvalue: \"B&B\"}]",
+        "functionName": "selectData",
+        "category": "Function",
+        "x": 485,
+        "y": 80,
+        "wires": [
+            [
+                "sd_XoSN8pKbkzY3VXRC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_yrI3RMZLOXAxuX53",
+        "type": "UseDependency",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "NgxAgeValidator",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "ageValidator"
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "ngx-age-validator",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_yrI3RMZLOXAxuX53",
+        "category": "Function",
+        "x": 725,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_kSDhqxCKElk9PkRg",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.leadObject=page.backend.leadObject;\nconsole.log('health ',page.backend)\npage.dateOfBirth = new FormGroup({\n   dob: new FormControl(new Date(page.leadObject.dob),[NgxAgeValidator(18, 60.5),Validators.required])\n  });\n",
+        "functionName": "sd_kSDhqxCKElk9PkRg",
+        "category": "Function",
+        "x": 665,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_bdozh8xtjLzM0QiG",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "date",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "currentDate",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "date",
+        "category": "General",
+        "x": 65,
+        "y": 260,
+        "wires": [
+            [
+                "sd_p628PvB6Wft0W8cy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_bvYvWg7Xv6GTK5wB",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.date = new Date();\npage.futureDate = new Date(page.date - 1);",
+        "functionName": "sd_bvYvWg7Xv6GTK5wB",
+        "category": "Function",
+        "x": 745,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_p628PvB6Wft0W8cy",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.date = new Date();\npage.futureDate = new Date(bh.input.currentDate - 1);\n//console.log(page.futureDate)",
+        "functionName": "sd_p628PvB6Wft0W8cy",
+        "category": "Function",
+        "x": 145,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ZDvpSClHAIgW1XKC",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "sd_ZDvpSClHAIgW1XKC",
+        "category": "General",
+        "x": 80,
+        "y": 200,
+        "wires": [
+            [
+                "sd_zFu2Iz2olSAWbMFK"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_zFu2Iz2olSAWbMFK",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.form);\nconsole.log(\"Form\",page.travelDetails)",
+        "functionName": "sd_zFu2Iz2olSAWbMFK",
+        "category": "Function",
+        "x": 240,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_e8o3tkp7E56l98zC",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "pDetailsSubmit",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "pDetailsSubmit",
+        "category": "General",
+        "x": 225,
+        "y": 400,
+        "wires": [
+            [
+                "sd_zD555oDG8OrpYULW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_zD555oDG8OrpYULW",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.form);\nconsole.log(\"Form\",page.travelDetails)\npage.user = page.myformservice.userInfo;\nconsole.log(\"user\",page.user)",
+        "functionName": "sd_zD555oDG8OrpYULW",
+        "category": "Function",
+        "x": 385,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_0eXmcODK8qapuwUY",
+        "type": "UseDependency",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "myformserviceService",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "myformservice"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "app/services/myformservice/myformservice.service",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_0eXmcODK8qapuwUY",
+        "category": "Function",
+        "x": 405,
+        "y": 80,
+        "wires": [
+            [
+                "sd_Z1HHAwxxPpAGr8z8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_dQi0ZDxCALyvvKO5",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "sd_dQi0ZDxCALyvvKO5",
+        "category": "General",
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "sd_L8dj6KHB0MWU3lHf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_L8dj6KHB0MWU3lHf",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.form);\nconsole.log(\"Form\",page.travelDetails)\npage.user = page.myformservice.userInfo;\nconsole.log(\"user\",page.user)",
+        "functionName": "sd_L8dj6KHB0MWU3lHf",
+        "category": "Function",
+        "x": 405,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]
