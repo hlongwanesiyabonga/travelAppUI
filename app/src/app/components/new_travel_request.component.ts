@@ -19,6 +19,7 @@ import {
   FormControl,
   ReactiveFormsModule,
   FormBuilder,
+  FormArray,
 } from '@angular/forms'; //_splitter_
 import { myformserviceService } from 'app/services/myformservice/myformservice.service'; //_splitter_
 //append_imports_end
@@ -84,15 +85,15 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_ZDvpSClHAIgW1XKC(form: any = undefined, ...others) {
+  addRequest(...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = { form: form };
+      bh.input = {};
       bh.local = {};
       bh = this.sd_zFu2Iz2olSAWbMFK(bh);
-      //appendnew_next_sd_ZDvpSClHAIgW1XKC
+      //appendnew_next_addRequest
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ZDvpSClHAIgW1XKC');
     }
@@ -112,17 +113,59 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_dQi0ZDxCALyvvKO5(...others) {
+  onFileChange(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_L8dj6KHB0MWU3lHf(bh);
+      //appendnew_next_onFileChange
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_dQi0ZDxCALyvvKO5');
+    }
+  }
+
+  tdetails(form: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { form: form };
+      bh.local = {};
+      bh = this.sd_UTu9MfO7IadBmBxp(bh);
+      //appendnew_next_tdetails
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_u6WWm4Bal1XWFndC');
+    }
+  }
+
+  addNewRequestForm(...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
       bh.input = {};
       bh.local = {};
-      bh = this.sd_L8dj6KHB0MWU3lHf(bh);
-      //appendnew_next_sd_dQi0ZDxCALyvvKO5
+      bh = this.sd_LYJcmnJwoRoJ6qQz(bh);
+      //appendnew_next_addNewRequestForm
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_dQi0ZDxCALyvvKO5');
+      return this.errorHandler(bh, e, 'sd_vIyeD3TDlSiq1fsw');
+    }
+  }
+
+  removeNewRequestForm(i = 0, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { i: i };
+      bh.local = {};
+      bh = this.sd_aauQ9VpyMBmalrnN(bh);
+      //appendnew_next_removeNewRequestForm
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Y4cf7DW2aKUnLQlW');
     }
   }
 
@@ -138,6 +181,8 @@ export class new_travel_requestComponent {
       this.page.showInternaionalTravel = 'false';
       this.page.showVISA = 'false';
       this.page.project = undefined;
+      this.page.requestDetails = undefined;
+      this.page.requestDetailsForm = undefined;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;
@@ -151,6 +196,7 @@ export class new_travel_requestComponent {
       this.page.FormGroup = FormGroup;
       this.page.ReactiveFormsModule = ReactiveFormsModule;
       this.page.Fb = this.__page_injector__.get(FormBuilder);
+      this.page.FormArray = FormArray;
       bh = this.sd_0eXmcODK8qapuwUY(bh);
       //appendnew_next_sd_3vQvCLGHPR3YmnTB
       return bh;
@@ -176,6 +222,11 @@ export class new_travel_requestComponent {
       const page = this.page;
       page.user = page.myformservice.userInfo;
       console.log('user', page.user);
+      page.options = [
+        { viewvalue: 'Yes' },
+        { viewvalue: 'No' },
+        { viewvalue: 'Unsure' },
+      ];
       page.city = [
         { viewvalue: 'Cape Town' },
         { viewvalue: 'Johnnesburg' },
@@ -251,7 +302,7 @@ export class new_travel_requestComponent {
         lineManagerEmail: new FormControl('', [Validators.required]),
       });
       console.log('user', page.user);
-      bh = this.tDeatils(bh);
+      bh = this.formControlsCreation(bh);
       //appendnew_next_pDetails
       return bh;
     } catch (e) {
@@ -259,37 +310,14 @@ export class new_travel_requestComponent {
     }
   }
 
-  tDeatils(bh) {
+  formControlsCreation(bh) {
     try {
-      const page = this.page; // page.travelForm = new FormGroup({
-      //        travelMode: new FormControl ('',[Validators.required]),
-      //       travelType: new FormControl ('',[Validators.required]),
-      //       travelRequestType : new FormControl ('',[Validators.required]),
-      //       travelPurpose: new FormControl ('',[Validators.required]),
-      //       projectID: new FormControl ('',[Validators.required]),
-      //       fromCity: new FormControl ('',[Validators.required]),
-      //       toCity: new FormControl ('',[Validators.required]),
-      //       fromDate: new FormControl ('',[Validators.required]),
-      //       toDate: new FormControl ('',[Validators.required]),
-      //       localPreferredTime: new FormControl ('',[Validators.required]),
-      //       locatoncomments: new FormControl ('',[Validators.required]),
-      //       passportDocument: new FormControl ('',[Validators.required]),
-      //       needShuttleLocal: new FormControl ('',[Validators.required]),
-      //       hotelPreference: new FormControl('',[Validators.required]),
-      //       city: new FormControl('',[Validators.required]),
-      //       checkInDate: new FormControl ('',[Validators.required]),
-      //       checkOutDate: new FormControl ('',[Validators.required]),
-      //       accommodationType: new FormControl ('',[Validators.required]),
-      //       checkInTime: new FormControl ('',[Validators.required]),
-      //       checkOutTime: new FormControl ('',[Validators.required]),
-      //       employeeComments: new FormControl ('',[Validators.required])
-
-      // })
-      // console.log(page.travelForm.travelDetails)
-
-      // page.travelForm = new FormGroup({
-
+      const page = this.page;
       page.travelForm = new FormGroup({
+        requestDetails: page.Fb.array([]),
+      });
+
+      page.requestDetailsGroup = new FormGroup({
         travelDetails: page.Fb.group({
           travelMode: ['', [Validators.required]],
           travelType: ['', [Validators.required]],
@@ -308,43 +336,26 @@ export class new_travel_requestComponent {
           passportDocument: ['', [Validators.required]],
           visaRequired: ['', [Validators.required]],
           covidCertificate: ['', [Validators.required]],
-          needShuttleLocal: ['', [Validators.required]],
+          passport: ['', [Validators.required]],
+          needvehicle: ['', [Validators.required]],
         }),
         accommodationDetails: page.Fb.group({
-          hotelPreference: ['', [Validators.required]],
+          accommodationPreference: ['', [Validators.required]],
           city: ['', [Validators.required]],
           checkInDate: ['', [Validators.required]],
           checkOutDate: ['', [Validators.required]],
           accommodationType: ['', [Validators.required]],
           checkInTime: ['', [Validators.required]],
           checkOutTime: ['', [Validators.required]],
-          // employeeComments: ['',[Validators.required]]
-          //  status: [),
+          needvehicle: ['', [Validators.required]],
+          employeeComments: ['', [Validators.required]],
         }),
       });
 
-      console.log(page.travelForm.travelDetails);
-      // needVisa: [null,[Validators.required]],
-      // },{
+      // console.log(page.requestDetails)
 
-      //   //international Travel
-      //       ,
-      //       travelIntMode: ['',[Validators.required]],
-      //       travelIntType: ['',[Validators.required]],
-      //       travelIntPurpose: ['',[Validators.required]],
-      //       projectIntID: ['',[Validators.required]],
-      //       fromInternationCity: ['',[Validators.required]],
-      //       toInternationalCity: ['',[Validators.required]],
-      //       fromIntDate: ['',[Validators.required]],
-      //       toIntDate: ['',[Validators.required]],
-      //       preferredIntTime: ['',[Validators.required]],
-      //       internationalcomments: ['',[Validators.required]],
-      //       visaDocument: ['',[Validators.required]],
-      //      // status: [
-      //       needShuttleInternamtinal: ['',[Validators.required]],
-      //Accomodation Details
       bh = this.sd_bvYvWg7Xv6GTK5wB(bh);
-      //appendnew_next_tDeatils
+      //appendnew_next_formControlsCreation
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_DFBceSl6hbfqJq3d');
@@ -356,10 +367,22 @@ export class new_travel_requestComponent {
       const page = this.page;
       page.date = new Date();
       page.futureDate = new Date(page.date - 1);
+      bh = this.sd_eYkVAuOfjYx8O61u(bh);
       //appendnew_next_sd_bvYvWg7Xv6GTK5wB
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_bvYvWg7Xv6GTK5wB');
+    }
+  }
+
+  sd_eYkVAuOfjYx8O61u(bh) {
+    try {
+      let outputVariables = this.addNewRequestForm();
+
+      //appendnew_next_sd_eYkVAuOfjYx8O61u
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_eYkVAuOfjYx8O61u');
     }
   }
 
@@ -378,9 +401,6 @@ export class new_travel_requestComponent {
 
   sd_zFu2Iz2olSAWbMFK(bh) {
     try {
-      const page = this.page;
-      console.log(bh.input.form);
-      console.log('Form', page.travelDetails);
       //appendnew_next_sd_zFu2Iz2olSAWbMFK
       return bh;
     } catch (e) {
@@ -405,14 +425,50 @@ export class new_travel_requestComponent {
   sd_L8dj6KHB0MWU3lHf(bh) {
     try {
       const page = this.page;
-      console.log(bh.input.form);
-      console.log('Form', page.travelDetails);
-      page.user = page.myformservice.userInfo;
-      console.log('user', page.user);
+      if (bh.input.event.target.files.length > 0) {
+        const file = bh.input.event.target.files[0];
+      }
+
       //appendnew_next_sd_L8dj6KHB0MWU3lHf
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_L8dj6KHB0MWU3lHf');
+    }
+  }
+
+  sd_UTu9MfO7IadBmBxp(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.input.form);
+      console.log('Form', page.travelDetails);
+      page.user = page.myformservice.userInfo;
+      console.log('user', page.user);
+      //appendnew_next_sd_UTu9MfO7IadBmBxp
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_UTu9MfO7IadBmBxp');
+    }
+  }
+
+  sd_LYJcmnJwoRoJ6qQz(bh) {
+    try {
+      const page = this.page;
+      page.travelForm.get('requestDetails').push(page.requestDetailsGroup);
+      //appendnew_next_sd_LYJcmnJwoRoJ6qQz
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_LYJcmnJwoRoJ6qQz');
+    }
+  }
+
+  sd_aauQ9VpyMBmalrnN(bh) {
+    try {
+      const page = this.page;
+      page.travelForm.get('requestDetails').removeAt(bh.input.i);
+      //appendnew_next_sd_aauQ9VpyMBmalrnN
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_aauQ9VpyMBmalrnN');
     }
   }
 
