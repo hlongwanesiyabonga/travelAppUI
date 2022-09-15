@@ -515,7 +515,7 @@ export class new_travel_requestComponent {
             visaRequired: [false, [Validators.required]],
             covidCertificate: [page.showVisa, [Validators.required]],
             // passport: [ page.showVisa, [Validators.required]],
-            needvehicle: ['', [Validators.required]],
+            needvehicle: ['No', [Validators.required]],
           }),
           accommodationDetails: page.Fb.group({
             accommodationPreference: ['', [Validators.required]],
