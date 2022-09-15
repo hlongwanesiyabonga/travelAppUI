@@ -1,0 +1,28 @@
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
+  <div fxLayout="column wrap" class="padding10px whiteBackground" fxFlex="200px" fxLayoutAlign="start stretch" [fxShow]="true"></div>
+  <div fxLayout="column wrap" class="mainRightContainer" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="row wrap" fxFlex="70px" fxLayoutAlign="center center" [fxShow]="true">
+      <mat-card class="toolbarCard">
+        <mat-card-content align="justify">
+          <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="end stretch" [fxShow]="true">
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true"><img imgSrc="/Web/Image/Language.png"></div>
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+              <mat-icon>search</mat-icon>
+            </div>
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+              <mat-icon matBadge="4">notifications</mat-icon>
+            </div>
+            <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true"><label>
+                Prince Masimbakho</label></div>
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true"><img imgSrc="/Web/Image/profileImage.png" class="profileImage"></div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxLayout="row wrap" class="mainContainer" fxLayoutAlign="center stretch" [fxShow]="true">
+      <div fxLayout="column wrap" fxFlex="95" fxLayoutAlign="start stretch" [fxShow]="true">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

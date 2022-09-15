@@ -1,0 +1,300 @@
+[
+    {
+        "id": "sd_2SmtltpgSscQJfqT",
+        "type": "tab",
+        "createdDate": "2022-09-15T09:34:42.828Z",
+        "label": "base",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "baseComponent"
+    },
+    {
+        "id": "sd_iQnDnGsKh3QUvuuo",
+        "type": "OnInit",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_iQnDnGsKh3QUvuuo",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 80,
+        "wires": [
+            [
+                "sd_nrTQrGEzRLT39o1H"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "baseComponent"
+    },
+    {
+        "id": "sd_nrTQrGEzRLT39o1H",
+        "type": "PageVariables",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "dialogWidth",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "dialogHeight",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "sideNav",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            }
+        ],
+        "functionName": "sd_nrTQrGEzRLT39o1H",
+        "category": "Function",
+        "x": 185,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "baseComponent"
+    },
+    {
+        "id": "sd_C5MkKFqUM97bJ9eO",
+        "type": "PageStart",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open profile",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "openProfile",
+        "category": "General",
+        "x": 85,
+        "y": 260,
+        "wires": [
+            [
+                "sd_NtXl4H7miZSfSkAz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "baseComponent"
+    },
+    {
+        "id": "sd_NtXl4H7miZSfSkAz",
+        "type": "OpenDialog",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_GYfWDl22nRQG3bY5",
+            "label": "profile_dialog"
+        },
+        "relativePath": "./profile_dialog",
+        "data": "this.page",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "this.page",
+        "maxHeight": "this.page",
+        "minHeight": "\"85vh\"",
+        "width": "this.page",
+        "maxWidth": "this.page",
+        "minWidth": "\"85vw\"",
+        "panelClass": "this.page",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page",
+        "functionName": "sd_NtXl4H7miZSfSkAz",
+        "category": "Dialog",
+        "x": 185,
+        "y": 260,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "str",
+                "value": "85vh",
+                "constant": false
+            },
+            "width": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "str",
+                "value": "85vw",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_bBI3haJHdgSgCxGE",
+        "type": "PageStart",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open side nav",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "openSideNav",
+        "category": "General",
+        "x": 85,
+        "y": 170,
+        "wires": [
+            [
+                "sd_gT8hRhNopvoRlRwC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "baseComponent"
+    },
+    {
+        "id": "sd_gT8hRhNopvoRlRwC",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.sideNav = true",
+        "functionName": "sd_gT8hRhNopvoRlRwC",
+        "category": "Function",
+        "x": 190,
+        "y": 170,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

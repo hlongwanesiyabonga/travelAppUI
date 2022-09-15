@@ -1,0 +1,28 @@
+{
+    "routes": [
+        {
+            "path": "home",
+            "component": "baseComponent",
+            "children": [
+                {
+                    "component": "view_travel_requestsComponent",
+                    "path": "''"
+                },
+                {
+                    "component": "new_travel_requestComponent",
+                    "path": "new-request"
+                }
+            ]
+        },
+        {
+            "path": "''",
+            "redirectTo": "/home",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "PageNotFoundComponent"
+        }
+    ]
+}

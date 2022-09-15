@@ -1,0 +1,1148 @@
+[
+    {
+        "id": "sd_osEacZsdUBcy4IJg",
+        "type": "tab",
+        "createdDate": "2022-06-28T23:10:55.135Z",
+        "label": "new_travel_request",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_SXnm4ototMyRWa27",
+        "type": "OnInit",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_SXnm4ototMyRWa27",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 80,
+        "wires": [
+            [
+                "sd_MWBuy73tA0Xq4qCD"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_MWBuy73tA0Xq4qCD",
+        "type": "PageVariables",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "personalDetailsForm",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "travelForm",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "date",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "futureDate",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "userInfo",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "showInternaionalTravel",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "'false'"
+                }
+            },
+            {
+                "textIp": "showVISA",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "'false'"
+                }
+            },
+            {
+                "textIp": "project",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "requestDetails",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "requestDetailsForm",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "showHideElement",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "showHideButton",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "showID",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "showPan",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            }
+        ],
+        "functionName": "sd_MWBuy73tA0Xq4qCD",
+        "category": "Function",
+        "x": 185,
+        "y": 80,
+        "wires": [
+            [
+                "sd_3vQvCLGHPR3YmnTB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_3vQvCLGHPR3YmnTB",
+        "type": "UseDependency",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FormGroup"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ValidationErrors",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ReactiveFormsModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "ReactiveFormsModule"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormBuilder",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "Fb"
+                },
+                "injectable": true
+            },
+            {
+                "textIp": "FormArray",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FormArray"
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_3vQvCLGHPR3YmnTB",
+        "category": "Function",
+        "x": 325,
+        "y": 80,
+        "wires": [
+            [
+                "sd_Z1HHAwxxPpAGr8z8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_XoSN8pKbkzY3VXRC",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "pDetails ",
+        "script": "page.personalDetailsForm =new FormGroup({\n      firstName: new FormControl('', [Validators.minLength(3),Validators.required]),\n       lastName: new FormControl('',[ Validators.minLength(3),Validators.required]),\n       dob: new FormControl('', [Validators.required]),\n       gender: new FormControl('', [Validators.required]),\n       email: new FormControl('', [Validators.required, Validators.email]),\n       position: new FormControl('', [Validators.required]),\n       idNumber: new FormControl(false, [Validators.required]),\n       panNumber: new FormControl(null, [Validators.minLength(10),Validators.pattern(\"[A-Z]{5}[0-9]{4}[A-Z]{1}\"),Validators.required]),\n       passportNumber: new FormControl(false, [Validators.required]),\n       nationality:new FormControl('', [Validators.required]),\n       station: new FormControl('', [Validators.required]),\n       lineManager: new FormControl('', [Validators.required]),\n       lineManagerEmail: new FormControl('', [Validators.required]),\n})\n// console.log(\"user\",page.user)",
+        "functionName": "pDetails",
+        "category": "Function",
+        "x": 565,
+        "y": 80,
+        "wires": [
+            [
+                "sd_DFBceSl6hbfqJq3d"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_DFBceSl6hbfqJq3d",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "form controls creation",
+        "script": "page.travelForm = new FormGroup({\n  requestDetails: page.Fb.array([])\n});",
+        "functionName": "formControlsCreation",
+        "category": "Function",
+        "x": 685,
+        "y": 80,
+        "wires": [
+            [
+                "sd_bvYvWg7Xv6GTK5wB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_Z1HHAwxxPpAGr8z8",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "select Data",
+        "script": "\npage.identification =[ {viewvalue : \"ID Number\"},{viewvalue : \"PAN Number\"},{viewvalue : \"Passoprt Number\"} ]\npage.options =  [{viewvalue : \"Yes\"},{viewvalue : \"No\"},{viewvalue : \"Unsure\"}];\npage.city =[{viewvalue: \"Cape Town\"},{viewvalue: \"Johnnesburg\"},{viewvalue: \"Bangalore\"},{viewvalue: \"New York\"}]\npage.project = [{viewvalue : \"Woligo\"},{viewvalue : \"Assupol\"}];\npage.travelMode = [{viewvalue: \"Uber\"},{viewvalue: \"Flight\"},{viewvalue: \"Bus\"},{viewvalue: \"Train\"}];\npage.nationality = [{viewvalue: \"African\"},{viewvalue: \"Coloured\"},{viewvalue: \"White\"},{viewvalue: \"Indian\"},{viewvalue: \"Other\"}];\npage.gender =  [{viewvalue: \"Male\"},{viewvalue: \"Female\"},{viewvalue: \"Other\"}];\npage.purposeOfTravel = [{viewvalue: \"Meeting\"},{viewvalue: \"Shootout\"},{viewvalue: \"Sales\"}];\npage.accomodationPreferance =[{viewvalue: \"hotel\"},{viewvalue: \"B&B\"}]",
+        "functionName": "selectData",
+        "category": "Function",
+        "x": 465,
+        "y": 80,
+        "wires": [
+            [
+                "sd_XoSN8pKbkzY3VXRC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_bdozh8xtjLzM0QiG",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "date",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "currentDate",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "date",
+        "category": "General",
+        "x": 525,
+        "y": 180,
+        "wires": [
+            [
+                "sd_p628PvB6Wft0W8cy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_bvYvWg7Xv6GTK5wB",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.date = new Date();\npage.futureDate = new Date(page.date - 1);",
+        "functionName": "sd_bvYvWg7Xv6GTK5wB",
+        "category": "Function",
+        "x": 805,
+        "y": 80,
+        "wires": [
+            [
+                "sd_eYkVAuOfjYx8O61u"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_p628PvB6Wft0W8cy",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.date = new Date();\npage.futureDate = new Date(bh.input.currentDate - 1);\n//console.log(page.futureDate)",
+        "functionName": "sd_p628PvB6Wft0W8cy",
+        "category": "Function",
+        "x": 645,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_e8o3tkp7E56l98zC",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "pDetailsSubmit",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "pDetailsSubmit",
+        "category": "General",
+        "x": 65,
+        "y": 300,
+        "wires": [
+            [
+                "sd_zD555oDG8OrpYULW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_zD555oDG8OrpYULW",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.form);\nconsole.log(\"Form\",page.travelDetails)\n",
+        "functionName": "sd_zD555oDG8OrpYULW",
+        "category": "Function",
+        "x": 205,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_dQi0ZDxCALyvvKO5",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "onFileChange",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onFileChange",
+        "category": "General",
+        "x": 285,
+        "y": 180,
+        "wires": [
+            [
+                "sd_L8dj6KHB0MWU3lHf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_L8dj6KHB0MWU3lHf",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (bh.input.event.target.files.length > 0) {\n      const file = bh.input.event.target.files[0];\n    }\n  ",
+        "functionName": "sd_L8dj6KHB0MWU3lHf",
+        "category": "Function",
+        "x": 405,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_u6WWm4Bal1XWFndC",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "tdetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "personalDetailsForm",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "tdetails",
+        "category": "General",
+        "x": 285,
+        "y": 300,
+        "wires": [
+            [
+                "sd_UTu9MfO7IadBmBxp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_UTu9MfO7IadBmBxp",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.form);\nconsole.log(\"Form\",bh.input.personalDetailsForm)\n",
+        "functionName": "sd_UTu9MfO7IadBmBxp",
+        "category": "Function",
+        "x": 385,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_vIyeD3TDlSiq1fsw",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "addNewRequestForm",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "addNewRequestForm",
+        "category": "General",
+        "x": 525,
+        "y": 300,
+        "wires": [
+            [
+                "sd_LYJcmnJwoRoJ6qQz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_LYJcmnJwoRoJ6qQz",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelRequestType: [false, [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    requestedFor: [ page.showHideElement, [Validators.required]],\n    requestType: [, [Validators.required]],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: ['', [Validators.required]],\n    passportDocument: [''],\n    visaRequired: [false, [Validators.required]],\n    covidCertificate: ['', page.showVisa ? [Validators.required] :[]],\n   passport: [''],\n    needvehicle: [\"No\", [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: ['', [Validators.required]],\n    city: ['', [Validators.required]],\n    checkInDate: ['', [Validators.required]],\n    checkOutDate: ['', [Validators.required]],\n   // accommodationType: [null, [Validators.required]],\n    checkInTime: ['', [Validators.required]],\n    checkOutTime: ['', [Validators.required]],\n   // needvehicle: ['', [Validators.required]],\n    employeeComments: ['', [Validators.required]]\n\n  })\n}));",
+        "functionName": "sd_LYJcmnJwoRoJ6qQz",
+        "category": "Function",
+        "x": 665,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_eYkVAuOfjYx8O61u",
+        "type": "PageCallService",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_osEacZsdUBcy4IJg",
+            "type": "tab",
+            "createdDate": "2022-06-28T23:10:55.135Z",
+            "label": "new_travel_request",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_vIyeD3TDlSiq1fsw",
+            "flowName": "addNewRequestForm"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./new_travel_request",
+        "startName": "addNewRequestForm",
+        "inputParams": [],
+        "accept_bh": false,
+        "accept_csd": false,
+        "functionName": "sd_eYkVAuOfjYx8O61u",
+        "category": "General",
+        "x": 925,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Y4cf7DW2aKUnLQlW",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "removeNewRequestForm",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "i",
+                "defaultValue": {
+                    "type": "num",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "removeNewRequestForm",
+        "category": "General",
+        "x": 85,
+        "y": 180,
+        "wires": [
+            [
+                "sd_aauQ9VpyMBmalrnN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_aauQ9VpyMBmalrnN",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.travelForm.get('requestDetails').removeAt(bh.input.i);",
+        "functionName": "sd_aauQ9VpyMBmalrnN",
+        "category": "Function",
+        "x": 205,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_yVr7Vfx7YWewSJIT",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "showVisa",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "showVisa",
+        "category": "General",
+        "x": 80,
+        "y": 420,
+        "wires": [
+            [
+                "sd_X4aSuU8d6NJHFUCt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_X4aSuU8d6NJHFUCt",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showVisa= true",
+        "functionName": "sd_X4aSuU8d6NJHFUCt",
+        "category": "Function",
+        "x": 205,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_6DCus0x0CpaOk30t",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "hideVisa",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "hideVisa",
+        "category": "General",
+        "x": 305,
+        "y": 420,
+        "wires": [
+            [
+                "sd_as2P81jrgTDTI9Cw"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_as2P81jrgTDTI9Cw",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showVisa= false",
+        "functionName": "sd_as2P81jrgTDTI9Cw",
+        "category": "Function",
+        "x": 465,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_u4CX7y4FeZ0yV54a",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "showButton",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "showButton",
+        "category": "General",
+        "x": 65,
+        "y": 540,
+        "wires": [
+            [
+                "sd_Osf3azaK9Cis5yKY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_Osf3azaK9Cis5yKY",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showHideButton = true",
+        "functionName": "sd_Osf3azaK9Cis5yKY",
+        "category": "Function",
+        "x": 225,
+        "y": 540,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_svfVBeDStyUwSD9k",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "hideButton",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "hideButton",
+        "category": "General",
+        "x": 345,
+        "y": 520,
+        "wires": [
+            [
+                "sd_HCMg1Wp8GOTXOUCS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_HCMg1Wp8GOTXOUCS",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showHideButton = false",
+        "functionName": "sd_HCMg1Wp8GOTXOUCS",
+        "category": "Function",
+        "x": 505,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_amw2Q3A92xOyk2Pn",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "showRequstedfor",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "showRequstedfor",
+        "category": "General",
+        "x": 84,
+        "y": 634.8125,
+        "wires": [
+            [
+                "sd_4AsGmhNUvWJ6Kjkr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_4AsGmhNUvWJ6Kjkr",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showHideElement= true",
+        "functionName": "sd_4AsGmhNUvWJ6Kjkr",
+        "category": "Function",
+        "x": 244,
+        "y": 634.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_LzX7JBTKERtykE01",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "hideRequstedfor",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "hideRequstedfor",
+        "category": "General",
+        "x": 365,
+        "y": 620,
+        "wires": [
+            [
+                "sd_woXsLjYIiE93sSGF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_woXsLjYIiE93sSGF",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showHideElement= false",
+        "functionName": "sd_woXsLjYIiE93sSGF",
+        "category": "Function",
+        "x": 525,
+        "y": 620,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ZZSLC5IsvQ7MWe9z",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "Reset Form",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "resetForm",
+        "category": "General",
+        "x": 605,
+        "y": 420,
+        "wires": [
+            [
+                "sd_NJ7Bka5lSWxQJoAb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_NJ7Bka5lSWxQJoAb",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": " bh.input.form.reset();",
+        "functionName": "sd_NJ7Bka5lSWxQJoAb",
+        "category": "Function",
+        "x": 720,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_0tDuhsUcgzdUCT1L",
+        "type": "Storage",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "setItem",
+        "storageType": "localStorage",
+        "outputs": 1,
+        "key": {
+            "type": "this.page",
+            "value": "draft"
+        },
+        "value": {
+            "type": "bh.input",
+            "value": "form"
+        },
+        "resultMapping": {},
+        "functionName": "sd_0tDuhsUcgzdUCT1L",
+        "category": "Storage",
+        "x": 245,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_lx3kszcjIcgIWkQj",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "saveAsDraft",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "saveAsDraft",
+        "category": "General",
+        "x": 105,
+        "y": 840,
+        "wires": [
+            [
+                "sd_0tDuhsUcgzdUCT1L"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_R766mMd5SmwjWrs7",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "showID",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "showID",
+        "category": "General",
+        "x": 111,
+        "y": 719.8125,
+        "wires": [
+            [
+                "sd_Ag6YZ0twzIgYdQ4g"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_Ag6YZ0twzIgYdQ4g",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showID= true\npage.showPan = false",
+        "functionName": "sd_Ag6YZ0twzIgYdQ4g",
+        "category": "Function",
+        "x": 271,
+        "y": 719.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_O0O5XmehaUrWfPZv",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "hideID",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "hideID",
+        "category": "General",
+        "x": 392,
+        "y": 705,
+        "wires": [
+            [
+                "sd_CfToqqfcnjjxZVq0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_CfToqqfcnjjxZVq0",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showID= false\npage.showPan = true",
+        "functionName": "sd_CfToqqfcnjjxZVq0",
+        "category": "Function",
+        "x": 552,
+        "y": 705,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]
