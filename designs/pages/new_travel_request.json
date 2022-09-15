@@ -972,5 +972,68 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_0tDuhsUcgzdUCT1L",
+        "type": "Storage",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "setItem",
+        "storageType": "localStorage",
+        "outputs": 1,
+        "key": {
+            "type": "this.page",
+            "value": "draft"
+        },
+        "value": {
+            "type": "bh.input",
+            "value": "form"
+        },
+        "resultMapping": {},
+        "functionName": "sd_0tDuhsUcgzdUCT1L",
+        "category": "Storage",
+        "x": 245,
+        "y": 800,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_lx3kszcjIcgIWkQj",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "saveAsDraft",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "saveAsDraft",
+        "category": "General",
+        "x": 120,
+        "y": 820,
+        "wires": [
+            [
+                "sd_0tDuhsUcgzdUCT1L"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
     }
 ]

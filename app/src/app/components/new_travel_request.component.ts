@@ -252,6 +252,20 @@ export class new_travel_requestComponent {
     }
   }
 
+  saveAsDraft(form: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { form: form };
+      bh.local = {};
+      bh = this.sd_0tDuhsUcgzdUCT1L(bh);
+      //appendnew_next_saveAsDraft
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_lx3kszcjIcgIWkQj');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -608,6 +622,16 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_NJ7Bka5lSWxQJoAb');
+    }
+  }
+
+  sd_0tDuhsUcgzdUCT1L(bh) {
+    try {
+      localStorage.setItem(this.page.draft, JSON.stringify(bh.input.form));
+      //appendnew_next_sd_0tDuhsUcgzdUCT1L
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_0tDuhsUcgzdUCT1L');
     }
   }
 
