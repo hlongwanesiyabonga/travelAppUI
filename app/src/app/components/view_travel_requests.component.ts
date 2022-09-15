@@ -63,7 +63,7 @@ export class view_travel_requestsComponent {
 
   sd_KOVXOnK6cV7gj979(bh) {
     try {
-      bh = this.initializeTable(bh);
+      bh = this.sd_mrou17ks70fZXpqi(bh);
       //appendnew_next_sd_KOVXOnK6cV7gj979
       return bh;
     } catch (e) {
@@ -129,6 +129,110 @@ export class view_travel_requestsComponent {
 
   //appendnew_flow_view_travel_requestsComponent_start
 
+  sd_mrou17ks70fZXpqi(bh) {
+    try {
+      const page = this.page;
+      let tableSetup = {
+        generalLedgerList: {
+          tableHeaders: [
+            'Vote ID',
+            'Vote Description',
+            'Date and Time',
+            'Vote Status',
+            'Requestor',
+            'Transaction ID',
+            'Item',
+            'Function',
+            'Project',
+            'Fund',
+            'Region',
+            'Costing',
+          ],
+          tableCells: [
+            'GLVoteRequestNumber',
+            'voteDescription',
+            'DateCreated',
+            'voteReqStatus',
+            'requestor',
+            'transactionType',
+            'item',
+            'function',
+            'project',
+            'fund',
+            'region',
+            'costing',
+          ],
+        },
+        deactivationRequestList: {
+          tableHeaders: [
+            'Vote ID',
+            'Vote Description',
+            'Department',
+            'Vote Status',
+            'Deactivation Reason',
+            'Requestor',
+            'Date and Time',
+          ],
+          tableCells: [
+            'GLVoteRequestNumber',
+            'voteDescription',
+            'department',
+            'voteReqStatus',
+            'rejectionReason',
+            'requestor',
+            'DateCreated',
+          ],
+        },
+        glCreationRequestsList: {
+          tableHeaders: [
+            'GL Creation Request Nos',
+            'Vote Description',
+            'Department',
+            'Requestor',
+            'Date and Time',
+            'GL Creation Request Status',
+          ],
+          tableCells: [
+            'GLVoteRequestNumber',
+            'voteDescription',
+            'department',
+            'requestor',
+            'DateCreated',
+            'voteReqStatus',
+          ],
+        },
+        approvedOrRejectedRequests: {
+          tableHeaders: [
+            'GL Creation Request Nos',
+            'Vote Description',
+            'Deactivation Request Nos',
+            'Rejection Reason',
+            'Department',
+            'Requestor',
+            'Date and Time',
+          ],
+          tableCells: [
+            'GLVoteRequestNumber',
+            'voteDescription',
+            'deactivationRequestNos',
+            'rejectionReason',
+            'department',
+            'requestor',
+            'DateCreated',
+          ],
+        },
+      };
+      let selectedReport = bh.input.api.slice(8);
+      page.tableHeaders = tableSetup[selectedReport]['tableHeaders'];
+      page.tableCells = tableSetup[selectedReport]['tableCells'];
+      bh = this.initializeTable(bh);
+      //appendnew_next_sd_mrou17ks70fZXpqi
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_mrou17ks70fZXpqi');
+    }
+  }
+
   initializeTable(bh) {
     try {
       const page = this.page;
@@ -185,8 +289,11 @@ export class view_travel_requestsComponent {
       const callServerApisInstance: callServerApis =
         this.__page_injector__.get(callServerApis);
 
-      let outputVariables = await callServerApisInstance.dynamic();
-      this.page.travelRequestsData = outputVariables.local.receivedData;
+      let outputVariables = await callServerApisInstance.dynamic(
+        undefined,
+        undefined,
+        undefined
+      );
 
       //appendnew_next_sd_Nj7JYJQRKun10fTt
       return bh;
@@ -249,7 +356,9 @@ export class view_travel_requestsComponent {
         this.sdService.getPathAndQParamsObj('/home/new-request');
       await this.__page_injector__
         .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
+        .navigate([this.sdService.formatPathWithParams(path, undefined)], {
+          queryParams: Object.assign(qprm, ''),
+        });
       //appendnew_next_sd_e2jI7LQDxK8XdWjP
       return bh;
     } catch (e) {

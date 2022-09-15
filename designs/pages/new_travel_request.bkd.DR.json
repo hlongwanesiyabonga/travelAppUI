@@ -5378,7 +5378,6 @@
                                             "paletteKey": "NG-Input",
                                             "parentEditorKey": "d7b2dc6b-37d5-2e3a-7340-4aed86c328c8",
                                             "isAdvancedComponent": true,
-                                            "isCommented": "false",
                                             "commentid": null,
                                             "designerReference": [
                                                 {
@@ -27817,7 +27816,7 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "tdetails(page.travelForm,page.personalDetailsForm.value)",
+                                "_value": "tdetails(page.travelForm.value,page.personalDetailsForm.value)",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "objValue": {
@@ -27826,7 +27825,7 @@
                                     "activeTree": "pages",
                                     "z": "sd_osEacZsdUBcy4IJg",
                                     "input": [
-                                        "page.travelForm",
+                                        "page.travelForm.value",
                                         "page.personalDetailsForm.value"
                                     ]
                                 }

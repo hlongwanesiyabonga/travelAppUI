@@ -8,8 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -308,6 +306,8 @@ export class new_travel_requestComponent {
       this.page.showPan = false;
       this.page.get = undefined;
       this.page.personalDetails = undefined;
+      this.page.fetchedRequestForm = undefined;
+      this.page.formObj = undefined;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;
@@ -456,7 +456,7 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       page.email = 'neo.thobela@neutrinos.co';
-      bh = this.sd_szuWp0PAjJxyLc60(bh);
+      bh = this.endPoints(bh);
       //appendnew_next_personDetailsObject
       return bh;
     } catch (e) {
@@ -464,13 +464,14 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_szuWp0PAjJxyLc60(bh) {
+  endPoints(bh) {
     try {
       const page = this.page;
       bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
       bh.method = 'get';
+
       bh = this.sd_eYkVAuOfjYx8O61u(bh);
-      //appendnew_next_sd_szuWp0PAjJxyLc60
+      //appendnew_next_endPoints
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_szuWp0PAjJxyLc60');
@@ -512,11 +513,59 @@ export class new_travel_requestComponent {
   sd_LQoAlhbQMQGJHsbq(bh) {
     try {
       const page = this.page;
-      page.personalDetailsForm.patchValue(page.personalDetails[0]);
+      page.personalDetailsForm.patchValue(page.personalDetails);
+
+      //page.personalDetailsForm.patchValue(page.personalDetails[0]);
+      bh = this.sd_b1ohRviqEGXI49ig(bh);
       //appendnew_next_sd_LQoAlhbQMQGJHsbq
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_LQoAlhbQMQGJHsbq');
+    }
+  }
+
+  sd_b1ohRviqEGXI49ig(bh) {
+    try {
+      let outputVariables = this.tdetails(
+        this.page.travelForm,
+        this.page.personalDetailsForm
+      );
+
+      bh = this.sd_RhR3LYUVBWeOB74n(bh);
+      //appendnew_next_sd_b1ohRviqEGXI49ig
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_b1ohRviqEGXI49ig');
+    }
+  }
+
+  async sd_RhR3LYUVBWeOB74n(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.submitEndPoint,
+        bh.postMethod,
+        undefined
+      );
+
+      bh = this.sd_ug9NAWrI0m3QPLao(bh);
+      //appendnew_next_sd_RhR3LYUVBWeOB74n
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_RhR3LYUVBWeOB74n');
+    }
+  }
+
+  sd_ug9NAWrI0m3QPLao(bh) {
+    try {
+      const page = this.page;
+      console.log(page.formObj, 'obj');
+      //appendnew_next_sd_ug9NAWrI0m3QPLao
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ug9NAWrI0m3QPLao');
     }
   }
 
@@ -563,8 +612,20 @@ export class new_travel_requestComponent {
   sd_UTu9MfO7IadBmBxp(bh) {
     try {
       const page = this.page;
-      console.log(bh.input.form);
-      bh.endPoint = '/genericGet/getPersonalDetails' + '?page.email';
+      console.log(bh.input.personalDetailsForm);
+      // bh.endPoint = '/genericGet/getPersonalDetails' + '?page.email'
+
+      //combine the 2 forms
+      page.formObj = {
+        personalDetailsForm: bh.input.personalDetailsForm.value,
+        requestForm: bh.input.form.value,
+      };
+      console.log(page.formObj, 'obj');
+      //post Data
+
+      // bh.endPoint = '/addTravelRequest';
+      // bh.method ="post";
+
       bh = this.sd_bbaBvYkJ652qvZXA(bh);
       //appendnew_next_sd_UTu9MfO7IadBmBxp
       return bh;

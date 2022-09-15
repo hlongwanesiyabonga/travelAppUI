@@ -26,13 +26,12 @@
         "y": 60,
         "wires": [
             [
-                "sd_euaePgZyuOERpVdN"
+                "sd_mrou17ks70fZXpqi"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_3m4hJPLPaowq9zBr",
@@ -85,8 +84,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_FVFM6b18mqiSTaD8",
@@ -110,8 +108,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_Nj7JYJQRKun10fTt",
@@ -121,7 +118,7 @@
         "nodeType": "flow",
         "name": "",
         "outputs": 1,
-        "isValidNode": false,
+        "isValidNode": true,
         "noerr": 0,
         "service": {
             "id": "sd_hkAMxxfqyGUP7RIf",
@@ -136,20 +133,42 @@
             "flowId": "sd_alQ4JDGbxbp70Zlt",
             "flowName": "dynamic"
         },
-        "inputVariables": [],
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
         "outputMapping": [
             {
                 "mapVarType": "local",
-                "key": "receivedData",
-                "valueType": "this.page",
-                "value": "travelRequestsData",
-                "mapVarName": "receivedData",
-                "localVar": "this.page.travelRequestsData"
+                "key": "result",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "result"
             }
         ],
         "serviceImportPath": "app/sd-services/callServerApis",
         "startName": "dynamic",
-        "inputParams": [],
+        "inputParams": [
+            null,
+            null,
+            null
+        ],
         "accept_bh": false,
         "accept_csd": true,
         "functionName": "sd_Nj7JYJQRKun10fTt",
@@ -160,8 +179,8 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generated": true,
-        "generateNext": false
+        "generateNext": false,
+        "generated": true
     },
     {
         "id": "sd_at2x8c2BiP90Q9zo",
@@ -195,7 +214,7 @@
         "accept_csd": false,
         "functionName": "sd_at2x8c2BiP90Q9zo",
         "category": "General",
-        "x": 445,
+        "x": 545,
         "y": 60,
         "wires": [
             []
@@ -222,8 +241,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_UHh7ERTnGX4wuAzy",
@@ -293,7 +311,7 @@
         "script": "bh.local.dataSource = new MatTableDataSource([]);",
         "functionName": "initializeTable",
         "category": "Function",
-        "x": 205,
+        "x": 305,
         "y": 60,
         "wires": [
             [
@@ -346,7 +364,7 @@
         ],
         "functionName": "sd_E9QbOlnVduPNV5MO_1",
         "category": "Function",
-        "x": 325,
+        "x": 425,
         "y": 60,
         "wires": [
             [
@@ -396,8 +414,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_xTBFQhKigY97fATB",
@@ -442,8 +459,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_e2jI7LQDxK8XdWjP",
@@ -453,12 +469,40 @@
         "nodeType": "flow",
         "name": "",
         "path": "/home/new-request",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
         "functionName": "sd_e2jI7LQDxK8XdWjP",
         "category": "Navigation",
         "x": 240,
         "y": 540,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_mrou17ks70fZXpqi",
+        "type": "Script",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let tableSetup = {\n    \"generalLedgerList\": {\n        \"tableHeaders\": ['Vote ID', 'Vote Description', 'Date and Time', 'Vote Status', 'Requestor', 'Transaction ID', 'Item', 'Function', 'Project', 'Fund', 'Region', 'Costing'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'DateCreated', 'voteReqStatus', 'requestor', 'transactionType', 'item', 'function', 'project', 'fund', 'region', 'costing']\n    },\n    \"deactivationRequestList\": {\n        \"tableHeaders\": ['Vote ID', 'Vote Description', 'Department', 'Vote Status', 'Deactivation Reason', 'Requestor', 'Date and Time'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'department', 'voteReqStatus', 'rejectionReason', 'requestor', 'DateCreated']\n    },\n    \"glCreationRequestsList\": {\n        \"tableHeaders\": ['GL Creation Request Nos', 'Vote Description', 'Department', 'Requestor', 'Date and Time', 'GL Creation Request Status'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'department', 'requestor', 'DateCreated', 'voteReqStatus']\n    },\n    \"approvedOrRejectedRequests\": {\n        \"tableHeaders\": ['GL Creation Request Nos', 'Vote Description', 'Deactivation Request Nos', 'Rejection Reason', 'Department', 'Requestor', 'Date and Time'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'deactivationRequestNos', 'rejectionReason', 'department', 'requestor', 'DateCreated']\n    },\n};\nlet selectedReport = bh.input.api.slice(8);\npage.tableHeaders = tableSetup[selectedReport]['tableHeaders'];\npage.tableCells = tableSetup[selectedReport]['tableCells'];",
+        "functionName": "sd_mrou17ks70fZXpqi",
+        "category": "Function",
+        "x": 185,
+        "y": 60,
+        "wires": [
+            [
+                "sd_euaePgZyuOERpVdN"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
