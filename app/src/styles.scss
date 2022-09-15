@@ -50,6 +50,25 @@ bh-view_travel_requests {
     border-top: 1px solid lightgray;
     margin-bottom: 2em !important;
 }
+.grayBorderBottom{
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 1.5em !important;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color:$red;
+    border-width: 10px;
+    
+}
+.height79px{
+        height: 79px;
+}
+  
+.fontSize3em{
+    font-size:3em;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: $red;
+}
 .padding10px {
     padding: 10px;
 }
