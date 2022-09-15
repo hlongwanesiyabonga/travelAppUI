@@ -60,24 +60,34 @@
                   </mat-form-field>
                 </div>
                 <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
-                    Identification Type</label>
-                  <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
-                    <mat-select class="inputContainer" placeholder="Identification" [required]="false">
-                      <ng-template ngFor let-option [ngForOf]="page.identification" let-i="index">
-                        <mat-option [value]="option.viewvalue">{{option.viewvalue}}</mat-option>
-                      </ng-template>
-                    </mat-select>
-
-                  </mat-form-field>
+                    Identification</label>
+                  <mat-radio-group class="fullWidth" [required]="false">
+                    <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true">
+                      <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="space-between center" [fxShow]="true">
+                        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                          <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
+                            <mat-radio-button [value]="&apos;id&apos;" [required]="false" (change)="showID()"></mat-radio-button><label>
+                              ID Number</label>
+                          </div>
+                        </div>
+                        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                          <div fxLayout="row wrap" class="groupedInput" fxLayoutAlign="center center" [fxShow]="true">
+                            <mat-radio-button [value]="&apos;pan&apos;" [required]="false" (change)="hideID()"></mat-radio-button><label>
+                              PAN Number</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </mat-radio-group>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="viewvalue ==&apos;ID Number&apos;"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showID"><label>
                     ID Number</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
                     <input matInput type="number" placeholder="ID Number" [required]="false" formControlName="idNumber">
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.idNumber?.errors?.required">ID Number is Required</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="viewvalue ==&apos;PAN Number&apos;"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showPan"><label>
                     PAN Number</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
                     <input matInput type="text" placeholder="PAN" [required]="false" formControlName="panNumber">
@@ -505,7 +515,7 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
     <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginBottom1em marinTop1em" fxLayoutGap="2em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Cancel</button><button mat-button class="redButton" (click)="tdetails(page.travelForm)">Submit</button><button mat-raised-button class="grayButton" (click)="saveAsDraft(page.travelForm)">Save As Draft</button></div>
+      <div fxLayout="row wrap" class="marginBottom1em marinTop1em" fxLayoutGap="2em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Cancel</button><button mat-button class="redButton" (click)="tdetails(page.travelForm.value,page.personalDetailsForm.value)">Submit</button><button mat-raised-button class="grayButton" (click)="saveAsDraft(page.travelForm)">Save As Draft</button></div>
     </div>
   </div>
 </div>

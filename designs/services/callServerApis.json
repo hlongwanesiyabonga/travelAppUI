@@ -19,17 +19,33 @@
         "nodeType": "start",
         "name": "get travel requests",
         "outputs": 1,
-        "inputVariables": [],
-        "localVariables": [
+        "inputVariables": [
             {
-                "key": "receivedData",
+                "key": "endPoint",
                 "defaultValue": {
                     "type": "any",
                     "value": ""
                 },
-                "output": true
+                "output": false
+            },
+            {
+                "key": "method",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "body",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
             }
         ],
+        "localVariables": [],
         "accept_bh": false,
         "functionName": "getTravelRequests",
         "category": "General",
@@ -37,7 +53,7 @@
         "y": 160,
         "wires": [
             [
-                "sd_aZSTK5BcBNC5jJm9"
+                "sd_uFfzVvBAauUEjRTo"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -63,16 +79,13 @@
         ],
         "functionName": "sd_aZSTK5BcBNC5jJm9",
         "category": "General",
-        "x": 385,
-        "y": 160,
+        "x": 365,
+        "y": 60,
         "wires": [
-            [
-                "sd_uFfzVvBAauUEjRTo"
-            ]
+            []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_uFfzVvBAauUEjRTo",
@@ -81,10 +94,10 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.apiUrl = bh.input.ssdUrl + 'getAllTravelRequests';",
+        "script": "bh.apiUrl = \"http://localhost:8081/api/\"+ bh.input.endPoint;\nconsole.log(\"body\", bh.input);",
         "functionName": "sd_uFfzVvBAauUEjRTo",
         "category": "Function",
-        "x": 490,
+        "x": 425,
         "y": 160,
         "wires": [
             [
@@ -102,39 +115,37 @@
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
-        "method": "get",
-        "methodMapping": "",
-        "methodMappingObj": {},
+        "methodMapping": "bh.input.method",
+        "methodMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "method"
+        },
         "urlMapping": "bh.apiUrl",
         "urlMappingObj": {
             "mapVarType": "bh",
             "mapVarValue": "apiUrl"
         },
         "ret": "json",
-        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
-        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
-        "reqBody": "",
+        "reqBody": "bh.input.body",
         "reqBodyObj": {
-            "mapVarType": "bh",
-            "mapVarValue": ""
+            "mapVarType": "bh.input",
+            "mapVarValue": "body"
         },
-        "resultMapping": "bh.local.receivedData",
+        "resultMapping": "bh.local.result",
         "resultMappingObj": {
             "mapVarType": "bh.local",
-            "mapVarValue": "receivedData"
+            "mapVarValue": "result"
         },
         "headers": {},
         "headersObj": [],
-        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
-        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "sd_hUBaFoLrD4z6GgAt",
         "category": "HTTP",

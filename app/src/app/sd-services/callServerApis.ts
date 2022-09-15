@@ -37,24 +37,29 @@ export class callServerApis {
 
   //   service flows_callServerApis
 
-  async getTravelRequests(...others) {
+  async getTravelRequests(
+    endPoint: any = undefined,
+    method: any = undefined,
+    body: any = undefined,
+    ...others
+  ) {
     try {
       var bh: any = {
-        input: {},
-        local: {
-          receivedData: undefined,
+        input: {
+          endPoint: endPoint,
+          method: method,
+          body: body,
         },
+        local: {},
       };
       bh = this.sdService.__constructDefault(bh);
-      bh = await this.sd_aZSTK5BcBNC5jJm9(bh);
+      bh = await this.sd_uFfzVvBAauUEjRTo(bh);
       //appendnew_next_getTravelRequests
       return (
         // formatting output variables
         {
           input: {},
-          local: {
-            receivedData: bh.local.receivedData,
-          },
+          local: {},
         }
       );
     } catch (e) {
@@ -64,20 +69,10 @@ export class callServerApis {
 
   //appendnew_flow_callServerApis_start
 
-  async sd_aZSTK5BcBNC5jJm9(bh) {
-    try {
-      bh.input.ssdUrl = bh.system.environment.properties.ssdURL;
-      bh = await this.sd_uFfzVvBAauUEjRTo(bh);
-      //appendnew_next_sd_aZSTK5BcBNC5jJm9
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_aZSTK5BcBNC5jJm9');
-    }
-  }
-
   async sd_uFfzVvBAauUEjRTo(bh) {
     try {
-      bh.apiUrl = bh.input.ssdUrl + 'getAllTravelRequests';
+      bh.apiUrl = 'http://localhost:8081/api/' + bh.input.endPoint;
+      console.log('body', bh.input);
       bh = await this.sd_hUBaFoLrD4z6GgAt(bh);
       //appendnew_next_sd_uFfzVvBAauUEjRTo
       return bh;
@@ -90,13 +85,13 @@ export class callServerApis {
     try {
       let requestOptions = {
         url: bh.apiUrl,
-        method: 'get',
+        method: bh.input.method,
         responseType: 'json',
         headers: {},
         params: {},
-        body: undefined,
+        body: bh.input.body,
       };
-      bh.local.receivedData = await this.sdService.nHttpRequest(requestOptions);
+      bh.local.result = await this.sdService.nHttpRequest(requestOptions);
       //appendnew_next_sd_hUBaFoLrD4z6GgAt
       return bh;
     } catch (e) {

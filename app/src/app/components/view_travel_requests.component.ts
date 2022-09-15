@@ -8,7 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  AfterViewInit,
   ViewChild,
   ViewChildren,
 } from '@angular/core'; //_splitter_
@@ -189,7 +188,6 @@ export class view_travel_requestsComponent {
       let outputVariables = await callServerApisInstance.getTravelRequests();
       this.page.travelRequestsData = outputVariables.local.receivedData;
 
-      bh = this.setTableDatasource(bh);
       //appendnew_next_sd_Nj7JYJQRKun10fTt
       return bh;
     } catch (e) {
@@ -197,32 +195,25 @@ export class view_travel_requestsComponent {
     }
   }
 
-  setTableDatasource(bh) {
+  sd_xTBFQhKigY97fATB(bh) {
     try {
       const page = this.page;
-      page.travelRequestsData.forEach((obj, i) => {
-        let tempObj = {
-          travelTitle: obj.basicDetails.travelRequestTitle,
-          requestType: obj.basicDetails.travelReqType,
-          fromDate: obj.travelDetails[0].fromDate,
-          toDate: obj.travelDetails[0].toDate,
-          status: obj.travelDetails[0].status,
-          // Add a variable to keep track of checked rows
-          checked: false,
-          // Add indexx to keep track of each row
-          index: i,
-        };
-
-        page.filteredTabledData.push(tempObj);
-      });
-
-      // Update Table
-      page.tableData = new MatTableDataSource(page.filteredTabledData);
+      if (bh.input.rowType === 'row') {
+        let bool = page.filteredTabledData[bh.input.rowData.index]['checked'];
+        page.filteredTabledData[bh.input.rowData.index]['checked'] = bool
+          ? true
+          : false;
+      } else {
+        page.isHeaderChecked = !page.isHeaderChecked;
+        page.filteredTabledData.forEach(
+          (item) => (item.checked = page.isHeaderChecked)
+        );
+      }
       bh = this.sd_xKCCTWKzvgDN0rx7_1(bh);
-      //appendnew_next_setTableDatasource
+      //appendnew_next_sd_xTBFQhKigY97fATB
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_uPzoWgHpbxik0uGR');
+      return this.errorHandler(bh, e, 'sd_xTBFQhKigY97fATB');
     }
   }
 
@@ -249,28 +240,6 @@ export class view_travel_requestsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_hhelqou3YkSwpMEn');
-    }
-  }
-
-  sd_xTBFQhKigY97fATB(bh) {
-    try {
-      const page = this.page;
-      if (bh.input.rowType === 'row') {
-        let bool = page.filteredTabledData[bh.input.rowData.index]['checked'];
-        page.filteredTabledData[bh.input.rowData.index]['checked'] = bool
-          ? true
-          : false;
-      } else {
-        page.isHeaderChecked = !page.isHeaderChecked;
-        page.filteredTabledData.forEach(
-          (item) => (item.checked = page.isHeaderChecked)
-        );
-      }
-      bh = this.sd_xKCCTWKzvgDN0rx7_1(bh);
-      //appendnew_next_sd_xTBFQhKigY97fATB
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_xTBFQhKigY97fATB');
     }
   }
 

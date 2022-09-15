@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -21,6 +23,7 @@ import {
   FormBuilder,
   FormArray,
 } from '@angular/forms'; //_splitter_
+import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -112,12 +115,16 @@ export class new_travel_requestComponent {
     }
   }
 
-  tdetails(form: any = undefined, ...others) {
+  tdetails(
+    form: any = undefined,
+    personalDetailsForm: any = undefined,
+    ...others
+  ) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = { form: form };
+      bh.input = { form: form, personalDetailsForm: personalDetailsForm };
       bh.local = {};
       bh = this.sd_UTu9MfO7IadBmBxp(bh);
       //appendnew_next_tdetails
@@ -252,17 +259,31 @@ export class new_travel_requestComponent {
     }
   }
 
-  saveAsDraft(form: any = undefined, ...others) {
+  showID(...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = { form: form };
+      bh.input = {};
       bh.local = {};
-      bh = this.sd_0tDuhsUcgzdUCT1L(bh);
-      //appendnew_next_saveAsDraft
+      bh = this.sd_Ag6YZ0twzIgYdQ4g(bh);
+      //appendnew_next_showID
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_lx3kszcjIcgIWkQj');
+      return this.errorHandler(bh, e, 'sd_R766mMd5SmwjWrs7');
+    }
+  }
+
+  hideID(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_CfToqqfcnjjxZVq0(bh);
+      //appendnew_next_hideID
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_O0O5XmehaUrWfPZv');
     }
   }
 
@@ -282,6 +303,9 @@ export class new_travel_requestComponent {
       this.page.requestDetailsForm = undefined;
       this.page.showHideElement = false;
       this.page.showHideButton = false;
+      this.page.showID = false;
+      this.page.showPan = false;
+      this.page.get = undefined;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;
@@ -375,17 +399,13 @@ export class new_travel_requestComponent {
         gender: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required, Validators.email]),
         position: new FormControl('', [Validators.required]),
-        idNumber: new FormControl(null, [
-          Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$'),
-          Validators.max(13),
-          Validators.required,
-        ]),
+        idNumber: new FormControl(false, [Validators.required]),
         panNumber: new FormControl(null, [
           Validators.minLength(10),
           Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}'),
           Validators.required,
         ]),
-        passportNumber: new FormControl(null, [Validators.required]),
+        passportNumber: new FormControl(false, [Validators.required]),
         nationality: new FormControl('', [Validators.required]),
         station: new FormControl('', [Validators.required]),
         lineManager: new FormControl('', [Validators.required]),
@@ -419,7 +439,7 @@ export class new_travel_requestComponent {
       const page = this.page;
       page.date = new Date();
       page.futureDate = new Date(page.date - 1);
-      bh = this.sd_eYkVAuOfjYx8O61u(bh);
+      bh = this.personDetailsObject(bh);
       //appendnew_next_sd_bvYvWg7Xv6GTK5wB
       return bh;
     } catch (e) {
@@ -427,14 +447,70 @@ export class new_travel_requestComponent {
     }
   }
 
+  personDetailsObject(bh) {
+    try {
+      const page = this.page;
+      page.email = 'neo.thobela@neutrinos.co';
+      bh = this.sd_szuWp0PAjJxyLc60(bh);
+      //appendnew_next_personDetailsObject
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_vi6lImVz0AEJuzwi');
+    }
+  }
+
+  sd_szuWp0PAjJxyLc60(bh) {
+    try {
+      const page = this.page;
+      bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
+      bh.method = 'get';
+      bh = this.sd_eYkVAuOfjYx8O61u(bh);
+      //appendnew_next_sd_szuWp0PAjJxyLc60
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_szuWp0PAjJxyLc60');
+    }
+  }
+
   sd_eYkVAuOfjYx8O61u(bh) {
     try {
       let outputVariables = this.addNewRequestForm();
 
+      bh = this.sd_Ch8sySv6dqg810X7(bh);
       //appendnew_next_sd_eYkVAuOfjYx8O61u
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_eYkVAuOfjYx8O61u');
+    }
+  }
+
+  async sd_Ch8sySv6dqg810X7(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.getTravelRequests(
+        bh.endPoint,
+        bh.method,
+        bh.body
+      );
+
+      bh = this.sd_LQoAlhbQMQGJHsbq(bh);
+      //appendnew_next_sd_Ch8sySv6dqg810X7
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_Ch8sySv6dqg810X7');
+    }
+  }
+
+  sd_LQoAlhbQMQGJHsbq(bh) {
+    try {
+      const page = this.page;
+      console.log('result', bh.local.result);
+      //appendnew_next_sd_LQoAlhbQMQGJHsbq
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_LQoAlhbQMQGJHsbq');
     }
   }
 
@@ -481,9 +557,7 @@ export class new_travel_requestComponent {
   sd_UTu9MfO7IadBmBxp(bh) {
     try {
       const page = this.page;
-      console.log(bh.input.form);
-      console.log('Form', page.travelDetails);
-
+      bh.endPoint = '/genericGet/getPersonalDetails' + '?page.email';
       //appendnew_next_sd_UTu9MfO7IadBmBxp
       return bh;
     } catch (e) {
@@ -511,10 +585,10 @@ export class new_travel_requestComponent {
             requestType: [, [Validators.required]],
             preferredTime: ['', [Validators.required]],
             travelerComments: ['', [Validators.required]],
-            passportDocument: [false, [Validators.required]],
+            passportDocument: [''],
             visaRequired: [false, [Validators.required]],
-            covidCertificate: [page.showVisa, [Validators.required]],
-            // passport: [ page.showVisa, [Validators.required]],
+            covidCertificate: ['', page.showVisa ? [Validators.required] : []],
+            passport: [''],
             needvehicle: ['No', [Validators.required]],
           }),
           accommodationDetails: page.Fb.group({
@@ -625,13 +699,27 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_0tDuhsUcgzdUCT1L(bh) {
+  sd_Ag6YZ0twzIgYdQ4g(bh) {
     try {
-      localStorage.setItem(this.page.draft, JSON.stringify(bh.input.form));
-      //appendnew_next_sd_0tDuhsUcgzdUCT1L
+      const page = this.page;
+      page.showID = true;
+      page.showPan = false;
+      //appendnew_next_sd_Ag6YZ0twzIgYdQ4g
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_0tDuhsUcgzdUCT1L');
+      return this.errorHandler(bh, e, 'sd_Ag6YZ0twzIgYdQ4g');
+    }
+  }
+
+  sd_CfToqqfcnjjxZVq0(bh) {
+    try {
+      const page = this.page;
+      page.showID = false;
+      page.showPan = true;
+      //appendnew_next_sd_CfToqqfcnjjxZVq0
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_CfToqqfcnjjxZVq0');
     }
   }
 

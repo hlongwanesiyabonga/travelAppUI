@@ -124,6 +124,27 @@
                     "type": "literal",
                     "value": "false"
                 }
+            },
+            {
+                "textIp": "showID",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "showPan",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "get",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_MWBuy73tA0Xq4qCD",
@@ -235,7 +256,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "pDetails ",
-        "script": "page.personalDetailsForm =new FormGroup({\n      firstName: new FormControl('', [Validators.minLength(3),Validators.required]),\n       lastName: new FormControl('',[ Validators.minLength(3),Validators.required]),\n       dob: new FormControl('', [Validators.required]),\n       gender: new FormControl('', [Validators.required]),\n       email: new FormControl('', [Validators.required, Validators.email]),\n       position: new FormControl('', [Validators.required]),\n       idNumber: new FormControl(null, [Validators.pattern(\"^-?[0-9]\\\\d*(\\\\.\\\\d{1,2})?$\"),Validators.max(13),Validators.required]),\n       panNumber: new FormControl(null, [Validators.minLength(10),Validators.pattern(\"[A-Z]{5}[0-9]{4}[A-Z]{1}\"),Validators.required]),\n       passportNumber: new FormControl(null, [Validators.required]),\n       nationality:new FormControl('', [Validators.required]),\n       station: new FormControl('', [Validators.required]),\n       lineManager: new FormControl('', [Validators.required]),\n       lineManagerEmail: new FormControl('', [Validators.required]),\n})\n// console.log(\"user\",page.user)",
+        "script": "page.personalDetailsForm =new FormGroup({\n      firstName: new FormControl('', [Validators.minLength(3),Validators.required]),\n       lastName: new FormControl('',[ Validators.minLength(3),Validators.required]),\n       dob: new FormControl('', [Validators.required]),\n       gender: new FormControl('', [Validators.required]),\n       email: new FormControl('', [Validators.required, Validators.email]),\n       position: new FormControl('', [Validators.required]),\n       idNumber: new FormControl(false, [Validators.required]),\n       panNumber: new FormControl(null, [Validators.minLength(10),Validators.pattern(\"[A-Z]{5}[0-9]{4}[A-Z]{1}\"),Validators.required]),\n       passportNumber: new FormControl(false, [Validators.required]),\n       nationality:new FormControl('', [Validators.required]),\n       station: new FormControl('', [Validators.required]),\n       lineManager: new FormControl('', [Validators.required]),\n       lineManagerEmail: new FormControl('', [Validators.required]),\n})\n// console.log(\"user\",page.user)",
         "functionName": "pDetails",
         "category": "Function",
         "x": 565,
@@ -341,7 +362,7 @@
         "y": 80,
         "wires": [
             [
-                "sd_eYkVAuOfjYx8O61u"
+                "sd_vi6lImVz0AEJuzwi"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -491,6 +512,14 @@
                     "value": ""
                 },
                 "output": false
+            },
+            {
+                "key": "personalDetailsForm",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
             }
         ],
         "localVariables": [],
@@ -515,7 +544,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(bh.input.form);\nconsole.log(\"Form\",page.travelDetails)\n",
+        "script": "bh.endPoint = '/genericGet/getPersonalDetails' + '?page.email'",
         "functionName": "sd_UTu9MfO7IadBmBxp",
         "category": "Function",
         "x": 385,
@@ -525,7 +554,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
     },
     {
         "id": "sd_vIyeD3TDlSiq1fsw",
@@ -540,7 +570,7 @@
         "flow_type": "sync",
         "functionName": "addNewRequestForm",
         "category": "General",
-        "x": 525,
+        "x": 485,
         "y": 300,
         "wires": [
             [
@@ -558,10 +588,10 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelRequestType: [false, [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    requestedFor: [ page.showHideElement, [Validators.required]],\n    requestType: [, [Validators.required]],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: ['', [Validators.required]],\n    passportDocument: [false, [Validators.required]],\n    visaRequired: [false, [Validators.required]],\n    covidCertificate: [page.showVisa, [Validators.required]],\n   // passport: [ page.showVisa, [Validators.required]],\n    needvehicle: [\"No\", [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: ['', [Validators.required]],\n    city: ['', [Validators.required]],\n    checkInDate: ['', [Validators.required]],\n    checkOutDate: ['', [Validators.required]],\n   // accommodationType: [null, [Validators.required]],\n    checkInTime: ['', [Validators.required]],\n    checkOutTime: ['', [Validators.required]],\n   // needvehicle: ['', [Validators.required]],\n    employeeComments: ['', [Validators.required]]\n\n  })\n}));",
+        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelRequestType: [false, [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    requestedFor: [ page.showHideElement, [Validators.required]],\n    requestType: [, [Validators.required]],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: ['', [Validators.required]],\n    passportDocument: [''],\n    visaRequired: [false, [Validators.required]],\n    covidCertificate: ['', page.showVisa ? [Validators.required] :[]],\n   passport: [''],\n    needvehicle: [\"No\", [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: ['', [Validators.required]],\n    city: ['', [Validators.required]],\n    checkInDate: ['', [Validators.required]],\n    checkOutDate: ['', [Validators.required]],\n   // accommodationType: [null, [Validators.required]],\n    checkInTime: ['', [Validators.required]],\n    checkOutTime: ['', [Validators.required]],\n   // needvehicle: ['', [Validators.required]],\n    employeeComments: ['', [Validators.required]]\n\n  })\n}));",
         "functionName": "sd_LYJcmnJwoRoJ6qQz",
         "category": "Function",
-        "x": 665,
+        "x": 625,
         "y": 300,
         "wires": [
             []
@@ -598,14 +628,15 @@
         "serviceImportPath": "./new_travel_request",
         "startName": "addNewRequestForm",
         "inputParams": [],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_eYkVAuOfjYx8O61u",
         "category": "General",
-        "x": 925,
+        "x": 1145,
         "y": 80,
         "wires": [
-            []
+            [
+                "sd_Ch8sySv6dqg810X7"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -974,28 +1005,41 @@
         "generated": true
     },
     {
-        "id": "sd_0tDuhsUcgzdUCT1L",
-        "type": "Storage",
+        "id": "sd_R766mMd5SmwjWrs7",
+        "type": "PageStart",
         "z": "sd_osEacZsdUBcy4IJg",
-        "viewType": "client-pages",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "showID",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "showID",
+        "category": "General",
+        "x": 111,
+        "y": 719.8125,
+        "wires": [
+            [
+                "sd_Ag6YZ0twzIgYdQ4g"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_Ag6YZ0twzIgYdQ4g",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "operationType": "setItem",
-        "storageType": "localStorage",
-        "outputs": 1,
-        "key": {
-            "type": "this.page",
-            "value": "draft"
-        },
-        "value": {
-            "type": "bh.input",
-            "value": "form"
-        },
-        "resultMapping": {},
-        "functionName": "sd_0tDuhsUcgzdUCT1L",
-        "category": "Storage",
-        "x": 245,
-        "y": 800,
+        "script": "page.showID= true\npage.showPan = false",
+        "functionName": "sd_Ag6YZ0twzIgYdQ4g",
+        "category": "Function",
+        "x": 271,
+        "y": 719.8125,
         "wires": [
             []
         ],
@@ -1004,36 +1048,173 @@
         "generated": true
     },
     {
-        "id": "sd_lx3kszcjIcgIWkQj",
+        "id": "sd_O0O5XmehaUrWfPZv",
         "type": "PageStart",
         "z": "sd_osEacZsdUBcy4IJg",
         "viewType": "pages",
         "nodeType": "start",
-        "name": "saveAsDraft",
+        "name": "hideID",
         "outputs": 1,
-        "inputVariables": [
-            {
-                "key": "form",
-                "defaultValue": {
-                    "type": "any",
-                    "value": ""
-                },
-                "output": false
-            }
-        ],
+        "inputVariables": [],
         "localVariables": [],
         "flow_type": "sync",
-        "functionName": "saveAsDraft",
+        "functionName": "hideID",
         "category": "General",
-        "x": 120,
-        "y": 820,
+        "x": 392,
+        "y": 705,
         "wires": [
             [
-                "sd_0tDuhsUcgzdUCT1L"
+                "sd_CfToqqfcnjjxZVq0"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
         "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_CfToqqfcnjjxZVq0",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showID= false\npage.showPan = true",
+        "functionName": "sd_CfToqqfcnjjxZVq0",
+        "category": "Function",
+        "x": 552,
+        "y": 705,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_vi6lImVz0AEJuzwi",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "personDetailsObject",
+        "script": "page.email = \"neo.thobela@neutrinos.co\"",
+        "functionName": "personDetailsObject",
+        "category": "Function",
+        "x": 945,
+        "y": 80,
+        "wires": [
+            [
+                "sd_szuWp0PAjJxyLc60"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Ch8sySv6dqg810X7",
+        "type": "PageCallService",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "getTravelRequests"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": "body"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "getTravelRequests",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            "bh.body"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_Ch8sySv6dqg810X7",
+        "category": "General",
+        "x": 1280,
+        "y": 80,
+        "wires": [
+            [
+                "sd_LQoAlhbQMQGJHsbq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_LQoAlhbQMQGJHsbq",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"result\",bh.local.result)",
+        "functionName": "sd_LQoAlhbQMQGJHsbq",
+        "category": "Function",
+        "x": 1405,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_szuWp0PAjJxyLc60",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;\nbh.method =\"get\";",
+        "functionName": "sd_szuWp0PAjJxyLc60",
+        "category": "Function",
+        "x": 1045,
+        "y": 80,
+        "wires": [
+            [
+                "sd_eYkVAuOfjYx8O61u"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
     }
 ]
