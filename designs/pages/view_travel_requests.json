@@ -134,7 +134,7 @@
         },
         "flow": {
             "flowId": "sd_alQ4JDGbxbp70Zlt",
-            "flowName": "getTravelRequests"
+            "flowName": "dynamic"
         },
         "inputVariables": [],
         "outputMapping": [
@@ -148,7 +148,7 @@
             }
         ],
         "serviceImportPath": "app/sd-services/callServerApis",
-        "startName": "getTravelRequests",
+        "startName": "dynamic",
         "inputParams": [],
         "accept_bh": false,
         "accept_csd": true,

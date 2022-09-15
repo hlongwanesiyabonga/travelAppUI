@@ -37,7 +37,7 @@ export class callServerApis {
 
   //   service flows_callServerApis
 
-  async getTravelRequests(
+  async dynamic(
     endPoint: any = undefined,
     method: any = undefined,
     body: any = undefined,
@@ -50,16 +50,20 @@ export class callServerApis {
           method: method,
           body: body,
         },
-        local: {},
+        local: {
+          result: undefined,
+        },
       };
       bh = this.sdService.__constructDefault(bh);
       bh = await this.sd_uFfzVvBAauUEjRTo(bh);
-      //appendnew_next_getTravelRequests
+      //appendnew_next_dynamic
       return (
         // formatting output variables
         {
           input: {},
-          local: {},
+          local: {
+            result: bh.local.result,
+          },
         }
       );
     } catch (e) {

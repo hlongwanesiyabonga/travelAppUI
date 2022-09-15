@@ -17,7 +17,7 @@
         "z": "sd_hkAMxxfqyGUP7RIf",
         "viewType": "client-server",
         "nodeType": "start",
-        "name": "get travel requests",
+        "name": "Dynamic",
         "outputs": 1,
         "inputVariables": [
             {
@@ -45,9 +45,18 @@
                 "output": false
             }
         ],
-        "localVariables": [],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
         "accept_bh": false,
-        "functionName": "getTravelRequests",
+        "functionName": "dynamic",
         "category": "General",
         "x": 245,
         "y": 160,

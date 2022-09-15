@@ -2,7 +2,7 @@
     "routes": [
         {
             "path": "home",
-            "component": "homeComponent",
+            "component": "baseComponent",
             "children": [
                 {
                     "component": "view_travel_requestsComponent",

@@ -185,7 +185,7 @@ export class view_travel_requestsComponent {
       const callServerApisInstance: callServerApis =
         this.__page_injector__.get(callServerApis);
 
-      let outputVariables = await callServerApisInstance.getTravelRequests();
+      let outputVariables = await callServerApisInstance.dynamic();
       this.page.travelRequestsData = outputVariables.local.receivedData;
 
       //appendnew_next_sd_Nj7JYJQRKun10fTt

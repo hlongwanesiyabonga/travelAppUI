@@ -1,0 +1,108 @@
+<mat-sidenav-container style="width: 100%; Height: 100vh; ">
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="sideNav-md" fxFlex="20" fxLayoutAlign="start center" [fxShow]="true" fxHide.xs="true">
+        <div fxLayout="row wrap" fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="/Web/Icons/favicon.ico.png" class="pointer marginBottom50 marginTop20"></div>
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="sideNavButtonActive pointer" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true">
+            <div>
+              <p>Dashboard</p>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true">
+            <div>
+              <p>New Request</p>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true">
+            <div>
+              <p>Reports</p>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true">
+            <div>
+              <p>Logout</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" fxFlex="80" fxLayoutAlign="start center" [fxShow]="true" fxFlex.xs="100">
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="start center" [fxShow]="true">
+            <div fxLayout="row wrap" class="marginTop20 navBar" fxLayoutAlign="space-between center" [fxShow]="true">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true">
+                  <mat-icon class="pointer menuButton" fxHide="true" fxHide.xs="false" (click)="sideNav.open()">menu</mat-icon>
+                </div>
+              </div>
+              <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true">
+                <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true"><img imgSrc="/Web/Icons/favicon.ico" style="    margin-right: -30px;" fxHide.xs="false" fxHide="true"></div>
+              </div>
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                  <div fxLayout="column wrap" class="topNavUserNameButton" fxLayoutAlign="center center" [fxShow]="true" fxHide.xs="true">
+                    <div class="userInitials">
+                      <p>C.T</p>
+                    </div>
+                  </div>
+                  <div fxLayout="column wrap" class="topNavUserNameButton" fxLayoutAlign="center center" [fxShow]="true" fxHide.xs="true">
+                    <div>
+                      <p>User Name</p>
+                    </div>
+                  </div>
+                  <div fxLayout="column wrap" class="topNavProfileButton pointer" fxLayoutAlign="center center" [fxShow]="true" (click)="openProfile()">
+                    <div>
+                      <p style="border-bottom: 6px solid #ec1c24;">Profile</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="routerBody" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <bh-new_travel_request></bh-new_travel_request>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-sidenav #sidenav #sideNav style="width: 65%; " [mode]="&apos;over&apos;" [position] [opened]="false">
+    <div fxLayout="row wrap" fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="/Web/Icons/favicon.ico.png" class="pointer marginBottom50 marginTop20"></div>
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="sideNavButtonActive pointer" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true">
+        <div>
+          <p>Dashboard</p>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true">
+        <div>
+          <p>New Request</p>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true">
+        <div>
+          <p>Reports</p>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true">
+        <div>
+          <p>Logout</p>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container>

@@ -11,12 +11,48 @@ $lightYellow: #FF9F431F;
 $green: #28C76F;
 $lightGreen: #28C76F1F;
 $lightRed: #EA54551F;
-$red:red;
+$red:#ec1c24;
 $gray : #CCCCCC;
+$black: rgb(0, 0, 0);
+
+
+
 
 body {
     background-color: #F8F8F8;
     font-family: 'Poppins', sans-serif;
+}
+p,
+button,
+table,
+.mat-card-title,
+.mat-list-item-content,
+input,
+textarea,
+.mat-form-field,
+.mat-card,
+.mat-content,
+.mat-expansion-panel-body,
+.mat-expansion-panel-content,
+.mat-form-field-label,
+.mat-radio-label-content,
+.mat-tab-label-content,
+.mat-select-value-text,
+.mat-horizontal-stepper-content,
+.mat-tab-group,
+.mat-checkbox-label,
+.mat-simple-snackbar,
+.mat-option-text,
+.mat-input-element,
+ .mat-form-field-label, 
+ .mat-option-text,
+ .mat-simple-snackbar, 
+ mat-radio-group, 
+ mat-select  {
+    font-family: 'Poppins', sans-serif !important;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0%;
 }
 .fullWidth,
 bh-view_travel_requests {
@@ -82,7 +118,7 @@ bh-view_travel_requests {
     margin-bottom: 0.3em;
 }
 .blackButton{
-    background-color: black;
+    background-color:$black;
     color:$white;
 }
 .grayButton{
@@ -161,6 +197,9 @@ bh-view_travel_requests {
         padding: 0.3em 0 0.8em 0;
     }
 }
+ .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 0.3em 0 0.8em 0;
+    }
 // Grouped input
 .groupedInput {
     border: solid 1px;
@@ -173,4 +212,95 @@ bh-view_travel_requests {
     .mat-expansion-panel {
         margin-bottom: 0.5em;
     }
+}
+.mat-icon {
+    height: fit-content !important;
+    width: fit-content !important;
+}
+bh-base, bh-profile_dialog{
+    width: 100%;
+    height: 100%;
+}
+.fullWidth{
+    width: 100%;
+}
+.marginTop20{
+    margin-top: 20px;
+}
+.marginBottom50{
+    margin-bottom: 50px;
+}
+.marginBottom10{
+    margin-bottom: 10px;
+}
+.navBar{
+    background-color: #bfbfbf;
+    height: 65px;
+    width: 94%;
+    background: #FFFFFF;
+box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
+border-radius: 6px;
+}
+.routerBody{
+    height: calc(100vh - 140px);
+    width: 90%;
+    margin-top: 30px;
+    overflow-y: auto;
+}
+.routerBody.xs {
+    background-color: #bfbfbf;
+    height: calc(100vh - 140px);
+    width: 90%;
+    // margin-top: 30px;
+}
+.sideNav-md{
+    height: 100vh;
+    box-shadow: 0px 4px 24px rgb(0 0 0 / 12%);
+}
+
+.sideNavButton{
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    height: 50px;
+}
+.sideNavButtonActive{
+    background-color: $red;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    color: white;
+    height: 50px;
+}
+.pointer{
+    cursor: pointer;
+}
+.topNavProfileButton{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.topNavUserNameButton{
+    margin-left: 10px;
+}
+.userInitials{
+    border-radius: 50%;
+    background: $red;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    line-height: 3;
+    text-align: center;
+}
+.menuButton{
+        margin-left: 20px;
+        font-size: 40px;
+}
+.profileCloseButton{
+    border: 2px solid$black;
+    padding: 3px;
+    border-radius: 7px;
+}
+.profileDialogBody{
+    border-top: 2px solid;
 }

@@ -24,6 +24,7 @@ import {
   FormArray,
 } from '@angular/forms'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
+import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -306,6 +307,7 @@ export class new_travel_requestComponent {
       this.page.showID = false;
       this.page.showPan = false;
       this.page.get = undefined;
+      this.page.personalDetails = undefined;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;
@@ -355,9 +357,9 @@ export class new_travel_requestComponent {
         { viewvalue: 'Train' },
       ];
       page.nationality = [
-        { viewvalue: 'African' },
-        { viewvalue: 'Coloured' },
-        { viewvalue: 'White' },
+        { viewvalue: 'South African' },
+        { viewvalue: 'Asian' },
+        { viewvalue: 'Eurpoean' },
         { viewvalue: 'Indian' },
         { viewvalue: 'Other' },
       ];
@@ -438,7 +440,10 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       page.date = new Date();
-      page.futureDate = new Date(page.date - 1);
+      page.futureDate =
+        page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate;
+      // page.futureDate = new Date(page.date - 1);
+      console.log(page.futureDate, 'date');
       bh = this.personDetailsObject(bh);
       //appendnew_next_sd_bvYvWg7Xv6GTK5wB
       return bh;
@@ -489,11 +494,12 @@ export class new_travel_requestComponent {
       const callServerApisInstance: callServerApis =
         this.__page_injector__.get(callServerApis);
 
-      let outputVariables = await callServerApisInstance.getTravelRequests(
+      let outputVariables = await callServerApisInstance.dynamic(
         bh.endPoint,
         bh.method,
         bh.body
       );
+      this.page.personalDetails = outputVariables.local.result;
 
       bh = this.sd_LQoAlhbQMQGJHsbq(bh);
       //appendnew_next_sd_Ch8sySv6dqg810X7
@@ -506,7 +512,7 @@ export class new_travel_requestComponent {
   sd_LQoAlhbQMQGJHsbq(bh) {
     try {
       const page = this.page;
-      console.log('result', bh.local.result);
+      page.personalDetailsForm.patchValue(page.personalDetails[0]);
       //appendnew_next_sd_LQoAlhbQMQGJHsbq
       return bh;
     } catch (e) {
@@ -557,11 +563,30 @@ export class new_travel_requestComponent {
   sd_UTu9MfO7IadBmBxp(bh) {
     try {
       const page = this.page;
+      console.log(bh.input.form);
       bh.endPoint = '/genericGet/getPersonalDetails' + '?page.email';
+      bh = this.sd_bbaBvYkJ652qvZXA(bh);
       //appendnew_next_sd_UTu9MfO7IadBmBxp
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_UTu9MfO7IadBmBxp');
+    }
+  }
+
+  sd_bbaBvYkJ652qvZXA(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Form Has Been Submitted', '', {
+          duration: 3000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      //appendnew_next_sd_bbaBvYkJ652qvZXA
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_bbaBvYkJ652qvZXA');
     }
   }
 
@@ -581,7 +606,10 @@ export class new_travel_requestComponent {
             fromDate: ['', [Validators.required]],
             toDate: ['', [Validators.required]],
             tripType: ['', [Validators.required]],
-            requestedFor: [page.showHideElement, [Validators.required]],
+            requestedFor: [
+              '',
+              page.showHideElement ? [Validators.required] : [],
+            ],
             requestType: [, [Validators.required]],
             preferredTime: ['', [Validators.required]],
             travelerComments: ['', [Validators.required]],
