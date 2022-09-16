@@ -19411,9 +19411,19 @@
                                                                     },
                                                                     {
                                                                         "_key": "(dateChange)",
-                                                                        "_value": "",
+                                                                        "_value": "dateChange($event)",
                                                                         "_type": "kv",
-                                                                        "_attrDef": "p"
+                                                                        "_attrDef": "p",
+                                                                        "_customAttributeFlag": "flowpicker",
+                                                                        "objValue": {
+                                                                            "nodeID": "sd_nQp7Ok4Ni2vmpKyc",
+                                                                            "functionName": "dateChange",
+                                                                            "activeTree": "pages",
+                                                                            "z": "sd_osEacZsdUBcy4IJg",
+                                                                            "input": [
+                                                                                "$event"
+                                                                            ]
+                                                                        }
                                                                     },
                                                                     {
                                                                         "_key": "(dateInput)",
@@ -19914,7 +19924,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "[min]",
-                                                                        "_value": "",
+                                                                        "_value": "page.futureDate",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p"
                                                                     },
@@ -23157,7 +23167,7 @@
                                                                         },
                                                                         {
                                                                             "_key": "html",
-                                                                            "_value": " <label>Upload Covid Certificate</label>\r\n <input \r\n            formControlName=\"covidCertificate\"\r\n            id=\"file\" \r\n            type=\"file\" \r\n            class=\"form-control\"\r\n            (change)=\"onFileChange($event)\">\r\n<!-- <input type=\"file\" (change)=\"csvInputChange($event)\" formControlName =\"covidCertificate\"/> -->\r\n<!-- <div class =\"marginBottom0pt3em\">Upload Covid Certificate</div>\r\n<button mat-button class=\"blackButton \" (click)=\"csvInput.click()\">Upload File</button> -->\r\n <!-- <div class=\"form-group\">\r\n      <label for=\"file\">Choose File</label><br /> <input type=\"file\" id=\"file\" (change)=\"uploadFiles($event.target.files)\">\r\n    </div>\r\n -->\r\n    <!-- <button type=\"button\" (click)=\"RequestUpload()\">Ok</button> -->",
+                                                                            "_value": " <label class=\"marginBottom1em\">Upload Covid Certificate</label>\r\n\r\n <input \r\n            formControlName=\"covidCertificate\"\r\n            id=\"file\" \r\n            type=\"file\" \r\n            class=\"form-control\"\r\n            (change)=\"onFileChange($event)\">\r\n<!-- <input type=\"file\" (change)=\"csvInputChange($event)\" formControlName =\"covidCertificate\"/> -->\r\n<!-- <div class =\"marginBottom0pt3em\">Upload Covid Certificate</div>\r\n<button mat-button class=\"blackButton \" (click)=\"csvInput.click()\">Upload File</button> -->\r\n <!-- <div class=\"form-group\">\r\n      <label for=\"file\">Choose File</label><br /> <input type=\"file\" id=\"file\" (change)=\"uploadFiles($event.target.files)\">\r\n    </div>\r\n -->\r\n    <!-- <button type=\"button\" (click)=\"RequestUpload()\">Ok</button> -->",
                                                                             "_type": "a",
                                                                             "_attrDef": "p"
                                                                         }
@@ -23456,7 +23466,7 @@
                                                                         },
                                                                         {
                                                                             "_key": "html",
-                                                                            "_value": " <label>Upload Passport</label>\r\n        <input \r\n            formControlName=\"passport\"\r\n            id=\"file\" \r\n            type=\"file\" \r\n            class=\"form-control\"\r\n            (change)=\"onFileChange($event)\">\r\n        <!-- <div *ngIf=\"f.file.touched && f.file.invalid\" class=\"alert alert-danger\">\r\n            <div *ngIf=\"f.file.errors.required\">File is required.</div>\r\n        </div> -->\r\n    </div>\r\n<!-- <input mat-button type=\"file\" (change)=\"csvInputChange($event)\" formControlName =\"passport\" /> -->\r\n<!-- <div class =\"marginBottom0pt3em\" class=\"blackButton \" >Upload Passport</div>\r\n<button mat-button class=\"blackButton \" (click)=\"csvInput.click()\">Upload File</button> -->\r\n <!-- <div class=\"form-group\">\r\n      <label for=\"file\">Choose File</label><br /> <input type=\"file\" id=\"file\" (change)=\"uploadFiles($event.target.files)\">\r\n    </div>\r\n -->\r\n    <!-- <button type=\"button\" (click)=\"RequestUpload()\">Ok</button> -->",
+                                                                            "_value": " <label class=\"marginBottom1em\">Upload Passport</label>\r\n        <input \r\n            formControlName=\"passport\"\r\n            id=\"file\" \r\n            type=\"file\" \r\n            class=\"form-control\"\r\n            (change)=\"onFileChange($event)\">\r\n        <!-- <div *ngIf=\"f.file.touched && f.file.invalid\" class=\"alert alert-danger\">\r\n            <div *ngIf=\"f.file.errors.required\">File is required.</div>\r\n        </div> -->\r\n    </div>\r\n<!-- <input mat-button type=\"file\" (change)=\"csvInputChange($event)\" formControlName =\"passport\" /> -->\r\n<!-- <div class =\"marginBottom0pt3em\" class=\"blackButton \" >Upload Passport</div>\r\n<button mat-button class=\"blackButton \" (click)=\"csvInput.click()\">Upload File</button> -->\r\n <!-- <div class=\"form-group\">\r\n      <label for=\"file\">Choose File</label><br /> <input type=\"file\" id=\"file\" (change)=\"uploadFiles($event.target.files)\">\r\n    </div>\r\n -->\r\n    <!-- <button type=\"button\" (click)=\"RequestUpload()\">Ok</button> -->",
                                                                             "_type": "a",
                                                                             "_attrDef": "p"
                                                                         }
@@ -25300,9 +25310,19 @@
                                                                     },
                                                                     {
                                                                         "_key": "(dateChange)",
-                                                                        "_value": "",
+                                                                        "_value": "dateChange($event)",
                                                                         "_type": "kv",
-                                                                        "_attrDef": "p"
+                                                                        "_attrDef": "p",
+                                                                        "_customAttributeFlag": "flowpicker",
+                                                                        "objValue": {
+                                                                            "nodeID": "sd_nQp7Ok4Ni2vmpKyc",
+                                                                            "functionName": "dateChange",
+                                                                            "activeTree": "pages",
+                                                                            "z": "sd_osEacZsdUBcy4IJg",
+                                                                            "input": [
+                                                                                "$event"
+                                                                            ]
+                                                                        }
                                                                     },
                                                                     {
                                                                         "_key": "(dateInput)",
@@ -25803,7 +25823,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "[min]",
-                                                                        "_value": "",
+                                                                        "_value": "page.futureDate",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p"
                                                                     },
@@ -27832,7 +27852,7 @@
                             },
                             {
                                 "_key": "[disabled]",
-                                "_value": "page.travelForm.status == 'INVALID'",
+                                "_value": "",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "_customAttributeFlag": "customInput"

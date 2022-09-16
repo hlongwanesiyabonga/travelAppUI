@@ -77,10 +77,29 @@ export class callServerApis {
     try {
       bh.apiUrl = 'http://localhost:8081/api/' + bh.input.endPoint;
       console.log('body', bh.input);
+      bh = await this.sd_hUBaFoLrD4z6GgAt(bh);
       //appendnew_next_sd_uFfzVvBAauUEjRTo
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_uFfzVvBAauUEjRTo');
+    }
+  }
+
+  async sd_hUBaFoLrD4z6GgAt(bh) {
+    try {
+      let requestOptions = {
+        url: bh.apiUrl,
+        method: bh.input.method,
+        responseType: 'json',
+        headers: {},
+        params: {},
+        body: bh.input.body,
+      };
+      bh.local.result = await this.sdService.nHttpRequest(requestOptions);
+      //appendnew_next_sd_hUBaFoLrD4z6GgAt
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_hUBaFoLrD4z6GgAt');
     }
   }
 

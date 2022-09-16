@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -286,6 +288,20 @@ export class new_travel_requestComponent {
     }
   }
 
+  dateChange(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_7E0kFOs0S0LoIGyd(bh);
+      //appendnew_next_dateChange
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_nQp7Ok4Ni2vmpKyc');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -498,11 +514,11 @@ export class new_travel_requestComponent {
       let outputVariables = await callServerApisInstance.dynamic(
         bh.endPoint,
         bh.method,
-        bh.body
+        undefined
       );
       this.page.personalDetails = outputVariables.local.result;
 
-      bh = this.sd_LQoAlhbQMQGJHsbq(bh);
+      bh = this.patchPersonalDetails(bh);
       //appendnew_next_sd_Ch8sySv6dqg810X7
       return bh;
     } catch (e) {
@@ -510,62 +526,16 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_LQoAlhbQMQGJHsbq(bh) {
+  patchPersonalDetails(bh) {
     try {
       const page = this.page;
-      page.personalDetailsForm.patchValue(page.personalDetails);
+      console.log('details', page.personalDetails);
 
-      //page.personalDetailsForm.patchValue(page.personalDetails[0]);
-      bh = this.sd_b1ohRviqEGXI49ig(bh);
-      //appendnew_next_sd_LQoAlhbQMQGJHsbq
+      page.personalDetailsForm.patchValue(page.personalDetails[0]);
+      //appendnew_next_patchPersonalDetails
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_LQoAlhbQMQGJHsbq');
-    }
-  }
-
-  sd_b1ohRviqEGXI49ig(bh) {
-    try {
-      let outputVariables = this.tdetails(
-        this.page.travelForm,
-        this.page.personalDetailsForm
-      );
-
-      bh = this.sd_RhR3LYUVBWeOB74n(bh);
-      //appendnew_next_sd_b1ohRviqEGXI49ig
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_b1ohRviqEGXI49ig');
-    }
-  }
-
-  async sd_RhR3LYUVBWeOB74n(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.submitEndPoint,
-        bh.postMethod,
-        undefined
-      );
-
-      bh = this.sd_ug9NAWrI0m3QPLao(bh);
-      //appendnew_next_sd_RhR3LYUVBWeOB74n
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_RhR3LYUVBWeOB74n');
-    }
-  }
-
-  sd_ug9NAWrI0m3QPLao(bh) {
-    try {
-      const page = this.page;
-      console.log(page.formObj, 'obj');
-      //appendnew_next_sd_ug9NAWrI0m3QPLao
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ug9NAWrI0m3QPLao');
     }
   }
 
@@ -611,20 +581,21 @@ export class new_travel_requestComponent {
 
   sd_UTu9MfO7IadBmBxp(bh) {
     try {
-      const page = this.page;
-      console.log(bh.input.personalDetailsForm);
-      // bh.endPoint = '/genericGet/getPersonalDetails' + '?page.email'
-
-      //combine the 2 forms
+      const page = this.page; //combine the 2 forms
       page.formObj = {
-        personalDetailsForm: bh.input.personalDetailsForm.value,
-        requestForm: bh.input.form.value,
+        personalDetailsForm: bh.input.personalDetailsForm,
+        requestDetails: bh.input.form.requestDetails,
+        status: null,
+        managerApproval: {
+          approvedRequest: null,
+          comments: '',
+        },
+        owner: page.personalDetails[0].email,
       };
       console.log(page.formObj, 'obj');
-      //post Data
 
-      // bh.endPoint = '/addTravelRequest';
-      // bh.method ="post";
+      bh.endPoint = '/addTravelRequest';
+      bh.method = 'post';
 
       bh = this.sd_bbaBvYkJ652qvZXA(bh);
       //appendnew_next_sd_UTu9MfO7IadBmBxp
@@ -809,6 +780,18 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_CfToqqfcnjjxZVq0');
+    }
+  }
+
+  sd_7E0kFOs0S0LoIGyd(bh) {
+    try {
+      const page = this.page;
+      page.futureDate = new Date(bh.input.date.value);
+      console.log(page.futureDate, 'date');
+      //appendnew_next_sd_7E0kFOs0S0LoIGyd
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_7E0kFOs0S0LoIGyd');
     }
   }
 

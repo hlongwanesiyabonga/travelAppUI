@@ -565,7 +565,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(bh.input.personalDetailsForm)\n// bh.endPoint = '/genericGet/getPersonalDetails' + '?page.email'\n\n//combine the 2 forms\npage.formObj = {\n   \"personalDetailsForm\" : bh.input.personalDetailsForm.value,\n    \"requestForm\" : bh.input.form.value\n    }\n    console.log(page.formObj,\"obj\")\n//post Data\n\n// bh.endPoint = '/addTravelRequest';\n// bh.method =\"post\";\n",
+        "script": "//combine the 2 forms\npage.formObj = {\n   \"personalDetailsForm\" : bh.input.personalDetailsForm,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":null,\n    \"managerApproval\" : {\n        \"approvedRequest\" : null,\n        \"comments\" : \"\"\n    },\n    \"owner\": page.personalDetails[0].email\n    };\n    console.log(page.formObj,\"obj\")\n\n\nbh.endPoint = '/addTravelRequest';\nbh.method =\"post\";\n",
         "functionName": "sd_UTu9MfO7IadBmBxp",
         "category": "Function",
         "x": 385,
@@ -654,7 +654,7 @@
         "accept_csd": false,
         "functionName": "sd_eYkVAuOfjYx8O61u",
         "category": "General",
-        "x": 1145,
+        "x": 1205,
         "y": 80,
         "wires": [
             [
@@ -1173,8 +1173,8 @@
             {
                 "key": "body",
                 "map": true,
-                "valueType": "bh",
-                "value": "body"
+                "valueType": "this.page",
+                "value": ""
             }
         ],
         "outputMapping": [
@@ -1192,13 +1192,13 @@
         "inputParams": [
             "bh.endPoint",
             "bh.method",
-            "bh.body"
+            null
         ],
         "accept_bh": false,
         "accept_csd": true,
         "functionName": "sd_Ch8sySv6dqg810X7",
         "category": "General",
-        "x": 1280,
+        "x": 1325,
         "y": 80,
         "wires": [
             [
@@ -1215,16 +1215,14 @@
         "z": "sd_osEacZsdUBcy4IJg",
         "viewType": "common",
         "nodeType": "flow",
-        "name": "",
-        "script": "page.personalDetailsForm.patchValue(page.personalDetails);\n\n//page.personalDetailsForm.patchValue(page.personalDetails[0]);",
-        "functionName": "sd_LQoAlhbQMQGJHsbq",
+        "name": "patchPersonalDetails",
+        "script": "console.log(\"details\",page.personalDetails);\n\npage.personalDetailsForm.patchValue(page.personalDetails[0]);",
+        "functionName": "patchPersonalDetails",
         "category": "Function",
-        "x": 1385,
-        "y": 60,
+        "x": 1465,
+        "y": 80,
         "wires": [
-            [
-                "sd_b1ohRviqEGXI49ig"
-            ]
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -1291,64 +1289,6 @@
         "generated": true
     },
     {
-        "id": "sd_b1ohRviqEGXI49ig",
-        "type": "PageCallService",
-        "z": "sd_osEacZsdUBcy4IJg",
-        "viewType": "pages",
-        "nodeType": "flow",
-        "name": "",
-        "outputs": 1,
-        "isValidNode": true,
-        "noerr": 0,
-        "service": {
-            "id": "sd_osEacZsdUBcy4IJg",
-            "type": "tab",
-            "createdDate": "2022-06-28T23:10:55.135Z",
-            "label": "new_travel_request",
-            "disabled": false,
-            "info": "",
-            "functionSeq": 0
-        },
-        "flow": {
-            "flowId": "sd_u6WWm4Bal1XWFndC",
-            "flowName": "tdetails"
-        },
-        "inputVariables": [
-            {
-                "key": "form",
-                "map": true,
-                "valueType": "this.page",
-                "value": "travelForm"
-            },
-            {
-                "key": "personalDetailsForm",
-                "map": true,
-                "valueType": "this.page",
-                "value": "personalDetailsForm"
-            }
-        ],
-        "outputMapping": [],
-        "serviceImportPath": "./new_travel_request",
-        "startName": "tdetails",
-        "inputParams": [
-            "this.page.travelForm",
-            "this.page.personalDetailsForm"
-        ],
-        "accept_csd": false,
-        "functionName": "sd_b1ohRviqEGXI49ig",
-        "category": "General",
-        "x": 1305,
-        "y": 220,
-        "wires": [
-            [
-                "sd_RhR3LYUVBWeOB74n"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
         "id": "sd_RhR3LYUVBWeOB74n",
         "type": "PageCallService",
         "z": "sd_osEacZsdUBcy4IJg",
@@ -1376,19 +1316,19 @@
                 "key": "endPoint",
                 "map": true,
                 "valueType": "bh",
-                "value": "submitEndPoint"
+                "value": "endPoint"
             },
             {
                 "key": "method",
                 "map": true,
                 "valueType": "bh",
-                "value": "postMethod"
+                "value": "method"
             },
             {
                 "key": "body",
                 "map": true,
                 "valueType": "this.page",
-                "value": ""
+                "value": "formObj"
             }
         ],
         "outputMapping": [
@@ -1403,24 +1343,23 @@
         "serviceImportPath": "app/sd-services/callServerApis",
         "startName": "dynamic",
         "inputParams": [
-            "bh.submitEndPoint",
-            "bh.postMethod",
-            null
+            "bh.endPoint",
+            "bh.method",
+            "this.page.formObj"
         ],
         "accept_bh": false,
         "accept_csd": true,
         "functionName": "sd_RhR3LYUVBWeOB74n",
         "category": "General",
-        "x": 1440,
-        "y": 220,
+        "x": 645,
+        "y": 300,
         "wires": [
             [
                 "sd_ug9NAWrI0m3QPLao"
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_ug9NAWrI0m3QPLao",
@@ -1432,8 +1371,59 @@
         "script": "console.log(page.formObj,\"obj\")",
         "functionName": "sd_ug9NAWrI0m3QPLao",
         "category": "Function",
-        "x": 1565,
-        "y": 80,
+        "x": 845,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_nQp7Ok4Ni2vmpKyc",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "dateChange",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "dateChange",
+        "category": "General",
+        "x": 1005,
+        "y": 160,
+        "wires": [
+            [
+                "sd_7E0kFOs0S0LoIGyd"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_7E0kFOs0S0LoIGyd",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate = new Date(bh.input.date.value);\nconsole.log(page.futureDate,\"date\")",
+        "functionName": "sd_7E0kFOs0S0LoIGyd",
+        "category": "Function",
+        "x": 1130,
+        "y": 160,
         "wires": [
             []
         ],
