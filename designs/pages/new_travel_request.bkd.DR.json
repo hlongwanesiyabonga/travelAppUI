@@ -19412,9 +19412,19 @@
                                                                     },
                                                                     {
                                                                         "_key": "(dateChange)",
-                                                                        "_value": "",
+                                                                        "_value": "dateChange($event)",
                                                                         "_type": "kv",
-                                                                        "_attrDef": "p"
+                                                                        "_attrDef": "p",
+                                                                        "_customAttributeFlag": "flowpicker",
+                                                                        "objValue": {
+                                                                            "nodeID": "sd_SxKitXnyeZEeIVdx",
+                                                                            "functionName": "dateChange",
+                                                                            "activeTree": "pages",
+                                                                            "z": "sd_osEacZsdUBcy4IJg",
+                                                                            "input": [
+                                                                                "$event"
+                                                                            ]
+                                                                        }
                                                                     },
                                                                     {
                                                                         "_key": "(dateInput)",
@@ -19915,7 +19925,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "[min]",
-                                                                        "_value": "",
+                                                                        "_value": "page.futureDate",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p"
                                                                     },
@@ -25301,9 +25311,19 @@
                                                                     },
                                                                     {
                                                                         "_key": "(dateChange)",
-                                                                        "_value": "",
+                                                                        "_value": "dateChange($event)",
                                                                         "_type": "kv",
-                                                                        "_attrDef": "p"
+                                                                        "_attrDef": "p",
+                                                                        "_customAttributeFlag": "flowpicker",
+                                                                        "objValue": {
+                                                                            "nodeID": "sd_SxKitXnyeZEeIVdx",
+                                                                            "functionName": "dateChange",
+                                                                            "activeTree": "pages",
+                                                                            "z": "sd_osEacZsdUBcy4IJg",
+                                                                            "input": [
+                                                                                "$event"
+                                                                            ]
+                                                                        }
                                                                     },
                                                                     {
                                                                         "_key": "(dateInput)",
@@ -25804,7 +25824,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "[min]",
-                                                                        "_value": "",
+                                                                        "_value": "page.futureDate",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p"
                                                                     },
@@ -25848,7 +25868,8 @@
                                                                         "_key": "(dateChange)",
                                                                         "_value": "",
                                                                         "_type": "kv",
-                                                                        "_attrDef": "p"
+                                                                        "_attrDef": "p",
+                                                                        "_customAttributeFlag": "flowpicker"
                                                                     },
                                                                     {
                                                                         "_key": "(dateInput)",
@@ -25999,6 +26020,12 @@
                                                                         "_type": "a",
                                                                         "_attrDef": "p",
                                                                         "_visibility": true
+                                                                    },
+                                                                    {
+                                                                        "_key": "(change)",
+                                                                        "_value": "page.date",
+                                                                        "_type": "kv",
+                                                                        "_attrDef": "c"
                                                                     }
                                                                 ]
                                                             }

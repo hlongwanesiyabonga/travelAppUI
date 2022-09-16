@@ -288,6 +288,20 @@ export class new_travel_requestComponent {
     }
   }
 
+  dateChange(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_kmKge9KI3Mk5y0hM(bh);
+      //appendnew_next_dateChange
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_SxKitXnyeZEeIVdx');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -440,9 +454,9 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       page.date = new Date();
-      page.futureDate =
-        page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate;
-      // page.futureDate = new Date(page.date - 1);
+      var datestring =
+        //page.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate
+        (page.futureDate = new Date(page.date - 1));
       console.log(page.futureDate, 'date');
       bh = this.personDetailsObject(bh);
       //appendnew_next_sd_bvYvWg7Xv6GTK5wB
@@ -748,6 +762,18 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_CfToqqfcnjjxZVq0');
+    }
+  }
+
+  sd_kmKge9KI3Mk5y0hM(bh) {
+    try {
+      const page = this.page;
+      page.futureDate = new Date(bh.input.date.value);
+      console.log(bh.input.date, 'date');
+      //appendnew_next_sd_kmKge9KI3Mk5y0hM
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_kmKge9KI3Mk5y0hM');
     }
   }
 

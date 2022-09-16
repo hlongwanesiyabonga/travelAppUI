@@ -362,7 +362,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.date = new Date();\npage.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate\n// page.futureDate = new Date(page.date - 1);\nconsole.log(page.futureDate,\"date\")",
+        "script": "page.date = new Date();\nvar datestring = \n//page.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate\npage.futureDate =new Date(page.date -1);\nconsole.log(page.futureDate,\"date\")",
         "functionName": "sd_bvYvWg7Xv6GTK5wB",
         "category": "Function",
         "x": 805,
@@ -1266,6 +1266,58 @@
         "category": "General",
         "x": 520,
         "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_SxKitXnyeZEeIVdx",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "dateChange",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "dateChange",
+        "category": "General",
+        "x": 605,
+        "y": 280,
+        "wires": [
+            [
+                "sd_kmKge9KI3Mk5y0hM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_kmKge9KI3Mk5y0hM",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate =new Date(bh.input.date.value);\nconsole.log(bh.input.date,\"date\")",
+        "functionName": "sd_kmKge9KI3Mk5y0hM",
+        "category": "Function",
+        "x": 694,
+        "y": 280.8125,
         "wires": [
             []
         ],

@@ -313,7 +313,7 @@
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               From Date</label>
                             <mat-form-field [appearance]="&apos;outline&apos;" (click)="fromDate.open()">
-                              <input matInput placeholder="From Date" [matDatepicker]="fromDate" formControlName="fromDate" [min]="page.date" [required]="false" [disabled]="false" readonly="true">
+                              <input matInput placeholder="From Date" [matDatepicker]="fromDate" formControlName="fromDate" (dateChange)="dateChange($event)" [min]="page.date" [required]="false" [disabled]="false" readonly="true">
                               <mat-datepicker-toggle matSuffix [for]="fromDate" disabled="false"></mat-datepicker-toggle>
                               <mat-datepicker #fromDate [disabled]="false"></mat-datepicker>
                               <mat-error align="end" *ngIf="page.travelForm.controls.requestDetails.controls[0].controls.travelDetails.controls.fromDate?.errors?.required">From Date is Required</mat-error>
@@ -322,7 +322,7 @@
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               To Date</label>
                             <mat-form-field [appearance]="&apos;outline&apos;" (click)="toDate.open()">
-                              <input matInput placeholder="To Date" [matDatepicker]="toDate" formControlName="toDate" [required]="false" [disabled]="false" readonly="true">
+                              <input matInput placeholder="To Date" [matDatepicker]="toDate" formControlName="toDate" [min]="page.futureDate" [required]="false" [disabled]="false" readonly="true">
                               <mat-datepicker-toggle matSuffix [for]="toDate" disabled="false"></mat-datepicker-toggle>
                               <mat-datepicker #toDate [disabled]="false"></mat-datepicker>
                               <mat-error align="end" *ngIf="page.travelForm.controls.requestDetails.controls[0].controls.travelDetails.controls.toDate?.errors?.required">To Date is required</mat-error>
@@ -441,7 +441,7 @@
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               Check In Date</label>
                             <mat-form-field [appearance]="&apos;outline&apos;" (click)="checkin.open()">
-                              <input matInput placeholder="check In Date" [matDatepicker]="checkin" formControlName="checkInDate" [min]="page.date" [required]="false" [disabled]="false" readonly="true">
+                              <input matInput placeholder="check In Date" [matDatepicker]="checkin" formControlName="checkInDate" (dateChange)="dateChange($event)" [min]="page.date" [required]="false" [disabled]="false" readonly="true">
                               <mat-datepicker-toggle matSuffix [for]="checkin" disabled="false"></mat-datepicker-toggle>
                               <mat-datepicker #checkin [disabled]="false"></mat-datepicker>
                               <mat-error align="end" *ngIf="page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkInDate">Check In Date is Rquired</mat-error>
@@ -450,9 +450,9 @@
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               Check Out Date</label>
                             <mat-form-field [appearance]="&apos;outline&apos;" (click)="checkout.open()">
-                              <input matInput placeholder="check Out Date" [matDatepicker]="checkout" formControlName="checkOutDate" [required]="false" [disabled]="false" readonly="true">
+                              <input matInput placeholder="check Out Date" [matDatepicker]="checkout" formControlName="checkOutDate" [min]="page.futureDate" [required]="false" [disabled]="false" readonly="true">
                               <mat-datepicker-toggle matSuffix [for]="checkout" disabled="false"></mat-datepicker-toggle>
-                              <mat-datepicker #checkout [disabled]="false"></mat-datepicker>
+                              <mat-datepicker #checkout (change)="page.date" [disabled]="false"></mat-datepicker>
                               <mat-error align="end" *ngIf="page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate">Check Out Date is Required</mat-error>
                             </mat-form-field>
                           </div>
