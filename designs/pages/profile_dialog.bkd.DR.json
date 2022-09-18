@@ -2430,7 +2430,7 @@
                                     },
                                     {
                                         "_key": "formControlName",
-                                        "_value": "dob",
+                                        "_value": "dateOfBirth",
                                         "_type": "kv",
                                         "_attrDef": "c"
                                     }
@@ -3705,7 +3705,7 @@
                                         },
                                         {
                                             "_key": "html",
-                                            "_value": "<p>Role</p>",
+                                            "_value": "<p>Designation</p>",
                                             "_type": "a",
                                             "_attrDef": "p"
                                         }
@@ -3881,7 +3881,7 @@
                                     },
                                     {
                                         "_key": "formControlName",
-                                        "_value": "role",
+                                        "_value": "designation",
                                         "_type": "kv",
                                         "_attrDef": "c"
                                     }
@@ -6320,7 +6320,7 @@
                                     },
                                     {
                                         "_key": "formControlName",
-                                        "_value": "officeStation",
+                                        "_value": "station",
                                         "_type": "kv",
                                         "_attrDef": "c"
                                     }
@@ -6852,7 +6852,7 @@
                                 "_attrDef": "p"
                             }
                         ],
-                        "e96953de-80ce-3775-7ecc-b13983162979": {
+                        "6be9a48b-9ee7-f22d-69e3-63530e8c7eff": {
                             "paletteKey": "FlexLayoutCol",
                             "parentEditorKey": "ddac2edc-2db6-5882-9569-88c4b34fe715",
                             "commentid": null,
@@ -6925,9 +6925,9 @@
                                     "_attrDef": "c"
                                 }
                             ],
-                            "595b7a7b-c6ac-0031-afc8-bc91c6fe50b5": {
+                            "39367bf9-6ca8-64d9-9737-ce928ca668f4": {
                                 "paletteKey": "Html5",
-                                "parentEditorKey": "e96953de-80ce-3775-7ecc-b13983162979",
+                                "parentEditorKey": "6be9a48b-9ee7-f22d-69e3-63530e8c7eff",
                                 "isAdvancedComponent": true,
                                 "commentid": null,
                                 "designerReference": [
@@ -7112,9 +7112,9 @@
                                         "_visibility": false
                                     }
                                 ],
-                                "1c9d023f-06d6-9260-698c-48e26d10ac25": {
+                                "1d3cbd1f-d08d-f675-86e6-39e40ec45075": {
                                     "paletteKey": "html-editor",
-                                    "parentEditorKey": "595b7a7b-c6ac-0031-afc8-bc91c6fe50b5",
+                                    "parentEditorKey": "39367bf9-6ca8-64d9-9737-ce928ca668f4",
                                     "isAdvancedChildComponent": true,
                                     "commentid": null,
                                     "designerReference": [
@@ -7139,9 +7139,9 @@
                                     ]
                                 }
                             },
-                            "ce3323bd-7523-1abc-b91e-a5418265fe26": {
+                            "5166d2c4-aee7-e12d-48b2-1a5b54a7c6c7": {
                                 "paletteKey": "NG-Input",
-                                "parentEditorKey": "e96953de-80ce-3775-7ecc-b13983162979",
+                                "parentEditorKey": "6be9a48b-9ee7-f22d-69e3-63530e8c7eff",
                                 "isAdvancedComponent": true,
                                 "commentid": null,
                                 "designerReference": [
@@ -7314,6 +7314,77 @@
                                     }
                                 ]
                             }
+                        },
+                        "52e2cd3b-15e4-12fc-4386-25f113275034": {
+                            "paletteKey": "NG-button",
+                            "parentEditorKey": "ddac2edc-2db6-5882-9569-88c4b34fe715",
+                            "commentid": null,
+                            "designerReference": [
+                                {
+                                    "_key": "style",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "class",
+                                    "_value": "",
+                                    "_type": "dav",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "buttonname",
+                                    "_value": "Button",
+                                    "_type": "a",
+                                    "_attrDef": "p",
+                                    "_useAsLabel": true
+                                },
+                                {
+                                    "_key": "color",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "(click)",
+                                    "_value": "submitForm(page.profileForm.value)",
+                                    "_type": "kv",
+                                    "_attrDef": "p",
+                                    "objValue": {
+                                        "nodeID": "sd_LNPqtJcKZ6JIUJ09",
+                                        "functionName": "submitForm",
+                                        "activeTree": "pages",
+                                        "z": "sd_CuX9VlaR3Za6sCxz",
+                                        "input": [
+                                            "page.profileForm.value"
+                                        ]
+                                    }
+                                },
+                                {
+                                    "_key": "[disabled]",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "[disableRipple]",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "type",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "routerLink",
+                                    "_value": "",
+                                    "_type": "kv",
+                                    "_attrDef": "p"
+                                }
+                            ]
                         }
                     }
                 }

@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -19,6 +21,7 @@ import {
   Validators,
   FormBuilder,
 } from '@angular/forms'; //_splitter_
+import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MatDialogRef } from '@angular/material/dialog'; //_splitter_
 //append_imports_end
 
@@ -83,11 +86,27 @@ export class profile_dialogComponent {
     }
   }
 
+  submitForm(profileForm: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { profileForm: profileForm };
+      bh.local = {};
+      bh = this.sd_Z13nth8o712Wsc0M(bh);
+      //appendnew_next_submitForm
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_LNPqtJcKZ6JIUJ09');
+    }
+  }
+
   //appendnew_flow_profile_dialogComponent_start
 
   sd_nemvzjYVHuKqiFZJ(bh) {
     try {
       this.page.profileDialog = undefined;
+      this.page.personalDetails = undefined;
+      this.page.email = undefined;
       bh = this.sd_vSJRDVn3BrkDsFnQ(bh);
       //appendnew_next_sd_nemvzjYVHuKqiFZJ
       return bh;
@@ -98,7 +117,7 @@ export class profile_dialogComponent {
 
   sd_vSJRDVn3BrkDsFnQ(bh) {
     try {
-      this.page.FG = FormGroup;
+      this.page.FormGroup = FormGroup;
       bh = this.sd_9DF1Fu5s1DNEsmYT(bh);
       //appendnew_next_sd_vSJRDVn3BrkDsFnQ
       return bh;
@@ -119,25 +138,76 @@ export class profile_dialogComponent {
           Validators.required,
           Validators.pattern('[a-zA-Z ]*'),
         ]),
-        dob: new FormControl('', [Validators.required]),
+        dateOfBirth: new FormControl('', [Validators.required]),
         gender: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required, Validators.email]),
-        role: new FormControl('', [Validators.required]),
+        designation: new FormControl('', [Validators.required]),
         idNumber: new FormControl('', [Validators.required]),
         panNumber: new FormControl('', [Validators.required]),
         passportNumber: new FormControl('', [Validators.required]),
         nationality: new FormControl('', [Validators.required]),
-        officeStation: new FormControl('', [Validators.required]),
+        station: new FormControl('', [Validators.required]),
         lineManager: new FormControl('', [Validators.required]),
         lineManagerEmail: new FormControl('', [
           Validators.required,
           Validators.pattern('[0-9]{3}-[0-9]{3}-[0-9]{4}'),
         ]),
       });
+      bh = this.sd_w8eStMhAcIG7jxxh(bh);
       //appendnew_next_sd_9DF1Fu5s1DNEsmYT
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_9DF1Fu5s1DNEsmYT');
+    }
+  }
+
+  sd_w8eStMhAcIG7jxxh(bh) {
+    try {
+      const page = this.page;
+      page.email = 'neo.thobela@neutrinos.co';
+      (bh.method = 'get'),
+        (bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email);
+      console.log(page.profileForm);
+      bh = this.sd_naVttDn00PvByen9(bh);
+      //appendnew_next_sd_w8eStMhAcIG7jxxh
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_w8eStMhAcIG7jxxh');
+    }
+  }
+
+  async sd_naVttDn00PvByen9(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.personalDetails = outputVariables.local.result;
+
+      bh = this.sd_82pZJpednRsfaIA8(bh);
+      //appendnew_next_sd_naVttDn00PvByen9
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_naVttDn00PvByen9');
+    }
+  }
+
+  sd_82pZJpednRsfaIA8(bh) {
+    try {
+      const page = this.page;
+      page.profileForm.patchValue(page.personalDetails);
+      console.log(
+        'person Details',
+        page.profileForm.patchValue(page.personalDetails)
+      );
+      //appendnew_next_sd_82pZJpednRsfaIA8
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_82pZJpednRsfaIA8');
     }
   }
 
@@ -150,6 +220,52 @@ export class profile_dialogComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_zbYZLwoXPwvfM4HC');
+    }
+  }
+
+  sd_Z13nth8o712Wsc0M(bh) {
+    try {
+      const page = this.page;
+      (bh.method = 'put'),
+        (bh.endPoint =
+          'genericEdit/updatePersonalDetails/' + page.personalDetails._id);
+      console.log('test', bh.input);
+      bh = this.sd_yqUFTe7V98URWISq(bh);
+      //appendnew_next_sd_Z13nth8o712Wsc0M
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Z13nth8o712Wsc0M');
+    }
+  }
+
+  async sd_yqUFTe7V98URWISq(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        bh.input.profileForm
+      );
+      this.page.personalDetails = outputVariables.local.result;
+
+      bh = this.sd_UqAPQwq6ORogiCYa(bh);
+      //appendnew_next_sd_yqUFTe7V98URWISq
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_yqUFTe7V98URWISq');
+    }
+  }
+
+  sd_UqAPQwq6ORogiCYa(bh) {
+    try {
+      const page = this.page;
+      console.log('pd form', page.personalDetails);
+      //appendnew_next_sd_UqAPQwq6ORogiCYa
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_UqAPQwq6ORogiCYa');
     }
   }
 

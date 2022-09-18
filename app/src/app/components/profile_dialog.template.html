@@ -38,7 +38,7 @@
               <p>Date of Birth</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="dob">
+              <input matInput placeholder="Input" [required]="false" formControlName="dateOfBirth">
 
             </mat-form-field>
           </div>
@@ -64,10 +64,10 @@
           </div>
           <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
             <div>
-              <p>Role</p>
+              <p>Designation</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="role">
+              <input matInput placeholder="Input" [required]="false" formControlName="designation">
 
             </mat-form-field>
           </div>
@@ -116,7 +116,7 @@
               <p>Station</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="officeStation">
+              <input matInput placeholder="Input" [required]="false" formControlName="station">
 
             </mat-form-field>
           </div>
@@ -139,7 +139,7 @@
               <input matInput placeholder="Input" [required]="false" formControlName="lineManagerEmail">
 
             </mat-form-field>
-          </div>
+          </div><button mat-button (click)="submitForm(page.profileForm.value)">Button</button>
         </div>
       </div>
     </form>

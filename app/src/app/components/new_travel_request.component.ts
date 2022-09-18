@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -505,26 +507,10 @@ export class new_travel_requestComponent {
       );
       this.page.personalDetails = outputVariables.local.result;
 
-      bh = this.patchPersonalDetails(bh);
       //appendnew_next_sd_Ch8sySv6dqg810X7
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_Ch8sySv6dqg810X7');
-    }
-  }
-
-  patchPersonalDetails(bh) {
-    try {
-      const page = this.page;
-      console.log('details', page.personalDetails);
-      page.personalDetails['dateOfBirth'] = new Date(
-        page.personalDetails['dateOfBirth']
-      );
-      page.personalDetailsForm.patchValue(page.personalDetails);
-      //appendnew_next_patchPersonalDetails
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_LQoAlhbQMQGJHsbq');
     }
   }
 
@@ -627,24 +613,11 @@ export class new_travel_requestComponent {
         bh.method,
         this.page.formObj
       );
-      bh.response = outputVariables.local.result;
 
-      bh = this.sd_ug9NAWrI0m3QPLao(bh);
       //appendnew_next_sd_RhR3LYUVBWeOB74n
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_RhR3LYUVBWeOB74n');
-    }
-  }
-
-  sd_ug9NAWrI0m3QPLao(bh) {
-    try {
-      const page = this.page;
-      console.log(page.formObj, 'obj');
-      //appendnew_next_sd_ug9NAWrI0m3QPLao
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ug9NAWrI0m3QPLao');
     }
   }
 
