@@ -496,7 +496,7 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
     <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginBottom1em marinTop1em" fxLayoutGap="2em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Cancel</button><button mat-button class="redButton" (click)="tdetails(page.travelForm.value,page.personalDetailsForm.value)">Submit</button><button mat-raised-button class="grayButton" (click)="saveAsDraft(page.travelForm)">Save As Draft</button></div>
+      <div fxLayout="row wrap" class="marginBottom1em marinTop1em" fxLayoutGap="2em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Cancel</button><button mat-button class="redButton" (click)="tdetails(page.travelForm,page.personalDetailsForm)" [disabled]="page.travelForm.status == &apos;INVALID&apos;">Submit</button><button mat-raised-button class="grayButton" (click)="saveAsDraft(page.travelForm)">Save As Draft</button></div>
     </div>
   </div>
 </div>

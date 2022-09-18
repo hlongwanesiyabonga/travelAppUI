@@ -24,7 +24,6 @@ import {
   FormArray,
 } from '@angular/forms'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
-import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -299,6 +298,20 @@ export class new_travel_requestComponent {
       //appendnew_next_dateChange
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_nQp7Ok4Ni2vmpKyc');
+    }
+  }
+
+  sd_nKu0Cs00FY9o3vdJ(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_IkYmTrbB761aiehg(bh);
+      //appendnew_next_sd_nKu0Cs00FY9o3vdJ
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_nKu0Cs00FY9o3vdJ');
     }
   }
 
@@ -583,8 +596,8 @@ export class new_travel_requestComponent {
     try {
       const page = this.page; //combine the 2 forms
       page.formObj = {
-        personalDetailsForm: bh.input.personalDetailsForm,
-        requestDetails: bh.input.form.requestDetails,
+        personalDetailsForm: bh.input.personalDetailsForm.value,
+        requestDetails: bh.input.form.requestDetails.value,
         status: null,
         managerApproval: {
           approvedRequest: null,
@@ -594,10 +607,10 @@ export class new_travel_requestComponent {
       };
       console.log(page.formObj, 'obj');
 
-      bh.endPoint = '/addTravelRequest';
+      bh.endPoint = 'addTravelRequest';
       bh.method = 'post';
 
-      bh = this.sd_bbaBvYkJ652qvZXA(bh);
+      bh = this.sd_ddcOI2LKw41jJ4d6(bh);
       //appendnew_next_sd_UTu9MfO7IadBmBxp
       return bh;
     } catch (e) {
@@ -605,20 +618,11 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_bbaBvYkJ652qvZXA(bh) {
+  sd_ddcOI2LKw41jJ4d6(bh) {
     try {
-      this.__page_injector__
-        .get(MatSnackBar)
-        .open('Form Has Been Submitted', '', {
-          duration: 3000,
-          direction: 'ltr',
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-      //appendnew_next_sd_bbaBvYkJ652qvZXA
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_bbaBvYkJ652qvZXA');
+      return this.errorHandler(bh, e, 'sd_ddcOI2LKw41jJ4d6');
     }
   }
 
@@ -792,6 +796,15 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_7E0kFOs0S0LoIGyd');
+    }
+  }
+
+  sd_IkYmTrbB761aiehg(bh) {
+    try {
+      //appendnew_next_sd_IkYmTrbB761aiehg
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_IkYmTrbB761aiehg');
     }
   }
 

@@ -27836,7 +27836,7 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "tdetails(page.travelForm.value,page.personalDetailsForm.value)",
+                                "_value": "tdetails(page.travelForm,page.personalDetailsForm)",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "objValue": {
@@ -27845,14 +27845,14 @@
                                     "activeTree": "pages",
                                     "z": "sd_osEacZsdUBcy4IJg",
                                     "input": [
-                                        "page.travelForm.value",
-                                        "page.personalDetailsForm.value"
+                                        "page.travelForm",
+                                        "page.personalDetailsForm"
                                     ]
                                 }
                             },
                             {
                                 "_key": "[disabled]",
-                                "_value": "",
+                                "_value": "page.travelForm.status == 'INVALID'",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "_customAttributeFlag": "customInput"
