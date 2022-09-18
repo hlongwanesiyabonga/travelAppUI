@@ -92,6 +92,34 @@ export class baseComponent {
     }
   }
 
+  showDashboard(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_pTekq9v8lzFG0mju(bh);
+      //appendnew_next_showDashboard
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_a5s53L3rtVWyPezi');
+    }
+  }
+
+  showNewRequests(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_KVlNAJ6NtuO27Mha(bh);
+      //appendnew_next_showNewRequests
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_79sAUr1hPTnu0CV0');
+    }
+  }
+
   //appendnew_flow_baseComponent_start
 
   sd_nrTQrGEzRLT39o1H(bh) {
@@ -99,6 +127,11 @@ export class baseComponent {
       this.page.dialogWidth = undefined;
       this.page.dialogHeight = undefined;
       this.page.sideNav = false;
+      this.page.showDashboard = true;
+      this.page.showReports = false;
+      this.page.showDrafts = false;
+      this.page.showNewRequests = false;
+      this.page.showLogout = false;
       //appendnew_next_sd_nrTQrGEzRLT39o1H
       return bh;
     } catch (e) {
@@ -128,6 +161,36 @@ export class baseComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_gT8hRhNopvoRlRwC');
+    }
+  }
+
+  sd_pTekq9v8lzFG0mju(bh) {
+    try {
+      const page = this.page;
+      page.showDashboard = true;
+      page.showReports = false;
+      page.showDrafts = false;
+      page.showNewRequests = false;
+      page.showLogout = false;
+      //appendnew_next_sd_pTekq9v8lzFG0mju
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_pTekq9v8lzFG0mju');
+    }
+  }
+
+  sd_KVlNAJ6NtuO27Mha(bh) {
+    try {
+      const page = this.page;
+      page.showNewRequests = true;
+      page.showReports = false;
+      page.showDrafts = false;
+      page.showDashboard = false;
+      page.showLogout = false;
+      //appendnew_next_sd_KVlNAJ6NtuO27Mha
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_KVlNAJ6NtuO27Mha');
     }
   }
 
