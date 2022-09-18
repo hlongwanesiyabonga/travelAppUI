@@ -227,6 +227,9 @@ bh-base, bh-profile_dialog{
 .marginTop20{
     margin-top: 20px;
 }
+.marginRight20{
+    margin-right: 20px;
+}
 .marginBottom50{
     margin-bottom: 50px;
 }
@@ -303,4 +306,24 @@ border-radius: 6px;
 }
 .profileDialogBody{
     border-top: 2px solid;
+}
+.scroll{
+    overflow-y: auto;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgba(216, 214, 222, 1);
+}
+.mat-calendar-body-selected{
+    background-color: $red !important;
+    color: white;
+}
+.mat-input-element {
+    caret-color: $red !important;
+}
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: $black;
+}
+.mat-datepicker-toggle-active {
+    color: $red;
 }

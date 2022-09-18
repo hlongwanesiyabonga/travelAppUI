@@ -163,7 +163,7 @@
         "width": "this.page",
         "maxWidth": "this.page",
         "minWidth": "\"85vw\"",
-        "panelClass": "this.page",
+        "panelClass": "this.page.scroll",
         "position": "this.page",
         "restoreFocus": "this.page",
         "role": "this.page",
@@ -261,7 +261,7 @@
             },
             "panelClass": {
                 "type": "this.page",
-                "value": "",
+                "value": "scroll",
                 "constant": false
             },
             "position": {
@@ -331,7 +331,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_a5s53L3rtVWyPezi",
@@ -364,7 +365,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.showDashboard = true;\npage.showReports = false;\npage.showDrafts = false;\npage.showNewRequests = false;\npage.showLogout = false;",
+        "script": "page.showDashboard = true;\npage.showReports = false;\npage.showDrafts = false;\npage.showNewRequests = false;\npage.showLogout = false;\n",
         "functionName": "sd_pTekq9v8lzFG0mju",
         "category": "Function",
         "x": 180,
@@ -418,5 +419,152 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_C7U6I28HfK0hKDmD",
+        "type": "PageStart",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "showDrafts",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "showDrafts",
+        "category": "General",
+        "x": 85,
+        "y": 520,
+        "wires": [
+            [
+                "sd_bo8G9H0I7TNYxzAR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "baseComponent"
+    },
+    {
+        "id": "sd_bo8G9H0I7TNYxzAR",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showDrafts = true;\npage.showReports = false;\npage.showNewRequests = false;\npage.showDashboard = false;\npage.showLogout = false;",
+        "functionName": "sd_bo8G9H0I7TNYxzAR",
+        "category": "Function",
+        "x": 180,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_KmIJ1rBCeuFcOsJd",
+        "type": "PageStart",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "showReports",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "showReports",
+        "category": "General",
+        "x": 85,
+        "y": 600,
+        "wires": [
+            [
+                "sd_4Y6EVejP40Y0iuRl"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "baseComponent"
+    },
+    {
+        "id": "sd_4Y6EVejP40Y0iuRl",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showReports = true;\npage.showNewRequests = false;\npage.showDrafts = false;\npage.showDashboard = false;\npage.showLogout = false;",
+        "functionName": "sd_4Y6EVejP40Y0iuRl",
+        "category": "Function",
+        "x": 180,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_BRtIOMg7bjEnUQdA",
+        "type": "PageStart",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "showLogout",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "showLogout",
+        "category": "General",
+        "x": 85,
+        "y": 680,
+        "wires": [
+            [
+                "sd_4tj3WGNebkyyBzpN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "baseComponent"
+    },
+    {
+        "id": "sd_4tj3WGNebkyyBzpN",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showLogout = true;\npage.showNewRequests = false;\npage.showReports = false;\npage.showDrafts = false;\npage.showDashboard = false;",
+        "functionName": "sd_4tj3WGNebkyyBzpN",
+        "category": "Function",
+        "x": 180,
+        "y": 680,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_9CvsQ9gEDQRmzLGq",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "close side nav",
+        "script": "page.sideNav.close();",
+        "functionName": "closeSideNav",
+        "category": "Function",
+        "x": 420,
+        "y": 520,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]

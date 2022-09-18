@@ -15,6 +15,10 @@ window['neutrinos'] = {
 };
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-reportsComponent
+import { reportsComponent } from '../components/reports.component';
+//CORE_REFERENCE_IMPORT-draftsComponent
+import { draftsComponent } from '../components/drafts.component';
 //CORE_REFERENCE_IMPORT-profile_dialogComponent
 import { profile_dialogComponent } from '../components/profile_dialog.component';
 //CORE_REFERENCE_IMPORT-baseComponent
@@ -59,6 +63,10 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-reportsComponent
+  reportsComponent,
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-draftsComponent
+  draftsComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-profile_dialogComponent
   profile_dialogComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-baseComponent

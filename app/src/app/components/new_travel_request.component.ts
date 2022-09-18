@@ -302,20 +302,6 @@ export class new_travel_requestComponent {
     }
   }
 
-  saveAsDraft(form: any = undefined, reqType = '', ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { form: form, reqType: reqType };
-      bh.local = {};
-      bh = this.sd_UTu9MfO7IadBmBxp(bh);
-      //appendnew_next_saveAsDraft
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_C15spxFfj0Omfycc');
-    }
-  }
-
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -427,10 +413,10 @@ export class new_travel_requestComponent {
           Validators.minLength(3),
           Validators.required,
         ]),
-        dateOfBirth: new FormControl('', [Validators.required]),
+        dob: new FormControl('', [Validators.required]),
         gender: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required, Validators.email]),
-        designation: new FormControl('', [Validators.required]),
+        position: new FormControl('', [Validators.required]),
         idNumber: new FormControl(false, [Validators.required]),
         panNumber: new FormControl(null, [
           Validators.minLength(10),
@@ -472,14 +458,39 @@ export class new_travel_requestComponent {
       page.date = new Date();
       page.futureDate =
         page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate;
-      page.email = 'neo.thobela@neutrinos.co';
-      bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
-      bh.method = 'get';
-      bh = this.sd_eYkVAuOfjYx8O61u(bh);
+      // page.futureDate = new Date(page.date - 1);
+      console.log(page.futureDate, 'date');
+      bh = this.personDetailsObject(bh);
       //appendnew_next_sd_bvYvWg7Xv6GTK5wB
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_bvYvWg7Xv6GTK5wB');
+    }
+  }
+
+  personDetailsObject(bh) {
+    try {
+      const page = this.page;
+      page.email = 'neo.thobela@neutrinos.co';
+      bh = this.endPoints(bh);
+      //appendnew_next_personDetailsObject
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_vi6lImVz0AEJuzwi');
+    }
+  }
+
+  endPoints(bh) {
+    try {
+      const page = this.page;
+      bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
+      bh.method = 'get';
+
+      bh = this.sd_eYkVAuOfjYx8O61u(bh);
+      //appendnew_next_endPoints
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_szuWp0PAjJxyLc60');
     }
   }
 
@@ -507,10 +518,24 @@ export class new_travel_requestComponent {
       );
       this.page.personalDetails = outputVariables.local.result;
 
+      bh = this.patchPersonalDetails(bh);
       //appendnew_next_sd_Ch8sySv6dqg810X7
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_Ch8sySv6dqg810X7');
+    }
+  }
+
+  patchPersonalDetails(bh) {
+    try {
+      const page = this.page;
+      console.log('details', page.personalDetails);
+
+      page.personalDetailsForm.patchValue(page.personalDetails[0]);
+      //appendnew_next_patchPersonalDetails
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_LQoAlhbQMQGJHsbq');
     }
   }
 
@@ -557,26 +582,21 @@ export class new_travel_requestComponent {
   sd_UTu9MfO7IadBmBxp(bh) {
     try {
       const page = this.page; //combine the 2 forms
-      console.log(page.personalDetails);
-      console.log(page.personalDetails);
       page.formObj = {
-        personalDetails: page.personalDetails,
+        personalDetailsForm: bh.input.personalDetailsForm,
         requestDetails: bh.input.form.requestDetails,
         status: null,
         managerApproval: {
           approvedRequest: null,
           comments: '',
         },
-        owner: page.personalDetails['email'],
-        dateCreated: new Date().toISOString(),
+        owner: page.personalDetails[0].email,
       };
       console.log(page.formObj, 'obj');
 
-      bh.endPoint = bh.input.reqType
-        ? 'addTravelRequest?type=draft'
-        : 'addTravelRequest';
+      bh.endPoint = '/addTravelRequest';
       bh.method = 'post';
-      console.log(bh.endPoint);
+
       bh = this.sd_bbaBvYkJ652qvZXA(bh);
       //appendnew_next_sd_UTu9MfO7IadBmBxp
       return bh;
@@ -595,29 +615,10 @@ export class new_travel_requestComponent {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         });
-      bh = this.sd_RhR3LYUVBWeOB74n(bh);
       //appendnew_next_sd_bbaBvYkJ652qvZXA
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_bbaBvYkJ652qvZXA');
-    }
-  }
-
-  async sd_RhR3LYUVBWeOB74n(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        this.page.formObj
-      );
-
-      //appendnew_next_sd_RhR3LYUVBWeOB74n
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_RhR3LYUVBWeOB74n');
     }
   }
 
@@ -649,7 +650,6 @@ export class new_travel_requestComponent {
             covidCertificate: ['', page.showVisa ? [Validators.required] : []],
             passport: [''],
             needvehicle: ['No', [Validators.required]],
-            needAccommodation: ['', [Validators.required]],
           }),
           accommodationDetails: page.Fb.group({
             accommodationPreference: ['', [Validators.required]],
@@ -664,8 +664,6 @@ export class new_travel_requestComponent {
           }),
         })
       );
-
-      console.log(page.travelForm.get('requestDetails').controls);
       //appendnew_next_sd_LYJcmnJwoRoJ6qQz
       return bh;
     } catch (e) {

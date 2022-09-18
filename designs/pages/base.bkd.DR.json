@@ -508,6 +508,12 @@
                                         "z": "sd_2SmtltpgSscQJfqT",
                                         "input": []
                                     }
+                                },
+                                {
+                                    "_key": "[ngClass]",
+                                    "_value": "{sideNavButtonActive:page.showDashboard}",
+                                    "_type": "kv",
+                                    "_attrDef": "c"
                                 }
                             ],
                             "f92b3a2e-b946-efb4-be3b-0f48e231d199": {
@@ -868,6 +874,12 @@
                                         "z": "sd_2SmtltpgSscQJfqT",
                                         "input": []
                                     }
+                                },
+                                {
+                                    "_key": "[ngClass]",
+                                    "_value": "{sideNavButtonActive:page.showNewRequests}",
+                                    "_type": "kv",
+                                    "_attrDef": "c"
                                 }
                             ],
                             "ac8fba7e-4ded-a44c-9898-ebe2e04ea8c3": {
@@ -1215,6 +1227,25 @@
                                     "_value": "true",
                                     "_type": "kv",
                                     "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "[ngClass]",
+                                    "_value": "{sideNavButtonActive:page.showDrafts}",
+                                    "_type": "kv",
+                                    "_attrDef": "c"
+                                },
+                                {
+                                    "_key": "(click)",
+                                    "_value": "showDrafts()",
+                                    "_type": "kv",
+                                    "_attrDef": "c",
+                                    "objValue": {
+                                        "nodeID": "sd_C7U6I28HfK0hKDmD",
+                                        "functionName": "showDrafts",
+                                        "activeTree": "pages",
+                                        "z": "sd_2SmtltpgSscQJfqT",
+                                        "input": []
+                                    }
                                 }
                             ],
                             "17a20a18-e188-a8dc-202f-65f8886d3ead": {
@@ -1562,6 +1593,25 @@
                                     "_value": "true",
                                     "_type": "kv",
                                     "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "[ngClass]",
+                                    "_value": "{sideNavButtonActive:page.showReports}",
+                                    "_type": "kv",
+                                    "_attrDef": "c"
+                                },
+                                {
+                                    "_key": "(click)",
+                                    "_value": "showReports()",
+                                    "_type": "kv",
+                                    "_attrDef": "c",
+                                    "objValue": {
+                                        "nodeID": "sd_KmIJ1rBCeuFcOsJd",
+                                        "functionName": "showReports",
+                                        "activeTree": "pages",
+                                        "z": "sd_2SmtltpgSscQJfqT",
+                                        "input": []
+                                    }
                                 }
                             ],
                             "157d385e-9c74-2ed8-90db-ae4b79b61027": {
@@ -1907,6 +1957,25 @@
                                     "_value": "true",
                                     "_type": "kv",
                                     "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "[ngClass]",
+                                    "_value": "{sideNavButtonActive:page.showLogout}",
+                                    "_type": "kv",
+                                    "_attrDef": "c"
+                                },
+                                {
+                                    "_key": "(click)",
+                                    "_value": "showLogout()",
+                                    "_type": "kv",
+                                    "_attrDef": "c",
+                                    "objValue": {
+                                        "nodeID": "sd_BRtIOMg7bjEnUQdA",
+                                        "functionName": "showLogout",
+                                        "activeTree": "pages",
+                                        "z": "sd_2SmtltpgSscQJfqT",
+                                        "input": []
+                                    }
                                 }
                             ],
                             "cfe605a9-1acc-0815-b4e8-2cdfddac8acb": {
@@ -3949,6 +4018,70 @@
                                         "_attrDef": "c"
                                     }
                                 ]
+                            },
+                            "be1c5d8a-8750-03a6-d076-365c41951b6d": {
+                                "paletteKey": "NEUTRINOS_VIEW_drafts",
+                                "parentEditorKey": "e7039a84-0260-4bed-0f8f-1339de7e89c4",
+                                "commentid": null,
+                                "designerReference": [
+                                    {
+                                        "_key": "componentLabel",
+                                        "_value": "drafts",
+                                        "_type": "kv",
+                                        "_attrDef": "p",
+                                        "_useAsLabel": true
+                                    },
+                                    {
+                                        "_key": "style",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "class",
+                                        "_value": "",
+                                        "_type": "dav",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "*ngIf",
+                                        "_value": "page.showDrafts",
+                                        "_type": "kv",
+                                        "_attrDef": "c"
+                                    }
+                                ]
+                            },
+                            "b48edf0f-a89d-a3e5-59bd-883106a8c634": {
+                                "paletteKey": "NEUTRINOS_VIEW_reports",
+                                "parentEditorKey": "e7039a84-0260-4bed-0f8f-1339de7e89c4",
+                                "commentid": null,
+                                "designerReference": [
+                                    {
+                                        "_key": "componentLabel",
+                                        "_value": "reports",
+                                        "_type": "kv",
+                                        "_attrDef": "p",
+                                        "_useAsLabel": true
+                                    },
+                                    {
+                                        "_key": "style",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "class",
+                                        "_value": "",
+                                        "_type": "dav",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "*ngIf",
+                                        "_value": "showReports",
+                                        "_type": "kv",
+                                        "_attrDef": "c"
+                                    }
+                                ]
                             }
                         }
                     }
@@ -4323,6 +4456,25 @@
                             "_value": "true",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[ngClass]",
+                            "_value": "{sideNavButtonActive:page.showDashboard}",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "showDashboard()",
+                            "_type": "kv",
+                            "_attrDef": "c",
+                            "objValue": {
+                                "nodeID": "sd_a5s53L3rtVWyPezi",
+                                "functionName": "showDashboard",
+                                "activeTree": "pages",
+                                "z": "sd_2SmtltpgSscQJfqT",
+                                "input": []
+                            }
                         }
                     ],
                     "efbd4643-27f7-0b47-033d-02abdbe1610b": {
@@ -4666,6 +4818,25 @@
                             "_value": "true",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[ngClass]",
+                            "_value": "{sideNavButtonActive:page.showNewRequests}",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "showNewRequests()",
+                            "_type": "kv",
+                            "_attrDef": "c",
+                            "objValue": {
+                                "nodeID": "sd_79sAUr1hPTnu0CV0",
+                                "functionName": "showNewRequests",
+                                "activeTree": "pages",
+                                "z": "sd_2SmtltpgSscQJfqT",
+                                "input": []
+                            }
                         }
                     ],
                     "aa9b9fcb-4a78-8dd2-7f21-fa760be74e17": {
@@ -5011,6 +5182,25 @@
                             "_value": "true",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[ngClass]",
+                            "_value": "{sideNavButtonActive:page.showDrafts}",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "showDrafts()",
+                            "_type": "kv",
+                            "_attrDef": "c",
+                            "objValue": {
+                                "nodeID": "sd_C7U6I28HfK0hKDmD",
+                                "functionName": "showDrafts",
+                                "activeTree": "pages",
+                                "z": "sd_2SmtltpgSscQJfqT",
+                                "input": []
+                            }
                         }
                     ],
                     "0c7206e2-fc5a-2326-bb34-0ed4b106d126": {
@@ -5356,6 +5546,25 @@
                             "_value": "true",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[ngClass]",
+                            "_value": "{sideNavButtonActive:page.showReports}",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "showReports()",
+                            "_type": "kv",
+                            "_attrDef": "c",
+                            "objValue": {
+                                "nodeID": "sd_KmIJ1rBCeuFcOsJd",
+                                "functionName": "showReports",
+                                "activeTree": "pages",
+                                "z": "sd_2SmtltpgSscQJfqT",
+                                "input": []
+                            }
                         }
                     ],
                     "2a044a2b-a8a1-7b18-4545-3efcae0d6ac2": {
@@ -5699,6 +5908,25 @@
                             "_value": "true",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[ngClass]",
+                            "_value": "{sideNavButtonActive:page.showLogout}",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "showLogout()",
+                            "_type": "kv",
+                            "_attrDef": "c",
+                            "objValue": {
+                                "nodeID": "sd_BRtIOMg7bjEnUQdA",
+                                "functionName": "showLogout",
+                                "activeTree": "pages",
+                                "z": "sd_2SmtltpgSscQJfqT",
+                                "input": []
+                            }
                         }
                     ],
                     "c1df3558-7ccd-7550-873e-167273537c49": {

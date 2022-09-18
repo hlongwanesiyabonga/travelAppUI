@@ -20,7 +20,7 @@
               <p>First Name</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="firstName">
+              <input matInput placeholder="First Name" [required]="false" formControlName="firstName">
 
             </mat-form-field>
           </div>
@@ -29,7 +29,7 @@
               <p>Last Name</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="lastName">
+              <input matInput placeholder="Last Name" [required]="false" formControlName="lastName">
 
             </mat-form-field>
           </div>
@@ -38,7 +38,7 @@
               <p>Date of Birth</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="dateOfBirth">
+              <input matInput placeholder="Date of Birth" [required]="false" formControlName="dateOfBirth">
 
             </mat-form-field>
           </div>
@@ -49,7 +49,7 @@
               <p>Gender</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="gender">
+              <input matInput placeholder="Gender" [required]="false" formControlName="gender">
 
             </mat-form-field>
           </div>
@@ -58,7 +58,7 @@
               <p>Email</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="email">
+              <input matInput placeholder="Email" [required]="false" formControlName="email">
 
             </mat-form-field>
           </div>
@@ -67,7 +67,7 @@
               <p>Designation</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="designation">
+              <input matInput placeholder="Designation" [required]="false" formControlName="designation">
 
             </mat-form-field>
           </div>
@@ -78,7 +78,7 @@
               <p>PAN Number</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="panNumber">
+              <input matInput placeholder="PAN Number" [required]="false" formControlName="panNumber">
 
             </mat-form-field>
           </div>
@@ -87,7 +87,7 @@
               <p>ID Number</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="idNumber">
+              <input matInput placeholder="ID Number" [required]="false" formControlName="idNumber">
 
             </mat-form-field>
           </div>
@@ -96,7 +96,7 @@
               <p>Passport Number</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="passportNumber">
+              <input matInput placeholder="Passport Number" [required]="false" formControlName="passportNumber" readonly="true">
 
             </mat-form-field>
           </div>
@@ -107,7 +107,7 @@
               <p>Nationality</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="nationality">
+              <input matInput placeholder="Nationality" [required]="false" formControlName="nationality" readonly="true">
 
             </mat-form-field>
           </div>
@@ -116,7 +116,7 @@
               <p>Station</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="station">
+              <input matInput placeholder="Station" [required]="false" formControlName="station" readonly="true">
 
             </mat-form-field>
           </div>
@@ -125,21 +125,21 @@
               <p>Line manager</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="lineManager">
+              <input matInput placeholder="Line manager" [required]="false" formControlName="lineManager" readonly="true">
 
             </mat-form-field>
           </div>
         </div>
-        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
           <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
             <div>
               <p>Line Manager Email</p>
             </div>
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-              <input matInput placeholder="Input" [required]="false" formControlName="lineManagerEmail">
+              <input matInput placeholder="Line Manager Email" [required]="false" formControlName="lineManagerEmail" readonly="true" [disabled]="true">
 
             </mat-form-field>
-          </div><button mat-button (click)="submitForm(page.profileForm.value)">Button</button>
+          </div><button mat-button class="marginRight20 redButton" (click)="submitForm(page.profileForm.value)">Update</button>
         </div>
       </div>
     </form>

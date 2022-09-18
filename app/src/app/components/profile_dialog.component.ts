@@ -148,10 +148,7 @@ export class profile_dialogComponent {
         nationality: new FormControl('', [Validators.required]),
         station: new FormControl('', [Validators.required]),
         lineManager: new FormControl('', [Validators.required]),
-        lineManagerEmail: new FormControl('', [
-          Validators.required,
-          Validators.pattern('[0-9]{3}-[0-9]{3}-[0-9]{4}'),
-        ]),
+        lineManagerEmail: new FormControl('', [Validators.required]),
       });
       bh = this.sd_w8eStMhAcIG7jxxh(bh);
       //appendnew_next_sd_9DF1Fu5s1DNEsmYT

@@ -120,6 +120,48 @@ export class baseComponent {
     }
   }
 
+  showDrafts(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_bo8G9H0I7TNYxzAR(bh);
+      //appendnew_next_showDrafts
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_C7U6I28HfK0hKDmD');
+    }
+  }
+
+  showReports(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_4Y6EVejP40Y0iuRl(bh);
+      //appendnew_next_showReports
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_KmIJ1rBCeuFcOsJd');
+    }
+  }
+
+  showLogout(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_4tj3WGNebkyyBzpN(bh);
+      //appendnew_next_showLogout
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_BRtIOMg7bjEnUQdA');
+    }
+  }
+
   //appendnew_flow_baseComponent_start
 
   sd_nrTQrGEzRLT39o1H(bh) {
@@ -144,7 +186,7 @@ export class baseComponent {
       const profile_dialogDialog = this.__page_injector__.get(MatDialog);
       const profile_dialogDialogRef = profile_dialogDialog.open(
         profile_dialogComponent,
-        { minHeight: '85vh', minWidth: '85vw' }
+        { minHeight: '85vh', minWidth: '85vw', panelClass: this.page.scroll }
       );
 
       return bh;
@@ -172,6 +214,7 @@ export class baseComponent {
       page.showDrafts = false;
       page.showNewRequests = false;
       page.showLogout = false;
+
       //appendnew_next_sd_pTekq9v8lzFG0mju
       return bh;
     } catch (e) {
@@ -191,6 +234,51 @@ export class baseComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_KVlNAJ6NtuO27Mha');
+    }
+  }
+
+  sd_bo8G9H0I7TNYxzAR(bh) {
+    try {
+      const page = this.page;
+      page.showDrafts = true;
+      page.showReports = false;
+      page.showNewRequests = false;
+      page.showDashboard = false;
+      page.showLogout = false;
+      //appendnew_next_sd_bo8G9H0I7TNYxzAR
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_bo8G9H0I7TNYxzAR');
+    }
+  }
+
+  sd_4Y6EVejP40Y0iuRl(bh) {
+    try {
+      const page = this.page;
+      page.showReports = true;
+      page.showNewRequests = false;
+      page.showDrafts = false;
+      page.showDashboard = false;
+      page.showLogout = false;
+      //appendnew_next_sd_4Y6EVejP40Y0iuRl
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_4Y6EVejP40Y0iuRl');
+    }
+  }
+
+  sd_4tj3WGNebkyyBzpN(bh) {
+    try {
+      const page = this.page;
+      page.showLogout = true;
+      page.showNewRequests = false;
+      page.showReports = false;
+      page.showDrafts = false;
+      page.showDashboard = false;
+      //appendnew_next_sd_4tj3WGNebkyyBzpN
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_4tj3WGNebkyyBzpN');
     }
   }
 
