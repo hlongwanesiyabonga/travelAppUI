@@ -61,6 +61,41 @@
                     "type": "literal",
                     "value": "false"
                 }
+            },
+            {
+                "textIp": "showDashboard",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "true"
+                }
+            },
+            {
+                "textIp": "showReports",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "showDrafts",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "showNewRequests",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
+            },
+            {
+                "textIp": "showLogout",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
             }
         ],
         "functionName": "sd_nrTQrGEzRLT39o1H",
@@ -252,7 +287,8 @@
         },
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_bBI3haJHdgSgCxGE",
@@ -290,6 +326,92 @@
         "category": "Function",
         "x": 190,
         "y": 170,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_a5s53L3rtVWyPezi",
+        "type": "PageStart",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "showDashboard",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "showDashboard",
+        "category": "General",
+        "x": 85,
+        "y": 360,
+        "wires": [
+            [
+                "sd_pTekq9v8lzFG0mju"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "baseComponent"
+    },
+    {
+        "id": "sd_pTekq9v8lzFG0mju",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showDashboard = true;\npage.showReports = false;\npage.showDrafts = false;\npage.showNewRequests = false;\npage.showLogout = false;",
+        "functionName": "sd_pTekq9v8lzFG0mju",
+        "category": "Function",
+        "x": 180,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_79sAUr1hPTnu0CV0",
+        "type": "PageStart",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "showNewRequests",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "showNewRequests",
+        "category": "General",
+        "x": 85,
+        "y": 440,
+        "wires": [
+            [
+                "sd_KVlNAJ6NtuO27Mha"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "baseComponent"
+    },
+    {
+        "id": "sd_KVlNAJ6NtuO27Mha",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.showNewRequests = true;\npage.showReports = false;\npage.showDrafts = false;\npage.showDashboard = false;\npage.showLogout = false;",
+        "functionName": "sd_KVlNAJ6NtuO27Mha",
+        "category": "Function",
+        "x": 180,
+        "y": 440,
         "wires": [
             []
         ],

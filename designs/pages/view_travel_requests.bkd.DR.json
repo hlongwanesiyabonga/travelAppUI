@@ -767,8 +767,8 @@
                     "paletteKey": "ng-table",
                     "parentEditorKey": "bfd02965-b4c4-592e-8bac-c4bd93b68421",
                     "isAdvancedComponent": true,
-                    "isCommented": "false",
-                    "commentid": null,
+                    "isCommented": "true",
+                    "commentid": "1663314400084",
                     "designerReference": [
                         {
                             "_key": "componentLabel",
@@ -831,8 +831,8 @@
                         "parentEditorKey": "3f24c5b1-0099-1ed3-1db2-4019748e3430",
                         "isAdvancedComponent": true,
                         "advancedSiblingType": "before",
-                        "isCommented": "false",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1663314400084",
                         "designerReference": [
                             {
                                 "_key": "style",
@@ -898,8 +898,8 @@
                         "paletteKey": "ng-droppable-table-column",
                         "parentEditorKey": "3f24c5b1-0099-1ed3-1db2-4019748e3430",
                         "isAdvancedChildComponent": true,
-                        "isCommented": "false",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1663314400084",
                         "designerReference": [
                             {
                                 "_key": "Sort Key",
@@ -942,8 +942,8 @@
                             "paletteKey": "Html5",
                             "parentEditorKey": "11f51064-b478-1cba-095d-907bca182bc5",
                             "isAdvancedComponent": true,
-                            "isCommented": "false",
-                            "commentid": null,
+                            "isCommented": "true",
+                            "commentid": "1663314400084",
                             "designerReference": [
                                 {
                                     "_key": "style",
@@ -1130,8 +1130,8 @@
                                 "paletteKey": "html-editor",
                                 "parentEditorKey": "03815d8d-185d-c9f6-0b13-f8205a47538d",
                                 "isAdvancedChildComponent": true,
-                                "isCommented": "false",
-                                "commentid": null,
+                                "isCommented": "true",
+                                "commentid": "1663314400084",
                                 "designerReference": [
                                     {
                                         "_key": "style",
@@ -1159,8 +1159,8 @@
                         "paletteKey": "ng-table-column",
                         "parentEditorKey": "3f24c5b1-0099-1ed3-1db2-4019748e3430",
                         "isAdvancedChildComponent": true,
-                        "isCommented": "false",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1663314400084",
                         "designerReference": [
                             {
                                 "_key": "Header Label",
@@ -1206,8 +1206,8 @@
                         "paletteKey": "ng-table-column",
                         "parentEditorKey": "3f24c5b1-0099-1ed3-1db2-4019748e3430",
                         "isAdvancedChildComponent": true,
-                        "isCommented": "false",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1663314400084",
                         "designerReference": [
                             {
                                 "_key": "Header Label",
@@ -1253,8 +1253,8 @@
                         "paletteKey": "ng-table-column",
                         "parentEditorKey": "3f24c5b1-0099-1ed3-1db2-4019748e3430",
                         "isAdvancedChildComponent": true,
-                        "isCommented": "false",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1663314400084",
                         "designerReference": [
                             {
                                 "_key": "Header Label",
@@ -1300,8 +1300,8 @@
                         "paletteKey": "ng-table-column",
                         "parentEditorKey": "3f24c5b1-0099-1ed3-1db2-4019748e3430",
                         "isAdvancedChildComponent": true,
-                        "isCommented": "false",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1663314400084",
                         "designerReference": [
                             {
                                 "_key": "Header Label",
@@ -1347,8 +1347,8 @@
                         "paletteKey": "ng-table-column",
                         "parentEditorKey": "3f24c5b1-0099-1ed3-1db2-4019748e3430",
                         "isAdvancedChildComponent": true,
-                        "isCommented": "false",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1663314400084",
                         "designerReference": [
                             {
                                 "_key": "Header Label",
@@ -1395,8 +1395,8 @@
                         "parentEditorKey": "3f24c5b1-0099-1ed3-1db2-4019748e3430",
                         "isAdvancedComponent": true,
                         "advancedSiblingType": "after",
-                        "isCommented": "false",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1663314400084",
                         "designerReference": [
                             {
                                 "_key": "style",
@@ -1440,8 +1440,8 @@
                         "paletteKey": "ng-droppable-table-column",
                         "parentEditorKey": "3f24c5b1-0099-1ed3-1db2-4019748e3430",
                         "isAdvancedChildComponent": true,
-                        "isCommented": "false",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1663314400084",
                         "designerReference": [
                             {
                                 "_key": "Sort Key",
@@ -1483,8 +1483,8 @@
                         "20cd5cef-4121-683c-ae80-231797075cdf": {
                             "paletteKey": "FlexLayoutRow",
                             "parentEditorKey": "4d0a7300-441a-623d-e9b8-642345b66bcd",
-                            "isCommented": "false",
-                            "commentid": null,
+                            "isCommented": "true",
+                            "commentid": "1663314400084",
                             "designerReference": [
                                 {
                                     "_key": "componentLabel",
@@ -1545,8 +1545,8 @@
                             "0c18f4fa-2d91-b399-3efd-97a9e3962b10": {
                                 "paletteKey": "NG-icon",
                                 "parentEditorKey": "20cd5cef-4121-683c-ae80-231797075cdf",
-                                "isCommented": "false",
-                                "commentid": null,
+                                "isCommented": "true",
+                                "commentid": "1663314400084",
                                 "designerReference": [
                                     {
                                         "_key": "style",
@@ -1584,8 +1584,8 @@
                             "3913c7af-803e-4164-d1f4-120ab390b6b3": {
                                 "paletteKey": "NG-icon",
                                 "parentEditorKey": "20cd5cef-4121-683c-ae80-231797075cdf",
-                                "isCommented": "false",
-                                "commentid": null,
+                                "isCommented": "true",
+                                "commentid": "1663314400084",
                                 "designerReference": [
                                     {
                                         "_key": "style",
@@ -1627,7 +1627,8 @@
                     "paletteKey": "Html5",
                     "parentEditorKey": "bfd02965-b4c4-592e-8bac-c4bd93b68421",
                     "isAdvancedComponent": true,
-                    "commentid": null,
+                    "isCommented": "true",
+                    "commentid": "1663314760091",
                     "designerReference": [
                         {
                             "_key": "style",
@@ -1814,7 +1815,8 @@
                         "paletteKey": "html-editor",
                         "parentEditorKey": "65bb22aa-3001-d84d-989c-4e1351f775f4",
                         "isAdvancedChildComponent": true,
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1663314760091",
                         "designerReference": [
                             {
                                 "_key": "style",
