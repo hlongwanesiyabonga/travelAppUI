@@ -17,22 +17,22 @@
           <div fxLayout="row wrap" class="grayBorderBottom" fxLayoutAlign="start stretch" [fxShow]="true"></div>
           <form [formGroup]="page.personalDetailsForm">
             <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-              <div fxLayout="row wrap" fxLayoutAlign="space-between start" [fxShow]="true">
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+              <div fxLayout="row wrap" class="fullWidth" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     First Name</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
                     <input matInput type="text" placeholder="First Name" [required]="false" formControlName="firstName">
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.firstName?.errors?.required">First Name is required</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     Last Name</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
                     <input matInput type="text" placeholder="Last Name" [required]="false" formControlName="lastName">
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.lastName?.errors?.required">Last Name is reqiured</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     Date Of Birth</label>
                   <mat-form-field [appearance]="&apos;outline&apos;">
                     <input matInput placeholder="DD/MM/YYYY" [matDatepicker]="picker" formControlName="dob" [max]="page.date" [required]="false" [disabled]="false">
@@ -41,7 +41,7 @@
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.dob?.errors?.required">Date of Birth is Required</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     Gender</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
                     <mat-select formControlName="gender" placeholder="Gender" [required]="false">
@@ -52,35 +52,35 @@
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.gender?.errors?.required">Gender is required</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     Email</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
                     <input matInput type="email" placeholder="JohnDoe@gmail.com" [required]="false" formControlName="email">
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.email?.errors?.required">Email is required</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     ID Number</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
                     <input matInput type="number" placeholder="ID Number" [required]="false" formControlName="idNumber">
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.idNumber?.errors?.required">ID Number is Required</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     PAN Number</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
                     <input matInput type="text" placeholder="PAN" [required]="false" formControlName="panNumber">
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.panNumber?.errors?.required">Pan Number is Required</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="viewvalue ==&apos;Passport Number&apos;"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="viewvalue ==&apos;Passport Number&apos;"><label>
                     Passport Number</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
                     <input matInput type="text" placeholder="Passport Number" [required]="false" formControlName="passportNumber">
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.passportNumber?.errors?.required">Passport Number is Required</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     Nationality</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;">
                     <mat-select formControlName="nationality" placeholder="Nationality" [required]="false">
