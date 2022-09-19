@@ -71,6 +71,57 @@ export class callServerApis {
     }
   }
 
+  async storePersonalDetails(
+    data: any = undefined,
+    key: any = undefined,
+    ...others
+  ) {
+    try {
+      var bh: any = {
+        input: {
+          data: data,
+          key: key,
+        },
+        local: {},
+      };
+      bh = this.sdService.__constructDefault(bh);
+      bh = await this.sd_uFTNqoeQxuwdpbDd(bh);
+      //appendnew_next_storePersonalDetails
+      return (
+        // formatting output variables
+        {
+          input: {},
+          local: {},
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_Yi9MXSZoEVL34c9W');
+    }
+  }
+
+  async getPersonalDetails(key: any = undefined, ...others) {
+    try {
+      var bh: any = {
+        input: {
+          key: key,
+        },
+        local: {},
+      };
+      bh = this.sdService.__constructDefault(bh);
+      bh = await this.sd_XyWiOPpTHTKW5h1m(bh);
+      //appendnew_next_getPersonalDetails
+      return (
+        // formatting output variables
+        {
+          input: {},
+          local: {},
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_jY4xXM440T9ImYCs');
+    }
+  }
+
   //appendnew_flow_callServerApis_start
 
   async sd_uFfzVvBAauUEjRTo(bh) {
@@ -100,6 +151,28 @@ export class callServerApis {
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_hUBaFoLrD4z6GgAt');
+    }
+  }
+
+  async sd_uFTNqoeQxuwdpbDd(bh) {
+    try {
+      sessionStorage.setItem(bh.input.key, JSON.stringify(bh.input.data));
+      //appendnew_next_sd_uFTNqoeQxuwdpbDd
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_uFTNqoeQxuwdpbDd');
+    }
+  }
+
+  async sd_XyWiOPpTHTKW5h1m(bh) {
+    try {
+      bh.local.requesterDetails = JSON.parse(
+        sessionStorage.getItem(bh.input.key)
+      );
+      //appendnew_next_sd_XyWiOPpTHTKW5h1m
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_XyWiOPpTHTKW5h1m');
     }
   }
 

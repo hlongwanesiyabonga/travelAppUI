@@ -28,7 +28,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent"
+        "serviceName": "baseComponent",
+        "generated": false
     },
     {
         "id": "sd_nrTQrGEzRLT39o1H",
@@ -162,7 +163,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent"
+        "serviceName": "baseComponent",
+        "generated": false
     },
     {
         "id": "sd_NtXl4H7miZSfSkAz",
@@ -321,50 +323,6 @@
         "serviceName": "baseComponent"
     },
     {
-        "id": "sd_bBI3haJHdgSgCxGE",
-        "type": "PageStart",
-        "z": "sd_2SmtltpgSscQJfqT",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "open side nav",
-        "outputs": 1,
-        "inputVariables": [],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "openSideNav",
-        "category": "General",
-        "x": 85,
-        "y": 170,
-        "wires": [
-            [
-                "sd_gT8hRhNopvoRlRwC"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "baseComponent"
-    },
-    {
-        "id": "sd_gT8hRhNopvoRlRwC",
-        "type": "Script",
-        "z": "sd_2SmtltpgSscQJfqT",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "page.sideNav = true",
-        "functionName": "sd_gT8hRhNopvoRlRwC",
-        "category": "Function",
-        "x": 190,
-        "y": 170,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true,
-        "serviceName": "baseComponent"
-    },
-    {
         "id": "sd_a5s53L3rtVWyPezi",
         "type": "PageStart",
         "z": "sd_2SmtltpgSscQJfqT",
@@ -386,7 +344,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent"
+        "serviceName": "baseComponent",
+        "generated": false
     },
     {
         "id": "sd_pTekq9v8lzFG0mju",
@@ -405,7 +364,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_79sAUr1hPTnu0CV0",
@@ -429,7 +389,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent"
+        "serviceName": "baseComponent",
+        "generated": false
     },
     {
         "id": "sd_KVlNAJ6NtuO27Mha",
@@ -448,7 +409,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_C7U6I28HfK0hKDmD",
@@ -472,7 +434,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent"
+        "serviceName": "baseComponent",
+        "generated": false
     },
     {
         "id": "sd_bo8G9H0I7TNYxzAR",
@@ -515,7 +478,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent"
+        "serviceName": "baseComponent",
+        "generated": false
     },
     {
         "id": "sd_4Y6EVejP40Y0iuRl",
@@ -558,7 +522,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent"
+        "serviceName": "baseComponent",
+        "generated": false
     },
     {
         "id": "sd_4tj3WGNebkyyBzpN",
@@ -595,7 +560,8 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": true,
+        "generated": false
     },
     {
         "id": "sd_Ld8Z0R56kFnzLxOy",
@@ -704,6 +670,195 @@
         "functionName": "sd_Xuc0VNU6iF0UqpDu",
         "category": "Function",
         "x": 505,
+        "y": 80,
+        "wires": [
+            [
+                "sd_ti9tbxXUHmz0mETK"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_bBI3haJHdgSgCxGE",
+        "type": "PageStart",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open side nav",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "openSideNav",
+        "category": "General",
+        "x": 85,
+        "y": 170,
+        "wires": [
+            [
+                "sd_gT8hRhNopvoRlRwC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "baseComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_gT8hRhNopvoRlRwC",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.sideNav = true",
+        "functionName": "sd_gT8hRhNopvoRlRwC",
+        "category": "Function",
+        "x": 190,
+        "y": 170,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gJou2q5G1yg8OEfv",
+        "type": "PageStart",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "storePersonalDetails",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "storePersonalDetails",
+        "category": "General",
+        "x": 345,
+        "y": 220,
+        "wires": [
+            [
+                "sd_d19JDsdecgfUp9PQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "baseComponent",
+        "generated": false
+    },
+    {
+        "id": "sd_d19JDsdecgfUp9PQ",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.key = 'currentUserDetails';\nbh.data = page.personalDetails;",
+        "functionName": "sd_d19JDsdecgfUp9PQ",
+        "category": "Function",
+        "x": 465,
+        "y": 220,
+        "wires": [
+            [
+                "sd_ofK1VwHBpVgur1kM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ofK1VwHBpVgur1kM",
+        "type": "PageCallService",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_Yi9MXSZoEVL34c9W",
+            "flowName": "storePersonalDetails"
+        },
+        "inputVariables": [
+            {
+                "key": "data",
+                "map": true,
+                "valueType": "bh",
+                "value": "data"
+            },
+            {
+                "key": "key",
+                "map": true,
+                "valueType": "bh",
+                "value": "key"
+            }
+        ],
+        "outputMapping": [],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "storePersonalDetails",
+        "inputParams": [
+            "bh.data",
+            "bh.key"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_ofK1VwHBpVgur1kM",
+        "category": "General",
+        "x": 565,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generated": true,
+        "generateNext": false
+    },
+    {
+        "id": "sd_ti9tbxXUHmz0mETK",
+        "type": "PageCallService",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_2SmtltpgSscQJfqT",
+            "type": "tab",
+            "createdDate": "2022-09-15T09:34:42.828Z",
+            "label": "base",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_gJou2q5G1yg8OEfv",
+            "flowName": "storePersonalDetails"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./base",
+        "startName": "storePersonalDetails",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "sd_ti9tbxXUHmz0mETK",
+        "category": "General",
+        "x": 605,
         "y": 80,
         "wires": [
             []

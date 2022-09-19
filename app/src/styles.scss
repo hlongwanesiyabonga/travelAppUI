@@ -226,7 +226,10 @@ bh-base, bh-profile_dialog{
     height: 100%;
 }
 .fullWidth{
-    width: 100%;
+    width: 100%!important;
+}
+.mat-form-field {
+    width:100%
 }
 .marginTop20{
     margin-top: 20px;

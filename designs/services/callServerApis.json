@@ -94,7 +94,8 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": true,
+        "serviceName": "callServerApis"
     },
     {
         "id": "sd_uFfzVvBAauUEjRTo",
@@ -124,7 +125,6 @@
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
-        "method": "",
         "methodMapping": "bh.input.method",
         "methodMappingObj": {
             "mapVarType": "bh.input",
@@ -136,10 +136,8 @@
             "mapVarValue": "apiUrl"
         },
         "ret": "json",
-        "retMapping": "",
         "retMappingObj": {},
         "observe": "",
-        "observeMapping": "",
         "observeMappingObj": {},
         "reportProgress": false,
         "withCreds": false,
@@ -155,16 +153,148 @@
         },
         "headers": {},
         "headersObj": [],
-        "headerMapping": "",
         "headerMappingObj": {},
         "params": {},
         "paramsObj": [],
-        "paramMapping": "",
         "paramMappingObj": {},
         "functionName": "sd_hUBaFoLrD4z6GgAt",
         "category": "HTTP",
         "x": 625,
         "y": 160,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Yi9MXSZoEVL34c9W",
+        "type": "Start",
+        "z": "sd_hkAMxxfqyGUP7RIf",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "storePersonalDetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "data",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "key",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "storePersonalDetails",
+        "category": "General",
+        "x": 240,
+        "y": 320,
+        "wires": [
+            [
+                "sd_uFTNqoeQxuwdpbDd"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "callServerApis"
+    },
+    {
+        "id": "sd_uFTNqoeQxuwdpbDd",
+        "type": "Storage",
+        "z": "sd_hkAMxxfqyGUP7RIf",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "setItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "bh.input",
+            "value": "key"
+        },
+        "value": {
+            "type": "bh.input",
+            "value": "data"
+        },
+        "resultMapping": {},
+        "functionName": "sd_uFTNqoeQxuwdpbDd",
+        "category": "Storage",
+        "x": 380,
+        "y": 320,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jY4xXM440T9ImYCs",
+        "type": "Start",
+        "z": "sd_hkAMxxfqyGUP7RIf",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "getPersonalDetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "key",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "getPersonalDetails",
+        "category": "General",
+        "x": 245,
+        "y": 420,
+        "wires": [
+            [
+                "sd_XyWiOPpTHTKW5h1m"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "callServerApis"
+    },
+    {
+        "id": "sd_XyWiOPpTHTKW5h1m",
+        "type": "Storage",
+        "z": "sd_hkAMxxfqyGUP7RIf",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "bh.input",
+            "value": "key"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "bh.local",
+            "value": "requesterDetails"
+        },
+        "functionName": "sd_XyWiOPpTHTKW5h1m",
+        "category": "Storage",
+        "x": 385,
+        "y": 420,
         "wires": [
             []
         ],

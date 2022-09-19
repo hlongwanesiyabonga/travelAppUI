@@ -8,8 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -76,20 +74,6 @@ export class baseComponent {
       //appendnew_next_openProfile
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_C5MkKFqUM97bJ9eO');
-    }
-  }
-
-  openSideNav(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_gT8hRhNopvoRlRwC(bh);
-      //appendnew_next_openSideNav
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_bBI3haJHdgSgCxGE');
     }
   }
 
@@ -163,6 +147,34 @@ export class baseComponent {
     }
   }
 
+  openSideNav(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_gT8hRhNopvoRlRwC(bh);
+      //appendnew_next_openSideNav
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_bBI3haJHdgSgCxGE');
+    }
+  }
+
+  storePersonalDetails(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_d19JDsdecgfUp9PQ(bh);
+      //appendnew_next_storePersonalDetails
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_gJou2q5G1yg8OEfv');
+    }
+  }
+
   //appendnew_flow_baseComponent_start
 
   sd_nrTQrGEzRLT39o1H(bh) {
@@ -226,10 +238,22 @@ export class baseComponent {
     try {
       const page = this.page;
       console.log('hi', page.personalDetails);
+      bh = this.sd_ti9tbxXUHmz0mETK(bh);
       //appendnew_next_sd_Xuc0VNU6iF0UqpDu
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Xuc0VNU6iF0UqpDu');
+    }
+  }
+
+  sd_ti9tbxXUHmz0mETK(bh) {
+    try {
+      let outputVariables = this.storePersonalDetails();
+
+      //appendnew_next_sd_ti9tbxXUHmz0mETK
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ti9tbxXUHmz0mETK');
     }
   }
 
@@ -244,17 +268,6 @@ export class baseComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_NtXl4H7miZSfSkAz');
-    }
-  }
-
-  sd_gT8hRhNopvoRlRwC(bh) {
-    try {
-      const page = this.page;
-      page.sideNav = true;
-      //appendnew_next_sd_gT8hRhNopvoRlRwC
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_gT8hRhNopvoRlRwC');
     }
   }
 
@@ -331,6 +344,47 @@ export class baseComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_4tj3WGNebkyyBzpN');
+    }
+  }
+
+  sd_gT8hRhNopvoRlRwC(bh) {
+    try {
+      const page = this.page;
+      page.sideNav = true;
+      //appendnew_next_sd_gT8hRhNopvoRlRwC
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_gT8hRhNopvoRlRwC');
+    }
+  }
+
+  sd_d19JDsdecgfUp9PQ(bh) {
+    try {
+      const page = this.page;
+      bh.key = 'currentUserDetails';
+      bh.data = page.personalDetails;
+      bh = this.sd_ofK1VwHBpVgur1kM(bh);
+      //appendnew_next_sd_d19JDsdecgfUp9PQ
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_d19JDsdecgfUp9PQ');
+    }
+  }
+
+  async sd_ofK1VwHBpVgur1kM(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.storePersonalDetails(
+        bh.data,
+        bh.key
+      );
+
+      //appendnew_next_sd_ofK1VwHBpVgur1kM
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_ofK1VwHBpVgur1kM');
     }
   }
 
