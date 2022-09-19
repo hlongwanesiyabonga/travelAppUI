@@ -24,6 +24,7 @@ import {
   FormArray,
 } from '@angular/forms'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
+import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -506,10 +507,26 @@ export class new_travel_requestComponent {
       );
       this.page.personalDetails = outputVariables.local.result;
 
+      bh = this.patchPersonalDetails(bh);
       //appendnew_next_sd_Ch8sySv6dqg810X7
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_Ch8sySv6dqg810X7');
+    }
+  }
+
+  patchPersonalDetails(bh) {
+    try {
+      const page = this.page;
+      console.log('details', page.personalDetails);
+      page.personalDetails['dateOfBirth'] = new Date(
+        page.personalDetails['dateOfBirth']
+      );
+      page.personalDetailsForm.patchValue(page.personalDetails);
+      //appendnew_next_patchPersonalDetails
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_LQoAlhbQMQGJHsbq');
     }
   }
 
@@ -793,15 +810,6 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_7E0kFOs0S0LoIGyd');
-    }
-  }
-
-  sd_IkYmTrbB761aiehg(bh) {
-    try {
-      //appendnew_next_sd_IkYmTrbB761aiehg
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_IkYmTrbB761aiehg');
     }
   }
 

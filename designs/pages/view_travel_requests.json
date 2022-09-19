@@ -26,65 +26,12 @@
         "y": 60,
         "wires": [
             [
-                "sd_euaePgZyuOERpVdN"
+                "sd_r1j8FWohTKWPX67C"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
-    },
-    {
-        "id": "sd_3m4hJPLPaowq9zBr",
-        "type": "Script",
-        "z": "sd_OefGVbZestbMEEML",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "console.log(bh.input.filterEvent);\nconst filterValue = (bh.input.filterEvent.target as HTMLInputElement).value;\nthis.page.tableData.filter = filterValue.trim().toLowerCase();",
-        "functionName": "sd_iBlFYTlpoczCmWts_2",
-        "category": "Function",
-        "x": 205,
-        "y": 180,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
-    },
-    {
-        "id": "sd_4QB6d44LFvxAJuWT",
-        "type": "PageStart",
-        "z": "sd_OefGVbZestbMEEML",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "onFilter_2",
-        "outputs": 1,
-        "inputVariables": [
-            {
-                "key": "filterEvent",
-                "defaultValue": {
-                    "type": "any",
-                    "value": ""
-                },
-                "output": false
-            }
-        ],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "onFilter_2",
-        "category": "General",
-        "x": 80,
-        "y": 180,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_FVFM6b18mqiSTaD8",
@@ -106,8 +53,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_Nj7JYJQRKun10fTt",
@@ -178,8 +124,8 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generated": false,
-        "generateNext": true
+        "generateNext": true,
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_at2x8c2BiP90Q9zo",
@@ -192,34 +138,69 @@
         "isValidNode": true,
         "noerr": 0,
         "service": {
-            "id": "sd_OefGVbZestbMEEML",
+            "id": "sd_hkAMxxfqyGUP7RIf",
             "type": "tab",
-            "createdDate": "2022-06-28T16:19:01.917Z",
-            "label": "view_travel_requests",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
             "disabled": false,
             "info": "",
-            "functionSeq": 2
+            "functionSeq": 0
         },
         "flow": {
-            "flowId": "sd_FVFM6b18mqiSTaD8",
-            "flowName": "getAllRequests"
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
         },
-        "inputVariables": [],
-        "outputMapping": [],
-        "serviceImportPath": "./view_travel_requests",
-        "startName": "getAllRequests",
-        "inputParams": [],
-        "accept_csd": false,
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "tableData",
+                "mapVarName": "result",
+                "localVar": "this.page.tableData"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
         "functionName": "sd_at2x8c2BiP90Q9zo",
         "category": "General",
-        "x": 545,
+        "x": 485,
         "y": 60,
         "wires": [
-            []
+            [
+                "sd_euaePgZyuOERpVdN"
+            ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": false,
+        "generated": true
     },
     {
         "id": "sd_uPzoWgHpbxik0uGR",
@@ -239,8 +220,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_UHh7ERTnGX4wuAzy",
@@ -278,8 +258,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_hhelqou3YkSwpMEn",
@@ -297,8 +276,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_euaePgZyuOERpVdN",
@@ -307,15 +285,13 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "initialize table",
-        "script": "//bh.local.dataSource = new MatTableDataSource([]);",
+        "script": "console.log(\"tableData\",page.tableData)",
         "functionName": "initializeTable",
         "category": "Function",
-        "x": 305,
-        "y": 60,
+        "x": 625,
+        "y": 40,
         "wires": [
-            [
-                "sd_r1j8FWohTKWPX67C"
-            ]
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -332,13 +308,6 @@
         "outputs": 1,
         "operation": "set",
         "globalVariables": [
-            {
-                "textIp": "tableData",
-                "typedIpValue": {
-                    "type": "bh.local",
-                    "value": "dataSource"
-                }
-            },
             {
                 "textIp": "travelRequestsData",
                 "typedIpValue": {
@@ -359,14 +328,23 @@
                     "type": "literal",
                     "value": "[]"
                 }
+            },
+            {
+                "textIp": "tableData",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_E9QbOlnVduPNV5MO_1",
         "category": "Function",
-        "x": 425,
+        "x": 245,
         "y": 60,
         "wires": [
-            []
+            [
+                "sd_4JhZ43hP10YOEhoO"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -409,8 +387,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_xTBFQhKigY97fATB",
@@ -430,8 +407,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_T5JMllQjltZ9ihQX",
@@ -455,8 +431,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_e2jI7LQDxK8XdWjP",
@@ -466,6 +441,13 @@
         "nodeType": "flow",
         "name": "",
         "path": "/home/new-request",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
         "functionName": "sd_e2jI7LQDxK8XdWjP",
         "category": "Navigation",
         "x": 240,
@@ -478,22 +460,24 @@
         "generated": true
     },
     {
-        "id": "sd_mrou17ks70fZXpqi",
+        "id": "sd_4JhZ43hP10YOEhoO",
         "type": "Script",
         "z": "sd_OefGVbZestbMEEML",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "let tableSetup = {\n    \"generalLedgerList\": {\n        \"tableHeaders\": ['Vote ID', 'Vote Description', 'Date and Time', 'Vote Status', 'Requestor', 'Transaction ID', 'Item', 'Function', 'Project', 'Fund', 'Region', 'Costing'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'DateCreated', 'voteReqStatus', 'requestor', 'transactionType', 'item', 'function', 'project', 'fund', 'region', 'costing']\n    },\n    \"deactivationRequestList\": {\n        \"tableHeaders\": ['Vote ID', 'Vote Description', 'Department', 'Vote Status', 'Deactivation Reason', 'Requestor', 'Date and Time'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'department', 'voteReqStatus', 'rejectionReason', 'requestor', 'DateCreated']\n    },\n    \"glCreationRequestsList\": {\n        \"tableHeaders\": ['GL Creation Request Nos', 'Vote Description', 'Department', 'Requestor', 'Date and Time', 'GL Creation Request Status'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'department', 'requestor', 'DateCreated', 'voteReqStatus']\n    },\n    \"approvedOrRejectedRequests\": {\n        \"tableHeaders\": ['GL Creation Request Nos', 'Vote Description', 'Deactivation Request Nos', 'Rejection Reason', 'Department', 'Requestor', 'Date and Time'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'deactivationRequestNos', 'rejectionReason', 'department', 'requestor', 'DateCreated']\n    },\n};\n// let selectedReport = bh.input.api.slice(8);\nconsole.log(bh.input.api,\"api\")\npage.tableHeaders = tableSetup[selectedReport]['tableHeaders'];\npage.tableCells = tableSetup[selectedReport]['tableCells'];",
-        "functionName": "sd_mrou17ks70fZXpqi",
+        "script": "bh.method = \"get\",\nbh.endPoint = \"travelRequests/getTravelRequests\"",
+        "functionName": "sd_4JhZ43hP10YOEhoO",
         "category": "Function",
-        "x": 305,
-        "y": 160,
+        "x": 365,
+        "y": 60,
         "wires": [
-            []
+            [
+                "sd_at2x8c2BiP90Q9zo"
+            ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": false,
+        "generated": true
     }
 ]
