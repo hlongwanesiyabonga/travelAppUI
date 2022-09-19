@@ -1,8 +1,6 @@
 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
   <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
-    <div fxLayout="row wrap" class="headerContainer" fxLayoutAlign="space-between center" [fxShow]="true">
-      <div fxLayout="column wrap" fxLayoutAlign="center stretch" [fxShow]="true"></div>
-    </div>
+    <div fxLayout="row wrap" class="headerContainer" fxLayoutAlign="space-between center" [fxShow]="true"></div>
     <div fxLayout="row wrap" class="marginBottom1em" fxLayoutAlign="start stretch" [fxShow]="true">
       <mat-card>
         <mat-card-content>
@@ -30,7 +28,7 @@
                 <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     Date Of Birth</label>
                   <mat-form-field [appearance]="&apos;outline&apos;">
-                    <input matInput placeholder="DD/MM/YYYY" [matDatepicker]="picker" formControlName="dob" [max]="page.date" [required]="false" [disabled]="false">
+                    <input matInput placeholder="DD/MM/YYYY" [matDatepicker]="picker" formControlName="dateOfBirth" [max]="page.date" [required]="false" [disabled]="false">
                     <mat-datepicker-toggle matSuffix [for]="picker" disabled="false"></mat-datepicker-toggle>
                     <mat-datepicker #picker [disabled]="false"></mat-datepicker>
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.dob?.errors?.required">Date of Birth is Required</mat-error>
@@ -101,7 +99,7 @@
                 <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" [formGroupName]="i">
                   <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                     <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" formGroupName="travelDetails">
-                      <div fxLayout="column wrap" class="marginBottom1em" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
+                      <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
                         <div fxLayout="row wrap" class="marginBottom1em fullWidth" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true">
                           <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                             <div class="noMargin">
@@ -113,7 +111,7 @@
                           </div>
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49">
                             <mat-radio-group class="fullWidth" formControlName="tripType" [required]="false">
-                              <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true" fxLayoutAlign.xs="start start">
+                              <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true">
                                 <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="space-between center" [fxShow]="true">
                                   <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                                     <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
@@ -134,54 +132,6 @@
                         </div>
                         <div fxLayout="row wrap" class="grayBorderBottom" fxLayoutAlign="start stretch" [fxShow]="true"></div>
                         <div fxLayout="row wrap" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true">
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
-                              Airline</label>
-                            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                              <input matInput placeholder="AirLine" [required]="false" [disabled]="true">
-
-                            </mat-form-field>
-                            <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"></div>
-                          </div>
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
-                              Price</label>
-                            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                              <input matInput placeholder="Price" [required]="false" [disabled]="true">
-
-                            </mat-form-field>
-                            <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"></div>
-                          </div>
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
-                              Airline</label>
-                            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                              <input matInput placeholder="AirLine" [required]="false" [disabled]="true">
-
-                            </mat-form-field>
-                            <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"></div>
-                          </div>
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
-                              Price</label>
-                            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                              <input matInput placeholder="Price" [required]="false" [disabled]="true">
-
-                            </mat-form-field>
-                            <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"></div>
-                          </div>
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
-                              Airline</label>
-                            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                              <input matInput placeholder="AirLine" [required]="false" [disabled]="true">
-
-                            </mat-form-field>
-                            <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"></div>
-                          </div>
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
-                              Price</label>
-                            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                              <input matInput placeholder="Price" [required]="false" [disabled]="true">
-
-                            </mat-form-field>
-                            <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"></div>
-                          </div>
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               Purpose Of Travel</label>
                             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;">
@@ -273,6 +223,38 @@
                               <mat-error align="end" *ngIf="page.travelForm.controls.requestDetails.controls[0].controls.travelDetails.controls.preferredTime?.errors?.required">Preferred Time is Requuired</mat-error>
                             </mat-form-field>
                           </div>
+                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                              Request Type</label>
+                            <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true">
+                              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                                <mat-radio-group class="fullWidth" formControlName="requestType" [required]="true">
+                                  <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                                    <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="space-between center" [fxShow]="true">
+                                      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                                        <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
+                                          <mat-radio-button [value]="&apos;Self&apos;" [required]="false" (change)="hideRequstedfor()"></mat-radio-button><label>
+                                            Self</label>
+                                        </div>
+                                      </div>
+                                      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                                        <div fxLayout="row wrap" class="groupedInput" fxLayoutAlign="space-between center" [fxShow]="true">
+                                          <mat-radio-button [value]="&apos;On Behalf&apos;" [required]="false" (change)="showRequstedfor()"></mat-radio-button><label>
+                                            On Behalf</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                          </div>
+                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showHideElement"><label>
+                              Requested For</label>
+                            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                              <input matInput placeholder="Requested For" [required]="false" formControlName="requestedFor">
+                              <mat-error align="end" *ngIf="page.travelForm.controls.requestDetails.controls[0].controls.travelDetails.controls.requestedFor?.errors?.required">Requested For is required</mat-error>
+                            </mat-form-field>
+                          </div>
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               From Date</label>
                             <mat-form-field [appearance]="&apos;outline&apos;" (click)="fromDate.open()">
@@ -322,41 +304,9 @@
                               </div>
                             </div>
                           </div>
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
-                              Request Type</label>
-                            <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true">
-                              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-                                <mat-radio-group class="fullWidth" formControlName="requestType" [required]="true">
-                                  <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-                                    <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="space-between center" [fxShow]="true">
-                                      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-                                        <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
-                                          <mat-radio-button [value]="&apos;Self&apos;" [required]="false" (change)="hideRequstedfor()"></mat-radio-button><label>
-                                            Self</label>
-                                        </div>
-                                      </div>
-                                      <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-                                        <div fxLayout="row wrap" class="groupedInput" fxLayoutAlign="space-between center" [fxShow]="true">
-                                          <mat-radio-button [value]="&apos;On Behalf&apos;" [required]="false" (change)="showRequstedfor()"></mat-radio-button><label>
-                                            On Behalf</label>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </mat-radio-group>
-                              </div>
-                            </div>
-                          </div>
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showHideElement"><label>
-                              Requested For</label>
-                            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                              <input matInput placeholder="Requested For" [required]="false" formControlName="requestedFor">
-                              <mat-error align="end" *ngIf="page.travelForm.controls.requestDetails.controls[0].controls.travelDetails.controls.requestedFor?.errors?.required">Requested For is required</mat-error>
-                            </mat-form-field>
-                          </div>
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49">
                             <div>
-                              Need A Vehicle?</div>
+                              Need A Vehicle</div>
                             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
                               <mat-select formControlName="needvehicle" placeholder="Need A Vehicle" [required]="false">
                                 <ng-template ngFor let-option [ngForOf]="page.options" let-i="index">
@@ -373,8 +323,7 @@
                             </mat-form-field>
                           </div>
                           <div fxLayout="column wrap" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true"><label class="marinTop1em">
-                              Upload Covid Certificate</label><label class="marinTop1em">
-
+                              <label class="marginBottom1em">Upload Covid Certificate</label>
 
                               <input formControlName="covidCertificate" id="file" type="file" class="form-control" (change)="onFileChange($event)">
                               <!-- <input type="file" (change)="csvInputChange($event)" formControlName ="covidCertificate"/> -->
@@ -387,9 +336,7 @@
                               <!-- <button type="button" (click)="RequestUpload()">Ok</button> -->
                             </label></div>
                           <div fxLayout="column wrap" class="marginBottom2em inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showVisa"><label class="marinTop1em">
-                              Upload Passport
-                            </label><label class="marinTop1em">
-
+                              <label class="marginBottom1em">Upload Passport</label>
                               <input formControlName="passport" id="file" type="file" class="form-control" (change)="onFileChange($event)">
                               <!-- <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
             <div *ngIf="f.file.errors.required">File is required.</div>
@@ -404,10 +351,31 @@
  -->
                               <!-- <button type="button" (click)="RequestUpload()">Ok</button> -->
                             </label></div>
+                          <div fxLayout="column wrap" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true">
+                            <mat-radio-group class="fullWidth" formControlName="needAccommodation" [required]="true">
+                              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true"><label>
+                                  Need Accommodation</label>
+                                <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true">
+                                  <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                                    <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
+                                      <mat-radio-button [value]="&apos;Yes&apos;" [required]="false"></mat-radio-button><label>
+                                        Yes</label>
+                                    </div>
+                                  </div>
+                                  <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                                    <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
+                                      <mat-radio-button [value]="&apos;No&apos;" [required]="false"></mat-radio-button><label>
+                                        No</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </mat-radio-group>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div fxLayout="row wrap" class="fullWidth" fxLayoutGap=".7em" fxLayoutAlign="start center" [fxShow]="true" formGroupName="accommodationDetails">
+                    <div fxLayout="row wrap" class="fullWidth" fxLayoutGap=".7em" fxLayoutAlign="start center" [fxShow]="true" formGroupName="accommodationDetails" *ngIf="page.travelForm.value?.requestDetails[i].travelDetails?.needAccommodation == &apos;Yes&apos;">
                       <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                         <h1 class="purpleColor">
                           <mat-icon>location_city</mat-icon>Accommodation Details
@@ -470,7 +438,7 @@
                             </mat-form-field>
                           </div>
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
-                              Employee Comment</label>
+                              Traveler Comment</label>
                             <mat-form-field [appearance]="&apos;outline&apos;">
                               <textarea matInput formControlName="employeeComments" placeholder="Text Area" [required]="false"></textarea>
                             </mat-form-field>
@@ -478,7 +446,7 @@
                         </div>
                       </div>
                     </div>
-                    <div fxLayout="row wrap" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.showHideButton"><button mat-raised-button class="blackButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length === (i + 1)" (click)="addNewRequestForm()" [disabled]="!page.travelForm.valid">
+                    <div fxLayout="row wrap" class="marginTop20" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.showHideButton"><button mat-raised-button class="blackButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length === (i + 1)" (click)="addNewRequestForm()" [disabled]="!page.travelForm.valid">
                         <mat-icon>add</mat-icon>Add
                       </button><button mat-raised-button class="redButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length &gt; 1" (click)="removeNewRequestForm(i)">
                         <mat-icon>clear</mat-icon>Remove
@@ -494,7 +462,7 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
     <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginBottom1em marinTop1em" fxLayoutGap="2em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Cancel</button><button mat-button class="redButton" (click)="tdetails(page.travelForm.value,page.personalDetailsForm.value)" [disabled]="page.travelForm.status == &apos;INVALID&apos;">Submit</button><button mat-raised-button class="grayButton" (click)="saveAsDraft(page.travelForm)">Save As Draft</button></div>
+      <div fxLayout="row wrap" class="marginBottom1em marinTop1em" fxLayoutGap="2em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Cancel</button><button mat-button class="redButton" (click)="tdetails(page.travelForm.value,page.personalDetailsForm.value)">Submit</button><button mat-raised-button class="grayButton" (click)="saveAsDraft(page.travelForm.value,&apos;draft&apos;)">Save As Draft</button></div>
     </div>
   </div>
 </div>

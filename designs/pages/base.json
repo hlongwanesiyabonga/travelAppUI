@@ -96,6 +96,34 @@
                     "type": "literal",
                     "value": "false"
                 }
+            },
+            {
+                "textIp": "method",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "body",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "endPoint",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "personalDetails",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_nrTQrGEzRLT39o1H",
@@ -103,7 +131,9 @@
         "x": 185,
         "y": 80,
         "wires": [
-            []
+            [
+                "sd_omtxhHSTT0bkCN7b"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -566,5 +596,120 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true
+    },
+    {
+        "id": "sd_Ld8Z0R56kFnzLxOy",
+        "type": "PageCallService",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "this.page",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "personalDetails",
+                "mapVarName": "result",
+                "localVar": "this.page.personalDetails"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_Ld8Z0R56kFnzLxOy",
+        "category": "General",
+        "x": 405,
+        "y": 80,
+        "wires": [
+            [
+                "sd_Xuc0VNU6iF0UqpDu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_omtxhHSTT0bkCN7b",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.email = \"neo.thobela@neutrinos.co\"\nbh.method = \"get\",\nbh.endPoint = \"genericGet/getPersonalDetails?email=\"+page.email;\nconsole.log(page.profileForm)",
+        "functionName": "sd_omtxhHSTT0bkCN7b",
+        "category": "Function",
+        "x": 305,
+        "y": 80,
+        "wires": [
+            [
+                "sd_Ld8Z0R56kFnzLxOy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Xuc0VNU6iF0UqpDu",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log('hi',page.personalDetails)",
+        "functionName": "sd_Xuc0VNU6iF0UqpDu",
+        "category": "Function",
+        "x": 505,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
     }
 ]

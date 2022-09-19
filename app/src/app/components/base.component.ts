@@ -14,6 +14,7 @@ import {
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
+import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MatDialog } from '@angular/material/dialog'; //_splitter_
 import { profile_dialogComponent } from './profile_dialog.component'; //_splitter_
 //append_imports_end
@@ -174,10 +175,61 @@ export class baseComponent {
       this.page.showDrafts = false;
       this.page.showNewRequests = false;
       this.page.showLogout = false;
+      this.page.method = undefined;
+      this.page.body = undefined;
+      this.page.endPoint = undefined;
+      this.page.personalDetails = undefined;
+      bh = this.sd_omtxhHSTT0bkCN7b(bh);
       //appendnew_next_sd_nrTQrGEzRLT39o1H
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_nrTQrGEzRLT39o1H');
+    }
+  }
+
+  sd_omtxhHSTT0bkCN7b(bh) {
+    try {
+      const page = this.page;
+      page.email = 'neo.thobela@neutrinos.co';
+      (bh.method = 'get'),
+        (bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email);
+      console.log(page.profileForm);
+      bh = this.sd_Ld8Z0R56kFnzLxOy(bh);
+      //appendnew_next_sd_omtxhHSTT0bkCN7b
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_omtxhHSTT0bkCN7b');
+    }
+  }
+
+  async sd_Ld8Z0R56kFnzLxOy(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.personalDetails = outputVariables.local.result;
+
+      bh = this.sd_Xuc0VNU6iF0UqpDu(bh);
+      //appendnew_next_sd_Ld8Z0R56kFnzLxOy
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_Ld8Z0R56kFnzLxOy');
+    }
+  }
+
+  sd_Xuc0VNU6iF0UqpDu(bh) {
+    try {
+      const page = this.page;
+      console.log('hi', page.personalDetails);
+      //appendnew_next_sd_Xuc0VNU6iF0UqpDu
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Xuc0VNU6iF0UqpDu');
     }
   }
 

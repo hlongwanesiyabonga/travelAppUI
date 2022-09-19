@@ -1627,7 +1627,6 @@
                     "paletteKey": "Html5",
                     "parentEditorKey": "bfd02965-b4c4-592e-8bac-c4bd93b68421",
                     "isAdvancedComponent": true,
-                    "isCommented": "false",
                     "commentid": null,
                     "designerReference": [
                         {
@@ -1815,7 +1814,6 @@
                         "paletteKey": "html-editor",
                         "parentEditorKey": "65bb22aa-3001-d84d-989c-4e1351f775f4",
                         "isAdvancedChildComponent": true,
-                        "isCommented": "false",
                         "commentid": null,
                         "designerReference": [
                             {
