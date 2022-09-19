@@ -31,8 +31,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_3m4hJPLPaowq9zBr",
@@ -51,8 +50,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_4QB6d44LFvxAJuWT",
@@ -83,8 +81,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_FVFM6b18mqiSTaD8",
@@ -106,8 +103,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_Nj7JYJQRKun10fTt",
@@ -178,7 +174,6 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generated": false,
         "generateNext": true
     },
     {
@@ -209,6 +204,7 @@
         "serviceImportPath": "./view_travel_requests",
         "startName": "getAllRequests",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_at2x8c2BiP90Q9zo",
         "category": "General",
@@ -218,8 +214,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_uPzoWgHpbxik0uGR",
@@ -239,8 +234,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_UHh7ERTnGX4wuAzy",
@@ -278,8 +272,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_hhelqou3YkSwpMEn",
@@ -297,8 +290,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_euaePgZyuOERpVdN",
@@ -409,8 +401,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_xTBFQhKigY97fATB",
@@ -430,8 +421,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_T5JMllQjltZ9ihQX",
@@ -455,8 +445,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "view_travel_requestsComponent",
-        "generated": false
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_e2jI7LQDxK8XdWjP",
@@ -466,6 +455,13 @@
         "nodeType": "flow",
         "name": "",
         "path": "/home/new-request",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
         "functionName": "sd_e2jI7LQDxK8XdWjP",
         "category": "Navigation",
         "x": 240,
@@ -493,7 +489,6 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     }
 ]

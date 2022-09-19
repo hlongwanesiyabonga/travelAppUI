@@ -32,6 +32,12 @@
         "mat-radio-checked",
         "mat-radio-outer-circle",
         "height79px",
+        "mat-button",
+        "mat-primary",
+        "mat-button-disabled",
+        "mat-warn",
+        "mat-icon-button",
+        "mat-stroked-button",
         "fontSize3em",
         "mat-radio-inner-circle",
         "mat-radio-ripple",
@@ -86,6 +92,7 @@
         "mat-calendar-body-selected",
         "mat-focused",
         "mat-form-field-outline-thick",
-        "mat-datepicker-toggle-active"
+        "mat-datepicker-toggle-active",
+        "selectedRadioButton"
     ]
 }

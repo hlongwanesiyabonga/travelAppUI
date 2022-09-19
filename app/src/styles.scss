@@ -98,6 +98,10 @@ bh-view_travel_requests {
 .height79px{
         height: 79px;
 }
+.mat-button.mat-primary.mat-button-disabled, .mat-button.mat-accent.mat-button-disabled, .mat-button.mat-warn.mat-button-disabled, .mat-button.mat-button-disabled.mat-button-disabled, .mat-icon-button.mat-primary.mat-button-disabled, .mat-icon-button.mat-accent.mat-button-disabled, .mat-icon-button.mat-warn.mat-button-disabled, .mat-icon-button.mat-button-disabled.mat-button-disabled, .mat-stroked-button.mat-primary.mat-button-disabled, .mat-stroked-button.mat-accent.mat-button-disabled, .mat-stroked-button.mat-warn.mat-button-disabled, .mat-stroked-button.mat-button-disabled.mat-button-disabled {
+    color: white;
+    background: #ec1c2491;
+}
   
 .fontSize3em{
     font-size:3em;
@@ -325,5 +329,9 @@ border-radius: 6px;
     color: $black;
 }
 .mat-datepicker-toggle-active {
+    color: $red;
+}
+.selectedRadioButton{
+    border: solid 1px $red;
     color: $red;
 }
