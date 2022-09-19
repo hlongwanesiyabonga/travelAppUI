@@ -61,13 +61,16 @@
         "serviceImportPath": "./view_travel_requests",
         "startName": "getTravelRequests",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_SSbGg5g6eV3KHa01",
         "category": "General",
         "x": 485,
         "y": 100,
         "wires": [
-            []
+            [
+                "sd_BSTpLgaf8MQyg93d"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -97,6 +100,13 @@
                 "typedIpValue": {
                     "type": "literal",
                     "value": "{}"
+                }
+            },
+            {
+                "textIp": "dashboardCards",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
                 }
             }
         ],
@@ -552,6 +562,25 @@
         "category": "Function",
         "x": 425,
         "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_BSTpLgaf8MQyg93d",
+        "type": "Script",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.dashboardCards =[\n    {amount: 15, topText: 'Total', icon : 'description'},\n    {amount: 5, topText: 'Approved', icon : 'thumb_up'},\n    {amount: 4, topText: 'Rejected', icon : 'thumb_down'},\n    {amount: 6, topText: 'Pending', icon : 'hourglass_full'},\n];",
+        "functionName": "sd_BSTpLgaf8MQyg93d",
+        "category": "Function",
+        "x": 600,
+        "y": 100,
         "wires": [
             []
         ],

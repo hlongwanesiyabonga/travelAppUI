@@ -338,3 +338,35 @@ border-radius: 6px;
     border: solid 1px $red;
     color: $red;
 }
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: $red;
+  border-radius: 10px;
+}
+
+.cardBox{
+    border: 1px solid $red;
+    border-radius: 10px;
+    width: 222px;
+    // padding: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    .leftPanel{
+        background: white;     
+        height: 100%;     
+        width: 110px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    .rightPanel{
+        background-color: $red;     
+        height: 100%;     
+        width: 110px;
+        color: white;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}

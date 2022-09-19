@@ -124,6 +124,7 @@ export class view_travel_requestsComponent {
     try {
       this.page.tableData = [];
       this.page.currentUserDetails = {};
+      this.page.dashboardCards = undefined;
       bh = this.sd_LXI6ABPdqGPWtVPw(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
@@ -149,10 +150,27 @@ export class view_travel_requestsComponent {
     try {
       let outputVariables = this.getTravelRequests();
 
+      bh = this.sd_BSTpLgaf8MQyg93d(bh);
       //appendnew_next_sd_SSbGg5g6eV3KHa01
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_SSbGg5g6eV3KHa01');
+    }
+  }
+
+  sd_BSTpLgaf8MQyg93d(bh) {
+    try {
+      const page = this.page;
+      page.dashboardCards = [
+        { amount: 15, topText: 'Total', icon: 'description' },
+        { amount: 5, topText: 'Approved', icon: 'thumb_up' },
+        { amount: 4, topText: 'Rejected', icon: 'thumb_down' },
+        { amount: 6, topText: 'Pending', icon: 'hourglass_full' },
+      ];
+      //appendnew_next_sd_BSTpLgaf8MQyg93d
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_BSTpLgaf8MQyg93d');
     }
   }
 
