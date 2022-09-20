@@ -4000,6 +4000,23 @@
                                         "_value": "page.showNewRequests",
                                         "_type": "kv",
                                         "_attrDef": "c"
+                                    },
+                                    {
+                                        "_key": "(outputVar)",
+                                        "_value": "showDashboard()",
+                                        "_type": "kv",
+                                        "_attrDef": "p",
+                                        "_complexity": "advanced",
+                                        "displayAs": "outputVar",
+                                        "attrType": "OUTPUT",
+                                        "_customAttributeFlag": "flowpicker",
+                                        "objValue": {
+                                            "nodeID": "sd_a5s53L3rtVWyPezi",
+                                            "functionName": "showDashboard",
+                                            "activeTree": "pages",
+                                            "z": "sd_2SmtltpgSscQJfqT",
+                                            "input": []
+                                        }
                                     }
                                 ]
                             },

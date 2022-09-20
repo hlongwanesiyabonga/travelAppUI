@@ -17,6 +17,17 @@
         "viewType": "common",
         "nodeType": "start",
         "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [
+            {
+                "key": "outputVar",
+                "defaultValue": {
+                    "type": "any",
+                    "value": null
+                }
+            }
+        ],
         "functionName": "sd_SXnm4ototMyRWa27",
         "category": "Lifecycle Events",
         "x": 65,
@@ -792,7 +803,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
     },
     {
         "id": "sd_6DCus0x0CpaOk30t",
@@ -2004,5 +2016,57 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true
+    },
+    {
+        "id": "sd_ZhJ9WfU4oghVZtZs",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "cancel button",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "cancelButton",
+        "category": "General",
+        "x": 825,
+        "y": 540,
+        "wires": [
+            [
+                "sd_E6ZjDNeLnSIeXTM5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_E6ZjDNeLnSIeXTM5",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": " bh.input.form.reset();\n this.outputVar.emit(page.showDashboard)",
+        "functionName": "sd_E6ZjDNeLnSIeXTM5",
+        "category": "Function",
+        "x": 940,
+        "y": 540,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
     }
 ]

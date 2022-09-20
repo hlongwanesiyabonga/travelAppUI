@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-      <div fxLayout="row wrap" class="profileCloseButton" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="row wrap" class="pointer profileCloseButton" fxLayoutAlign="start stretch" [fxShow]="true">
         <mat-icon (click)="closeProfile()">close</mat-icon>
       </div>
     </div>
@@ -130,7 +130,7 @@
             </mat-form-field>
           </div>
         </div>
-        <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="space-between start" [fxShow]="true">
           <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
             <div>
               <p>Line Manager Email</p>
@@ -139,7 +139,8 @@
               <input matInput placeholder="Line Manager Email" [required]="false" formControlName="lineManagerEmail" readonly="true" [disabled]="true">
 
             </mat-form-field>
-          </div><button mat-button class="marginRight20 redButton" (click)="submitForm(page.profileForm.value)">Update</button>
+          </div>
+          <div fxLayout="column wrap" style="    margin-top: 120px;" class="marginRight20" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-button class="redButton" (click)="submitForm(page.profileForm.value)">Update</button></div>
         </div>
       </div>
     </form>
