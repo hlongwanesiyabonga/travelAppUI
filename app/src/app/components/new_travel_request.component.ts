@@ -160,12 +160,12 @@ export class new_travel_requestComponent {
     }
   }
 
-  showVisa(...others) {
+  showVisa(event: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { event: event };
       bh.local = {};
       bh = this.sd_X4aSuU8d6NJHFUCt(bh);
       //appendnew_next_showVisa
@@ -216,12 +216,12 @@ export class new_travel_requestComponent {
     }
   }
 
-  showRequstedfor(...others) {
+  showRequstedfor(event: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { event: event };
       bh.local = {};
       bh = this.sd_4AsGmhNUvWJ6Kjkr(bh);
       //appendnew_next_showRequstedfor
@@ -370,6 +370,20 @@ export class new_travel_requestComponent {
     }
   }
 
+  filterSearch(search: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { search: search };
+      bh.local = {};
+      bh = this.sd_j1fqFx8DtxWNWLOA(bh);
+      //appendnew_next_filterSearch
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_luZeAB8QSPiJXZHG');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -442,6 +456,10 @@ export class new_travel_requestComponent {
         { viewvalue: 'Road' },
         { viewvalue: 'Airway' },
         { viewvalue: 'Railway' },
+      ];
+      page.travelType = [
+        { viewvalue: 'Domestic' },
+        { viewvalue: 'International' },
       ];
       page.nationality = [
         { viewvalue: 'South African' },
@@ -618,8 +636,13 @@ export class new_travel_requestComponent {
       const page = this.page;
       if (bh.input.event.target.files.length > 0) {
         const file = bh.input.event.target.files[0];
+        //const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          console.log(reader.result);
+        };
       }
-
       //appendnew_next_sd_L8dj6KHB0MWU3lHf
       return bh;
     } catch (e) {
@@ -726,7 +749,7 @@ export class new_travel_requestComponent {
             // requestedFor: [ '',page.showHideElement? [Validators.required] :[]],
             // requestType: [, [Validators.required]],
             preferredTime: ['', [Validators.required]],
-            travelerComments: ['', [Validators.required]],
+            travelerComments: [''],
             passportDocument: [''],
             visaRequired: [false, [Validators.required]],
             covidCertificate: ['', page.showVisa ? [Validators.required] : []],
@@ -743,7 +766,7 @@ export class new_travel_requestComponent {
             checkInTime: [false, [Validators.required]],
             checkOutTime: [''],
             // needvehicle: ['', [Validators.required]],
-            employeeComments: [false, [Validators.required]],
+            employeeComments: [''],
           }),
         })
       );
@@ -778,7 +801,13 @@ export class new_travel_requestComponent {
   sd_X4aSuU8d6NJHFUCt(bh) {
     try {
       const page = this.page;
-      page.showVisa = true;
+      console.log(bh.input.event);
+      if (bh.input.event.value == 'International') {
+        page.showVisa = true;
+      } else {
+        page.showVisa = false;
+      }
+
       //appendnew_next_sd_X4aSuU8d6NJHFUCt
       return bh;
     } catch (e) {
@@ -868,6 +897,10 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       console.log('allPersonalDetails', page.personalDetailsForm);
+      let filterdPersonalDetails = page.allPersonalDetails.filter((element) =>
+        element.email.includes(bh.input.event)
+      );
+      console.log('allPersonalDetails', filterdPersonalDetails);
       //appendnew_next_sd_bGJNq67yiqLlcZxB
       return bh;
     } catch (e) {
@@ -1040,6 +1073,7 @@ export class new_travel_requestComponent {
       let personalDetails = page.allPersonalDetails.find(
         (el) => bh.input.event.option.value == el.email
       );
+
       if (personalDetails) {
         personalDetails['dateOfBirth'] = new Date(
           personalDetails['dateOfBirth']
@@ -1050,6 +1084,20 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Dwt1Wymb3cJ2N4Vq');
+    }
+  }
+
+  sd_j1fqFx8DtxWNWLOA(bh) {
+    try {
+      const page = this.page;
+      let filterdPersonalDetails = page.allPersonalDetails.filter((element) =>
+        element.email.includes(bh.input.search)
+      );
+      console.log('allPersonalDetails', filterdPersonalDetails);
+      //appendnew_next_sd_j1fqFx8DtxWNWLOA
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_j1fqFx8DtxWNWLOA');
     }
   }
 
