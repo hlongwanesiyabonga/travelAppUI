@@ -261,8 +261,9 @@ bh-base, bh-profile_dialog{
     height: 65px;
     width: 94%;
     background: #FFFFFF;
-box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
-border-radius: 6px;
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    margin-bottom: 20px;
 }
 .routerBody{
     height: calc(100vh - 140px);

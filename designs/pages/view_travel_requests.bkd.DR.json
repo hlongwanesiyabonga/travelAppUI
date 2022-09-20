@@ -1109,7 +1109,8 @@
                         "707a4cd0-29b9-dcb4-fcce-eb8d2f1e1bcc": {
                             "paletteKey": "NG-icon",
                             "parentEditorKey": "d52c5a54-b10d-03c0-6f12-4d5530680980",
-                            "commentid": null,
+                            "isCommented": "true",
+                            "commentid": "1663673673323",
                             "designerReference": [
                                 {
                                     "_key": "style",
@@ -1428,7 +1429,6 @@
                     "paletteKey": "Html5",
                     "parentEditorKey": "bfd02965-b4c4-592e-8bac-c4bd93b68421",
                     "isAdvancedComponent": true,
-                    "isCommented": "false",
                     "commentid": null,
                     "designerReference": [
                         {
@@ -1618,7 +1618,6 @@
                         "paletteKey": "html-editor",
                         "parentEditorKey": "65bb22aa-3001-d84d-989c-4e1351f775f4",
                         "isAdvancedChildComponent": true,
-                        "isCommented": "false",
                         "commentid": null,
                         "designerReference": [
                             {
