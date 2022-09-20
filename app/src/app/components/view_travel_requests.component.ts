@@ -8,7 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  AfterViewInit,
   ViewChild,
   ViewChildren,
 } from '@angular/core'; //_splitter_
@@ -17,9 +16,6 @@ import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
-import { MatPaginator } from '@angular/material/paginator'; //_splitter_
-import { MatSort, SortDirection } from '@angular/material/sort'; //_splitter_
-import { MatTableDataSource } from '@angular/material/table'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -30,10 +26,6 @@ import { MatTableDataSource } from '@angular/material/table'; //_splitter_
   ],
 })
 export class view_travel_requestsComponent {
-  @ViewChild(MatSort)
-  public MatSort: any = null;
-  @ViewChild(MatPaginator)
-  public MatPaginator: any = null;
   page: any = { dep: {} };
   constructor(
     private __page_injector__: Injector,
@@ -64,7 +56,7 @@ export class view_travel_requestsComponent {
 
   sd_KOVXOnK6cV7gj979(bh) {
     try {
-      bh = this.initializeTable(bh);
+      bh = this.sd_E9QbOlnVduPNV5MO_1(bh);
       //appendnew_next_sd_KOVXOnK6cV7gj979
       return bh;
     } catch (e) {
@@ -79,22 +71,21 @@ export class view_travel_requestsComponent {
         .constructFlowObject(this);
       bh.input = { filterEvent: filterEvent };
       bh.local = {};
-      bh = this.sd_iBlFYTlpoczCmWts_2(bh);
       //appendnew_next_onFilter_2
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_4QB6d44LFvxAJuWT');
     }
   }
 
-  getAllRequests(...others) {
+  getTravelRequests(...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
       bh.input = {};
       bh.local = {};
-      bh = this.sd_Nj7JYJQRKun10fTt(bh);
-      //appendnew_next_getAllRequests
+      bh = this.sd_8rwHpkPcEjQAdQ9f(bh);
+      //appendnew_next_getTravelRequests
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_FVFM6b18mqiSTaD8');
     }
@@ -107,7 +98,6 @@ export class view_travel_requestsComponent {
         .constructFlowObject(this);
       bh.input = { rowType: rowType, rowData: rowData };
       bh.local = {};
-      bh = this.sd_xTBFQhKigY97fATB(bh);
       //appendnew_next_rowChecked
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_zHqPHtCefjo7O1KL');
@@ -130,147 +120,116 @@ export class view_travel_requestsComponent {
 
   //appendnew_flow_view_travel_requestsComponent_start
 
-  initializeTable(bh) {
-    try {
-      const page = this.page;
-      bh.local.dataSource = new MatTableDataSource([]);
-      bh = this.sd_E9QbOlnVduPNV5MO_1(bh);
-      //appendnew_next_initializeTable
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_euaePgZyuOERpVdN');
-    }
-  }
-
   sd_E9QbOlnVduPNV5MO_1(bh) {
     try {
-      this.page.tableData = bh.local.dataSource;
-      this.page.travelRequestsData = [];
-      this.page.isHeaderChecked = false;
-      this.page.filteredTabledData = [];
-      bh = this.sd_at2x8c2BiP90Q9zo(bh);
+      this.page.tableData = [];
+      this.page.currentUserDetails = {};
+      this.page.dashboardCards = undefined;
+      bh = this.sd_LXI6ABPdqGPWtVPw(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_r1j8FWohTKWPX67C');
+      return this.errorHandler(bh, e, 'sd_pFptOVv2Wq7irLNr');
     }
   }
 
-  sd_at2x8c2BiP90Q9zo(bh) {
-    try {
-      let outputVariables = this.getAllRequests();
-
-      //appendnew_next_sd_at2x8c2BiP90Q9zo
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_at2x8c2BiP90Q9zo');
-    }
-  }
-
-  sd_iBlFYTlpoczCmWts_2(bh) {
+  sd_LXI6ABPdqGPWtVPw(bh) {
     try {
       const page = this.page;
-      console.log(bh.input.filterEvent);
-      const filterValue = (bh.input.filterEvent.target as HTMLInputElement)
-        .value;
-      this.page.tableData.filter = filterValue.trim().toLowerCase();
-      //appendnew_next_sd_iBlFYTlpoczCmWts_2
+      bh.method = 'get';
+      bh.endPoint = 'travelRequests/getTravelRequests';
+      bh = this.sd_SSbGg5g6eV3KHa01(bh);
+      //appendnew_next_sd_LXI6ABPdqGPWtVPw
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_3m4hJPLPaowq9zBr');
+      return this.errorHandler(bh, e, 'sd_LXI6ABPdqGPWtVPw');
     }
   }
 
-  async sd_Nj7JYJQRKun10fTt(bh) {
+  sd_SSbGg5g6eV3KHa01(bh) {
+    try {
+      let outputVariables = this.getTravelRequests();
+
+      bh = this.sd_BSTpLgaf8MQyg93d(bh);
+      //appendnew_next_sd_SSbGg5g6eV3KHa01
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_SSbGg5g6eV3KHa01');
+    }
+  }
+
+  sd_BSTpLgaf8MQyg93d(bh) {
+    try {
+      const page = this.page;
+      page.dashboardCards = [
+        { amount: 15, topText: 'Total', icon: 'description' },
+        { amount: 5, topText: 'Approved', icon: 'thumb_up' },
+        { amount: 4, topText: 'Rejected', icon: 'thumb_down' },
+        { amount: 6, topText: 'Pending', icon: 'hourglass_full' },
+      ];
+      //appendnew_next_sd_BSTpLgaf8MQyg93d
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_BSTpLgaf8MQyg93d');
+    }
+  }
+
+  sd_8rwHpkPcEjQAdQ9f(bh) {
+    try {
+      this.page.currentUserDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.sd_HPCHaM7tAhCjPbLU(bh);
+      //appendnew_next_sd_8rwHpkPcEjQAdQ9f
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_8rwHpkPcEjQAdQ9f');
+    }
+  }
+
+  sd_HPCHaM7tAhCjPbLU(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      bh.endPoint =
+        'travelRequests/getTravelRequests?owner' +
+        page.currentUserDetails.email;
+      bh = this.sd_bC5p0BEPQlu4QyLn(bh);
+      //appendnew_next_sd_HPCHaM7tAhCjPbLU
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_HPCHaM7tAhCjPbLU');
+    }
+  }
+
+  async sd_bC5p0BEPQlu4QyLn(bh) {
     try {
       const callServerApisInstance: callServerApis =
         this.__page_injector__.get(callServerApis);
 
-      let outputVariables = await callServerApisInstance.getTravelRequests();
-      this.page.travelRequestsData = outputVariables.local.receivedData;
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.tableData = outputVariables.local.result;
 
-      bh = this.setTableDatasource(bh);
-      //appendnew_next_sd_Nj7JYJQRKun10fTt
+      bh = this.logTable(bh);
+      //appendnew_next_sd_bC5p0BEPQlu4QyLn
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_Nj7JYJQRKun10fTt');
+      return await this.errorHandler(bh, e, 'sd_bC5p0BEPQlu4QyLn');
     }
   }
 
-  setTableDatasource(bh) {
+  logTable(bh) {
     try {
       const page = this.page;
-      page.travelRequestsData.forEach((obj, i) => {
-        let tempObj = {
-          travelTitle: obj.basicDetails.travelRequestTitle,
-          requestType: obj.basicDetails.travelReqType,
-          fromDate: obj.travelDetails[0].fromDate,
-          toDate: obj.travelDetails[0].toDate,
-          status: obj.travelDetails[0].status,
-          // Add a variable to keep track of checked rows
-          checked: false,
-          // Add indexx to keep track of each row
-          index: i,
-        };
-
-        page.filteredTabledData.push(tempObj);
-      });
-
-      // Update Table
-      page.tableData = new MatTableDataSource(page.filteredTabledData);
-      bh = this.sd_xKCCTWKzvgDN0rx7_1(bh);
-      //appendnew_next_setTableDatasource
+      console.log('this table', page.tableData);
+      //appendnew_next_logTable
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_uPzoWgHpbxik0uGR');
-    }
-  }
-
-  sd_xKCCTWKzvgDN0rx7_1(bh) {
-    try {
-      bh.pageViews = Object.assign(bh.pageViews || {}, {
-        MatSort: this.MatSort,
-        MatPaginator: this.MatPaginator,
-      });
-      bh = this.sd_2VNGqvcKee34lvOz_1(bh);
-      //appendnew_next_sd_xKCCTWKzvgDN0rx7_1
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_UHh7ERTnGX4wuAzy');
-    }
-  }
-
-  sd_2VNGqvcKee34lvOz_1(bh) {
-    try {
-      const page = this.page;
-      this.page.tableData.sort = this.MatSort;
-      this.page.tableData.paginator = this.MatPaginator;
-      //appendnew_next_sd_2VNGqvcKee34lvOz_1
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_hhelqou3YkSwpMEn');
-    }
-  }
-
-  sd_xTBFQhKigY97fATB(bh) {
-    try {
-      const page = this.page;
-      if (bh.input.rowType === 'row') {
-        let bool = page.filteredTabledData[bh.input.rowData.index]['checked'];
-        page.filteredTabledData[bh.input.rowData.index]['checked'] = bool
-          ? true
-          : false;
-      } else {
-        page.isHeaderChecked = !page.isHeaderChecked;
-        page.filteredTabledData.forEach(
-          (item) => (item.checked = page.isHeaderChecked)
-        );
-      }
-      bh = this.sd_xKCCTWKzvgDN0rx7_1(bh);
-      //appendnew_next_sd_xTBFQhKigY97fATB
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_xTBFQhKigY97fATB');
+      return this.errorHandler(bh, e, 'sd_d5laVS4z760LyRps');
     }
   }
 
@@ -280,7 +239,9 @@ export class view_travel_requestsComponent {
         this.sdService.getPathAndQParamsObj('/home/new-request');
       await this.__page_injector__
         .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
+        .navigate([this.sdService.formatPathWithParams(path, undefined)], {
+          queryParams: Object.assign(qprm, ''),
+        });
       //appendnew_next_sd_e2jI7LQDxK8XdWjP
       return bh;
     } catch (e) {

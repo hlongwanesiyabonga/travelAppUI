@@ -1,0 +1,477 @@
+[
+    {
+        "id": "sd_CuX9VlaR3Za6sCxz",
+        "type": "tab",
+        "createdDate": "2022-09-15T09:36:23.220Z",
+        "label": "profile_dialog",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_W11bSYRcNZQAaom1",
+        "type": "OnInit",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_W11bSYRcNZQAaom1",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 80,
+        "wires": [
+            [
+                "sd_nemvzjYVHuKqiFZJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_nemvzjYVHuKqiFZJ",
+        "type": "PageVariables",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "profileDialog",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "personalDetails",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "email",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_nemvzjYVHuKqiFZJ",
+        "category": "Function",
+        "x": 145,
+        "y": 80,
+        "wires": [
+            [
+                "sd_vSJRDVn3BrkDsFnQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_vSJRDVn3BrkDsFnQ",
+        "type": "UseDependency",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ReactiveFormsModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FormGroup"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_vSJRDVn3BrkDsFnQ",
+        "category": "Function",
+        "x": 245,
+        "y": 80,
+        "wires": [
+            [
+                "sd_9DF1Fu5s1DNEsmYT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_9DF1Fu5s1DNEsmYT",
+        "type": "Script",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.profileForm = new FormGroup({\n    firstName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    lastName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    dateOfBirth: new FormControl('', [Validators.required]),\n    gender: new FormControl('', [Validators.required]),\n    email: new FormControl('', [Validators.required, Validators.email]),\n    designation: new FormControl('', [Validators.required]),\n    idNumber: new FormControl('', [Validators.required]),\n    panNumber: new FormControl('', [Validators.required]),\n    passportNumber: new FormControl('', [Validators.required]),\n    nationality: new FormControl('', [Validators.required]),\n    station: new FormControl('', [Validators.required]),\n    lineManager: new FormControl('', [Validators.required]),\n    lineManagerEmail: new FormControl('',[Validators.required]),\n  });",
+        "functionName": "sd_9DF1Fu5s1DNEsmYT",
+        "category": "Function",
+        "x": 345,
+        "y": 80,
+        "wires": [
+            [
+                "sd_w8eStMhAcIG7jxxh"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_5tHSXkFtEkgHmY83",
+        "type": "PageStart",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "closeProfile",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "closeProfile",
+        "category": "General",
+        "x": 65,
+        "y": 160,
+        "wires": [
+            [
+                "sd_zbYZLwoXPwvfM4HC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_zbYZLwoXPwvfM4HC",
+        "type": "CloseDialog",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.profileDialog",
+        "functionName": "sd_zbYZLwoXPwvfM4HC",
+        "category": "Dialog",
+        "x": 155.171875,
+        "y": 160.03125,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "profileDialog",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_naVttDn00PvByen9",
+        "type": "PageCallService",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "this.page",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "personalDetails",
+                "mapVarName": "result",
+                "localVar": "this.page.personalDetails"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_naVttDn00PvByen9",
+        "category": "General",
+        "x": 565,
+        "y": 80,
+        "wires": [
+            [
+                "sd_82pZJpednRsfaIA8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_w8eStMhAcIG7jxxh",
+        "type": "Script",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.email = \"neo.thobela@neutrinos.co\"\nbh.method = \"get\",\nbh.endPoint = \"genericGet/getPersonalDetails?email=\"+page.email;\nconsole.log(page.profileForm)",
+        "functionName": "sd_w8eStMhAcIG7jxxh",
+        "category": "Function",
+        "x": 465,
+        "y": 80,
+        "wires": [
+            [
+                "sd_naVttDn00PvByen9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_82pZJpednRsfaIA8",
+        "type": "Script",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.profileForm.patchValue(page.personalDetails);\nconsole.log(\"person Details\",page.profileForm.patchValue(page.personalDetails));",
+        "functionName": "sd_82pZJpednRsfaIA8",
+        "category": "Function",
+        "x": 705,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_LNPqtJcKZ6JIUJ09",
+        "type": "PageStart",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "submit form",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "profileForm",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submitForm",
+        "category": "General",
+        "x": 80,
+        "y": 280,
+        "wires": [
+            [
+                "sd_Z13nth8o712Wsc0M"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_yqUFTe7V98URWISq",
+        "type": "PageCallService",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "profileForm"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "personalDetails",
+                "mapVarName": "result",
+                "localVar": "this.page.personalDetails"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            "bh.input.profileForm"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_yqUFTe7V98URWISq",
+        "category": "General",
+        "x": 285,
+        "y": 280,
+        "wires": [
+            [
+                "sd_UqAPQwq6ORogiCYa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Z13nth8o712Wsc0M",
+        "type": "Script",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = \"put\",\nbh.endPoint = \"genericEdit/updatePersonalDetails/\" + page.personalDetails._id;\nconsole.log(\"test\",bh.input)",
+        "functionName": "sd_Z13nth8o712Wsc0M",
+        "category": "Function",
+        "x": 185,
+        "y": 280,
+        "wires": [
+            [
+                "sd_yqUFTe7V98URWISq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_UqAPQwq6ORogiCYa",
+        "type": "Script",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"pd form\",page.personalDetails)",
+        "functionName": "sd_UqAPQwq6ORogiCYa",
+        "category": "Function",
+        "x": 380,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

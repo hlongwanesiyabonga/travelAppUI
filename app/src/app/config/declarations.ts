@@ -15,6 +15,14 @@ window['neutrinos'] = {
 };
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-reportsComponent
+import { reportsComponent } from '../components/reports.component';
+//CORE_REFERENCE_IMPORT-draftsComponent
+import { draftsComponent } from '../components/drafts.component';
+//CORE_REFERENCE_IMPORT-profile_dialogComponent
+import { profile_dialogComponent } from '../components/profile_dialog.component';
+//CORE_REFERENCE_IMPORT-baseComponent
+import { baseComponent } from '../components/base.component';
 //CORE_REFERENCE_IMPORT-myformserviceService
 import { myformserviceService } from '../services/myformservice/myformservice.service';
 //CORE_REFERENCE_IMPORT-new_travel_requestComponent
@@ -55,6 +63,14 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-reportsComponent
+  reportsComponent,
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-draftsComponent
+  draftsComponent,
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-profile_dialogComponent
+  profile_dialogComponent,
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-baseComponent
+  baseComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-new_travel_requestComponent
   new_travel_requestComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-view_travel_requestsComponent
@@ -78,8 +94,8 @@ export const appProviders = [
   },
   NAuthGuardService,
   //CORE_REFERENCE_PUSH_TO_PRO_ARRAY
-//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-myformserviceService
-myformserviceService,
+  //CORE_REFERENCE_PUSH_TO_PRO_ARRAY-myformserviceService
+  myformserviceService,
 ];
 
 /**
@@ -90,7 +106,7 @@ myformserviceService,
 export const appRoutes = [
   {
     path: 'home',
-    component: homeComponent,
+    component: baseComponent,
     children: [
       { path: '', component: view_travel_requestsComponent },
       { path: 'new-request', component: new_travel_requestComponent },

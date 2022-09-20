@@ -37,23 +37,32 @@ export class callServerApis {
 
   //   service flows_callServerApis
 
-  async getTravelRequests(...others) {
+  async dynamic(
+    endPoint: any = undefined,
+    method: any = undefined,
+    body: any = undefined,
+    ...others
+  ) {
     try {
       var bh: any = {
-        input: {},
+        input: {
+          endPoint: endPoint,
+          method: method,
+          body: body,
+        },
         local: {
-          receivedData: undefined,
+          result: undefined,
         },
       };
       bh = this.sdService.__constructDefault(bh);
-      bh = await this.sd_aZSTK5BcBNC5jJm9(bh);
-      //appendnew_next_getTravelRequests
+      bh = await this.sd_uFfzVvBAauUEjRTo(bh);
+      //appendnew_next_dynamic
       return (
         // formatting output variables
         {
           input: {},
           local: {
-            receivedData: bh.local.receivedData,
+            result: bh.local.result,
           },
         }
       );
@@ -62,22 +71,63 @@ export class callServerApis {
     }
   }
 
-  //appendnew_flow_callServerApis_start
-
-  async sd_aZSTK5BcBNC5jJm9(bh) {
+  async storePersonalDetails(
+    data: any = undefined,
+    key: any = undefined,
+    ...others
+  ) {
     try {
-      bh.input.ssdUrl = bh.system.environment.properties.ssdURL;
-      bh = await this.sd_uFfzVvBAauUEjRTo(bh);
-      //appendnew_next_sd_aZSTK5BcBNC5jJm9
-      return bh;
+      var bh: any = {
+        input: {
+          data: data,
+          key: key,
+        },
+        local: {},
+      };
+      bh = this.sdService.__constructDefault(bh);
+      bh = await this.sd_uFTNqoeQxuwdpbDd(bh);
+      //appendnew_next_storePersonalDetails
+      return (
+        // formatting output variables
+        {
+          input: {},
+          local: {},
+        }
+      );
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_aZSTK5BcBNC5jJm9');
+      return await this.errorHandler(bh, e, 'sd_Yi9MXSZoEVL34c9W');
     }
   }
 
+  async getPersonalDetails(key: any = undefined, ...others) {
+    try {
+      var bh: any = {
+        input: {
+          key: key,
+        },
+        local: {},
+      };
+      bh = this.sdService.__constructDefault(bh);
+      bh = await this.sd_XyWiOPpTHTKW5h1m(bh);
+      //appendnew_next_getPersonalDetails
+      return (
+        // formatting output variables
+        {
+          input: {},
+          local: {},
+        }
+      );
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_jY4xXM440T9ImYCs');
+    }
+  }
+
+  //appendnew_flow_callServerApis_start
+
   async sd_uFfzVvBAauUEjRTo(bh) {
     try {
-      bh.apiUrl = bh.input.ssdUrl + 'getAllTravelRequests';
+      bh.apiUrl = 'http://localhost:8081/api/' + bh.input.endPoint;
+      console.log('body', bh.input);
       bh = await this.sd_hUBaFoLrD4z6GgAt(bh);
       //appendnew_next_sd_uFfzVvBAauUEjRTo
       return bh;
@@ -90,17 +140,39 @@ export class callServerApis {
     try {
       let requestOptions = {
         url: bh.apiUrl,
-        method: 'get',
+        method: bh.input.method,
         responseType: 'json',
         headers: {},
         params: {},
-        body: undefined,
+        body: bh.input.body,
       };
-      bh.local.receivedData = await this.sdService.nHttpRequest(requestOptions);
+      bh.local.result = await this.sdService.nHttpRequest(requestOptions);
       //appendnew_next_sd_hUBaFoLrD4z6GgAt
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_hUBaFoLrD4z6GgAt');
+    }
+  }
+
+  async sd_uFTNqoeQxuwdpbDd(bh) {
+    try {
+      sessionStorage.setItem(bh.input.key, JSON.stringify(bh.input.data));
+      //appendnew_next_sd_uFTNqoeQxuwdpbDd
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_uFTNqoeQxuwdpbDd');
+    }
+  }
+
+  async sd_XyWiOPpTHTKW5h1m(bh) {
+    try {
+      bh.local.requesterDetails = JSON.parse(
+        sessionStorage.getItem(bh.input.key)
+      );
+      //appendnew_next_sd_XyWiOPpTHTKW5h1m
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_XyWiOPpTHTKW5h1m');
     }
   }
 
