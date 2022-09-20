@@ -1,6 +1,6 @@
 <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
   <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
-    <div fxLayout="row wrap" class="marginTop20 fullWidth" fxLayoutAlign="space-between stretch" [fxShow]="true">
+    <div fxLayout="row wrap" class="marginTop20 fullWidth" fxLayoutAlign="space-between stretch" [fxShow]="true" fxHide.xs="true">
       <div fxLayout="column wrap" fxFlex="23" fxLayoutAlign="center space-between" [fxShow]="true" *ngFor="let card of page.dashboardCards">
         <div fxLayout="row wrap" class="fullWidth cardBox" fxLayoutAlign="space-between center" [fxShow]="true">
           <div fxLayout="column wrap" class="leftPanel" fxFlex="70" fxLayoutAlign="center center" [fxShow]="true">
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div fxLayout="row wrap" class="headerContainer" fxLayoutAlign="space-between center" [fxShow]="true">
+    <div fxLayout="row wrap" class="marginTop20 headerContainer" fxLayoutAlign="space-between center" [fxShow]="true">
       <div fxLayout="column wrap" fxLayoutAlign="center stretch" [fxShow]="true">
         <div fxLayout="row wrap" fxLayoutAlign="start center" [fxShow]="true">
           <h2>

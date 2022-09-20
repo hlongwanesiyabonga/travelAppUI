@@ -10458,7 +10458,7 @@
                                                                 },
                                                                 {
                                                                     "_key": "fxFlex.sm",
-                                                                    "_value": "49",
+                                                                    "_value": "44",
                                                                     "_type": "kv",
                                                                     "_attrDef": "c"
                                                                 }
@@ -10940,7 +10940,7 @@
                                                                 },
                                                                 {
                                                                     "_key": "fxFlex.sm",
-                                                                    "_value": "49",
+                                                                    "_value": "44",
                                                                     "_type": "kv",
                                                                     "_attrDef": "c"
                                                                 }
@@ -25137,7 +25137,7 @@
                             {
                                 "_key": "class",
                                 "_value": [
-                                    "blackButton"
+                                    "grayBtn"
                                 ],
                                 "_type": "dav",
                                 "_attrDef": "p"

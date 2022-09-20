@@ -17,6 +17,14 @@ $black: rgb(0, 0, 0);
 $blue: #248eb1;
 $orange: rgb(255, 153, 0);
 
+tbody {
+    //table body
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    height: 200px !important;
+    overflow-y: auto;
+}
 
 
 body {
@@ -333,11 +341,17 @@ bh-base, bh-profile_dialog{
 }
 .profileDialogBody{
     border-top: 2px solid;
+    height: 80vh;
+    overflow-y: auto;
 }
 .scroll{
     overflow-y: auto;
 }
 
+.grayBtn{
+    background-color: #403c3cd4;
+    color:white;
+}
 .mat-form-field-appearance-outline .mat-form-field-outline {
     color: rgba(216, 214, 222, 1);
 }
