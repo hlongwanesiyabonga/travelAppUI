@@ -93,6 +93,9 @@
         "mat-focused",
         "mat-form-field-outline-thick",
         "mat-datepicker-toggle-active",
-        "selectedRadioButton"
+        "selectedRadioButton",
+        "cardBox",
+        "leftPanel",
+        "rightPanel"
     ]
 }
