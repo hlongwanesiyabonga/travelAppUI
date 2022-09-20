@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -896,7 +898,7 @@ export class new_travel_requestComponent {
   sd_bGJNq67yiqLlcZxB(bh) {
     try {
       const page = this.page;
-      console.log('allPersonalDetails', page.personalDetailsForm);
+      page.personalDetailsForm;
       //appendnew_next_sd_bGJNq67yiqLlcZxB
       return bh;
     } catch (e) {
@@ -908,25 +910,14 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       page.showHideElement = false;
-      bh = this.sd_XRADDJTfrPvwjfgu(bh);
+      bh.endPoint =
+        'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;
+      bh.method = 'get';
+      bh = this.sd_3C4rUDlPdIve4KEm(bh);
       //appendnew_next_sd_woXsLjYIiE93sSGF
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_woXsLjYIiE93sSGF');
-    }
-  }
-
-  sd_XRADDJTfrPvwjfgu(bh) {
-    try {
-      const page = this.page;
-      bh.endPoint = 'genericGet/getPersonalDetails';
-      bh.method = 'get';
-      page.email = 'neo.thobela@neutrinos.co';
-      bh = this.sd_3C4rUDlPdIve4KEm(bh);
-      //appendnew_next_sd_XRADDJTfrPvwjfgu
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_XRADDJTfrPvwjfgu');
     }
   }
 
@@ -940,7 +931,7 @@ export class new_travel_requestComponent {
         bh.method,
         undefined
       );
-      this.page.allPersonalDetails = outputVariables.local.result;
+      bh.local.selfDetails = outputVariables.local.result;
 
       bh = this.sd_96VxExgs74Rn3m6g(bh);
       //appendnew_next_sd_3C4rUDlPdIve4KEm
@@ -952,16 +943,12 @@ export class new_travel_requestComponent {
 
   sd_96VxExgs74Rn3m6g(bh) {
     try {
-      const page = this.page; // console.log('event', bh.input.event)
-      let personalDetails = page.allPersonalDetails.filter(
-        (el) => el.email == page.email
+      const page = this.page;
+      console.log(bh.selfDetails);
+      bh.local.selfDetails['dateOfBirth'] = new Date(
+        bh.local.selfDetails['dateOfBirth']
       );
-
-      personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth']);
-      let values = page.personalDetailsForm.patchValue(personalDetails);
-
-      console.log(values);
-
+      page.personalDetailsForm.patchValue(bh.local.selfDetails);
       //appendnew_next_sd_96VxExgs74Rn3m6g
       return bh;
     } catch (e) {

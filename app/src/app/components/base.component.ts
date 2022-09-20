@@ -190,7 +190,7 @@ export class baseComponent {
       this.page.method = undefined;
       this.page.body = undefined;
       this.page.endPoint = undefined;
-      this.page.personalDetails = undefined;
+      this.page.personalDetails = {};
       bh = this.sd_omtxhHSTT0bkCN7b(bh);
       //appendnew_next_sd_nrTQrGEzRLT39o1H
       return bh;
@@ -250,10 +250,23 @@ export class baseComponent {
     try {
       let outputVariables = this.storePersonalDetails();
 
+      bh = this.sd_Uq7EpfeVgT8CmNMt(bh);
       //appendnew_next_sd_ti9tbxXUHmz0mETK
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ti9tbxXUHmz0mETK');
+    }
+  }
+
+  sd_Uq7EpfeVgT8CmNMt(bh) {
+    try {
+      this.page.personalDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      //appendnew_next_sd_Uq7EpfeVgT8CmNMt
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Uq7EpfeVgT8CmNMt');
     }
   }
 
