@@ -14,6 +14,9 @@ import {
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
+import { MatTableDataSource } from '@angular/material/table'; //_splitter_
+import { MatPaginator } from '@angular/material/paginator'; //_splitter_
+import { MatSort } from '@angular/material/sort'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
 //append_imports_end
@@ -26,6 +29,10 @@ import { Router } from '@angular/router'; //_splitter_
   ],
 })
 export class view_travel_requestsComponent {
+  @ViewChild(MatSort)
+  public MatSort: any = null;
+  @ViewChild(MatPaginator)
+  public MatPaginator: any = null;
   page: any = { dep: {} };
   constructor(
     private __page_injector__: Injector,
@@ -56,7 +63,7 @@ export class view_travel_requestsComponent {
 
   sd_KOVXOnK6cV7gj979(bh) {
     try {
-      bh = this.sd_E9QbOlnVduPNV5MO_1(bh);
+      bh = this.tableDataSource(bh);
       //appendnew_next_sd_KOVXOnK6cV7gj979
       return bh;
     } catch (e) {
@@ -91,19 +98,6 @@ export class view_travel_requestsComponent {
     }
   }
 
-  rowChecked(rowType = '', rowData: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { rowType: rowType, rowData: rowData };
-      bh.local = {};
-      //appendnew_next_rowChecked
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_zHqPHtCefjo7O1KL');
-    }
-  }
-
   goTo(...others) {
     try {
       var bh: any = this.__page_injector__
@@ -120,16 +114,52 @@ export class view_travel_requestsComponent {
 
   //appendnew_flow_view_travel_requestsComponent_start
 
+  tableDataSource(bh) {
+    try {
+      this.page.tableDataSource = MatTableDataSource;
+      bh = this.paginator(bh);
+      //appendnew_next_tableDataSource
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_mHDnnby1kHSNIwe9');
+    }
+  }
+
+  paginator(bh) {
+    try {
+      this.page.paginator = MatPaginator;
+      bh = this.sort(bh);
+      //appendnew_next_paginator
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_k4OmJZ5DAzWXxvEq');
+    }
+  }
+
+  sort(bh) {
+    try {
+      this.page.sort = MatSort;
+      bh = this.sd_E9QbOlnVduPNV5MO_1(bh);
+      //appendnew_next_sort
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_BtSloSIn0WwUMJqA');
+    }
+  }
+
   sd_E9QbOlnVduPNV5MO_1(bh) {
     try {
       this.page.tableData = [];
       this.page.currentUserDetails = {};
       this.page.dashboardCards = undefined;
+      this.page.tableHeaders = [];
+      this.page.tableCells = [];
+      this.page.receivedTableData = [];
       bh = this.sd_LXI6ABPdqGPWtVPw(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_pFptOVv2Wq7irLNr');
+      return this.errorHandler(bh, e, 'sd_463afOpMMeJ5Yxac');
     }
   }
 
@@ -162,10 +192,30 @@ export class view_travel_requestsComponent {
     try {
       const page = this.page;
       page.dashboardCards = [
-        { amount: 15, topText: 'Total', icon: 'description' },
-        { amount: 5, topText: 'Approved', icon: 'thumb_up' },
-        { amount: 4, topText: 'Rejected', icon: 'thumb_down' },
-        { amount: 6, topText: 'Pending', icon: 'hourglass_full' },
+        {
+          amount: 15,
+          topText: 'Total',
+          icon: 'description',
+          cssClass: 'blueBg',
+        },
+        {
+          amount: 6,
+          topText: 'Pending',
+          icon: 'hourglass_full',
+          cssClass: 'orangeBg',
+        },
+        {
+          amount: 5,
+          topText: 'Approved',
+          icon: 'thumb_up',
+          cssClass: 'greenBg',
+        },
+        {
+          amount: 4,
+          topText: 'Rejected',
+          icon: 'thumb_down',
+          cssClass: 'redBg',
+        },
       ];
       //appendnew_next_sd_BSTpLgaf8MQyg93d
       return bh;
@@ -192,7 +242,7 @@ export class view_travel_requestsComponent {
       const page = this.page;
       bh.method = 'get';
       bh.endPoint =
-        'travelRequests/getTravelRequests?owner' +
+        'travelRequests/getTravelRequests?owner=' +
         page.currentUserDetails.email;
       bh = this.sd_bC5p0BEPQlu4QyLn(bh);
       //appendnew_next_sd_HPCHaM7tAhCjPbLU
@@ -212,7 +262,7 @@ export class view_travel_requestsComponent {
         bh.method,
         undefined
       );
-      this.page.tableData = outputVariables.local.result;
+      this.page.receivedTableData = outputVariables.local.result;
 
       bh = this.logTable(bh);
       //appendnew_next_sd_bC5p0BEPQlu4QyLn
@@ -225,11 +275,79 @@ export class view_travel_requestsComponent {
   logTable(bh) {
     try {
       const page = this.page;
-      console.log('this table', page.tableData);
+      console.log('this table', page.receivedTableData);
+      bh = this.table(bh);
       //appendnew_next_logTable
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_d5laVS4z760LyRps');
+    }
+  }
+
+  table(bh) {
+    try {
+      bh.pageViews = Object.assign(bh.pageViews || {}, {
+        MatSort: this.MatSort,
+        MatPaginator: this.MatPaginator,
+      });
+      bh = this.setTableTokens(bh);
+      //appendnew_next_table
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_HgsN216NweFheonG');
+    }
+  }
+
+  setTableTokens(bh) {
+    try {
+      const page = this.page;
+      let tableData = [];
+      let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
+      let temp = {};
+      let tableSetup = {
+        traveler: {
+          tableHeaders: [
+            'Date Created',
+            'Trip Type',
+            'Travel Mode',
+            'From City',
+            'To City',
+            'Status',
+            'Action',
+          ],
+          tableCells: [
+            'dateCreated',
+            `tripType`,
+            'travelMode',
+            'fromCity',
+            'toCity',
+            'action',
+          ],
+        },
+      };
+      (bh.role = !userGroups.includes(page.currentUserDetails.designation)
+        ? 'traveler'
+        : 'other'),
+        (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
+      page.tableCells = tableSetup[bh.role]['tableCells'];
+      page.receivedTableData['data'].forEach((el) => {
+        temp['_id'] = el['_id'];
+        temp['dateCreated'] = el['dateCreated'];
+        temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
+        temp['travelMode'] =
+          el['requestDetails'][0]['travelDetails']['travelMode'];
+        temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];
+        temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
+        tableData.push(temp);
+      });
+      console.log(tableData);
+      page.tableData = new page.tableDataSource(tableData);
+      page.tableData.paginator = bh.pageViews.MatPaginator;
+      page.tableData.sort = bh.pageViews.MatSort;
+      //appendnew_next_setTableTokens
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_PJCi5a6up5yJxqw5');
     }
   }
 

@@ -21,7 +21,11 @@
         "mainRightContainer",
         "whiteColor",
         "whiteBackground",
-        "redColor",
+        "redBg",
+        "yellowBg",
+        "greenBg",
+        "blueBg",
+        "orangeBg",
         "redBackground",
         "redBorderedButton",
         "redButton",
@@ -96,6 +100,15 @@
         "selectedRadioButton",
         "cardBox",
         "leftPanel",
-        "rightPanel"
+        "rightPanel",
+        "dynamicTableContainer",
+        "dynamicTable",
+        "mat-sort-header-content",
+        "mat-header-row",
+        "mat-row",
+        "mat-header-cell",
+        "mat-cell",
+        "mat-footer-cell",
+        "rejectBtn"
     ]
 }

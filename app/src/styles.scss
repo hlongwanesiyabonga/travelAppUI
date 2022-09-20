@@ -14,7 +14,8 @@ $lightRed: #EA54551F;
 $red:#ec1c24;
 $gray : #CCCCCC;
 $black: rgb(0, 0, 0);
-
+$blue: #248eb1;
+$orange: rgb(255, 153, 0);
 
 
 
@@ -67,8 +68,20 @@ bh-view_travel_requests {
 .whiteBackground {
     background: $white;
 }
-.redColor {
-    color: $red;
+.redBg {
+    background: $red;
+}
+.yellowBg {
+    background: $yellow;
+}
+.greenBg {
+    background: $green;
+}
+.blueBg {
+    background: $blue;
+}
+.orangeBg {
+    background: $orange;
 }
 .redBackground {
     background: $red;
@@ -99,7 +112,7 @@ bh-view_travel_requests {
         height: 79px;
 }
 .mat-button.mat-primary.mat-button-disabled, .mat-button.mat-accent.mat-button-disabled, .mat-button.mat-warn.mat-button-disabled, .mat-button.mat-button-disabled.mat-button-disabled, .mat-icon-button.mat-primary.mat-button-disabled, .mat-icon-button.mat-accent.mat-button-disabled, .mat-icon-button.mat-warn.mat-button-disabled, .mat-icon-button.mat-button-disabled.mat-button-disabled, .mat-stroked-button.mat-primary.mat-button-disabled, .mat-stroked-button.mat-accent.mat-button-disabled, .mat-stroked-button.mat-warn.mat-button-disabled, .mat-stroked-button.mat-button-disabled.mat-button-disabled {
-    color: white;
+    color: $white;
     background: #ec1c2491;
 }
   
@@ -269,7 +282,7 @@ border-radius: 6px;
 }
 
 .sideNavButton{
-    background-color: white;
+    background-color: $white;
     margin-bottom: 20px;
     border-radius: 10px;
     height: 50px;
@@ -278,7 +291,7 @@ border-radius: 6px;
     background-color: $red;
     margin-bottom: 20px;
     border-radius: 10px;
-    color: white;
+    color: $white;
     height: 50px;
 }
 .pointer{
@@ -294,7 +307,7 @@ border-radius: 6px;
 .userInitials{
     border-radius: 50%;
     background: $red;
-    color: white;
+    color: $white;
     font-weight: 600;
     font-size: 14px;
     width: 40px;
@@ -323,7 +336,7 @@ border-radius: 6px;
 }
 .mat-calendar-body-selected{
     background-color: $red !important;
-    color: white;
+    color: $white;
 }
 .mat-input-element {
     caret-color: $red !important;
@@ -349,24 +362,60 @@ border-radius: 6px;
 .cardBox{
     border: 1px solid $red;
     border-radius: 11px;
-    width: 222px;
+    // width: 222px;
     // padding: 30px;
-    font-size: 20px;
+    font-size: 1.2em;
     font-weight: 600;
     margin-bottom: 10px;
     .leftPanel{
         background: white;     
         height: 100%;     
-        width: 110px;
+        // width: 110px;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
     }
-    .rightPanel{
-        background-color: $red;     
+    .rightPanel{    
         height: 100%;     
-        width: 110px;
-        color: white;
+        // width: 110px;
+        color: $white;
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
     }
+}
+
+.dynamicTableContainer {
+  overflow-x: auto;
+  min-width: 100%;
+  margin-bottom: 1em;
+  .dynamicTable
+   {
+    .mat-sort-header-content{
+    color: $white !important;
+    font-weight: 600 !important;
+    }
+    tr.mat-header-row {
+      height: 50px;
+      background-color: $red;
+    }
+    tr.mat-row {
+      height: 55px;
+    }
+    th.mat-header-cell:last-of-type,
+    td.mat-cell:last-of-type,
+    td.mat-footer-cell:last-of-type {
+      text-align: left;
+    }
+    th.mat-header-cell,
+    td.mat-cell,
+    td.mat-footer-cell {
+      font-size: 12px;
+      text-align: left;
+      padding-left: 24px;
+      max-width: 350px;
+      white-space: break-spaces;
+    }
+    .rejectBtn {
+      padding-right: 15px;
+    }
+  }
 }
