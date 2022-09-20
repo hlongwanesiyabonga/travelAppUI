@@ -19307,7 +19307,7 @@
                                                                 },
                                                                 {
                                                                     "_key": "fxLayoutGap",
-                                                                    "_value": "",
+                                                                    "_value": ".3em",
                                                                     "_type": "kv",
                                                                     "_attrDef": "p"
                                                                 },
@@ -19334,6 +19334,24 @@
                                                                     "_value": "true",
                                                                     "_type": "kv",
                                                                     "_attrDef": "p"
+                                                                },
+                                                                {
+                                                                    "_key": "fxFlex.xs",
+                                                                    "_value": "100",
+                                                                    "_type": "kv",
+                                                                    "_attrDef": "c"
+                                                                },
+                                                                {
+                                                                    "_key": "fxFlex.sm",
+                                                                    "_value": "49",
+                                                                    "_type": "kv",
+                                                                    "_attrDef": "c"
+                                                                },
+                                                                {
+                                                                    "_key": "class.xs",
+                                                                    "_value": "margin-top:10px",
+                                                                    "_type": "kv",
+                                                                    "_attrDef": "c"
                                                                 }
                                                             ],
                                                             "66348e9f-5083-6cc4-98fc-c0f3c8e2fba6": {
@@ -24884,6 +24902,12 @@
                             "_value": "true",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxFlex.xs",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ],
                     "cecc0a8a-9df0-db15-ccd9-50a5a0f5d6ea": {

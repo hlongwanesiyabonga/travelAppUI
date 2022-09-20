@@ -513,13 +513,13 @@ export class new_travel_requestComponent {
           Validators.pattern('[A-Z]{5}[0-9]{4}[A-Z]{1}'),
           Validators.required,
         ]),
-        passportNumber: new FormControl(false, [Validators.required]),
+        passportNumber: new FormControl('', [Validators.required]),
         nationality: new FormControl('', [Validators.required]),
         station: new FormControl('', [Validators.required]),
         lineManager: new FormControl('', [Validators.required]),
         lineManagerEmail: new FormControl('', [Validators.required]),
       });
-      // console.log("user",page.user)
+
       bh = this.formControlsCreation(bh);
       //appendnew_next_pDetails
       return bh;
@@ -621,10 +621,6 @@ export class new_travel_requestComponent {
 
   sd_zD555oDG8OrpYULW(bh) {
     try {
-      const page = this.page;
-      console.log(bh.input.form);
-      console.log('Form', page.travelDetails);
-
       //appendnew_next_sd_zD555oDG8OrpYULW
       return bh;
     } catch (e) {
@@ -654,7 +650,7 @@ export class new_travel_requestComponent {
   sd_UTu9MfO7IadBmBxp(bh) {
     try {
       const page = this.page; //combine the 2 forms
-      console.log('hi', page.personalDetailsForm);
+      console.log('hi', page.personalDetailsForm.value.email);
       console.log(bh.input.form);
       page.formObj = {
         personalDetails: page.personalDetailsForm.value,
@@ -664,7 +660,7 @@ export class new_travel_requestComponent {
           approvedRequest: null,
           comments: '',
         },
-        //"owner": page.personalDetails['email'],
+        owner: page.personalDetailsForm.value.email,
         dateCreated: new Date().toISOString(),
       };
       console.log(page.formObj, 'obj');
@@ -747,10 +743,10 @@ export class new_travel_requestComponent {
             fromDate: ['', [Validators.required]],
             toDate: ['', [Validators.required]],
             tripType: ['', [Validators.required]],
-            // requestedFor: [ '',page.showHideElement? [Validators.required] :[]],
-            // requestType: [, [Validators.required]],
+            requestedFor: [''],
+            requestType: [''],
             preferredTime: ['', [Validators.required]],
-            travelerComments: ['', [Validators.required]],
+            travelerComments: [''],
             passportDocument: [''],
             visaRequired: [false, [Validators.required]],
             covidCertificate: ['', page.showVisa ? [Validators.required] : []],
@@ -767,20 +763,11 @@ export class new_travel_requestComponent {
             checkInTime: [false, [Validators.required]],
             checkOutTime: [''],
             // needvehicle: ['', [Validators.required]],
-            employeeComments: [false, [Validators.required]],
+            employeeComments: [''],
           }),
         })
       );
 
-      console.log(page.travelForm);
-      // if (page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.travelDetails?.controls?.needAccommodation == "Yes") {
-
-      //     page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.accommodationPreference.setValidators([
-      //         Validators.required
-      //     ]);
-      // }
-
-      //       page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.accommodationPreference.updateValueAndValidity();
       //appendnew_next_sd_LYJcmnJwoRoJ6qQz
       return bh;
     } catch (e) {
