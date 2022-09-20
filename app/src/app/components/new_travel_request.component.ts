@@ -33,6 +33,8 @@ import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
   ],
 })
 export class new_travel_requestComponent {
+  @Output('outputVar')
+  public outputVar: any = new EventEmitter<any>();
   page: any = { dep: {} };
   constructor(
     private __page_injector__: Injector,
@@ -160,12 +162,12 @@ export class new_travel_requestComponent {
     }
   }
 
-  showVisa(...others) {
+  showVisa(event: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { event: event };
       bh.local = {};
       bh = this.sd_X4aSuU8d6NJHFUCt(bh);
       //appendnew_next_showVisa
@@ -370,6 +372,20 @@ export class new_travel_requestComponent {
     }
   }
 
+  cancelButton(form: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { form: form };
+      bh.local = {};
+      bh = this.sd_XRSKx7RoBdbWSrkV(bh);
+      //appendnew_next_cancelButton
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_KrLKA5DZWsJnReRU');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -395,6 +411,7 @@ export class new_travel_requestComponent {
       this.page.key = undefined;
       this.page.other = false;
       this.page.otherToCity = false;
+      this.page.showDashboard = true;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;
@@ -437,7 +454,10 @@ export class new_travel_requestComponent {
         { viewvalue: 'New York' },
         { viewvalue: 'Other' },
       ];
-      page.project = [{ viewvalue: 'Woligo' }, { viewvalue: 'Assupol' }];
+      page.travelType = [
+        { viewvalue: 'Domestic' },
+        { viewvalue: 'International' },
+      ];
       page.travelMode = [
         { viewvalue: 'Road' },
         { viewvalue: 'Airway' },
@@ -618,6 +638,11 @@ export class new_travel_requestComponent {
       const page = this.page;
       if (bh.input.event.target.files.length > 0) {
         const file = bh.input.event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          console.log(reader.result);
+        };
       }
 
       //appendnew_next_sd_L8dj6KHB0MWU3lHf
@@ -778,7 +803,11 @@ export class new_travel_requestComponent {
   sd_X4aSuU8d6NJHFUCt(bh) {
     try {
       const page = this.page;
-      page.showVisa = true;
+      if (bh.input.event.value == 'International') {
+        page.showVisa = true;
+      } else {
+        page.showVisa = false;
+      }
       //appendnew_next_sd_X4aSuU8d6NJHFUCt
       return bh;
     } catch (e) {
@@ -1050,6 +1079,18 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Dwt1Wymb3cJ2N4Vq');
+    }
+  }
+
+  sd_XRSKx7RoBdbWSrkV(bh) {
+    try {
+      const page = this.page;
+      bh.input.form.reset();
+      this.outputVar.emit(page.showDashboard);
+      //appendnew_next_sd_XRSKx7RoBdbWSrkV
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_XRSKx7RoBdbWSrkV');
     }
   }
 
