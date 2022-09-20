@@ -26,7 +26,7 @@
                             <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="space-between center" [fxShow]="true">
                               <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                                 <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
-                                  <mat-radio-button [value]="&apos;Self&apos;" [required]="false" (change)="hideRequstedfor()"></mat-radio-button><label>
+                                  <mat-radio-button [value]="&apos;Self&apos;" [required]="false" (change)="hideRequstedfor($event)"></mat-radio-button><label>
                                     Self</label>
                                 </div>
                               </div>
@@ -46,8 +46,8 @@
                       Requested For</label>
                     <div>
                       <mat-form-field appearance="outline">
-                        <mat-label>Requested </mat-label>
-                        <input type="text" placeholder="Pick User" matInput [matAutocomplete]="auto">
+                        <!-- <mat-label>Requested </mat-label> -->
+                        <input type="text" placeholder="Requested For" matInput [matAutocomplete]="auto">
                         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChange($event)">
                           <mat-option *ngFor="let option of page?.allPersonalDetails" [value]="option.email">
                             {{option.email}}
@@ -63,6 +63,13 @@
                 <mat-icon>person</mat-icon>Traveler Personal Details
               </h1>
               <div fxLayout="row wrap" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                    First Name</label>
+                  <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
+                    <input matInput type="text" placeholder="First Name" [required]="false" formControlName="firstName">
+                    <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.lastName?.errors?.required">Last Name is reqiured</mat-error>
+                  </mat-form-field>
+                </div>
                 <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     Last Name</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">

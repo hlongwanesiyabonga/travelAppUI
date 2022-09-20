@@ -230,12 +230,12 @@ export class new_travel_requestComponent {
     }
   }
 
-  hideRequstedfor(...others) {
+  hideRequstedfor(event: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { event: event };
       bh.local = {};
       bh = this.sd_woXsLjYIiE93sSGF(bh);
       //appendnew_next_hideRequstedfor
@@ -439,10 +439,9 @@ export class new_travel_requestComponent {
       ];
       page.project = [{ viewvalue: 'Woligo' }, { viewvalue: 'Assupol' }];
       page.travelMode = [
-        { viewvalue: 'Uber' },
-        { viewvalue: 'Flight' },
-        { viewvalue: 'Bus' },
-        { viewvalue: 'Train' },
+        { viewvalue: 'Road' },
+        { viewvalue: 'Airway' },
+        { viewvalue: 'Railway' },
       ];
       page.nationality = [
         { viewvalue: 'South African' },
@@ -631,10 +630,10 @@ export class new_travel_requestComponent {
   sd_UTu9MfO7IadBmBxp(bh) {
     try {
       const page = this.page; //combine the 2 forms
-      console.log(bh.input.personalDetailsForm);
+      console.log('hi', page.personalDetailsForm);
       console.log(bh.input.form);
       page.formObj = {
-        personalDetails: page.personalDetails,
+        personalDetails: page.personalDetailsForm.value,
         requestDetails: bh.input.form.requestDetails,
         status: null,
         managerApproval: {
@@ -724,11 +723,8 @@ export class new_travel_requestComponent {
             fromDate: ['', [Validators.required]],
             toDate: ['', [Validators.required]],
             tripType: ['', [Validators.required]],
-            requestedFor: [
-              '',
-              page.showHideElement ? [Validators.required] : [],
-            ],
-            requestType: [, [Validators.required]],
+            // requestedFor: [ '',page.showHideElement? [Validators.required] :[]],
+            // requestType: [, [Validators.required]],
             preferredTime: ['', [Validators.required]],
             travelerComments: ['', [Validators.required]],
             passportDocument: [''],
@@ -739,20 +735,28 @@ export class new_travel_requestComponent {
             needAccommodation: ['', [Validators.required]],
           }),
           accommodationDetails: page.Fb.group({
-            accommodationPreference: [null, [Validators.required]],
-            city: [null, [Validators.required]],
-            checkInDate: [null, [Validators.required]],
-            checkOutDate: [null, [Validators.required]],
-            // accommodationType: [null, [Validators.required]],
-            checkInTime: [null, [Validators.required]],
+            accommodationPreference: [false, [Validators.required]],
+            city: [false, [Validators.required]],
+            checkInDate: [false, [Validators.required]],
+            checkOutDate: [false, [Validators.required]],
+            // accommodationType: [false, [Validators.required]],
+            checkInTime: [false, [Validators.required]],
             checkOutTime: [''],
             // needvehicle: ['', [Validators.required]],
-            employeeComments: [null, [Validators.required]],
+            employeeComments: [false, [Validators.required]],
           }),
         })
       );
 
-      console.log(page.travelForm.get('requestDetails').controls);
+      console.log(page.travelForm);
+      // if (page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.travelDetails?.controls?.needAccommodation == "Yes") {
+
+      //     page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.accommodationPreference.setValidators([
+      //         Validators.required
+      //     ]);
+      // }
+
+      //       page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.accommodationPreference.updateValueAndValidity();
       //appendnew_next_sd_LYJcmnJwoRoJ6qQz
       return bh;
     } catch (e) {
@@ -863,7 +867,7 @@ export class new_travel_requestComponent {
   sd_bGJNq67yiqLlcZxB(bh) {
     try {
       const page = this.page;
-      console.log('allPersonalDetails', page.allPersonalDetails);
+      console.log('allPersonalDetails', page.personalDetailsForm);
       //appendnew_next_sd_bGJNq67yiqLlcZxB
       return bh;
     } catch (e) {
@@ -875,10 +879,64 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       page.showHideElement = false;
+      bh = this.sd_XRADDJTfrPvwjfgu(bh);
       //appendnew_next_sd_woXsLjYIiE93sSGF
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_woXsLjYIiE93sSGF');
+    }
+  }
+
+  sd_XRADDJTfrPvwjfgu(bh) {
+    try {
+      const page = this.page;
+      bh.endPoint = 'genericGet/getPersonalDetails';
+      bh.method = 'get';
+      page.email = 'neo.thobela@neutrinos.co';
+      bh = this.sd_3C4rUDlPdIve4KEm(bh);
+      //appendnew_next_sd_XRADDJTfrPvwjfgu
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_XRADDJTfrPvwjfgu');
+    }
+  }
+
+  async sd_3C4rUDlPdIve4KEm(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.allPersonalDetails = outputVariables.local.result;
+
+      bh = this.sd_96VxExgs74Rn3m6g(bh);
+      //appendnew_next_sd_3C4rUDlPdIve4KEm
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_3C4rUDlPdIve4KEm');
+    }
+  }
+
+  sd_96VxExgs74Rn3m6g(bh) {
+    try {
+      const page = this.page; // console.log('event', bh.input.event)
+      let personalDetails = page.allPersonalDetails.filter(
+        (el) => el.email == page.email
+      );
+
+      personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth']);
+      let values = page.personalDetailsForm.patchValue(personalDetails);
+
+      console.log(values);
+
+      //appendnew_next_sd_96VxExgs74Rn3m6g
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_96VxExgs74Rn3m6g');
     }
   }
 

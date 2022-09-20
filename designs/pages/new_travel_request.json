@@ -342,7 +342,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "select Data",
-        "script": "page.identification =[ {viewvalue : \"ID Number\"},{viewvalue : \"PAN Number\"},{viewvalue : \"Passoprt Number\"} ]\npage.options =  [{viewvalue : \"Yes\"},{viewvalue : \"No\"},{viewvalue : \"Unsure\"}];\npage.city =[{viewvalue: \"Cape Town\"},{viewvalue: \"Johnnesburg\"},{viewvalue: \"Bangalore\"},{viewvalue: \"New York\"},{viewvalue: \"Other\"}]\npage.project = [{viewvalue : \"Woligo\"},{viewvalue : \"Assupol\"}];\npage.travelMode = [{viewvalue: \"Uber\"},{viewvalue: \"Flight\"},{viewvalue: \"Bus\"},{viewvalue: \"Train\"}];\npage.nationality = [{viewvalue: \"South African\"},{viewvalue: \"Asian\"},{viewvalue: \"Eurpoean\"},{viewvalue: \"Indian\"},{viewvalue: \"Other\"}];\npage.gender =  [{viewvalue: \"Male\"},{viewvalue: \"Female\"},{viewvalue: \"Other\"}];\npage.purposeOfTravel = [{viewvalue: \"Meeting\"},{viewvalue: \"Shootout\"},{viewvalue: \"Sales\"}];\npage.accomodationPreferance =[{viewvalue: \"hotel\"},{viewvalue: \"B&B\"}]",
+        "script": "page.identification =[ {viewvalue : \"ID Number\"},{viewvalue : \"PAN Number\"},{viewvalue : \"Passoprt Number\"} ]\npage.options =  [{viewvalue : \"Yes\"},{viewvalue : \"No\"},{viewvalue : \"Unsure\"}];\npage.city =[{viewvalue: \"Cape Town\"},{viewvalue: \"Johnnesburg\"},{viewvalue: \"Bangalore\"},{viewvalue: \"New York\"},{viewvalue: \"Other\"}]\npage.project = [{viewvalue : \"Woligo\"},{viewvalue : \"Assupol\"}];\npage.travelMode = [{viewvalue: \"Road\"},{viewvalue: \"Airway\"},{viewvalue: \"Railway\"}];\npage.nationality = [{viewvalue: \"South African\"},{viewvalue: \"Asian\"},{viewvalue: \"Eurpoean\"},{viewvalue: \"Indian\"},{viewvalue: \"Other\"}];\npage.gender =  [{viewvalue: \"Male\"},{viewvalue: \"Female\"},{viewvalue: \"Other\"}];\npage.purposeOfTravel = [{viewvalue: \"Meeting\"},{viewvalue: \"Shootout\"},{viewvalue: \"Sales\"}];\npage.accomodationPreferance =[{viewvalue: \"hotel\"},{viewvalue: \"B&B\"}]",
         "functionName": "selectData",
         "category": "Function",
         "x": 465,
@@ -586,7 +586,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "//combine the 2 forms\nconsole.log(bh.input.personalDetailsForm)\nconsole.log(bh.input.form)\npage.formObj = {\n   \"personalDetails\" : page.personalDetails,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":null,\n    \"managerApproval\" : {\n        \"approvedRequest\" : null,\n        \"comments\" : \"\"\n    },\n    //\"owner\": page.personalDetails['email'],\n    \"dateCreated\": new Date().toISOString()\n    };\n    console.log(page.formObj,\"obj\")\n\n\nbh.endPoint = (bh.input.reqType) ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method =\"post\";\nconsole.log(bh.endPoint);",
+        "script": "//combine the 2 forms\nconsole.log(\"hi\",page.personalDetailsForm)\nconsole.log(bh.input.form)\npage.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":null,\n    \"managerApproval\" : {\n        \"approvedRequest\" : null,\n        \"comments\" : \"\"\n    },\n    //\"owner\": page.personalDetails['email'],\n    \"dateCreated\": new Date().toISOString()\n    };\n    console.log(page.formObj,\"obj\")\n\n\nbh.endPoint = (bh.input.reqType) ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method =\"post\";\nconsole.log(bh.endPoint);",
         "functionName": "sd_UTu9MfO7IadBmBxp",
         "category": "Function",
         "x": 385,
@@ -632,7 +632,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelRequestType: [false, [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    requestedFor: [ '',page.showHideElement? [Validators.required] :[]],\n    requestType: [, [Validators.required]],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: ['', [Validators.required]],\n    passportDocument: [''],\n    visaRequired: [false, [Validators.required]],\n    covidCertificate: ['', page.showVisa ? [Validators.required] :[]],\n   passport: [''],\n    needvehicle: ['No', [Validators.required]],\n    needAccommodation: ['', [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: [null, [Validators.required]],\n    city: [null, [Validators.required]],\n    checkInDate: [null, [Validators.required]],\n    checkOutDate: [null, [Validators.required]],\n   // accommodationType: [null, [Validators.required]],\n    checkInTime: [null, [Validators.required]],\n    checkOutTime: [''],\n   // needvehicle: ['', [Validators.required]],\n    employeeComments: [null, [Validators.required]]\n\n  })\n}));\n\nconsole.log(page.travelForm.get('requestDetails').controls)",
+        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelRequestType: [false, [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n   // requestedFor: [ '',page.showHideElement? [Validators.required] :[]],\n   // requestType: [, [Validators.required]],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: ['', [Validators.required]],\n    passportDocument: [''],\n    visaRequired: [false, [Validators.required]],\n    covidCertificate: ['', page.showVisa ? [Validators.required] :[]],\n   passport: [''],\n    needvehicle: ['No', [Validators.required]],\n    needAccommodation: ['', [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: [false, [Validators.required]],\n    city: [false, [Validators.required]],\n    checkInDate: [false, [Validators.required]],\n    checkOutDate: [false, [Validators.required]],\n   // accommodationType: [false, [Validators.required]],\n    checkInTime: [false, [Validators.required]],\n    checkOutTime: [''],\n   // needvehicle: ['', [Validators.required]],\n    employeeComments: [false, [Validators.required]]\n\n  })\n}));\n\nconsole.log(page.travelForm)\n// if (page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.travelDetails?.controls?.needAccommodation == \"Yes\") {\n\n//     page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.accommodationPreference.setValidators([\n//         Validators.required\n//     ]);\n// }\n\n//       page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.accommodationPreference.updateValueAndValidity();",
         "functionName": "sd_LYJcmnJwoRoJ6qQz",
         "category": "Function",
         "x": 885,
@@ -966,7 +966,16 @@
         "nodeType": "start",
         "name": "hideRequstedfor",
         "outputs": 1,
-        "inputVariables": [],
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
         "localVariables": [],
         "flow_type": "sync",
         "functionName": "hideRequstedfor",
@@ -995,7 +1004,9 @@
         "x": 785,
         "y": 660,
         "wires": [
-            []
+            [
+                "sd_XRADDJTfrPvwjfgu"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -1386,62 +1397,6 @@
         "serviceName": "new_travel_requestComponent"
     },
     {
-        "id": "sd_qHQ8zwTE9Tjka5KY",
-        "type": "PageCallService",
-        "z": "sd_osEacZsdUBcy4IJg",
-        "viewType": "pages",
-        "nodeType": "flow",
-        "name": "",
-        "outputs": 1,
-        "isValidNode": true,
-        "noerr": 0,
-        "service": {
-            "id": "sd_hkAMxxfqyGUP7RIf",
-            "type": "tab",
-            "createdDate": "2022-06-28T19:32:02.953Z",
-            "label": "callServerApis",
-            "disabled": false,
-            "info": "",
-            "functionSeq": 0
-        },
-        "flow": {
-            "flowId": "sd_Yi9MXSZoEVL34c9W",
-            "flowName": "storePersonalDetails"
-        },
-        "inputVariables": [
-            {
-                "key": "data",
-                "map": true,
-                "valueType": "this.page",
-                "value": "personalDetails"
-            },
-            {
-                "key": "key",
-                "map": true,
-                "valueType": "this.page",
-                "value": ""
-            }
-        ],
-        "outputMapping": [],
-        "serviceImportPath": "app/sd-services/callServerApis",
-        "startName": "storePersonalDetails",
-        "inputParams": [
-            "this.page.personalDetails",
-            null
-        ],
-        "accept_bh": false,
-        "accept_csd": true,
-        "functionName": "sd_qHQ8zwTE9Tjka5KY",
-        "category": "General",
-        "x": 1245,
-        "y": 160,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true
-    },
-    {
         "id": "sd_luSulxE87ZpsIDcL",
         "type": "Script",
         "z": "sd_osEacZsdUBcy4IJg",
@@ -1790,7 +1745,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log('allPersonalDetails',page.allPersonalDetails)",
+        "script": "console.log('allPersonalDetails',page.personalDetailsForm)",
         "functionName": "sd_bGJNq67yiqLlcZxB",
         "category": "Function",
         "x": 605,
@@ -1853,5 +1808,212 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_3C4rUDlPdIve4KEm",
+        "type": "PageCallService",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "allPersonalDetails",
+                "mapVarName": "result",
+                "localVar": "this.page.allPersonalDetails"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_3C4rUDlPdIve4KEm",
+        "category": "General",
+        "x": 1005,
+        "y": 660,
+        "wires": [
+            [
+                "sd_96VxExgs74Rn3m6g"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_XRADDJTfrPvwjfgu",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.endPoint = 'genericGet/getPersonalDetails';\nbh.method =\"get\";\npage.email = \"neo.thobela@neutrinos.co\"",
+        "functionName": "sd_XRADDJTfrPvwjfgu",
+        "category": "Function",
+        "x": 865,
+        "y": 660,
+        "wires": [
+            [
+                "sd_3C4rUDlPdIve4KEm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_96VxExgs74Rn3m6g",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// console.log('event', bh.input.event)\nlet personalDetails = page.allPersonalDetails.filter(el => el.email == page.email )\n\n    personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth'])\n   let values= page.personalDetailsForm.patchValue(personalDetails);\n\n   console.log( values)\n",
+        "functionName": "sd_96VxExgs74Rn3m6g",
+        "category": "Function",
+        "x": 1107.272705078125,
+        "y": 655.2840576171875,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_iiepZBLONbDxtD1K",
+        "type": "PageCallService",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "allPersonalDetails",
+                "mapVarName": "result",
+                "localVar": "this.page.allPersonalDetails"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_iiepZBLONbDxtD1K",
+        "category": "General",
+        "x": 1212.727294921875,
+        "y": 128.9204559326172,
+        "wires": [
+            [
+                "sd_oxWHSckKp9HB9iwA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_oxWHSckKp9HB9iwA",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(page.personalDetailsForm.patchValue(page.allPersonalDetails))\n    page.allPersonalDetails['dateOfBirth'] = new Date(page.allPersonalDetails['dateOfBirth'])\n    page.personalDetailsForm.patchValue(page.allPersonalDetails);\n",
+        "functionName": "sd_oxWHSckKp9HB9iwA",
+        "category": "Function",
+        "x": 1315,
+        "y": 124.20451354980469,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]
