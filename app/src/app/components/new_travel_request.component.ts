@@ -8,8 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -164,12 +162,12 @@ export class new_travel_requestComponent {
     }
   }
 
-  showVisa(...others) {
+  showVisa(event: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { event: event };
       bh.local = {};
       bh = this.sd_X4aSuU8d6NJHFUCt(bh);
       //appendnew_next_showVisa
@@ -455,7 +453,10 @@ export class new_travel_requestComponent {
         { viewvalue: 'New York' },
         { viewvalue: 'Other' },
       ];
-      page.project = [{ viewvalue: 'Woligo' }, { viewvalue: 'Assupol' }];
+      page.travelType = [
+        { viewvalue: 'International' },
+        { viewvalue: 'Domestic' },
+      ];
       page.travelMode = [
         { viewvalue: 'Road' },
         { viewvalue: 'Airway' },
@@ -636,6 +637,11 @@ export class new_travel_requestComponent {
       const page = this.page;
       if (bh.input.event.target.files.length > 0) {
         const file = bh.input.event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          console.log(reader.result);
+        };
       }
 
       //appendnew_next_sd_L8dj6KHB0MWU3lHf
@@ -796,7 +802,12 @@ export class new_travel_requestComponent {
   sd_X4aSuU8d6NJHFUCt(bh) {
     try {
       const page = this.page;
-      page.showVisa = true;
+      if (bh.input.event.value == 'International') {
+        page.showVisa = true;
+      } else {
+        page.showVisa = false;
+      }
+
       //appendnew_next_sd_X4aSuU8d6NJHFUCt
       return bh;
     } catch (e) {
