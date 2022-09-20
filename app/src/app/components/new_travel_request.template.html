@@ -118,7 +118,7 @@
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.panNumber?.errors?.required">Pan Number is Required</mat-error>
                   </mat-form-field>
                 </div>
-                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="viewvalue ==&apos;Passport Number&apos;"><label>
+                <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     Passport Number</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
                     <input matInput type="text" placeholder="Passport Number" [required]="false" formControlName="passportNumber">
@@ -355,7 +355,7 @@
                               <label class="marginBottom1em">Upload Passport</label>
                             </label><label>
 
-                              <input formControlName="passport" id="file" type="file" class="form-control" (change)="onFileChange($event)">
+                              <input formControlName="passport" id="file2" type="file" class="form-control" (change)="onFileChange($event)">
                               <!-- <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
             <div *ngIf="f.file.errors.required">File is required.</div>
         </div> -->
@@ -480,7 +480,7 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
     <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginBottom1em marinTop1em" fxLayoutGap="2em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="redBorderedButton" (click)="cancelButton(page.travelForm)">Cancel</button><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Clear</button><button mat-button class="redButton" (click)="tdetails(page.travelForm.value,page.personalDetailsForm.value)">Submit</button><button mat-raised-button class="grayButton" (click)="saveAsDraft(page.travelForm.value,&apos;draft&apos;)">Save As Draft</button></div>
+      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="2em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="blackButton" (click)="cancelButton(page.travelForm)">Cancel</button><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Clear</button><button mat-raised-button class="redButton" (click)="tdetails(page.travelForm.value,page.personalDetailsForm.value)" [disabled]="!page.travelForm.valid">Submit</button><button mat-raised-button class="blackButton" (click)="saveAsDraft(page.travelForm.value,&apos;draft&apos;)">Save As Draft</button></div>
     </div>
   </div>
 </div>

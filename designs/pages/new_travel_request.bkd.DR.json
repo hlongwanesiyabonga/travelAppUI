@@ -7296,12 +7296,6 @@
                                                 "_value": "49",
                                                 "_type": "kv",
                                                 "_attrDef": "c"
-                                            },
-                                            {
-                                                "_key": "*ngIf",
-                                                "_value": "viewvalue =='Passport Number'",
-                                                "_type": "kv",
-                                                "_attrDef": "c"
                                             }
                                         ],
                                         "94eddd23-f26e-3eb8-608b-526a4fc9e6e3": {
@@ -19273,7 +19267,7 @@
                                                                         },
                                                                         {
                                                                             "_key": "html",
-                                                                            "_value": " \r\n        <input \r\n            formControlName=\"passport\"\r\n            id=\"file\" \r\n            type=\"file\" \r\n            class=\"form-control\"\r\n            (change)=\"onFileChange($event)\">\r\n        <!-- <div *ngIf=\"f.file.touched && f.file.invalid\" class=\"alert alert-danger\">\r\n            <div *ngIf=\"f.file.errors.required\">File is required.</div>\r\n        </div> -->\r\n    </div>\r\n<!-- <input mat-button type=\"file\" (change)=\"csvInputChange($event)\" formControlName =\"passport\" /> -->\r\n<!-- <div class =\"marginBottom0pt3em\" class=\"blackButton \" >Upload Passport</div>\r\n<button mat-button class=\"blackButton \" (click)=\"csvInput.click()\">Upload File</button> -->\r\n <!-- <div class=\"form-group\">\r\n      <label for=\"file\">Choose File</label><br /> <input type=\"file\" id=\"file\" (change)=\"uploadFiles($event.target.files)\">\r\n    </div>\r\n -->\r\n    <!-- <button type=\"button\" (click)=\"RequestUpload()\">Ok</button> -->",
+                                                                            "_value": " \r\n        <input \r\n            formControlName=\"passport\"\r\n            id=\"file2\" \r\n            type=\"file\" \r\n            class=\"form-control\"\r\n            (change)=\"onFileChange($event)\">\r\n        <!-- <div *ngIf=\"f.file.touched && f.file.invalid\" class=\"alert alert-danger\">\r\n            <div *ngIf=\"f.file.errors.required\">File is required.</div>\r\n        </div> -->\r\n    </div>\r\n<!-- <input mat-button type=\"file\" (change)=\"csvInputChange($event)\" formControlName =\"passport\" /> -->\r\n<!-- <div class =\"marginBottom0pt3em\" class=\"blackButton \" >Upload Passport</div>\r\n<button mat-button class=\"blackButton \" (click)=\"csvInput.click()\">Upload File</button> -->\r\n <!-- <div class=\"form-group\">\r\n      <label for=\"file\">Choose File</label><br /> <input type=\"file\" id=\"file\" (change)=\"uploadFiles($event.target.files)\">\r\n    </div>\r\n -->\r\n    <!-- <button type=\"button\" (click)=\"RequestUpload()\">Ok</button> -->",
                                                                             "_type": "a",
                                                                             "_attrDef": "p"
                                                                         }
@@ -25041,6 +25035,7 @@
                     "9013fa76-828d-6d44-5d29-e21f3a06f733": {
                         "paletteKey": "NG-RaisedButton",
                         "parentEditorKey": "b98664ee-63ef-daa8-2280-1d9b62759db9",
+                        "isCommented": "false",
                         "commentid": null,
                         "designerReference": [
                             {
