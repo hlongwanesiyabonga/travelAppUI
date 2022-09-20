@@ -28,8 +28,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent",
-        "generated": false
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_nrTQrGEzRLT39o1H",
@@ -163,8 +162,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent",
-        "generated": false
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_NtXl4H7miZSfSkAz",
@@ -344,8 +342,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent",
-        "generated": false
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_pTekq9v8lzFG0mju",
@@ -389,8 +386,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent",
-        "generated": false
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_KVlNAJ6NtuO27Mha",
@@ -434,8 +430,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent",
-        "generated": false
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_bo8G9H0I7TNYxzAR",
@@ -478,8 +473,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent",
-        "generated": false
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_4Y6EVejP40Y0iuRl",
@@ -522,8 +516,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent",
-        "generated": false
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_4tj3WGNebkyyBzpN",
@@ -560,8 +553,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "generated": false
+        "generateNext": true
     },
     {
         "id": "sd_Ld8Z0R56kFnzLxOy",
@@ -702,8 +694,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent",
-        "generated": false
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_gT8hRhNopvoRlRwC",
@@ -746,8 +737,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "baseComponent",
-        "generated": false
+        "serviceName": "baseComponent"
     },
     {
         "id": "sd_d19JDsdecgfUp9PQ",
@@ -824,8 +814,8 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generated": true,
-        "generateNext": false
+        "generateNext": false,
+        "generated": true
     },
     {
         "id": "sd_ti9tbxXUHmz0mETK",
@@ -855,6 +845,7 @@
         "serviceImportPath": "./base",
         "startName": "storePersonalDetails",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_ti9tbxXUHmz0mETK",
         "category": "General",

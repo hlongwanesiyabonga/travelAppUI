@@ -3896,7 +3896,9 @@
                                 },
                                 {
                                     "_key": "class",
-                                    "_value": "",
+                                    "_value": [
+                                        "fullWidth"
+                                    ],
                                     "_type": "dav",
                                     "_attrDef": "p"
                                 },
