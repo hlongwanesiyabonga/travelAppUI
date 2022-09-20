@@ -35,6 +35,8 @@ import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
   ],
 })
 export class new_travel_requestComponent {
+  @Output('outputVar')
+  public outputVar: any = new EventEmitter<any>();
   page: any = { dep: {} };
   constructor(
     private __page_injector__: Injector,
@@ -369,6 +371,20 @@ export class new_travel_requestComponent {
       //appendnew_next_onSelectionChange
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Q0v6NlJ8kvxZfziB');
+    }
+  }
+
+  cancelButton(form: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { form: form };
+      bh.local = {};
+      bh = this.sd_E6ZjDNeLnSIeXTM5(bh);
+      //appendnew_next_cancelButton
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ZhJ9WfU4oghVZtZs');
     }
   }
 
@@ -1037,6 +1053,18 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Dwt1Wymb3cJ2N4Vq');
+    }
+  }
+
+  sd_E6ZjDNeLnSIeXTM5(bh) {
+    try {
+      const page = this.page;
+      bh.input.form.reset();
+      this.outputVar.emit(page.showDashboard);
+      //appendnew_next_sd_E6ZjDNeLnSIeXTM5
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_E6ZjDNeLnSIeXTM5');
     }
   }
 
