@@ -3224,7 +3224,7 @@
                                                         },
                                                         {
                                                             "_key": "html",
-                                                            "_value": "<p>{{page.personalDetails.firstName[0]}}.{{page.personalDetails.lastName[0]}}</p>",
+                                                            "_value": "<p>{{page?.personalDetails?.firstName[0] + page?.personalDetails?.lastName[0]}}</p>",
                                                             "_type": "a",
                                                             "_attrDef": "p"
                                                         }

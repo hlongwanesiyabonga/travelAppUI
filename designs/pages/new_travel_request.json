@@ -999,14 +999,14 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.showHideElement= false",
+        "script": "page.showHideElement= false;\nbh.endPoint = 'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;\nbh.method =\"get\";",
         "functionName": "sd_woXsLjYIiE93sSGF",
         "category": "Function",
-        "x": 785,
+        "x": 845,
         "y": 660,
         "wires": [
             [
-                "sd_XRADDJTfrPvwjfgu"
+                "sd_3C4rUDlPdIve4KEm"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1746,7 +1746,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log('allPersonalDetails',page.personalDetailsForm)",
+        "script": "page.personalDetailsForm",
         "functionName": "sd_bGJNq67yiqLlcZxB",
         "category": "Function",
         "x": 605,
@@ -1857,10 +1857,10 @@
             {
                 "mapVarType": "local",
                 "key": "result",
-                "valueType": "this.page",
-                "value": "allPersonalDetails",
+                "valueType": "bh.local",
+                "value": "selfDetails",
                 "mapVarName": "result",
-                "localVar": "this.page.allPersonalDetails"
+                "localVar": "bh.local.selfDetails"
             }
         ],
         "serviceImportPath": "app/sd-services/callServerApis",
@@ -1874,32 +1874,11 @@
         "accept_csd": true,
         "functionName": "sd_3C4rUDlPdIve4KEm",
         "category": "General",
-        "x": 1005,
+        "x": 945,
         "y": 660,
         "wires": [
             [
                 "sd_96VxExgs74Rn3m6g"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_XRADDJTfrPvwjfgu",
-        "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "bh.endPoint = 'genericGet/getPersonalDetails';\nbh.method =\"get\";\npage.email = \"neo.thobela@neutrinos.co\"",
-        "functionName": "sd_XRADDJTfrPvwjfgu",
-        "category": "Function",
-        "x": 865,
-        "y": 660,
-        "wires": [
-            [
-                "sd_3C4rUDlPdIve4KEm"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1913,7 +1892,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "// console.log('event', bh.input.event)\nlet personalDetails = page.allPersonalDetails.filter(el => el.email == page.email )\n\n    personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth'])\n   let values= page.personalDetailsForm.patchValue(personalDetails);\n\n   console.log( values)\n",
+        "script": "console.log(bh.selfDetails);\nbh.local.selfDetails['dateOfBirth'] = new Date(bh.local.selfDetails['dateOfBirth'])\npage.personalDetailsForm.patchValue(bh.local.selfDetails);",
         "functionName": "sd_96VxExgs74Rn3m6g",
         "category": "Function",
         "x": 1107.272705078125,

@@ -122,7 +122,7 @@
                 "textIp": "personalDetails",
                 "typedIpValue": {
                     "type": "literal",
-                    "value": ""
+                    "value": "{}"
                 }
             }
         ],
@@ -850,6 +850,38 @@
         "functionName": "sd_ti9tbxXUHmz0mETK",
         "category": "General",
         "x": 605,
+        "y": 80,
+        "wires": [
+            [
+                "sd_Uq7EpfeVgT8CmNMt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Uq7EpfeVgT8CmNMt",
+        "type": "Storage",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "personalDetails"
+        },
+        "functionName": "sd_Uq7EpfeVgT8CmNMt",
+        "category": "Storage",
+        "x": 705,
         "y": 80,
         "wires": [
             []

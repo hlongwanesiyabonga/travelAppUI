@@ -55,7 +55,7 @@
                 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                   <div fxLayout="column wrap" class="topNavUserNameButton" fxLayoutAlign="center center" [fxShow]="true" fxHide.xs="true">
                     <div class="userInitials">
-                      <p>{{page.personalDetails.firstName[0]}}.{{page.personalDetails.lastName[0]}}</p>
+                      <p>{{page?.personalDetails?.firstName[0] + page?.personalDetails?.lastName[0]}}</p>
                     </div>
                   </div>
                   <div fxLayout="column wrap" class="topNavUserNameButton" fxLayoutAlign="center center" [fxShow]="true" fxHide.xs="true">
