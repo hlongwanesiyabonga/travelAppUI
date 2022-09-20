@@ -204,7 +204,9 @@
                         },
                         {
                             "_key": "class",
-                            "_value": "",
+                            "_value": [
+                                "marginTop20"
+                            ],
                             "_type": "dav",
                             "_attrDef": "p"
                         },
@@ -632,7 +634,7 @@
                                                 },
                                                 {
                                                     "_key": "html",
-                                                    "_value": "<mat-icon>group</mat-icon>Requester",
+                                                    "_value": "<mat-icon class=\"marginRight10\">group</mat-icon>Requester",
                                                     "_type": "a",
                                                     "_attrDef": "p"
                                                 }
@@ -3757,7 +3759,7 @@
                                             },
                                             {
                                                 "_key": "html",
-                                                "_value": "<mat-icon>person</mat-icon>Traveler Personal Details",
+                                                "_value": "<mat-icon class=\"marginRight10\">person</mat-icon>Traveler Personal Details",
                                                 "_type": "a",
                                                 "_attrDef": "p"
                                             }
@@ -12182,7 +12184,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "formControlName",
-                                                                        "_value": "travelMode",
+                                                                        "_value": "travelType",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p"
                                                                     },
@@ -18354,9 +18356,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "class",
-                                                                        "_value": [
-                                                                            "marinTop1em"
-                                                                        ],
+                                                                        "_value": [],
                                                                         "_type": "dav",
                                                                         "_attrDef": "p"
                                                                     },
@@ -18570,9 +18570,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "class",
-                                                                        "_value": [
-                                                                            "marinTop1em"
-                                                                        ],
+                                                                        "_value": [],
                                                                         "_type": "dav",
                                                                         "_attrDef": "p"
                                                                     },
@@ -18868,9 +18866,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "class",
-                                                                        "_value": [
-                                                                            "marinTop1em"
-                                                                        ],
+                                                                        "_value": [],
                                                                         "_type": "dav",
                                                                         "_attrDef": "p"
                                                                     },
@@ -19084,9 +19080,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "class",
-                                                                        "_value": [
-                                                                            "marinTop1em"
-                                                                        ],
+                                                                        "_value": [],
                                                                         "_type": "dav",
                                                                         "_attrDef": "p"
                                                                     },
@@ -19461,7 +19455,7 @@
                                                                         },
                                                                         {
                                                                             "_key": "fxLayoutGap",
-                                                                            "_value": "",
+                                                                            "_value": "0.3em",
                                                                             "_type": "kv",
                                                                             "_attrDef": "p"
                                                                         },
@@ -20982,7 +20976,7 @@
                                                                 },
                                                                 {
                                                                     "_key": "html",
-                                                                    "_value": "<mat-icon>location_city</mat-icon>Accommodation Details",
+                                                                    "_value": "<mat-icon class=\"marginRight10\">location_city</mat-icon>Accommodation Details",
                                                                     "_type": "a",
                                                                     "_attrDef": "p"
                                                                 }
@@ -24854,6 +24848,7 @@
                         {
                             "_key": "class",
                             "_value": [
+                                "marginRight20",
                                 "marginBottom1em",
                                 "marinTop1em"
                             ],
@@ -24911,7 +24906,7 @@
                             {
                                 "_key": "class",
                                 "_value": [
-                                    "redBorderedButton"
+                                    "blackButton"
                                 ],
                                 "_type": "dav",
                                 "_attrDef": "p"
@@ -25075,10 +25070,84 @@
                             },
                             {
                                 "_key": "[disabled]",
-                                "_value": "!page.travelForm.Valid",
+                                "_value": "!page.travelForm.valid",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "_customAttributeFlag": "customInput"
+                            },
+                            {
+                                "_key": "[disableRipple]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "type",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "routerLink",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    },
+                    "02889383-2041-c8f0-a1c4-ce69f9f2179c": {
+                        "paletteKey": "NG-RaisedButton",
+                        "parentEditorKey": "b98664ee-63ef-daa8-2280-1d9b62759db9",
+                        "commentid": null,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": [
+                                    "blackButton"
+                                ],
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "buttonname",
+                                "_value": "Save As Draft",
+                                "_type": "a",
+                                "_attrDef": "p",
+                                "_useAsLabel": true
+                            },
+                            {
+                                "_key": "color",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "(click)",
+                                "_value": "saveAsDraft(page.travelForm.value,'draft')",
+                                "_type": "kv",
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_C15spxFfj0Omfycc",
+                                    "functionName": "saveAsDraft",
+                                    "activeTree": "pages",
+                                    "z": "sd_osEacZsdUBcy4IJg",
+                                    "input": [
+                                        "page.travelForm.value",
+                                        "'draft'"
+                                    ]
+                                }
+                            },
+                            {
+                                "_key": "[disabled]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
                             },
                             {
                                 "_key": "[disableRipple]",
@@ -25156,80 +25225,6 @@
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "_customAttributeFlag": "customInput"
-                            },
-                            {
-                                "_key": "[disableRipple]",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "type",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "routerLink",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            }
-                        ]
-                    },
-                    "02889383-2041-c8f0-a1c4-ce69f9f2179c": {
-                        "paletteKey": "NG-RaisedButton",
-                        "parentEditorKey": "b98664ee-63ef-daa8-2280-1d9b62759db9",
-                        "commentid": null,
-                        "designerReference": [
-                            {
-                                "_key": "style",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "class",
-                                "_value": [
-                                    "grayButton"
-                                ],
-                                "_type": "dav",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "buttonname",
-                                "_value": "Save As Draft",
-                                "_type": "a",
-                                "_attrDef": "p",
-                                "_useAsLabel": true
-                            },
-                            {
-                                "_key": "color",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "(click)",
-                                "_value": "saveAsDraft(page.travelForm.value,'draft')",
-                                "_type": "kv",
-                                "_attrDef": "p",
-                                "objValue": {
-                                    "nodeID": "sd_C15spxFfj0Omfycc",
-                                    "functionName": "saveAsDraft",
-                                    "activeTree": "pages",
-                                    "z": "sd_osEacZsdUBcy4IJg",
-                                    "input": [
-                                        "page.travelForm.value",
-                                        "'draft'"
-                                    ]
-                                }
-                            },
-                            {
-                                "_key": "[disabled]",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
                             },
                             {
                                 "_key": "[disableRipple]",

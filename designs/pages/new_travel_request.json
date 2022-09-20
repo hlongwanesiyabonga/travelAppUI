@@ -525,7 +525,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "if (bh.input.event.target.files.length > 0) {\n      const file = bh.input.event.target.files[0];\n    }\n  ",
+        "script": "if (bh.input.event.target.files.length > 0) {\n      const file = bh.input.event.target.files[0];\n    const reader = new FileReader();\n    reader.readAsDataURL(file);\n    reader.onload = () => {\n        console.log(reader.result);\n    };\n    }\n  ",
         "functionName": "sd_L8dj6KHB0MWU3lHf",
         "category": "Function",
         "x": 405,

@@ -621,6 +621,11 @@ export class new_travel_requestComponent {
       const page = this.page;
       if (bh.input.event.target.files.length > 0) {
         const file = bh.input.event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          console.log(reader.result);
+        };
       }
 
       //appendnew_next_sd_L8dj6KHB0MWU3lHf
