@@ -342,7 +342,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "select Data",
-        "script": "page.identification =[ {viewvalue : \"ID Number\"},{viewvalue : \"PAN Number\"},{viewvalue : \"Passoprt Number\"} ]\npage.options =  [{viewvalue : \"Yes\"},{viewvalue : \"No\"},{viewvalue : \"Unsure\"}];\npage.city =[{viewvalue: \"Cape Town\"},{viewvalue: \"Johnnesburg\"},{viewvalue: \"Bangalore\"},{viewvalue: \"New York\"},{viewvalue: \"Other\"}]\npage.project = [{viewvalue : \"Woligo\"},{viewvalue : \"Assupol\"}];\npage.travelMode = [{viewvalue: \"Road\"},{viewvalue: \"Airway\"},{viewvalue: \"Railway\"}];\npage.nationality = [{viewvalue: \"South African\"},{viewvalue: \"Asian\"},{viewvalue: \"Eurpoean\"},{viewvalue: \"Indian\"},{viewvalue: \"Other\"}];\npage.gender =  [{viewvalue: \"Male\"},{viewvalue: \"Female\"},{viewvalue: \"Other\"}];\npage.purposeOfTravel = [{viewvalue: \"Meeting\"},{viewvalue: \"Shootout\"},{viewvalue: \"Sales\"}];\npage.accomodationPreferance =[{viewvalue: \"hotel\"},{viewvalue: \"B&B\"}]",
+        "script": "page.identification =[ {viewvalue : \"ID Number\"},{viewvalue : \"PAN Number\"},{viewvalue : \"Passoprt Number\"} ]\npage.options =  [{viewvalue : \"Yes\"},{viewvalue : \"No\"},{viewvalue : \"Unsure\"}];\npage.city =[{viewvalue: \"Cape Town\"},{viewvalue: \"Johnnesburg\"},{viewvalue: \"Bangalore\"},{viewvalue: \"New York\"},{viewvalue: \"Other\"}]\npage.travelType = [{viewvalue : \"International\"},{viewvalue : \"Domestic\"}];\npage.travelMode = [{viewvalue: \"Road\"},{viewvalue: \"Airway\"},{viewvalue: \"Railway\"}];\npage.nationality = [{viewvalue: \"South African\"},{viewvalue: \"Asian\"},{viewvalue: \"Eurpoean\"},{viewvalue: \"Indian\"},{viewvalue: \"Other\"}];\npage.gender =  [{viewvalue: \"Male\"},{viewvalue: \"Female\"},{viewvalue: \"Other\"}];\npage.purposeOfTravel = [{viewvalue: \"Meeting\"},{viewvalue: \"Shootout\"},{viewvalue: \"Sales\"}];\npage.accomodationPreferance =[{viewvalue: \"hotel\"},{viewvalue: \"B&B\"}]",
         "functionName": "selectData",
         "category": "Function",
         "x": 465,
@@ -750,7 +750,16 @@
         "nodeType": "start",
         "name": "showVisa",
         "outputs": 1,
-        "inputVariables": [],
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
         "localVariables": [],
         "flow_type": "sync",
         "functionName": "showVisa",
@@ -773,7 +782,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.showVisa= true",
+        "script": "if(bh.input.event.value == \"International\"){\npage.showVisa= true;\n}else{\n    page.showVisa= false;\n}\n",
         "functionName": "sd_X4aSuU8d6NJHFUCt",
         "category": "Function",
         "x": 205,

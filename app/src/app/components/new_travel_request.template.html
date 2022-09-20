@@ -1,11 +1,11 @@
-<div fxLayout="row wrap" class="marinTop1em" fxLayoutAlign="start stretch" [fxShow]="true">
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
   <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
     <div fxLayout="row wrap" class="marginBottom1em" fxLayoutAlign="start stretch" [fxShow]="true">
-      <mat-card class="marginTop20">
+      <mat-card>
         <mat-card-content>
           <form [formGroup]="page.personalDetailsForm">
             <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-              <div fxLayout="column wrap" class="marginTop20" fxLayoutAlign="start stretch" [fxShow]="true">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                 <h1 class="marginBottom0pt3em">
                   <mat-icon>group</mat-icon>Requester
                 </h1>
@@ -216,17 +216,13 @@
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               Travel Type</label>
                             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;">
-                              <mat-select formControlName="travelType" placeholder="Travel Type" [required]="false" (selectionChange)="showVisa($event)">
+                              <mat-select formControlName="travelMode" placeholder="Travel Type" [required]="false" (selectionChange)="showVisa($event)">
                                 <ng-template ngFor let-option [ngForOf]="page.travelType" let-i="index">
                                   <mat-option [value]="option.viewvalue">{{option.viewvalue}}</mat-option>
                                 </ng-template>
                               </mat-select>
                               <mat-error align="end" *ngIf="page.travelForm.controls.requestDetails.controls[0].controls.travelDetails.controls.travelMode?.errors?.required">Travel Mode is Required</mat-error>
                             </mat-form-field>
-                            <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true">
-                              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [ngClass.xs]="&apos;marginBottom1em&apos;"></div>
-                              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true"></div>
-                            </div>
                           </div>
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               From City</label>
@@ -340,8 +336,10 @@
                               <textarea matInput formControlName="travelerComments" placeholder="Add comment..." [required]="false"></textarea>
                             </mat-form-field>
                           </div>
-                          <div fxLayout="column wrap" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true"><label class="marinTop1em">
+                          <div fxLayout="column wrap" fxFlex="30" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true"><label class="marinTop1em">
                               <label class="marginBottom1em">Upload Covid Certificate</label>
+
+                            </label><label class="marinTop1em">
 
                               <input formControlName="covidCertificate" id="file" type="file" class="form-control" (change)="onFileChange($event)">
                               <!-- <input type="file" (change)="csvInputChange($event)" formControlName ="covidCertificate"/> -->
@@ -353,8 +351,10 @@
  -->
                               <!-- <button type="button" (click)="RequestUpload()">Ok</button> -->
                             </label></div>
-                          <div fxLayout="column wrap" class="marginBottom2em inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showVisa"><label class="marinTop1em">
+                          <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showVisa"><label class="marinTop1em">
                               <label class="marginBottom1em">Upload Passport</label>
+                            </label><label class="marinTop1em">
+
                               <input formControlName="passport" id="file" type="file" class="form-control" (change)="onFileChange($event)">
                               <!-- <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
             <div *ngIf="f.file.errors.required">File is required.</div>
@@ -480,7 +480,7 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
     <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginBottom1em marinTop1em" fxLayoutGap="2em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="blackButton" (click)="cancelButton(page.travelForm)">Cancel</button><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Clear</button><button mat-button class="redButton" (click)="tdetails(page.travelForm.value,page.personalDetailsForm.value)" [disabled]="!page.travelForm.valid">Submit</button><button mat-raised-button class="grayButton" (click)="saveAsDraft(page.travelForm.value,&apos;draft&apos;)">Save As Draft</button></div>
+      <div fxLayout="row wrap" class="marginBottom1em marinTop1em" fxLayoutGap="2em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="redBorderedButton">Cancel</button><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Clear</button><button mat-raised-button class="redButton" (click)="tdetails(page.travelForm.value,page.personalDetailsForm.value)" [disabled]="!page.travelForm.Valid">Submit</button><button mat-raised-button class="grayButton" (click)="saveAsDraft(page.travelForm.value,&apos;draft&apos;)">Save As Draft</button></div>
     </div>
   </div>
 </div>
