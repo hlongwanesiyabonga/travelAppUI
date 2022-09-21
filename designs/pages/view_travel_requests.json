@@ -115,7 +115,8 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": true,
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_4QB6d44LFvxAJuWT",
@@ -649,5 +650,220 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_HMmCFgfRZ8BIIgLg",
+        "type": "PageStart",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open view request",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "openViewRequest",
+        "category": "General",
+        "x": 85,
+        "y": 400,
+        "wires": [
+            [
+                "sd_foqFWGeyE6VpOSKm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "view_travel_requestsComponent"
+    },
+    {
+        "id": "sd_foqFWGeyE6VpOSKm",
+        "type": "OpenDialog",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_osEacZsdUBcy4IJg",
+            "label": "new_travel_request"
+        },
+        "relativePath": "./new_travel_request",
+        "data": "this.page",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": "this.page",
+        "hasBackdrop": "this.page",
+        "height": "this.page",
+        "maxHeight": "\"85vh\"",
+        "minHeight": "\"85vh\"",
+        "width": "this.page",
+        "maxWidth": "this.page",
+        "minWidth": "\"85vw\"",
+        "panelClass": "this.page.scroll",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "this.page",
+        "functionName": "sd_foqFWGeyE6VpOSKm",
+        "category": "Dialog",
+        "x": 325,
+        "y": 400,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "str",
+                "value": "85vh",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "str",
+                "value": "85vh",
+                "constant": false
+            },
+            "width": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "str",
+                "value": "85vw",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "scroll",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_w3HiTaQUsC0bGiQr",
+        "type": "UseDependency",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "myformserviceService",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "backendService"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "app/services/myformserviceService/myformserviceService.service",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_w3HiTaQUsC0bGiQr",
+        "category": "Function",
+        "x": 585,
+        "y": 560,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]

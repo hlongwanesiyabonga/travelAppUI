@@ -19,6 +19,8 @@ import { MatPaginator } from '@angular/material/paginator'; //_splitter_
 import { MatSort } from '@angular/material/sort'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
+import { MatDialog } from '@angular/material/dialog'; //_splitter_
+import { new_travel_requestComponent } from './new_travel_request.component'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -109,6 +111,20 @@ export class view_travel_requestsComponent {
       //appendnew_next_goTo
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_T5JMllQjltZ9ihQX');
+    }
+  }
+
+  openViewRequest(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_foqFWGeyE6VpOSKm(bh);
+      //appendnew_next_openViewRequest
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_HMmCFgfRZ8BIIgLg');
     }
   }
 
@@ -364,6 +380,25 @@ export class view_travel_requestsComponent {
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_e2jI7LQDxK8XdWjP');
+    }
+  }
+
+  sd_foqFWGeyE6VpOSKm(bh) {
+    try {
+      const new_travel_requestDialog = this.__page_injector__.get(MatDialog);
+      const new_travel_requestDialogRef = new_travel_requestDialog.open(
+        new_travel_requestComponent,
+        {
+          maxHeight: '85vh',
+          minHeight: '85vh',
+          minWidth: '85vw',
+          panelClass: this.page.scroll,
+        }
+      );
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_foqFWGeyE6VpOSKm');
     }
   }
 

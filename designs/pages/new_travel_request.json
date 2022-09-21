@@ -198,6 +198,20 @@
                     "type": "literal",
                     "value": "false"
                 }
+            },
+            {
+                "textIp": "newRequestButtons",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "true"
+                }
+            },
+            {
+                "textIp": "managerButtons",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "false"
+                }
             }
         ],
         "functionName": "sd_MWBuy73tA0Xq4qCD",
@@ -1182,8 +1196,8 @@
         "script": "console.log(\"details\",page.personalDetails);\npage.personalDetails['dateOfBirth'] = new Date(page.personalDetails['dateOfBirth'])\npage.personalDetailsForm.patchValue(page.personalDetails);",
         "functionName": "patchPersonalDetails",
         "category": "Function",
-        "x": 1285,
-        "y": 60,
+        "x": 1145,
+        "y": 260,
         "wires": [
             []
         ],
@@ -1428,8 +1442,8 @@
         "script": "console.log(\"personal\",page.personalDetails)",
         "functionName": "patchPersonalDetail",
         "category": "Function",
-        "x": 1333,
-        "y": 155.8125,
+        "x": 1193,
+        "y": 355.8125,
         "wires": [
             []
         ],
@@ -1989,8 +2003,8 @@
         "accept_csd": true,
         "functionName": "sd_iiepZBLONbDxtD1K",
         "category": "General",
-        "x": 1212.727294921875,
-        "y": 128.9204559326172,
+        "x": 1072.727294921875,
+        "y": 328.9204559326172,
         "wires": [
             [
                 "sd_oxWHSckKp9HB9iwA"
@@ -2009,8 +2023,8 @@
         "script": "console.log(page.personalDetailsForm.patchValue(page.allPersonalDetails))\n    page.allPersonalDetails['dateOfBirth'] = new Date(page.allPersonalDetails['dateOfBirth'])\n    page.personalDetailsForm.patchValue(page.allPersonalDetails);\n",
         "functionName": "sd_oxWHSckKp9HB9iwA",
         "category": "Function",
-        "x": 1315,
-        "y": 124.20451354980469,
+        "x": 1175,
+        "y": 324.2045135498047,
         "wires": [
             []
         ],
