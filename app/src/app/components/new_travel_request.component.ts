@@ -413,6 +413,8 @@ export class new_travel_requestComponent {
       this.page.key = undefined;
       this.page.other = false;
       this.page.otherToCity = false;
+      this.page.newRequestButtons = true;
+      this.page.managerButtons = false;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;

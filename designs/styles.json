@@ -29,6 +29,7 @@
         "redBackground",
         "redBorderedButton",
         "redButton",
+        "greenButton",
         "grayBorder",
         "grayBorderBottom",
         "mat-radio-button",
