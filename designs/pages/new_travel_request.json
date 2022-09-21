@@ -212,6 +212,13 @@
                     "type": "literal",
                     "value": "false"
                 }
+            },
+            {
+                "textIp": "dialogData",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_MWBuy73tA0Xq4qCD",
@@ -611,7 +618,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "//combine the 2 forms\nconsole.log(\"hi\",page.personalDetailsForm.value.email)\nconsole.log(bh.input.form)\npage.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":null,\n    \"managerApproval\" : {\n        \"approvedRequest\" : null,\n        \"comments\" : \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": new Date().toISOString()\n    };\n    console.log(page.formObj,\"obj\")\n\n\nbh.endPoint = (bh.input.reqType) ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method =\"post\";\nconsole.log(bh.endPoint);",
+        "script": "//combine the 2 forms\nconsole.log(\"hi\",page.personalDetailsForm.value.email)\nconsole.log(bh.input.form)\npage.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":null,\n    \"managerApproval\" : {\n        \"approvedRequest\" : null,\n        \"comments\" : \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": new Date().toISOString()\n    };\n    console.log(page.formObj,\"obj\")\n\n\nbh.endPoint = (bh.input.reqType) ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method =\"post\";\nconsole.log(bh.endPoint);\npage.currentUserTravelDetails =page.formObj",
         "functionName": "sd_UTu9MfO7IadBmBxp",
         "category": "Function",
         "x": 385,
@@ -698,7 +705,6 @@
         "serviceImportPath": "./new_travel_request",
         "startName": "addNewRequestForm",
         "inputParams": [],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_eYkVAuOfjYx8O61u",
         "category": "General",
@@ -1309,11 +1315,11 @@
         "accept_csd": true,
         "functionName": "sd_RhR3LYUVBWeOB74n",
         "category": "General",
-        "x": 645,
+        "x": 625,
         "y": 300,
         "wires": [
             [
-                "sd_ug9NAWrI0m3QPLao"
+                "sd_ThmPfpnGhggt2qxH"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1327,10 +1333,10 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(page.formObj,\"obj\")",
+        "script": "console.log(page.currentUserTravelDetails,\"obj\")",
         "functionName": "sd_ug9NAWrI0m3QPLao",
         "category": "Function",
-        "x": 845,
+        "x": 885,
         "y": 300,
         "wires": [
             []
@@ -1672,7 +1678,9 @@
         "x": 1145,
         "y": 80,
         "wires": [
-            []
+            [
+                "sd_tk1X4TMBLBccVdQM"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -2078,6 +2086,170 @@
         "y": 540,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_s2F2t4fIIdYaZcj9",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "ManagerStatus",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "managerStatus",
+        "category": "General",
+        "x": 385,
+        "y": 1000,
+        "wires": [
+            [
+                "sd_db3bv0exQfUfQZk8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_FXCI8fRgxfiRvpPZ",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// if(bh.input.event.value == includes(\"Manager\")  &&  currentUserDetails == personalDetailsForm.email){\n\n    \n\n// }",
+        "functionName": "sd_FXCI8fRgxfiRvpPZ",
+        "category": "Function",
+        "x": 625,
+        "y": 1000,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_pbsnLf20Nw8bnCbB",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(page.currentUserDetails.email,\"currentUserDetails\");\nconsole.log(page.requesterDetails.email,\"personalDetails.email\")",
+        "functionName": "sd_pbsnLf20Nw8bnCbB",
+        "category": "Function",
+        "x": 1365,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_db3bv0exQfUfQZk8",
+        "type": "Storage",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "currentUserDetails"
+        },
+        "functionName": "sd_db3bv0exQfUfQZk8",
+        "category": "Storage",
+        "x": 465,
+        "y": 1000,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_tk1X4TMBLBccVdQM",
+        "type": "Storage",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "currentUserDetails"
+        },
+        "functionName": "sd_tk1X4TMBLBccVdQM",
+        "category": "Storage",
+        "x": 1265,
+        "y": 80,
+        "wires": [
+            [
+                "sd_pbsnLf20Nw8bnCbB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ThmPfpnGhggt2qxH",
+        "type": "Storage",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "setItem",
+        "storageType": "localStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserTravelDetails"
+        },
+        "value": {
+            "type": "this.page",
+            "value": "currentUserTravelDetails"
+        },
+        "resultMapping": {},
+        "functionName": "sd_ThmPfpnGhggt2qxH",
+        "category": "Storage",
+        "x": 725,
+        "y": 300,
+        "wires": [
+            [
+                "sd_ug9NAWrI0m3QPLao"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

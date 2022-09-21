@@ -659,7 +659,16 @@
         "nodeType": "start",
         "name": "open view request",
         "outputs": 1,
-        "inputVariables": [],
+        "inputVariables": [
+            {
+                "key": "selectedRowID",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
         "localVariables": [],
         "flow_type": "sync",
         "functionName": "openViewRequest",
@@ -668,7 +677,7 @@
         "y": 400,
         "wires": [
             [
-                "sd_foqFWGeyE6VpOSKm"
+                "sd_LseCR5GaQVmcl4q2"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -688,7 +697,7 @@
             "label": "new_travel_request"
         },
         "relativePath": "./new_travel_request",
-        "data": "this.page",
+        "data": "bh.data",
         "ariaDescribedBy": "this.page",
         "ariaLabel": "this.page",
         "ariaLabelledBy": "this.page",
@@ -696,7 +705,7 @@
         "backdropClass": "this.page",
         "closeOnNavigation": "this.page",
         "direction": "this.page",
-        "disableClose": "this.page",
+        "disableClose": true,
         "hasBackdrop": "this.page",
         "height": "this.page",
         "maxHeight": "\"85vh\"",
@@ -708,21 +717,23 @@
         "position": "this.page",
         "restoreFocus": "this.page",
         "role": "this.page",
-        "resultMapping": "this.page",
+        "resultMapping": "bh.x",
         "functionName": "sd_foqFWGeyE6VpOSKm",
         "category": "Dialog",
-        "x": 325,
+        "x": 365,
         "y": 400,
         "wires": [
             [],
-            [],
+            [
+                "sd_UfZ9ZCunxCKKHHpA"
+            ],
             [],
             []
         ],
         "__ssdTypeInputs__": {
             "data": {
-                "type": "this.page",
-                "value": "",
+                "type": "bh",
+                "value": "data",
                 "constant": false
             },
             "ariaDescribedBy": {
@@ -761,8 +772,8 @@
                 "constant": false
             },
             "disableClose": {
-                "type": "this.page",
-                "value": "",
+                "type": "bool",
+                "value": "true",
                 "constant": false
             },
             "hasBackdrop": {
@@ -821,8 +832,8 @@
                 "constant": false
             },
             "resultMapping": {
-                "type": "this.page",
-                "value": "",
+                "type": "bh",
+                "value": "x",
                 "constant": false
             }
         },
@@ -865,5 +876,73 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true
+    },
+    {
+        "id": "sd_LseCR5GaQVmcl4q2",
+        "type": "Script",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.data = page.receivedTableData['data'].find(obj => bh.input.selectedRowID == obj._id);\nconsole.log(\"data works\" ,bh.data)\n// console.log(bh.input)\n",
+        "functionName": "sd_LseCR5GaQVmcl4q2",
+        "category": "Function",
+        "x": 265,
+        "y": 400,
+        "wires": [
+            [
+                "sd_foqFWGeyE6VpOSKm"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_UfZ9ZCunxCKKHHpA",
+        "type": "GetDialogData",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "dialogDataMapping": "bh.x",
+        "functionName": "sd_UfZ9ZCunxCKKHHpA",
+        "category": "Dialog",
+        "x": 485,
+        "y": 400,
+        "wires": [
+            [
+                "sd_zGxjcrMc4rXQJyRF"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "dialogDataMapping": {
+                "type": "bh",
+                "value": "x",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_zGxjcrMc4rXQJyRF",
+        "type": "Script",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"working\", bh.x)",
+        "functionName": "sd_zGxjcrMc4rXQJyRF",
+        "category": "Function",
+        "x": 585,
+        "y": 400,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
     }
 ]

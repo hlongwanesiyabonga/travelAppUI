@@ -19,7 +19,7 @@ import { MatPaginator } from '@angular/material/paginator'; //_splitter_
 import { MatSort } from '@angular/material/sort'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
-import { MatDialog } from '@angular/material/dialog'; //_splitter_
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog'; //_splitter_
 import { new_travel_requestComponent } from './new_travel_request.component'; //_splitter_
 //append_imports_end
 
@@ -114,14 +114,14 @@ export class view_travel_requestsComponent {
     }
   }
 
-  openViewRequest(...others) {
+  openViewRequest(selectedRowID: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { selectedRowID: selectedRowID };
       bh.local = {};
-      bh = this.sd_foqFWGeyE6VpOSKm(bh);
+      bh = this.sd_LseCR5GaQVmcl4q2(bh);
       //appendnew_next_openViewRequest
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_HMmCFgfRZ8BIIgLg');
@@ -383,22 +383,70 @@ export class view_travel_requestsComponent {
     }
   }
 
+  sd_LseCR5GaQVmcl4q2(bh) {
+    try {
+      const page = this.page;
+      bh.data = page.receivedTableData['data'].find(
+        (obj) => bh.input.selectedRowID == obj._id
+      );
+      console.log('data works', bh.data);
+      // console.log(bh.input)
+
+      bh = this.sd_foqFWGeyE6VpOSKm(bh);
+      //appendnew_next_sd_LseCR5GaQVmcl4q2
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_LseCR5GaQVmcl4q2');
+    }
+  }
+
   sd_foqFWGeyE6VpOSKm(bh) {
     try {
       const new_travel_requestDialog = this.__page_injector__.get(MatDialog);
       const new_travel_requestDialogRef = new_travel_requestDialog.open(
         new_travel_requestComponent,
         {
+          data: bh.data,
+          disableClose: true,
           maxHeight: '85vh',
           minHeight: '85vh',
           minWidth: '85vw',
           panelClass: this.page.scroll,
         }
       );
+      new_travel_requestDialogRef.afterClosed().subscribe((event) => {
+        bh.x = event;
+        this.sd_UfZ9ZCunxCKKHHpA(bh);
+
+        //appendnew_next_sd_foqFWGeyE6VpOSKm;
+      });
 
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_foqFWGeyE6VpOSKm');
+    }
+  }
+
+  sd_UfZ9ZCunxCKKHHpA(bh) {
+    try {
+      bh.x = this.__page_injector__.get(MAT_DIALOG_DATA);
+
+      bh = this.sd_zGxjcrMc4rXQJyRF(bh);
+      //appendnew_next_sd_UfZ9ZCunxCKKHHpA
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_UfZ9ZCunxCKKHHpA');
+    }
+  }
+
+  sd_zGxjcrMc4rXQJyRF(bh) {
+    try {
+      const page = this.page;
+      console.log('working', bh.x);
+      //appendnew_next_sd_zGxjcrMc4rXQJyRF
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_zGxjcrMc4rXQJyRF');
     }
   }
 
