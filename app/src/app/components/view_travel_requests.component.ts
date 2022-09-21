@@ -337,6 +337,7 @@ export class view_travel_requestsComponent {
             'travelMode',
             'fromCity',
             'toCity',
+            'status',
             'action',
           ],
         },
@@ -346,9 +347,11 @@ export class view_travel_requestsComponent {
         : 'other'),
         (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
       page.tableCells = tableSetup[bh.role]['tableCells'];
-      page.receivedTableData['data'].forEach((el) => {
+      page.receivedTableData['data'].forEach((el, i) => {
+        let temp = {};
         temp['_id'] = el['_id'];
         temp['dateCreated'] = el['dateCreated'];
+        temp['status'] = el['status'];
         temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
         temp['travelMode'] =
           el['requestDetails'][0]['travelDetails']['travelMode'];
