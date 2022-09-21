@@ -190,6 +190,12 @@
                         "_value": "true",
                         "_type": "kv",
                         "_attrDef": "p"
+                    },
+                    {
+                        "_key": "fxHide.xs",
+                        "_value": "true",
+                        "_type": "kv",
+                        "_attrDef": "c"
                     }
                 ],
                 "cf88a0e3-436f-396e-ea6a-c79dad929f29": {
@@ -942,6 +948,7 @@
                     {
                         "_key": "class",
                         "_value": [
+                            "marginTop20",
                             "headerContainer"
                         ],
                         "_type": "dav",

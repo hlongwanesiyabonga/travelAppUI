@@ -23,7 +23,7 @@
         "y": 30,
         "wires": [
             [
-                "sd_DTngzQ6EZlOYKaIG"
+                "sd_5o2VJeahdoBsFCwo"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -31,7 +31,206 @@
         "serviceName": "draftsComponent"
     },
     {
-        "id": "sd_DTngzQ6EZlOYKaIG",
+        "id": "sd_jnCisauNCqVEhmqR",
+        "type": "PageCallService",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_gWuHjY66VqGmkjjZ",
+            "type": "tab",
+            "createdDate": "2022-09-18T16:50:14.717Z",
+            "label": "drafts",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_Sm6rj5aD8BjreRHu",
+            "flowName": "getTravelRequests"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./drafts",
+        "startName": "getTravelRequests",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "sd_jnCisauNCqVEhmqR",
+        "category": "General",
+        "x": 545,
+        "y": 40,
+        "wires": [
+            [
+                "sd_nOwahpMteYVDindU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ReZBx8bKxceaKrVx",
+        "type": "Script",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequest?type=draft\";",
+        "functionName": "sd_ReZBx8bKxceaKrVx",
+        "category": "Function",
+        "x": 465,
+        "y": 40,
+        "wires": [
+            [
+                "sd_jnCisauNCqVEhmqR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nOwahpMteYVDindU",
+        "type": "Script",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// page.dashboardCards =[\n//     {amount: 15, topText: 'Total', icon : 'description', cssClass: 'blueBg'},\n//     {amount: 6, topText: 'Pending', icon : 'hourglass_full', cssClass: 'orangeBg'},\n//     {amount: 5, topText: 'Approved', icon : 'thumb_up', cssClass: 'greenBg'},\n//     {amount: 4, topText: 'Rejected', icon : 'thumb_down', cssClass: 'redBg'},\n// ];",
+        "functionName": "sd_nOwahpMteYVDindU",
+        "category": "Function",
+        "x": 625,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_5o2VJeahdoBsFCwo",
+        "type": "UseDependency",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "TableDataSource",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MatTableDataSource",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "tableDataSource"
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/table",
+        "serviceDesignerType": "pages",
+        "functionName": "tableDataSource",
+        "category": "Function",
+        "x": 125,
+        "y": 40,
+        "wires": [
+            [
+                "sd_Q1HNIsgXEaJUqDSs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Q1HNIsgXEaJUqDSs",
+        "type": "UseDependency",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Paginator",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MatPaginator",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": " paginator"
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/paginator",
+        "serviceDesignerType": "pages",
+        "functionName": "paginator",
+        "category": "Function",
+        "x": 225,
+        "y": 40,
+        "wires": [
+            [
+                "sd_c5S4XlObAEw7dGTC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_c5S4XlObAEw7dGTC",
+        "type": "UseDependency",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Sort",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MatSort",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": " sort"
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/sort",
+        "serviceDesignerType": "pages",
+        "functionName": "sort",
+        "category": "Function",
+        "x": 305,
+        "y": 40,
+        "wires": [
+            [
+                "sd_8aUHLOn15SjCTNLX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8aUHLOn15SjCTNLX",
         "type": "PageVariables",
         "z": "sd_gWuHjY66VqGmkjjZ",
         "viewType": "pages",
@@ -40,13 +239,296 @@
         "inputs": 1,
         "outputs": 1,
         "operation": "set",
-        "globalVariables": [],
-        "functionName": "sd_DTngzQ6EZlOYKaIG",
+        "globalVariables": [
+            {
+                "textIp": "tableData",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "currentUserDetails",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "dashboardCards",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "tableHeaders",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "tableCells",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "receivedTableData",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "drafts",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_E9QbOlnVduPNV5MO_1",
         "category": "Function",
-        "x": 180,
-        "y": 30,
+        "x": 385,
+        "y": 40,
+        "wires": [
+            [
+                "sd_ReZBx8bKxceaKrVx"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Sm6rj5aD8BjreRHu",
+        "type": "PageStart",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "get travel requests",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getTravelRequests",
+        "category": "General",
+        "x": 105,
+        "y": 300,
+        "wires": [
+            [
+                "sd_IrMyJxWmTpDNzUyI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "draftsComponent"
+    },
+    {
+        "id": "sd_2GFLx5BdaAS4aODV",
+        "type": "Script",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequest?type=draft\" + page.currentUserDetails.email;",
+        "functionName": "sd_2GFLx5BdaAS4aODV",
+        "category": "Function",
+        "x": 265,
+        "y": 300,
+        "wires": [
+            [
+                "sd_jITV2Ea0aWpdhosP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jITV2Ea0aWpdhosP",
+        "type": "PageCallService",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "receivedTableData",
+                "mapVarName": "result",
+                "localVar": "this.page.receivedTableData"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_jITV2Ea0aWpdhosP",
+        "category": "General",
+        "x": 365,
+        "y": 300,
+        "wires": [
+            [
+                "sd_GWkuvoE9qpRatVlC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_GWkuvoE9qpRatVlC",
+        "type": "Script",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "log table",
+        "script": "console.log(\"this table\",page.receivedTableData)",
+        "functionName": "logTable",
+        "category": "Function",
+        "x": 465,
+        "y": 300,
+        "wires": [
+            [
+                "sd_omruyJd1Ph7noHvw"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_omruyJd1Ph7noHvw",
+        "type": "ViewPicker",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "table",
+        "outputs": 1,
+        "childViewVariables": [
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatSort"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            },
+            {
+                "key": {
+                    "type": "literal",
+                    "value": "MatPaginator"
+                },
+                "defaultValue": "",
+                "isViewChildren": false
+            }
+        ],
+        "functionName": "table",
+        "category": "Function",
+        "x": 565,
+        "y": 300,
+        "wires": [
+            [
+                "sd_PYXDYPkwJBBmNNkA"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_PYXDYPkwJBBmNNkA",
+        "type": "Script",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "setTableTokens",
+        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet temp = {};\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    temp['_id'] = el['_id'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\nconsole.log(tableData)\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;",
+        "functionName": "setTableTokens",
+        "category": "Function",
+        "x": 665,
+        "y": 300,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_IrMyJxWmTpDNzUyI",
+        "type": "Storage",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "currentUserDetails"
+        },
+        "functionName": "sd_IrMyJxWmTpDNzUyI",
+        "category": "Storage",
+        "x": 185,
+        "y": 300,
+        "wires": [
+            [
+                "sd_2GFLx5BdaAS4aODV"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

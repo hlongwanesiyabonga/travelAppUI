@@ -95,6 +95,7 @@
         "profileCloseButton",
         "profileDialogBody",
         "scroll",
+        "grayBtn",
         "mat-form-field-outline",
         "mat-calendar-body-selected",
         "mat-focused",
