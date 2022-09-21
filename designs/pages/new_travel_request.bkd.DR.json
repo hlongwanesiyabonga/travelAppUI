@@ -24908,6 +24908,12 @@
                             "_value": "",
                             "_type": "kv",
                             "_attrDef": "c"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "!(page.currentUserDetails.email == page.requesterDetails.email && page.currentUserDetails.designation.includes('Manager'))",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ],
                     "698153ed-a9e5-cb67-9427-3c97e06303af": {
@@ -25341,6 +25347,27 @@
                         {
                             "_key": "fxFlex.xs",
                             "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "(click)",
+                            "_value": "managerStatus($event)",
+                            "_type": "kv",
+                            "_attrDef": "c",
+                            "objValue": {
+                                "nodeID": "sd_s2F2t4fIIdYaZcj9",
+                                "functionName": "managerStatus",
+                                "activeTree": "pages",
+                                "z": "sd_osEacZsdUBcy4IJg",
+                                "input": [
+                                    "$event"
+                                ]
+                            }
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "page.currentUserDetails.email == page.requesterDetails.email && page.currentUserDetails.designation.includes('Manager')",
                             "_type": "kv",
                             "_attrDef": "c"
                         }

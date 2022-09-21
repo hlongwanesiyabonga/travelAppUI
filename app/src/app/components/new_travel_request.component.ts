@@ -388,6 +388,20 @@ export class new_travel_requestComponent {
     }
   }
 
+  managerStatus(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_db3bv0exQfUfQZk8(bh);
+      //appendnew_next_managerStatus
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_s2F2t4fIIdYaZcj9');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -415,6 +429,7 @@ export class new_travel_requestComponent {
       this.page.otherToCity = false;
       this.page.newRequestButtons = true;
       this.page.managerButtons = false;
+      this.page.dialogData = undefined;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;
@@ -603,10 +618,36 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`;
+      bh = this.sd_tk1X4TMBLBccVdQM(bh);
       //appendnew_next_sd_PTHJPibTtSc5S7Ii
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_PTHJPibTtSc5S7Ii');
+    }
+  }
+
+  sd_tk1X4TMBLBccVdQM(bh) {
+    try {
+      this.page.currentUserDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.sd_pbsnLf20Nw8bnCbB(bh);
+      //appendnew_next_sd_tk1X4TMBLBccVdQM
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_tk1X4TMBLBccVdQM');
+    }
+  }
+
+  sd_pbsnLf20Nw8bnCbB(bh) {
+    try {
+      const page = this.page;
+      console.log(page.currentUserDetails.email, 'currentUserDetails');
+      console.log(page.requesterDetails.email, 'personalDetails.email');
+      //appendnew_next_sd_pbsnLf20Nw8bnCbB
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_pbsnLf20Nw8bnCbB');
     }
   }
 
@@ -674,6 +715,7 @@ export class new_travel_requestComponent {
         : 'addTravelRequest';
       bh.method = 'post';
       console.log(bh.endPoint);
+      page.currentUserTravelDetails = page.formObj;
       bh = this.sd_bbaBvYkJ652qvZXA(bh);
       //appendnew_next_sd_UTu9MfO7IadBmBxp
       return bh;
@@ -712,7 +754,7 @@ export class new_travel_requestComponent {
       );
       bh.response = outputVariables.local.result;
 
-      bh = this.sd_ug9NAWrI0m3QPLao(bh);
+      bh = this.sd_ThmPfpnGhggt2qxH(bh);
       //appendnew_next_sd_RhR3LYUVBWeOB74n
       return bh;
     } catch (e) {
@@ -720,10 +762,24 @@ export class new_travel_requestComponent {
     }
   }
 
+  sd_ThmPfpnGhggt2qxH(bh) {
+    try {
+      localStorage.setItem(
+        'currentUserTravelDetails',
+        JSON.stringify(this.page.currentUserTravelDetails)
+      );
+      bh = this.sd_ug9NAWrI0m3QPLao(bh);
+      //appendnew_next_sd_ThmPfpnGhggt2qxH
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ThmPfpnGhggt2qxH');
+    }
+  }
+
   sd_ug9NAWrI0m3QPLao(bh) {
     try {
       const page = this.page;
-      console.log(page.formObj, 'obj');
+      console.log(page.currentUserTravelDetails, 'obj');
       //appendnew_next_sd_ug9NAWrI0m3QPLao
       return bh;
     } catch (e) {
@@ -1067,6 +1123,18 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_E6ZjDNeLnSIeXTM5');
+    }
+  }
+
+  sd_db3bv0exQfUfQZk8(bh) {
+    try {
+      this.page.currentUserDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      //appendnew_next_sd_db3bv0exQfUfQZk8
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_db3bv0exQfUfQZk8');
     }
   }
 
