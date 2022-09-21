@@ -219,6 +219,20 @@
                     "type": "literal",
                     "value": ""
                 }
+            },
+            {
+                "textIp": "filterPersonalDetail",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "tempArr",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_MWBuy73tA0Xq4qCD",
@@ -963,7 +977,16 @@
         "nodeType": "start",
         "name": "showRequstedfor",
         "outputs": 1,
-        "inputVariables": [],
+        "inputVariables": [
+            {
+                "key": "filteredvalues",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
         "localVariables": [],
         "flow_type": "sync",
         "functionName": "showRequstedfor",
@@ -986,7 +1009,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.showHideElement= true;",
+        "script": "page.showHideElement= true;\nconsole.log(\"value emit\",bh.input.filteredvalues?.target?.value)\nbh.emitValue=bh.input.filteredvalues?.target?.value;",
         "functionName": "sd_4AsGmhNUvWJ6Kjkr",
         "category": "Function",
         "x": 265,
@@ -1789,13 +1812,15 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.personalDetailsForm",
+        "script": "// page.personalDetailsForm;\npage.filterPersonalDetail = page.allPersonalDetails\n// page.a = page.filterPersonalDetail.forEach(el => el.email)\nlet tempArr=page.filterPersonalDetail.filter(obj => obj.email?.toLowerCase().includes(bh?.emitValue?.toLowerCase()))\nconsole.log(\"temparr :\",tempArr)\npage.allPersonalDetails=tempArr;\nconsole.log(\"temparr :\",page.allPersonalDetails,\"arr :\",page.filterPersonalDetail)\n",
         "functionName": "sd_bGJNq67yiqLlcZxB",
         "category": "Function",
         "x": 605,
-        "y": 740,
+        "y": 760,
         "wires": [
-            []
+            [
+                "sd_U1fqj48F6iGGPMhn"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -1935,7 +1960,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(bh.selfDetails);\nbh.local.selfDetails['dateOfBirth'] = new Date(bh.local.selfDetails['dateOfBirth'])\npage.personalDetailsForm.patchValue(bh.local.selfDetails);",
+        "script": "console.log(bh.selfDetails,\"self\");\nbh.local.selfDetails['dateOfBirth'] = new Date(bh.local.selfDetails['dateOfBirth'])\npage.personalDetailsForm.patchValue(bh.local.selfDetails);",
         "functionName": "sd_96VxExgs74Rn3m6g",
         "category": "Function",
         "x": 1107.272705078125,
@@ -2149,7 +2174,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(page.currentUserDetails.email,\"currentUserDetails\");\nconsole.log(page.requesterDetails.email,\"personalDetails.email\")",
+        "script": "//console.log(page.currentUserDetails.email,\"currentUserDetails\");\nconsole.log(page.requesterDetails,\"personalDetails.email\")",
         "functionName": "sd_pbsnLf20Nw8bnCbB",
         "category": "Function",
         "x": 1365,
@@ -2250,6 +2275,25 @@
             [
                 "sd_ug9NAWrI0m3QPLao"
             ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_U1fqj48F6iGGPMhn",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "//const filterValue = bh.input.filteredvalues;\n//page.filterPersonalDetail.filter(option => option.includes(filterValue));\n  //console.log(bh.input.filteredvalues,\"value\")",
+        "functionName": "sd_U1fqj48F6iGGPMhn",
+        "category": "Function",
+        "x": 720,
+        "y": 730.8125,
+        "wires": [
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

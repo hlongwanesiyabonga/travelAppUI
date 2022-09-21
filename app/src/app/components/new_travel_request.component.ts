@@ -220,12 +220,12 @@ export class new_travel_requestComponent {
     }
   }
 
-  showRequstedfor(...others) {
+  showRequstedfor(filteredvalues: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { filteredvalues: filteredvalues };
       bh.local = {};
       bh = this.sd_4AsGmhNUvWJ6Kjkr(bh);
       //appendnew_next_showRequstedfor
@@ -430,6 +430,8 @@ export class new_travel_requestComponent {
       this.page.newRequestButtons = true;
       this.page.managerButtons = false;
       this.page.dialogData = undefined;
+      this.page.filterPersonalDetail = [];
+      this.page.tempArr = undefined;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;
@@ -641,9 +643,8 @@ export class new_travel_requestComponent {
 
   sd_pbsnLf20Nw8bnCbB(bh) {
     try {
-      const page = this.page;
-      console.log(page.currentUserDetails.email, 'currentUserDetails');
-      console.log(page.requesterDetails.email, 'personalDetails.email');
+      const page = this.page; //console.log(page.currentUserDetails.email,"currentUserDetails");
+      console.log(page.requesterDetails, 'personalDetails.email');
       //appendnew_next_sd_pbsnLf20Nw8bnCbB
       return bh;
     } catch (e) {
@@ -899,6 +900,8 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       page.showHideElement = true;
+      console.log('value emit', bh.input.filteredvalues?.target?.value);
+      bh.emitValue = bh.input.filteredvalues?.target?.value;
       bh = this.sd_CFZe2HLNQwcREGZX(bh);
       //appendnew_next_sd_4AsGmhNUvWJ6Kjkr
       return bh;
@@ -942,12 +945,38 @@ export class new_travel_requestComponent {
 
   sd_bGJNq67yiqLlcZxB(bh) {
     try {
-      const page = this.page;
-      page.personalDetailsForm;
+      const page = this.page; // page.personalDetailsForm;
+      page.filterPersonalDetail = page.allPersonalDetails;
+      // page.a = page.filterPersonalDetail.forEach(el => el.email)
+      let tempArr = page.filterPersonalDetail.filter((obj) =>
+        obj.email?.toLowerCase().includes(bh?.emitValue?.toLowerCase())
+      );
+      console.log('temparr :', tempArr);
+      page.allPersonalDetails = tempArr;
+      console.log(
+        'temparr :',
+        page.allPersonalDetails,
+        'arr :',
+        page.filterPersonalDetail
+      );
+
+      bh = this.sd_U1fqj48F6iGGPMhn(bh);
       //appendnew_next_sd_bGJNq67yiqLlcZxB
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_bGJNq67yiqLlcZxB');
+    }
+  }
+
+  sd_U1fqj48F6iGGPMhn(bh) {
+    try {
+      const page = this.page; //const filterValue = bh.input.filteredvalues;
+      //page.filterPersonalDetail.filter(option => option.includes(filterValue));
+      //console.log(bh.input.filteredvalues,"value")
+      //appendnew_next_sd_U1fqj48F6iGGPMhn
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_U1fqj48F6iGGPMhn');
     }
   }
 
@@ -989,7 +1018,7 @@ export class new_travel_requestComponent {
   sd_96VxExgs74Rn3m6g(bh) {
     try {
       const page = this.page;
-      console.log(bh.selfDetails);
+      console.log(bh.selfDetails, 'self');
       bh.local.selfDetails['dateOfBirth'] = new Date(
         bh.local.selfDetails['dateOfBirth']
       );
