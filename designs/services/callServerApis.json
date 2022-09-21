@@ -104,7 +104,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.apiUrl = \"http://localhost:8081/api/\"+ bh.input.endPoint;\nconsole.log(\"body\", bh.input);",
+        "script": "bh.apiUrl = \"http://localhost:8081/api/\"+ bh.input.endPoint;\n",
         "functionName": "sd_uFfzVvBAauUEjRTo",
         "category": "Function",
         "x": 425,

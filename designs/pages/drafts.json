@@ -58,6 +58,7 @@
         "serviceImportPath": "./drafts",
         "startName": "getTravelRequests",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_jnCisauNCqVEhmqR",
         "category": "General",

@@ -90,20 +90,6 @@ export class new_travel_requestComponent {
     }
   }
 
-  pDetailsSubmit(form: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { form: form };
-      bh.local = {};
-      bh = this.sd_zD555oDG8OrpYULW(bh);
-      //appendnew_next_pDetailsSubmit
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_e8o3tkp7E56l98zC');
-    }
-  }
-
   onFileChange(event: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
@@ -388,20 +374,6 @@ export class new_travel_requestComponent {
     }
   }
 
-  managerStatus(event: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { event: event };
-      bh.local = {};
-      bh = this.sd_db3bv0exQfUfQZk8(bh);
-      //appendnew_next_managerStatus
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_s2F2t4fIIdYaZcj9');
-    }
-  }
-
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -569,7 +541,6 @@ export class new_travel_requestComponent {
       page.date = new Date();
       page.futureDate =
         page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate;
-      console.log('neo', page.futureDate);
       page.email = 'neo.thobela@neutrinos.co';
       bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
       bh.method = 'get';
@@ -643,8 +614,6 @@ export class new_travel_requestComponent {
 
   sd_pbsnLf20Nw8bnCbB(bh) {
     try {
-      const page = this.page; //console.log(page.currentUserDetails.email,"currentUserDetails");
-      console.log(page.requesterDetails, 'personalDetails.email');
       //appendnew_next_sd_pbsnLf20Nw8bnCbB
       return bh;
     } catch (e) {
@@ -657,20 +626,11 @@ export class new_travel_requestComponent {
       const page = this.page;
       page.date = new Date();
       page.futureDate = new Date(bh.input.currentDate - 1);
-      //console.log(page.futureDate)
+
       //appendnew_next_sd_p628PvB6Wft0W8cy
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_p628PvB6Wft0W8cy');
-    }
-  }
-
-  sd_zD555oDG8OrpYULW(bh) {
-    try {
-      //appendnew_next_sd_zD555oDG8OrpYULW
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_zD555oDG8OrpYULW');
     }
   }
 
@@ -681,9 +641,7 @@ export class new_travel_requestComponent {
         const file = bh.input.event.target.files[0];
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => {
-          console.log(reader.result);
-        };
+        reader.onload = () => {};
       }
 
       //appendnew_next_sd_L8dj6KHB0MWU3lHf
@@ -696,8 +654,6 @@ export class new_travel_requestComponent {
   sd_UTu9MfO7IadBmBxp(bh) {
     try {
       const page = this.page; //combine the 2 forms
-      console.log('hi', page.personalDetailsForm.value.email);
-      console.log(bh.input.form);
       page.formObj = {
         personalDetails: page.personalDetailsForm.value,
         requestDetails: bh.input.form.requestDetails,
@@ -709,13 +665,11 @@ export class new_travel_requestComponent {
         owner: page.personalDetailsForm.value.email,
         dateCreated: new Date().toISOString(),
       };
-      console.log(page.formObj, 'obj');
 
       bh.endPoint = bh.input.reqType
         ? 'addTravelRequest?type=draft'
         : 'addTravelRequest';
       bh.method = 'post';
-      console.log(bh.endPoint);
       page.currentUserTravelDetails = page.formObj;
       bh = this.sd_bbaBvYkJ652qvZXA(bh);
       //appendnew_next_sd_UTu9MfO7IadBmBxp
@@ -769,22 +723,10 @@ export class new_travel_requestComponent {
         'currentUserTravelDetails',
         JSON.stringify(this.page.currentUserTravelDetails)
       );
-      bh = this.sd_ug9NAWrI0m3QPLao(bh);
       //appendnew_next_sd_ThmPfpnGhggt2qxH
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ThmPfpnGhggt2qxH');
-    }
-  }
-
-  sd_ug9NAWrI0m3QPLao(bh) {
-    try {
-      const page = this.page;
-      console.log(page.currentUserTravelDetails, 'obj');
-      //appendnew_next_sd_ug9NAWrI0m3QPLao
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ug9NAWrI0m3QPLao');
     }
   }
 
@@ -820,10 +762,8 @@ export class new_travel_requestComponent {
             city: [false, [Validators.required]],
             checkInDate: [''],
             checkOutDate: [''],
-            // accommodationType: [false, [Validators.required]],
             checkInTime: [false, [Validators.required]],
             checkOutTime: [''],
-            // needvehicle: ['', [Validators.required]],
             employeeComments: [''],
           }),
         })
@@ -900,7 +840,6 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       page.showHideElement = true;
-      console.log('value emit', bh.input.filteredvalues?.target?.value);
       bh.emitValue = bh.input.filteredvalues?.target?.value;
       bh = this.sd_CFZe2HLNQwcREGZX(bh);
       //appendnew_next_sd_4AsGmhNUvWJ6Kjkr
@@ -945,20 +884,12 @@ export class new_travel_requestComponent {
 
   sd_bGJNq67yiqLlcZxB(bh) {
     try {
-      const page = this.page; // page.personalDetailsForm;
+      const page = this.page;
       page.filterPersonalDetail = page.allPersonalDetails;
-      // page.a = page.filterPersonalDetail.forEach(el => el.email)
       let tempArr = page.filterPersonalDetail.filter((obj) =>
         obj.email?.toLowerCase().includes(bh?.emitValue?.toLowerCase())
       );
-      console.log('temparr :', tempArr);
       page.allPersonalDetails = tempArr;
-      console.log(
-        'temparr :',
-        page.allPersonalDetails,
-        'arr :',
-        page.filterPersonalDetail
-      );
 
       bh = this.sd_U1fqj48F6iGGPMhn(bh);
       //appendnew_next_sd_bGJNq67yiqLlcZxB
@@ -1018,7 +949,6 @@ export class new_travel_requestComponent {
   sd_96VxExgs74Rn3m6g(bh) {
     try {
       const page = this.page;
-      console.log(bh.selfDetails, 'self');
       bh.local.selfDetails['dateOfBirth'] = new Date(
         bh.local.selfDetails['dateOfBirth']
       );
@@ -1069,7 +999,7 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       page.futureDate = new Date(bh.input.date.value);
-      console.log(page.futureDate, 'date');
+
       //appendnew_next_sd_7E0kFOs0S0LoIGyd
       return bh;
     } catch (e) {
@@ -1080,10 +1010,8 @@ export class new_travel_requestComponent {
   sd_iHuwVRB3Pigul8fQ(bh) {
     try {
       const page = this.page;
-      console.log('form', page.travelForm);
       if (bh.input.event.value == 'Other') {
         page.other = true;
-        //console.log("2222",page.travelForm.controls.requestDetails.value[0].travelDetails.fromCity.value)
       }
 
       //appendnew_next_sd_iHuwVRB3Pigul8fQ
@@ -1110,10 +1038,8 @@ export class new_travel_requestComponent {
   sd_JYH7Y01swLQYwjuy(bh) {
     try {
       const page = this.page;
-      console.log('form', page.travelForm);
       if (bh.input.event.value == 'Other') {
         page.otherToCity = true;
-        //console.log("2222",page.travelForm.controls.requestDetails.value[0].travelDetails.fromCity.value)
       }
 
       //appendnew_next_sd_JYH7Y01swLQYwjuy
@@ -1126,7 +1052,6 @@ export class new_travel_requestComponent {
   sd_Dwt1Wymb3cJ2N4Vq(bh) {
     try {
       const page = this.page;
-      console.log('event', bh.input.event);
       let personalDetails = page.allPersonalDetails.find(
         (el) => bh.input.event.option.value == el.email
       );
@@ -1152,18 +1077,6 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_E6ZjDNeLnSIeXTM5');
-    }
-  }
-
-  sd_db3bv0exQfUfQZk8(bh) {
-    try {
-      this.page.currentUserDetails = JSON.parse(
-        sessionStorage.getItem('currentUserDetails')
-      );
-      //appendnew_next_sd_db3bv0exQfUfQZk8
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_db3bv0exQfUfQZk8');
     }
   }
 

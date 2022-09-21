@@ -24875,7 +24875,7 @@
                         },
                         {
                             "_key": "fxLayoutGap",
-                            "_value": "2em",
+                            "_value": "1em",
                             "_type": "kv",
                             "_attrDef": "p"
                         },
@@ -25201,83 +25201,6 @@
                                 "_attrDef": "p"
                             }
                         ]
-                    },
-                    "7a4231b0-598a-b54a-3044-2afc0cfdcfaf": {
-                        "paletteKey": "NG-button",
-                        "parentEditorKey": "894bc751-3b92-6cf3-19e8-140ed3580164",
-                        "isCommented": "true",
-                        "commentid": "1663677586759",
-                        "designerReference": [
-                            {
-                                "_key": "style",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "class",
-                                "_value": [
-                                    "redButton"
-                                ],
-                                "_type": "dav",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "buttonname",
-                                "_value": "Submit",
-                                "_type": "a",
-                                "_attrDef": "p",
-                                "_useAsLabel": true
-                            },
-                            {
-                                "_key": "color",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "(click)",
-                                "_value": "tdetails(page.travelForm.value,page.personalDetailsForm.value)",
-                                "_type": "kv",
-                                "_attrDef": "p",
-                                "objValue": {
-                                    "nodeID": "sd_u6WWm4Bal1XWFndC",
-                                    "functionName": "tdetails",
-                                    "activeTree": "pages",
-                                    "z": "sd_osEacZsdUBcy4IJg",
-                                    "input": [
-                                        "page.travelForm.value",
-                                        "page.personalDetailsForm.value"
-                                    ]
-                                },
-                                "_customAttributeFlag": "customInput"
-                            },
-                            {
-                                "_key": "[disabled]",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p",
-                                "_customAttributeFlag": "customInput"
-                            },
-                            {
-                                "_key": "[disableRipple]",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "type",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "routerLink",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            }
-                        ]
                     }
                 },
                 "b98664ee-63ef-daa8-2280-1d9b62759db9": {
@@ -25316,7 +25239,7 @@
                         },
                         {
                             "_key": "fxLayoutGap",
-                            "_value": "2em",
+                            "_value": "1em",
                             "_type": "kv",
                             "_attrDef": "p"
                         },

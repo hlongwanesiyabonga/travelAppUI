@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -205,7 +207,7 @@ export class baseComponent {
       page.email = 'neo.thobela@neutrinos.co';
       (bh.method = 'get'),
         (bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email);
-      console.log(page.profileForm);
+
       bh = this.sd_Ld8Z0R56kFnzLxOy(bh);
       //appendnew_next_sd_omtxhHSTT0bkCN7b
       return bh;
@@ -236,8 +238,6 @@ export class baseComponent {
 
   sd_Xuc0VNU6iF0UqpDu(bh) {
     try {
-      const page = this.page;
-      console.log('hi', page.personalDetails);
       bh = this.sd_ti9tbxXUHmz0mETK(bh);
       //appendnew_next_sd_Xuc0VNU6iF0UqpDu
       return bh;

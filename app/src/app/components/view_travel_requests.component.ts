@@ -73,19 +73,6 @@ export class view_travel_requestsComponent {
     }
   }
 
-  onFilter_2(filterEvent: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { filterEvent: filterEvent };
-      bh.local = {};
-      //appendnew_next_onFilter_2
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_4QB6d44LFvxAJuWT');
-    }
-  }
-
   getTravelRequests(...others) {
     try {
       var bh: any = this.__page_injector__
@@ -290,8 +277,6 @@ export class view_travel_requestsComponent {
 
   logTable(bh) {
     try {
-      const page = this.page;
-      console.log('this table', page.receivedTableData);
       bh = this.table(bh);
       //appendnew_next_logTable
       return bh;
@@ -337,7 +322,6 @@ export class view_travel_requestsComponent {
             'travelMode',
             'fromCity',
             'toCity',
-            'status',
             'action',
           ],
         },
@@ -347,11 +331,9 @@ export class view_travel_requestsComponent {
         : 'other'),
         (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
       page.tableCells = tableSetup[bh.role]['tableCells'];
-      page.receivedTableData['data'].forEach((el, i) => {
-        let temp = {};
+      page.receivedTableData['data'].forEach((el) => {
         temp['_id'] = el['_id'];
         temp['dateCreated'] = el['dateCreated'];
-        temp['status'] = el['status'];
         temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
         temp['travelMode'] =
           el['requestDetails'][0]['travelDetails']['travelMode'];
@@ -359,7 +341,7 @@ export class view_travel_requestsComponent {
         temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
         tableData.push(temp);
       });
-      console.log(tableData);
+
       page.tableData = new page.tableDataSource(tableData);
       page.tableData.paginator = bh.pageViews.MatPaginator;
       page.tableData.sort = bh.pageViews.MatSort;
@@ -392,8 +374,6 @@ export class view_travel_requestsComponent {
       bh.data = page.receivedTableData['data'].find(
         (obj) => bh.input.selectedRowID == obj._id
       );
-      console.log('data works', bh.data);
-      // console.log(bh.input)
 
       bh = this.sd_foqFWGeyE6VpOSKm(bh);
       //appendnew_next_sd_LseCR5GaQVmcl4q2
@@ -444,8 +424,6 @@ export class view_travel_requestsComponent {
 
   sd_zGxjcrMc4rXQJyRF(bh) {
     try {
-      const page = this.page;
-      console.log('working', bh.x);
       //appendnew_next_sd_zGxjcrMc4rXQJyRF
       return bh;
     } catch (e) {

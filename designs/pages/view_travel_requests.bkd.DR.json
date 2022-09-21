@@ -1113,45 +1113,6 @@
                                 "_attrDef": "p"
                             }
                         ],
-                        "707a4cd0-29b9-dcb4-fcce-eb8d2f1e1bcc": {
-                            "paletteKey": "NG-icon",
-                            "parentEditorKey": "d52c5a54-b10d-03c0-6f12-4d5530680980",
-                            "isCommented": "true",
-                            "commentid": "1663673673323",
-                            "designerReference": [
-                                {
-                                    "_key": "style",
-                                    "_value": "",
-                                    "_type": "kv",
-                                    "_attrDef": "p"
-                                },
-                                {
-                                    "_key": "class",
-                                    "_value": "",
-                                    "_type": "dav",
-                                    "_attrDef": "p"
-                                },
-                                {
-                                    "_key": "IconName",
-                                    "_value": "chevron_left",
-                                    "_type": "a",
-                                    "_attrDef": "p",
-                                    "_useAsLabel": true
-                                },
-                                {
-                                    "_key": "[inline]",
-                                    "_value": "",
-                                    "_type": "kv",
-                                    "_attrDef": "p"
-                                },
-                                {
-                                    "_key": "color",
-                                    "_value": "",
-                                    "_type": "kv",
-                                    "_attrDef": "p"
-                                }
-                            ]
-                        },
                         "14903db1-8cf9-155a-2c34-4439211ca640": {
                             "paletteKey": "Html5",
                             "parentEditorKey": "d52c5a54-b10d-03c0-6f12-4d5530680980",
