@@ -131,6 +131,7 @@
             "6d51a171-d5dc-44f1-2c4b-890414262944": {
                 "paletteKey": "FlexLayoutRow",
                 "parentEditorKey": "2280c1c3-f356-0676-4583-fed703f41153",
+                "isCommented": "false",
                 "commentid": null,
                 "designerReference": [
                     {
@@ -193,6 +194,7 @@
                     "paletteKey": "NG-Select",
                     "parentEditorKey": "6d51a171-d5dc-44f1-2c4b-890414262944",
                     "isAdvancedComponent": true,
+                    "isCommented": "false",
                     "commentid": null,
                     "designerReference": [
                         {
@@ -322,13 +324,13 @@
                         },
                         {
                             "_key": "(selectionChange)",
-                            "_value": "getTravelRequests($event)",
+                            "_value": "travelRequests($event)",
                             "_type": "kv",
                             "_attrDef": "p",
                             "_customAttributeFlag": "flowpicker",
                             "objValue": {
-                                "nodeID": "sd_FVFM6b18mqiSTaD8",
-                                "functionName": "getTravelRequests",
+                                "nodeID": "sd_eCXsL7vdmekvuaBV",
+                                "functionName": "travelRequests",
                                 "activeTree": "pages",
                                 "z": "sd_OefGVbZestbMEEML",
                                 "input": [

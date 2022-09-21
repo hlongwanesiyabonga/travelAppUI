@@ -2,7 +2,7 @@
   <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
     <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
       <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;">
-        <mat-select placeholder="Requests" [required]="false" (selectionChange)="getTravelRequests($event)">
+        <mat-select placeholder="Requests" [required]="false" (selectionChange)="travelRequests($event)">
           <ng-template ngFor let-option [ngForOf]="page.select" let-i="index">
             <mat-option [value]="option.viewvalue">{{option.viewvalue}}</mat-option>
           </ng-template>

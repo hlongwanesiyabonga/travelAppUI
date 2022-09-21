@@ -56,20 +56,11 @@
             "flowId": "sd_FVFM6b18mqiSTaD8",
             "flowName": "getTravelRequests"
         },
-        "inputVariables": [
-            {
-                "key": "request",
-                "map": true,
-                "valueType": "bh",
-                "value": ""
-            }
-        ],
+        "inputVariables": [],
         "outputMapping": [],
         "serviceImportPath": "./view_travel_requests",
         "startName": "getTravelRequests",
-        "inputParams": [
-            null
-        ],
+        "inputParams": [],
         "accept_csd": false,
         "functionName": "sd_SSbGg5g6eV3KHa01",
         "category": "General",
@@ -115,16 +106,7 @@
         "nodeType": "start",
         "name": "get travel requests",
         "outputs": 1,
-        "inputVariables": [
-            {
-                "key": "request",
-                "defaultValue": {
-                    "type": "any",
-                    "value": ""
-                },
-                "output": false
-            }
-        ],
+        "inputVariables": [],
         "localVariables": [],
         "flow_type": "sync",
         "functionName": "getTravelRequests",
@@ -133,7 +115,7 @@
         "y": 180,
         "wires": [
             [
-                "sd_ttsJNraZMJU5vtvH"
+                "sd_8rwHpkPcEjQAdQ9f"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -197,7 +179,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(\"eee\",bh.input.request.value)\nbh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;",
         "functionName": "sd_HPCHaM7tAhCjPbLU",
         "category": "Function",
         "x": 345,
@@ -873,36 +855,48 @@
         "generated": true
     },
     {
-        "id": "sd_xmr9jpxVERZgFZuq",
-        "type": "Script",
+        "id": "sd_eCXsL7vdmekvuaBV",
+        "type": "PageStart",
         "z": "sd_OefGVbZestbMEEML",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "bh.method = \"get\";\npage.email =\"neutrinostravellm@gmail.com\"\nbh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.email ;",
-        "functionName": "sd_xmr9jpxVERZgFZuq",
-        "category": "Function",
-        "x": 265,
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "travel requests",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "travelRequests",
+        "category": "General",
+        "x": 125,
         "y": 240,
         "wires": [
             [
-                "sd_bC5p0BEPQlu4QyLn"
+                "sd_8LeNRH6C6NMR34zl"
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true,
+        "serviceName": "view_travel_requestsComponent"
     },
     {
-        "id": "sd_ttsJNraZMJU5vtvH",
+        "id": "sd_8LeNRH6C6NMR34zl",
         "type": "PageSwitch",
         "z": "sd_OefGVbZestbMEEML",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "property": "request.value",
+        "property": "event.value",
         "propertyType": "bh.input",
-        "propertyGv": "bh.input.request.value",
+        "propertyGv": "bh.input.event.value",
         "rules": [
             {
                 "t": "eq",
@@ -920,16 +914,37 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "functionName": "sd_ttsJNraZMJU5vtvH",
+        "functionName": "sd_8LeNRH6C6NMR34zl",
         "category": "Function",
-        "x": 165,
-        "y": 180,
+        "x": 225,
+        "y": 240,
         "wires": [
             [
-                "sd_8rwHpkPcEjQAdQ9f"
+                "sd_HPCHaM7tAhCjPbLU"
             ],
             [
-                "sd_xmr9jpxVERZgFZuq"
+                "sd_ddvJTJeq8er1YH6q"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ddvJTJeq8er1YH6q",
+        "type": "Script",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.email =\"neutrinostravellm@gmail.com\"\nbh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.email;",
+        "functionName": "sd_ddvJTJeq8er1YH6q",
+        "category": "Function",
+        "x": 385,
+        "y": 280,
+        "wires": [
+            [
+                "sd_bC5p0BEPQlu4QyLn"
             ]
         ],
         "__n_excludedFromValidation__": {},

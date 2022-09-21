@@ -73,14 +73,14 @@ export class view_travel_requestsComponent {
     }
   }
 
-  getTravelRequests(request: any = undefined, ...others) {
+  getTravelRequests(...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = { request: request };
+      bh.input = {};
       bh.local = {};
-      bh = this.sd_ttsJNraZMJU5vtvH(bh);
+      bh = this.sd_8rwHpkPcEjQAdQ9f(bh);
       //appendnew_next_getTravelRequests
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_FVFM6b18mqiSTaD8');
@@ -112,6 +112,20 @@ export class view_travel_requestsComponent {
       //appendnew_next_openViewRequest
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_HMmCFgfRZ8BIIgLg');
+    }
+  }
+
+  travelRequests(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_8LeNRH6C6NMR34zl(bh);
+      //appendnew_next_travelRequests
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_eCXsL7vdmekvuaBV');
     }
   }
 
@@ -187,7 +201,7 @@ export class view_travel_requestsComponent {
 
   sd_SSbGg5g6eV3KHa01(bh) {
     try {
-      let outputVariables = this.getTravelRequests(undefined);
+      let outputVariables = this.getTravelRequests();
 
       bh = this.sd_BSTpLgaf8MQyg93d(bh);
       //appendnew_next_sd_SSbGg5g6eV3KHa01
@@ -233,34 +247,6 @@ export class view_travel_requestsComponent {
     }
   }
 
-  sd_ttsJNraZMJU5vtvH(bh) {
-    try {
-      if (
-        this.sdService.operators['eq'](
-          bh.input.request.value,
-          'Traveler Request',
-          undefined,
-          undefined
-        )
-      ) {
-        bh = this.sd_8rwHpkPcEjQAdQ9f(bh);
-      } else if (
-        this.sdService.operators['eq'](
-          bh.input.request.value,
-          'My request',
-          undefined,
-          undefined
-        )
-      ) {
-        bh = this.sd_xmr9jpxVERZgFZuq(bh);
-      }
-
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ttsJNraZMJU5vtvH');
-    }
-  }
-
   sd_8rwHpkPcEjQAdQ9f(bh) {
     try {
       this.page.currentUserDetails = JSON.parse(
@@ -277,7 +263,6 @@ export class view_travel_requestsComponent {
   sd_HPCHaM7tAhCjPbLU(bh) {
     try {
       const page = this.page;
-      console.log('eee', bh.input.request.value);
       bh.method = 'get';
       bh.endPoint =
         'travelRequests/getTravelRequests?owner=' +
@@ -389,22 +374,6 @@ export class view_travel_requestsComponent {
     }
   }
 
-  sd_xmr9jpxVERZgFZuq(bh) {
-    try {
-      const page = this.page;
-      bh.method = 'get';
-      page.email = 'neutrinostravellm@gmail.com';
-      bh.endPoint =
-        'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
-        page.email;
-      bh = this.sd_bC5p0BEPQlu4QyLn(bh);
-      //appendnew_next_sd_xmr9jpxVERZgFZuq
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_xmr9jpxVERZgFZuq');
-    }
-  }
-
   async sd_e2jI7LQDxK8XdWjP(bh) {
     try {
       const { paramObj: qprm, path: path } =
@@ -481,6 +450,50 @@ export class view_travel_requestsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_zGxjcrMc4rXQJyRF');
+    }
+  }
+
+  sd_8LeNRH6C6NMR34zl(bh) {
+    try {
+      if (
+        this.sdService.operators['eq'](
+          bh.input.event.value,
+          'Traveler Request',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_HPCHaM7tAhCjPbLU(bh);
+      } else if (
+        this.sdService.operators['eq'](
+          bh.input.event.value,
+          'My request',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_ddvJTJeq8er1YH6q(bh);
+      }
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_8LeNRH6C6NMR34zl');
+    }
+  }
+
+  sd_ddvJTJeq8er1YH6q(bh) {
+    try {
+      const page = this.page;
+      page.email = 'neutrinostravellm@gmail.com';
+      bh.method = 'get';
+      bh.endPoint =
+        'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
+        page.email;
+      bh = this.sd_bC5p0BEPQlu4QyLn(bh);
+      //appendnew_next_sd_ddvJTJeq8er1YH6q
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ddvJTJeq8er1YH6q');
     }
   }
 
