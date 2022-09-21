@@ -47,7 +47,7 @@
                     <div>
                       <mat-form-field appearance="outline">
                         <!-- <mat-label>Requested </mat-label> -->
-                        <input type="text" placeholder="Requested For" matInput [matAutocomplete]="auto">
+                        <input type="text" id="search" (input)="showRequstedfor($event)" placeholder="Requested For" matInput [matAutocomplete]="auto">
                         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChange($event)">
                           <mat-option *ngFor="let option of page?.allPersonalDetails" [value]="option.email">
                             {{option.email}}
