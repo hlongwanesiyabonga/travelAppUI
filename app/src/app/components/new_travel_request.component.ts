@@ -761,8 +761,8 @@ export class new_travel_requestComponent {
           accommodationDetails: page.Fb.group({
             accommodationPreference: [false, [Validators.required]],
             city: [false, [Validators.required]],
-            checkInDate: [false, [Validators.required]],
-            checkOutDate: [false, [Validators.required]],
+            checkInDate: [''],
+            checkOutDate: [''],
             // accommodationType: [false, [Validators.required]],
             checkInTime: [false, [Validators.required]],
             checkOutTime: [''],
