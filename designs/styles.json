@@ -113,6 +113,8 @@
         "mat-header-cell",
         "mat-cell",
         "mat-footer-cell",
-        "rejectBtn"
+        "rejectBtn",
+        "editTableIcon",
+        "viewTableIcon"
     ]
 }
