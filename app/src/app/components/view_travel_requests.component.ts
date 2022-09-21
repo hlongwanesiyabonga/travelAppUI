@@ -73,14 +73,14 @@ export class view_travel_requestsComponent {
     }
   }
 
-  getTravelRequests(...others) {
+  getTravelRequests(request: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { request: request };
       bh.local = {};
-      bh = this.sd_8rwHpkPcEjQAdQ9f(bh);
+      bh = this.sd_ttsJNraZMJU5vtvH(bh);
       //appendnew_next_getTravelRequests
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_FVFM6b18mqiSTaD8');
@@ -158,6 +158,8 @@ export class view_travel_requestsComponent {
       this.page.tableHeaders = [];
       this.page.tableCells = [];
       this.page.receivedTableData = [];
+      this.page.email = undefined;
+      this.page.select = undefined;
       bh = this.sd_LXI6ABPdqGPWtVPw(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
@@ -171,6 +173,10 @@ export class view_travel_requestsComponent {
       const page = this.page;
       bh.method = 'get';
       bh.endPoint = 'travelRequests/getTravelRequests';
+      page.select = [
+        { viewvalue: 'My request' },
+        { viewvalue: 'Traveler Request' },
+      ];
       bh = this.sd_SSbGg5g6eV3KHa01(bh);
       //appendnew_next_sd_LXI6ABPdqGPWtVPw
       return bh;
@@ -181,7 +187,7 @@ export class view_travel_requestsComponent {
 
   sd_SSbGg5g6eV3KHa01(bh) {
     try {
-      let outputVariables = this.getTravelRequests();
+      let outputVariables = this.getTravelRequests(undefined);
 
       bh = this.sd_BSTpLgaf8MQyg93d(bh);
       //appendnew_next_sd_SSbGg5g6eV3KHa01
@@ -227,6 +233,34 @@ export class view_travel_requestsComponent {
     }
   }
 
+  sd_ttsJNraZMJU5vtvH(bh) {
+    try {
+      if (
+        this.sdService.operators['eq'](
+          bh.input.request.value,
+          'Traveler Request',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_8rwHpkPcEjQAdQ9f(bh);
+      } else if (
+        this.sdService.operators['eq'](
+          bh.input.request.value,
+          'My request',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_xmr9jpxVERZgFZuq(bh);
+      }
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ttsJNraZMJU5vtvH');
+    }
+  }
+
   sd_8rwHpkPcEjQAdQ9f(bh) {
     try {
       this.page.currentUserDetails = JSON.parse(
@@ -243,6 +277,7 @@ export class view_travel_requestsComponent {
   sd_HPCHaM7tAhCjPbLU(bh) {
     try {
       const page = this.page;
+      console.log('eee', bh.input.request.value);
       bh.method = 'get';
       bh.endPoint =
         'travelRequests/getTravelRequests?owner=' +
@@ -277,6 +312,8 @@ export class view_travel_requestsComponent {
 
   logTable(bh) {
     try {
+      const page = this.page;
+      console.log(page.receivedTableData);
       bh = this.table(bh);
       //appendnew_next_logTable
       return bh;
@@ -304,7 +341,6 @@ export class view_travel_requestsComponent {
       const page = this.page;
       let tableData = [];
       let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
-      let temp = {};
       let tableSetup = {
         traveler: {
           tableHeaders: [
@@ -332,6 +368,7 @@ export class view_travel_requestsComponent {
         (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
       page.tableCells = tableSetup[bh.role]['tableCells'];
       page.receivedTableData['data'].forEach((el) => {
+        let temp = {};
         temp['_id'] = el['_id'];
         temp['dateCreated'] = el['dateCreated'];
         temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
@@ -349,6 +386,22 @@ export class view_travel_requestsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_PJCi5a6up5yJxqw5');
+    }
+  }
+
+  sd_xmr9jpxVERZgFZuq(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      page.email = 'neutrinostravellm@gmail.com';
+      bh.endPoint =
+        'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
+        page.email;
+      bh = this.sd_bC5p0BEPQlu4QyLn(bh);
+      //appendnew_next_sd_xmr9jpxVERZgFZuq
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_xmr9jpxVERZgFZuq');
     }
   }
 
@@ -371,7 +424,7 @@ export class view_travel_requestsComponent {
   sd_LseCR5GaQVmcl4q2(bh) {
     try {
       const page = this.page;
-      bh.data = page.receivedTableData['data'].find(
+      bh.data = page.receivedTableData['data']?.find(
         (obj) => bh.input.selectedRowID == obj._id
       );
 

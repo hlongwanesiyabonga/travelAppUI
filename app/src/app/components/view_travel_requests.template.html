@@ -1,5 +1,15 @@
 <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
   <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;">
+        <mat-select placeholder="Requests" [required]="false" (selectionChange)="getTravelRequests($event)">
+          <ng-template ngFor let-option [ngForOf]="page.select" let-i="index">
+            <mat-option [value]="option.viewvalue">{{option.viewvalue}}</mat-option>
+          </ng-template>
+        </mat-select>
+
+      </mat-form-field>
+    </div>
     <div fxLayout="row wrap" class="marginTop20 fullWidth" fxLayoutAlign="space-between stretch" [fxShow]="true" fxHide.xs="true">
       <div fxLayout="column wrap" fxFlex="23" fxLayoutAlign="center space-between" [fxShow]="true" *ngFor="let card of page.dashboardCards">
         <div fxLayout="row wrap" class="fullWidth cardBox" fxLayoutAlign="space-between center" [fxShow]="true">
