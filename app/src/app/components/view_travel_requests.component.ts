@@ -342,6 +342,7 @@ export class view_travel_requestsComponent {
       const page = this.page;
       let tableData = [];
       let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
+      let temp = {};
       let tableSetup = {
         traveler: {
           tableHeaders: [
@@ -359,6 +360,7 @@ export class view_travel_requestsComponent {
             'travelMode',
             'fromCity',
             'toCity',
+            'status',
             'action',
           ],
         },
@@ -369,8 +371,8 @@ export class view_travel_requestsComponent {
         (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
       page.tableCells = tableSetup[bh.role]['tableCells'];
       page.receivedTableData['data'].forEach((el) => {
-        let temp = {};
         temp['_id'] = el['_id'];
+        temp['status'] = el['status'];
         temp['dateCreated'] = el['dateCreated'];
         temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
         temp['travelMode'] =
@@ -379,10 +381,36 @@ export class view_travel_requestsComponent {
         temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
         tableData.push(temp);
       });
-
+      console.log(tableData);
       page.tableData = new page.tableDataSource(tableData);
       page.tableData.paginator = bh.pageViews.MatPaginator;
       page.tableData.sort = bh.pageViews.MatSort;
+
+      // let tableData = [];
+      // let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
+      // let tableSetup = {
+      //     "traveler": {
+      //         "tableHeaders": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],
+      //         "tableCells": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']
+      //     }
+      // };
+      // bh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',
+      //     page.tableHeaders = tableSetup[bh.role]['tableHeaders'];
+      // page.tableCells = tableSetup[bh.role]['tableCells'];
+      // page.receivedTableData['data'].forEach(el => {
+      //     let temp = {};
+      //     temp['_id'] = el['_id'];
+      //     temp['dateCreated'] = el['dateCreated'];
+      //     temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
+      //     temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];
+      //     temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];
+      //     temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
+      //     tableData.push(temp);
+      // })
+
+      // page.tableData = new page.tableDataSource(tableData);
+      // page.tableData.paginator = bh.pageViews.MatPaginator;
+      // page.tableData.sort = bh.pageViews.MatSort;
       //appendnew_next_setTableTokens
       return bh;
     } catch (e) {

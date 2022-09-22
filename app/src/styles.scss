@@ -99,6 +99,10 @@ bh-view_travel_requests {
     background-color: $green;
     color:$white;
 }
+.greenBorderButton {
+    border: $green solid 1px !important;
+    color:$green;
+}
 .grayBorder{
     border-top: 1px solid lightgray;
     margin-bottom: 2em !important;

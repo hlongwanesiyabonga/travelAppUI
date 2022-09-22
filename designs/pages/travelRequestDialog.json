@@ -2095,6 +2095,7 @@
         "serviceImportPath": "./travelRequestDialog",
         "startName": "prepopulateDialogData",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_5JxqTFveX4y0jIsM",
         "category": "General",
