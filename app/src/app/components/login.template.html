@@ -1,0 +1,55 @@
+<div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="center center" [fxShow]="true">
+  <div fxLayout="row wrap" class="bodyHeight fullWidth" fxLayoutAlign="center center" [fxShow]="true">
+    <div fxLayout="column wrap" class="mainBox" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="row wrap" class="marginBottom20" fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="/Web/neutrinos-logo.png" width="63px"></div>
+      <div fxLayout="row wrap" class="marginBottom20" fxLayoutAlign="center stretch" [fxShow]="true">
+        <h2 class="title">
+          <p>Log in to Neutrinos Travel Request App</p>
+        </h2>
+      </div>
+      <form [formGroup]="page.loginForm" class="fullWidth">
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true"><label class="marginBottom5">
+              Username</label>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Username" [required]="false" formControlName="username">
+
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true"><label class="marginBottom5">
+              Password</label>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput type="password" placeholder="Password" [required]="false" formControlName="password">
+
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="marginBottom20 rememberText" fxLayoutAlign="space-between center" [fxShow]="true">
+          <div fxLayout="column wrap" fxLayoutAlign="center stretch" [fxShow]="true">
+            <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="start center" [fxShow]="true">
+              <mat-checkbox [required]="false" formControlName="rememberMe"></mat-checkbox><label>
+                Remember Me</label>
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="center stretch" [fxShow]="true"><label class="pointer">
+              Forgot password?</label></div>
+        </div>
+      </form>
+      <div fxLayout="row wrap" class="marginBottom20" fxLayoutAlign="center stretch" [fxShow]="true"><button mat-button>Sign In</button></div>
+    </div>
+  </div>
+  <div fxLayout="row wrap" class="copyrightRow fullWidth" fxLayoutAlign="space-between center" [fxShow]="true">
+    <div fxLayout="column wrap" class="marginLeft30" fxLayoutAlign="center start" [fxShow]="true">
+      <div>
+        <p>Copyright &#xA9; Neutrinos.co</p>
+      </div>
+    </div>
+    <div fxLayout="column wrap" class="marginRight30" fxLayoutAlign="center end" [fxShow]="true">
+      <div>
+        <p>Terms of use</p>
+      </div>
+    </div>
+  </div>
+</div>

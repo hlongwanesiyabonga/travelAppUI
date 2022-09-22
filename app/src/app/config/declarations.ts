@@ -15,6 +15,8 @@ window['neutrinos'] = {
 };
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-loginComponent
+import { loginComponent } from '../components/login.component';
 //CORE_REFERENCE_IMPORT-travelRequestDialogComponent
 import { travelRequestDialogComponent } from '../components/travelRequestDialog.component';
 //CORE_REFERENCE_IMPORT-reportsComponent
@@ -65,6 +67,8 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-loginComponent
+  loginComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-travelRequestDialogComponent
   travelRequestDialogComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-reportsComponent

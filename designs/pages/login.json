@@ -1,0 +1,139 @@
+[
+    {
+        "id": "sd_pmfwpqMBMOczws9i",
+        "type": "tab",
+        "createdDate": "2022-09-22T17:38:26.961Z",
+        "label": "login",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "loginComponent"
+    },
+    {
+        "id": "sd_TahZbWB9UXDe7mTX",
+        "type": "OnInit",
+        "z": "sd_pmfwpqMBMOczws9i",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_TahZbWB9UXDe7mTX",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 120,
+        "wires": [
+            [
+                "sd_EQGray9KihxOw9eC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "loginComponent"
+    },
+    {
+        "id": "sd_EQGray9KihxOw9eC",
+        "type": "PageVariables",
+        "z": "sd_pmfwpqMBMOczws9i",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_EQGray9KihxOw9eC",
+        "category": "Function",
+        "x": 165,
+        "y": 120,
+        "wires": [
+            [
+                "sd_fQmSS8tLHWYTtmlP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_fQmSS8tLHWYTtmlP",
+        "type": "UseDependency",
+        "z": "sd_pmfwpqMBMOczws9i",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ReactiveFormsModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FG"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_fQmSS8tLHWYTtmlP",
+        "category": "Function",
+        "x": 265,
+        "y": 120,
+        "wires": [
+            [
+                "sd_8Rc6Gx7d6Tln9Ryq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8Rc6Gx7d6Tln9Ryq",
+        "type": "Script",
+        "z": "sd_pmfwpqMBMOczws9i",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.loginForm = new FormGroup({\n    username: new FormControl(''),\n    password: new FormControl(''),\n    rememberMe: new FormControl('')\n    });\n",
+        "functionName": "sd_8Rc6Gx7d6Tln9Ryq",
+        "category": "Function",
+        "x": 365,
+        "y": 120,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

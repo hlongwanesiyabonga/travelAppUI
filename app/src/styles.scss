@@ -3,7 +3,21 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "nDefaults.scss";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 
+:root {
+    --font-family: 'Poppins';
+    --login_card_bg_color: #ffffff;
+    --bg-color: #eaecf2;
+    --welcome_color: #1c1c1c;
+    --input-bg: #E8F0FE;
+    --field_color: #404041;
+    --input-border: 10px;
+    --primary-button-color: white;
+    --footer-display: flex;
+    --footer-bg: whitesmoke;
+    --footer-color: black;
+}
 $mainBackgroundColor:#F8F8F8;
 $white: #FFF;
 $yellow: #F1CB14;
@@ -53,6 +67,10 @@ textarea,
 }
 p, h1, h2, h3, h4, h5, h6 {
     margin: 0%;
+}
+bh-login{
+    width: 100%;
+    height: 100%;
 }
 .fullWidth,
 bh-view_travel_requests {
@@ -447,4 +465,97 @@ bh-base, bh-profile_dialog{
 .viewTableIcon{
     margin-left: 5px;
     color: #0086af;
+}
+
+//login page style
+.marginBottom5{
+    margin-bottom: 5px;
+}
+.copyrightRow{
+    font-size: 13px;
+    background-color: --footer-bg;
+    color: --footer-color;
+    .marginLeft30{
+        margin-left: 30px;
+    }
+    .marginRight30{
+        margin-right: 30px;
+    }
+    height: 35px;
+}
+.bodyHeight{
+    height: calc(100vh - 35px);
+    background-color: #eaecf2;
+    .mainBox{
+        width: 400px;
+        height: 567px;
+        background: var(--login_card_bg_color);
+        padding: 15px 25px 10px 25px;
+        border-radius: 10px;
+        box-shadow: 0px 24px 29px 0 rgba(57, 57, 57, 0.25);
+        h2.title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--welcome_color);
+            text-align: center;
+            position: relative;
+            padding-top: 5px;
+            padding-bottom: 1px;
+        }
+        .mat-checkbox-frame {
+            border-color: #404041;
+            border-radius: 4px;
+        }
+        .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+            background-color: #ef1c23;
+        }
+        .rememberText{
+            font-size: 10.8px;
+        }
+        .mat-form-field-appearance-outline .mat-form-field-flex {
+            margin-top: -0.25em;
+            position: relative;
+            width: 100%;
+            height: 40px;
+            border: none;
+            background-color: var(--input-bg);
+            border-radius: var(--input-border);
+            padding: 4px 0px 0px 10px;
+            font-family: var(--font-family), 'sans-serif';
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+.mat-form-field-infix {
+    padding: 0.5em 0;
+    border-top: 0px;
+}
+        label {
+            font-size: 14px;
+            font-family: var(--font-family), 'sans-serif';
+            color:var(--field_color);
+        }
+        input:-webkit-autofill{
+            box-shadow: 0 0 0px 1000px var(--input-bg) inset !important;
+        }
+        button {
+            font-family: var(--font-family), 'sans-serif';
+            width: 65%;
+            color: var(--primary-button-color) !important;
+            background: #ef1c23;
+            border-radius: 8px;
+            border: none;
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 14px;
+        }
+    }
 }
