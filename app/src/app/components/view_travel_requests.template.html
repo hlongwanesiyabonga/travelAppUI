@@ -22,7 +22,7 @@
         <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between center" [fxShow]="true">
           <h2>
             Travel Requests</h2>
-          <div fxLayout="column wrap" fxFlex="23" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="23" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page?.currentUserDetails?.designation.includes(&apos;Manager&apos;)">
             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
               <mat-select placeholder="Requests" [required]="false" (selectionChange)="travelRequests($event)">
                 <ng-template ngFor let-option [ngForOf]="page.select" let-i="index">
