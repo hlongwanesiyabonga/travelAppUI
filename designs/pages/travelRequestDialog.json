@@ -240,6 +240,13 @@
                     "type": "literal",
                     "value": ""
                 }
+            },
+            {
+                "textIp": "status",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_0D94v0rlivWhVCrS",
@@ -450,7 +457,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.date = new Date();\npage.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate\npage.email = \"neo.thobela@neutrinos.co\"\nbh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;\nbh.method =\"get\";",
+        "script": "page.date = new Date();\npage.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate\npage.email = \"neutrinostravellm@gmail.com\"\nbh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;\nbh.method =\"get\";",
         "functionName": "sd_x6hu49uNyfZxIuU1",
         "category": "Function",
         "x": 805,
@@ -1964,30 +1971,6 @@
         "generated": true
     },
     {
-        "id": "sd_ElPg2sb82E2sViqt",
-        "type": "PageStart",
-        "z": "sd_TO8KXUn3nydbh4fD",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "closeProfile",
-        "outputs": 1,
-        "inputVariables": [],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "closeProfile",
-        "category": "General",
-        "x": 65,
-        "y": 780,
-        "wires": [
-            [
-                "sd_W6rsPbUeAuFcG4SJ"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "travelRequestDialogComponent"
-    },
-    {
         "id": "sd_W6rsPbUeAuFcG4SJ",
         "type": "CloseDialog",
         "z": "sd_TO8KXUn3nydbh4fD",
@@ -1997,8 +1980,8 @@
         "data": "this.page.profileDialog",
         "functionName": "sd_W6rsPbUeAuFcG4SJ",
         "category": "Dialog",
-        "x": 155.171875,
-        "y": 780.03125,
+        "x": 585,
+        "y": 800,
         "wires": [
             []
         ],
@@ -2020,7 +2003,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "dialogDataMapping": "bh.dialogData",
+        "dialogDataMapping": "this.page.dialogData",
         "functionName": "sd_ub5bhbzwbngwdNfd",
         "category": "Dialog",
         "x": 1425,
@@ -2032,7 +2015,7 @@
         ],
         "__ssdTypeInputs__": {
             "dialogDataMapping": {
-                "type": "bh",
+                "type": "this.page",
                 "value": "dialogData",
                 "constant": false
             }
@@ -2048,7 +2031,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.dialogData['dateOfBirth'] = new Date(bh.dialogData['dateOfBirth'])\npage.personalDetailsForm.patchValue(bh.dialogData.personalDetails);\npage.travelForm.patchValue(bh.dialogData.requestDetails[0].travelDetails);\npage.travelRequestType = bh.dialogData['travelRequestType']\nbh.dialogData.requestDetails.forEach(requestDetail => {\n    console.log(\"requestDetail\",requestDetail)\n    page.travelForm.get('requestDetails').push(new FormGroup({\n        travelDetails: page.Fb.group({\n            travelMode: [requestDetail.travelDetails.travelMode, [Validators.required]],\n            travelType: [requestDetail.travelDetails.travelType, [Validators.required]],\n            travelRequestType: [false, [Validators.required]],\n            travelPurpose: [requestDetail.travelDetails.travelPurpose, [Validators.required]],\n            projectID: [requestDetail.travelDetails.projectID, [Validators.required]],\n            fromCity: [requestDetail.travelDetails.fromCity, [Validators.required]],\n            toCity: [requestDetail.travelDetails.toCity, [Validators.required]],\n            fromDate: [requestDetail.travelDetails.fromDate, [Validators.required]],\n            toDate: [requestDetail.travelDetails.toDate, [Validators.required]],\n            tripType: [requestDetail.travelDetails.tripType, [Validators.required]],\n            requestedFor: [requestDetail.travelDetails.requestedFor],\n            requestType: [requestDetail.travelDetails.requestType],\n            preferredTime: [requestDetail.travelDetails.preferredTime, [Validators.required]],\n            travelerComments: [requestDetail.travelDetails.travelerComments],\n            passportDocument: [requestDetail.travelDetails.passportDocument],\n            visaRequired: [requestDetail.travelDetails.visaRequired, [Validators.required]],\n            covidCertificate: [requestDetail.travelDetails.covidCertificate, page.showVisa ? [Validators.required] : []],\n            passport: [requestDetail.travelDetails.passport],\n            needvehicle: [requestDetail.travelDetails.needvehicle, [Validators.required]],\n            needAccommodation: [requestDetail.travelDetails.needAccommodation, [Validators.required]]\n        }),\n        accommodationDetails: page.Fb.group({\n            accommodationPreference: [requestDetail.accommodationDetails.accommodationPreference, [Validators.required]],\n            city: [requestDetail.accommodationDetails.city, [Validators.required]],\n            checkInDate: [requestDetail.accommodationDetails.checkInDate],\n            checkOutDate: [requestDetail.accommodationDetails.checkOutDate],\n            checkInTime: [requestDetail.accommodationDetails.checkInTime, [Validators.required]],\n            checkOutTime: [requestDetail.accommodationDetails.checkOutTime],\n            employeeComments: [requestDetail.accommodationDetails.employeeComments]\n        })\n    }));\n})\n",
+        "script": "page.dialogData['dateOfBirth'] = new Date(page.dialogData['dateOfBirth'])\npage.personalDetailsForm.patchValue(page.dialogData.personalDetails);\npage.travelForm.patchValue(page.dialogData.requestDetails[0].travelDetails);\npage.travelRequestType = page.dialogData['travelRequestType']\npage.dialogData.requestDetails.forEach(requestDetail => {\n    console.log(\"requestDetail\",requestDetail)\n    page.travelForm.get('requestDetails').push(new FormGroup({\n        travelDetails: page.Fb.group({\n            travelMode: [requestDetail.travelDetails.travelMode, [Validators.required]],\n            travelType: [requestDetail.travelDetails.travelType, [Validators.required]],\n            travelRequestType: [false, [Validators.required]],\n            travelPurpose: [requestDetail.travelDetails.travelPurpose, [Validators.required]],\n            projectID: [requestDetail.travelDetails.projectID, [Validators.required]],\n            fromCity: [requestDetail.travelDetails.fromCity, [Validators.required]],\n            toCity: [requestDetail.travelDetails.toCity, [Validators.required]],\n            fromDate: [requestDetail.travelDetails.fromDate, [Validators.required]],\n            toDate: [requestDetail.travelDetails.toDate, [Validators.required]],\n            tripType: [requestDetail.travelDetails.tripType, [Validators.required]],\n            requestedFor: [requestDetail.travelDetails.requestedFor],\n            requestType: [requestDetail.travelDetails.requestType],\n            preferredTime: [requestDetail.travelDetails.preferredTime, [Validators.required]],\n            travelerComments: [requestDetail.travelDetails.travelerComments],\n            passportDocument: [requestDetail.travelDetails.passportDocument],\n            visaRequired: [requestDetail.travelDetails.visaRequired, [Validators.required]],\n            covidCertificate: [requestDetail.travelDetails.covidCertificate, page.showVisa ? [Validators.required] : []],\n            passport: [requestDetail.travelDetails.passport],\n            needvehicle: [requestDetail.travelDetails.needvehicle, [Validators.required]],\n            needAccommodation: [requestDetail.travelDetails.needAccommodation, [Validators.required]]\n        }),\n        accommodationDetails: page.Fb.group({\n            accommodationPreference: [requestDetail.accommodationDetails.accommodationPreference, [Validators.required]],\n            city: [requestDetail.accommodationDetails.city, [Validators.required]],\n            checkInDate: [requestDetail.accommodationDetails.checkInDate],\n            checkOutDate: [requestDetail.accommodationDetails.checkOutDate],\n            checkInTime: [requestDetail.accommodationDetails.checkInTime, [Validators.required]],\n            checkOutTime: [requestDetail.accommodationDetails.checkOutTime],\n            employeeComments: [requestDetail.accommodationDetails.employeeComments]\n        })\n    }));\n})\n\nconsole.log(page.dialogData, '_idddddd 333633')\n",
         "functionName": "sd_bcNXeTciGHvpGsHn",
         "category": "Function",
         "x": 1570,
@@ -2112,11 +2095,10 @@
         "serviceImportPath": "./travelRequestDialog",
         "startName": "prepopulateDialogData",
         "inputParams": [],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_5JxqTFveX4y0jIsM",
         "category": "General",
-        "x": 1425,
+        "x": 1445,
         "y": 80,
         "wires": [
             []
@@ -2124,5 +2106,171 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_5F5jcmXlhCIMy6Bx",
+        "type": "Script",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\": page.dialogData.status,\n    \"managerApproval\" : {\n        \"approvedRequest\": bh.input.status,\n        \"comments\" : \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": page.dialogData.dateCreated\n    };\n\n    console.log(page.formObj, 'formmmmm')\nbh.method = 'put';\nbh.endPoint = \"updateRequestStatus/\" + page.dialogData._id;",
+        "functionName": "sd_5F5jcmXlhCIMy6Bx",
+        "category": "Function",
+        "x": 265,
+        "y": 800,
+        "wires": [
+            [
+                "sd_Kn38dORwtYP26I1e"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Kn38dORwtYP26I1e",
+        "type": "PageCallService",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "this.page",
+                "value": "formObj"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh",
+                "value": "result",
+                "mapVarName": "result",
+                "localVar": "bh.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            "this.page.formObj"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_Kn38dORwtYP26I1e",
+        "category": "General",
+        "x": 365,
+        "y": 800,
+        "wires": [
+            [
+                "sd_yBPeEJgoe1VPrAad"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_yBPeEJgoe1VPrAad",
+        "type": "Script",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "// let personalDetails = page.allPersonalDetails.find(el => bh.input.event.option.value == el.email)\n// if (personalDetails) {\n//     personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth'])\n//     page.personalDetailsForm.patchValue(personalDetails);\n// }\nconsole.log(bh.result,\"status\")",
+        "functionName": "sd_yBPeEJgoe1VPrAad",
+        "category": "Function",
+        "x": 485,
+        "y": 800,
+        "wires": [
+            [
+                "sd_W6rsPbUeAuFcG4SJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_TTcZy1sxoIQntYcf",
+        "type": "PageStart",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "changeRequestStatus",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "personalDetailsForm",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "status",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "changeRequestStatus",
+        "category": "General",
+        "x": 145,
+        "y": 800,
+        "wires": [
+            [
+                "sd_5F5jcmXlhCIMy6Bx"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
     }
 ]

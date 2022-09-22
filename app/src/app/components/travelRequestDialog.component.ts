@@ -8,8 +8,10 @@ import {
   Input,
   Output,
   EventEmitter,
+  ChangeDetectorRef,
   ViewChild,
   ViewChildren,
+  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -25,7 +27,7 @@ import {
 } from '@angular/forms'; //_splitter_
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'; //_splitter_
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -375,20 +377,6 @@ export class travelRequestDialogComponent {
     }
   }
 
-  closeProfile(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_W6rsPbUeAuFcG4SJ(bh);
-      //appendnew_next_closeProfile
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ElPg2sb82E2sViqt');
-    }
-  }
-
   prepopulateDialogData(...others) {
     try {
       var bh: any = this.__page_injector__
@@ -400,6 +388,29 @@ export class travelRequestDialogComponent {
       //appendnew_next_prepopulateDialogData
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_fm6TtpRpIiyDeBY6');
+    }
+  }
+
+  changeRequestStatus(
+    personalDetailsForm: any = undefined,
+    form: any = undefined,
+    status: any = undefined,
+    ...others
+  ) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {
+        personalDetailsForm: personalDetailsForm,
+        form: form,
+        status: status,
+      };
+      bh.local = {};
+      bh = this.sd_5F5jcmXlhCIMy6Bx(bh);
+      //appendnew_next_changeRequestStatus
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_TTcZy1sxoIQntYcf');
     }
   }
 
@@ -434,6 +445,7 @@ export class travelRequestDialogComponent {
       this.page.filterPersonalDetail = [];
       this.page.tempArr = undefined;
       this.page.travelRequestType = undefined;
+      this.page.status = undefined;
       bh = this.sd_zOe59wrgU7Wsi6yz(bh);
       //appendnew_next_sd_0D94v0rlivWhVCrS
       return bh;
@@ -571,7 +583,7 @@ export class travelRequestDialogComponent {
       page.date = new Date();
       page.futureDate =
         page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate;
-      page.email = 'neo.thobela@neutrinos.co';
+      page.email = 'neutrinostravellm@gmail.com';
       bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
       bh.method = 'get';
       bh = this.sd_JOZmL09ok2EgWdiJ(bh);
@@ -1100,21 +1112,9 @@ export class travelRequestDialogComponent {
     }
   }
 
-  sd_W6rsPbUeAuFcG4SJ(bh) {
-    try {
-      const _dialogRef = this.__page_injector__.get(MatDialogRef);
-      _dialogRef.close(this.page.profileDialog);
-
-      //appendnew_next_sd_W6rsPbUeAuFcG4SJ
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_W6rsPbUeAuFcG4SJ');
-    }
-  }
-
   sd_ub5bhbzwbngwdNfd(bh) {
     try {
-      bh.dialogData = this.__page_injector__.get(MAT_DIALOG_DATA);
+      this.page.dialogData = this.__page_injector__.get(MAT_DIALOG_DATA);
 
       bh = this.sd_bcNXeTciGHvpGsHn(bh);
       //appendnew_next_sd_ub5bhbzwbngwdNfd
@@ -1127,11 +1127,13 @@ export class travelRequestDialogComponent {
   sd_bcNXeTciGHvpGsHn(bh) {
     try {
       const page = this.page;
-      bh.dialogData['dateOfBirth'] = new Date(bh.dialogData['dateOfBirth']);
-      page.personalDetailsForm.patchValue(bh.dialogData.personalDetails);
-      page.travelForm.patchValue(bh.dialogData.requestDetails[0].travelDetails);
-      page.travelRequestType = bh.dialogData['travelRequestType'];
-      bh.dialogData.requestDetails.forEach((requestDetail) => {
+      page.dialogData['dateOfBirth'] = new Date(page.dialogData['dateOfBirth']);
+      page.personalDetailsForm.patchValue(page.dialogData.personalDetails);
+      page.travelForm.patchValue(
+        page.dialogData.requestDetails[0].travelDetails
+      );
+      page.travelRequestType = page.dialogData['travelRequestType'];
+      page.dialogData.requestDetails.forEach((requestDetail) => {
         console.log('requestDetail', requestDetail);
         page.travelForm.get('requestDetails').push(
           new FormGroup({
@@ -1223,10 +1225,86 @@ export class travelRequestDialogComponent {
         );
       });
 
+      console.log(page.dialogData, '_idddddd 333633');
+
       //appendnew_next_sd_bcNXeTciGHvpGsHn
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_bcNXeTciGHvpGsHn');
+    }
+  }
+
+  sd_5F5jcmXlhCIMy6Bx(bh) {
+    try {
+      const page = this.page;
+      page.formObj = {
+        personalDetails: page.personalDetailsForm.value,
+        requestDetails: bh.input.form.requestDetails,
+        status: page.dialogData.status,
+        managerApproval: {
+          approvedRequest: bh.input.status,
+          comments: '',
+        },
+        owner: page.personalDetailsForm.value.email,
+        dateCreated: page.dialogData.dateCreated,
+      };
+
+      console.log(page.formObj, 'formmmmm');
+      bh.method = 'put';
+      bh.endPoint = 'updateRequestStatus/' + page.dialogData._id;
+      bh = this.sd_Kn38dORwtYP26I1e(bh);
+      //appendnew_next_sd_5F5jcmXlhCIMy6Bx
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_5F5jcmXlhCIMy6Bx');
+    }
+  }
+
+  async sd_Kn38dORwtYP26I1e(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        this.page.formObj
+      );
+      bh.result = outputVariables.local.result;
+
+      bh = this.sd_yBPeEJgoe1VPrAad(bh);
+      //appendnew_next_sd_Kn38dORwtYP26I1e
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_Kn38dORwtYP26I1e');
+    }
+  }
+
+  sd_yBPeEJgoe1VPrAad(bh) {
+    try {
+      const page = this.page; // let personalDetails = page.allPersonalDetails.find(el => bh.input.event.option.value == el.email)
+      // if (personalDetails) {
+      //     personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth'])
+      //     page.personalDetailsForm.patchValue(personalDetails);
+      // }
+      console.log(bh.result, 'status');
+      bh = this.sd_W6rsPbUeAuFcG4SJ(bh);
+      //appendnew_next_sd_yBPeEJgoe1VPrAad
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_yBPeEJgoe1VPrAad');
+    }
+  }
+
+  sd_W6rsPbUeAuFcG4SJ(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.profileDialog);
+
+      //appendnew_next_sd_W6rsPbUeAuFcG4SJ
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_W6rsPbUeAuFcG4SJ');
     }
   }
 

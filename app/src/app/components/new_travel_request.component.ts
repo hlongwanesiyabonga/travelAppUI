@@ -572,7 +572,7 @@ export class new_travel_requestComponent {
       page.date = new Date();
       page.futureDate =
         page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate;
-      page.email = 'neo.thobela@neutrinos.co';
+      page.email = 'neutrinostravellm@gmail.com';
       bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
       bh.method = 'get';
       bh = this.sd_eYkVAuOfjYx8O61u(bh);

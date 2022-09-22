@@ -8,8 +8,10 @@ import {
   Input,
   Output,
   EventEmitter,
+  ChangeDetectorRef,
   ViewChild,
   ViewChildren,
+  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -204,7 +206,7 @@ export class baseComponent {
   sd_omtxhHSTT0bkCN7b(bh) {
     try {
       const page = this.page;
-      page.email = 'neo.thobela@neutrinos.co';
+      page.email = 'neutrinostravellm@gmail.com';
       (bh.method = 'get'),
         (bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email);
 

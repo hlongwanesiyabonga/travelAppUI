@@ -637,7 +637,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.email = \"neo.thobela@neutrinos.co\"\nbh.method = \"get\",\nbh.endPoint = \"genericGet/getPersonalDetails?email=\"+page.email;\n",
+        "script": "page.email = \"neutrinostravellm@gmail.com\"\nbh.method = \"get\",\nbh.endPoint = \"genericGet/getPersonalDetails?email=\"+page.email;\n",
         "functionName": "sd_omtxhHSTT0bkCN7b",
         "category": "Function",
         "x": 305,
