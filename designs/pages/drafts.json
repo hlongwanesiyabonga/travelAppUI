@@ -579,10 +579,10 @@
         "name": "",
         "outputs": 4,
         "flow": {
-            "flowId": "sd_osEacZsdUBcy4IJg",
-            "label": "new_travel_request"
+            "flowId": "sd_TO8KXUn3nydbh4fD",
+            "label": "travelRequestDialog"
         },
-        "relativePath": "./new_travel_request",
+        "relativePath": "./travelRequestDialog",
         "data": "bh.data",
         "ariaDescribedBy": "this.page",
         "ariaLabel": "this.page",
@@ -610,9 +610,7 @@
         "y": 151.8125,
         "wires": [
             [],
-            [
-                "sd_zbJL4USWY4e4tyD2"
-            ],
+            [],
             [],
             []
         ],
@@ -734,7 +732,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.data = page.receivedTableData['data']?.find(obj => bh.input.selectedRowID == obj._id);\n\n",
+        "script": "bh.data = page.receivedTableData['data'].find(obj => bh.input.selectedRowID == obj._id);\n\n",
         "functionName": "sd_rWOKoogr1AdKrW32",
         "category": "Function",
         "x": 327,
@@ -743,53 +741,6 @@
             [
                 "sd_yCFzIt4RQMz1idDv"
             ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_zbJL4USWY4e4tyD2",
-        "type": "GetDialogData",
-        "z": "sd_gWuHjY66VqGmkjjZ",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "dialogDataMapping": "bh.x",
-        "functionName": "sd_zbJL4USWY4e4tyD2",
-        "category": "Dialog",
-        "x": 547,
-        "y": 151.8125,
-        "wires": [
-            [
-                "sd_0xjxjf5khlZA21r7"
-            ]
-        ],
-        "__ssdTypeInputs__": {
-            "dialogDataMapping": {
-                "type": "bh",
-                "value": "x",
-                "constant": false
-            }
-        },
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_0xjxjf5khlZA21r7",
-        "type": "Script",
-        "z": "sd_gWuHjY66VqGmkjjZ",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "",
-        "functionName": "sd_0xjxjf5khlZA21r7",
-        "category": "Function",
-        "x": 647,
-        "y": 151.8125,
-        "wires": [
-            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

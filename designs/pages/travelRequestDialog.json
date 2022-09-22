@@ -1,19 +1,19 @@
 [
     {
-        "id": "sd_osEacZsdUBcy4IJg",
+        "id": "sd_TO8KXUn3nydbh4fD",
         "type": "tab",
-        "createdDate": "2022-06-28T23:10:55.135Z",
-        "label": "new_travel_request",
+        "createdDate": "2022-09-22T08:11:04.885Z",
+        "label": "travelRequestDialog",
         "disabled": false,
         "info": "",
         "functionSeq": 0,
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_SXnm4ototMyRWa27",
+        "id": "sd_tR4WvSo9HNG7rWNT",
         "type": "OnInit",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "start",
         "name": "",
@@ -28,23 +28,23 @@
                 }
             }
         ],
-        "functionName": "sd_SXnm4ototMyRWa27",
+        "functionName": "sd_tR4WvSo9HNG7rWNT",
         "category": "Lifecycle Events",
         "x": 65,
         "y": 80,
         "wires": [
             [
-                "sd_MWBuy73tA0Xq4qCD"
+                "sd_0D94v0rlivWhVCrS"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_MWBuy73tA0Xq4qCD",
+        "id": "sd_0D94v0rlivWhVCrS",
         "type": "PageVariables",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "flow",
         "name": "",
@@ -242,24 +242,24 @@
                 }
             }
         ],
-        "functionName": "sd_MWBuy73tA0Xq4qCD",
+        "functionName": "sd_0D94v0rlivWhVCrS",
         "category": "Function",
         "x": 185,
         "y": 80,
         "wires": [
             [
-                "sd_3vQvCLGHPR3YmnTB"
+                "sd_zOe59wrgU7Wsi6yz"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_3vQvCLGHPR3YmnTB",
+        "id": "sd_zOe59wrgU7Wsi6yz",
         "type": "UseDependency",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
@@ -330,24 +330,24 @@
         "import_all": false,
         "library": "@angular/forms",
         "serviceDesignerType": "pages",
-        "functionName": "sd_3vQvCLGHPR3YmnTB",
+        "functionName": "sd_zOe59wrgU7Wsi6yz",
         "category": "Function",
         "x": 325,
         "y": 80,
         "wires": [
             [
-                "sd_Z1HHAwxxPpAGr8z8"
+                "sd_QQGeDeEw3qQPqSSv"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_XoSN8pKbkzY3VXRC",
+        "id": "sd_CiBnsasWCOi6KmuI",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "pDetails ",
@@ -358,18 +358,18 @@
         "y": 80,
         "wires": [
             [
-                "sd_DFBceSl6hbfqJq3d"
+                "sd_JJayNSqczuPKPDvf"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_DFBceSl6hbfqJq3d",
+        "id": "sd_JJayNSqczuPKPDvf",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "form controls creation",
@@ -380,18 +380,18 @@
         "y": 80,
         "wires": [
             [
-                "sd_bvYvWg7Xv6GTK5wB"
+                "sd_x6hu49uNyfZxIuU1"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_Z1HHAwxxPpAGr8z8",
+        "id": "sd_QQGeDeEw3qQPqSSv",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "select Data",
@@ -402,18 +402,18 @@
         "y": 80,
         "wires": [
             [
-                "sd_XoSN8pKbkzY3VXRC"
+                "sd_CiBnsasWCOi6KmuI"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_bdozh8xtjLzM0QiG",
+        "id": "sd_nT81NySbVt4MyRJv",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "date",
@@ -436,44 +436,44 @@
         "y": 180,
         "wires": [
             [
-                "sd_p628PvB6Wft0W8cy"
+                "sd_2KOEMq3MB70sBB4l"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_bvYvWg7Xv6GTK5wB",
+        "id": "sd_x6hu49uNyfZxIuU1",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.date = new Date();\npage.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate\npage.email = \"neo.thobela@neutrinos.co\"\nbh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;\nbh.method =\"get\";",
-        "functionName": "sd_bvYvWg7Xv6GTK5wB",
+        "functionName": "sd_x6hu49uNyfZxIuU1",
         "category": "Function",
         "x": 805,
         "y": 80,
         "wires": [
             [
-                "sd_eYkVAuOfjYx8O61u"
+                "sd_JOZmL09ok2EgWdiJ"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_p628PvB6Wft0W8cy",
+        "id": "sd_2KOEMq3MB70sBB4l",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.date = new Date();\npage.futureDate = new Date(bh.input.currentDate - 1);\n",
-        "functionName": "sd_p628PvB6Wft0W8cy",
+        "functionName": "sd_2KOEMq3MB70sBB4l",
         "category": "Function",
         "x": 645,
         "y": 180,
@@ -483,12 +483,12 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_dQi0ZDxCALyvvKO5",
+        "id": "sd_iWRXkSMir3qk0Vcl",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "onFileChange",
@@ -511,22 +511,22 @@
         "y": 180,
         "wires": [
             [
-                "sd_L8dj6KHB0MWU3lHf"
+                "sd_1S9piHTRJIcloROD"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_L8dj6KHB0MWU3lHf",
+        "id": "sd_1S9piHTRJIcloROD",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "if (bh.input.event.target.files.length > 0) {\n      const file = bh.input.event.target.files[0];\n    const reader = new FileReader();\n    reader.readAsDataURL(file);\n    reader.onload = () => {\n        \n    };\n    }\n  ",
-        "functionName": "sd_L8dj6KHB0MWU3lHf",
+        "functionName": "sd_1S9piHTRJIcloROD",
         "category": "Function",
         "x": 405,
         "y": 180,
@@ -536,12 +536,12 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_u6WWm4Bal1XWFndC",
+        "id": "sd_94TkagMd1P2y25cC",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "tdetails",
@@ -572,39 +572,39 @@
         "y": 280,
         "wires": [
             [
-                "sd_UTu9MfO7IadBmBxp"
+                "sd_V2rbLEg3Juf4Nfb1"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_UTu9MfO7IadBmBxp",
+        "id": "sd_V2rbLEg3Juf4Nfb1",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "//combine the 2 forms\npage.formObj = {\n    \"personalDetails\": page.personalDetailsForm.value,\n    \"requestDetails\": bh.input.form.requestDetails,\n    \"status\": null,\n    \"managerApproval\": {\n        \"approvedRequest\": null,\n        \"comments\": \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": new Date(),\n    \"travelRequestType\": page.travelRequestType\n};\n\nbh.endPoint = (bh.input.reqType) ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method = \"post\";\npage.currentUserTravelDetails = page.formObj",
-        "functionName": "sd_UTu9MfO7IadBmBxp",
+        "script": "//combine the 2 forms\npage.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":null,\n    \"managerApproval\" : {\n        \"approvedRequest\" : null,\n        \"comments\" : \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": new Date().toISOString()\n    };\n    \n\n\nbh.endPoint = (bh.input.reqType) ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method =\"post\";\npage.currentUserTravelDetails =page.formObj",
+        "functionName": "sd_V2rbLEg3Juf4Nfb1",
         "category": "Function",
         "x": 185,
         "y": 280,
         "wires": [
             [
-                "sd_bbaBvYkJ652qvZXA"
+                "sd_ywPdeBxUVIpCOyJh"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_vIyeD3TDlSiq1fsw",
+        "id": "sd_C6UTeAxSvpv3VaYh",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "addNewRequestForm",
@@ -618,22 +618,22 @@
         "y": 180,
         "wires": [
             [
-                "sd_LYJcmnJwoRoJ6qQz"
+                "sd_7DHYYk5w2BOia7tY"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_LYJcmnJwoRoJ6qQz",
+        "id": "sd_7DHYYk5w2BOia7tY",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    requestedFor: [ ''],\n    requestType: [''],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: [''],\n    passportDocument: [''],\n    visaRequired: [false, [Validators.required]],\n    covidCertificate: ['', page.showVisa ? [Validators.required] :[]],\n   passport: [''],\n    needvehicle: ['No', [Validators.required]],\n    needAccommodation: ['', [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: [false, [Validators.required]],\n    city: [false, [Validators.required]],\n    checkInDate: [''],\n    checkOutDate: [''],\n    checkInTime: [false, [Validators.required]],\n    checkOutTime: [''],\n    employeeComments: ['']\n\n  })\n}));\n\n\n",
-        "functionName": "sd_LYJcmnJwoRoJ6qQz",
+        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelRequestType: [false, [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    requestedFor: [ ''],\n    requestType: [''],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: [''],\n    passportDocument: [''],\n    visaRequired: [false, [Validators.required]],\n    covidCertificate: ['', page.showVisa ? [Validators.required] :[]],\n   passport: [''],\n    needvehicle: ['No', [Validators.required]],\n    needAccommodation: ['', [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: [false, [Validators.required]],\n    city: [false, [Validators.required]],\n    checkInDate: [''],\n    checkOutDate: [''],\n    checkInTime: [false, [Validators.required]],\n    checkOutTime: [''],\n    employeeComments: ['']\n\n  })\n}));\n\n\n",
+        "functionName": "sd_7DHYYk5w2BOia7tY",
         "category": "Function",
         "x": 905,
         "y": 180,
@@ -643,55 +643,12 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_eYkVAuOfjYx8O61u",
-        "type": "PageCallService",
-        "z": "sd_osEacZsdUBcy4IJg",
-        "viewType": "pages",
-        "nodeType": "flow",
-        "name": "",
-        "outputs": 1,
-        "isValidNode": true,
-        "noerr": 0,
-        "service": {
-            "id": "sd_osEacZsdUBcy4IJg",
-            "type": "tab",
-            "createdDate": "2022-06-28T23:10:55.135Z",
-            "label": "new_travel_request",
-            "disabled": false,
-            "info": "",
-            "functionSeq": 0
-        },
-        "flow": {
-            "flowId": "sd_vIyeD3TDlSiq1fsw",
-            "flowName": "addNewRequestForm"
-        },
-        "inputVariables": [],
-        "outputMapping": [],
-        "serviceImportPath": "./new_travel_request",
-        "startName": "addNewRequestForm",
-        "inputParams": [],
-        "accept_csd": false,
-        "functionName": "sd_eYkVAuOfjYx8O61u",
-        "category": "General",
-        "x": 905,
-        "y": 80,
-        "wires": [
-            [
-                "sd_noKRxnhXl7OSmoZh"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true,
-        "serviceName": "new_travel_requestComponent"
-    },
-    {
-        "id": "sd_Y4cf7DW2aKUnLQlW",
+        "id": "sd_wMJfLNN2yhnvjQ6o",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "removeNewRequestForm",
@@ -714,22 +671,22 @@
         "y": 180,
         "wires": [
             [
-                "sd_aauQ9VpyMBmalrnN"
+                "sd_fOHLLv9DbrD6t3PJ"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_aauQ9VpyMBmalrnN",
+        "id": "sd_fOHLLv9DbrD6t3PJ",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.travelForm.get('requestDetails').removeAt(bh.input.i);",
-        "functionName": "sd_aauQ9VpyMBmalrnN",
+        "functionName": "sd_fOHLLv9DbrD6t3PJ",
         "category": "Function",
         "x": 205,
         "y": 180,
@@ -739,12 +696,12 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_yVr7Vfx7YWewSJIT",
+        "id": "sd_934hydFQ9dxfKzlG",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "showVisa",
@@ -767,22 +724,22 @@
         "y": 500,
         "wires": [
             [
-                "sd_X4aSuU8d6NJHFUCt"
+                "sd_nPWjdfqIrvzPHjsn"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_X4aSuU8d6NJHFUCt",
+        "id": "sd_nPWjdfqIrvzPHjsn",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "if(bh.input.event.value == \"International\"){\npage.showVisa= true;\n}else{\n    page.showVisa= false;\n}\n",
-        "functionName": "sd_X4aSuU8d6NJHFUCt",
+        "functionName": "sd_nPWjdfqIrvzPHjsn",
         "category": "Function",
         "x": 190,
         "y": 500,
@@ -792,12 +749,12 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_6DCus0x0CpaOk30t",
+        "id": "sd_BVH0FtfYCKx6CbgN",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "hideVisa",
@@ -811,22 +768,22 @@
         "y": 500,
         "wires": [
             [
-                "sd_as2P81jrgTDTI9Cw"
+                "sd_lc8UguONHLnOF5di"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_as2P81jrgTDTI9Cw",
+        "id": "sd_lc8UguONHLnOF5di",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.showVisa= false",
-        "functionName": "sd_as2P81jrgTDTI9Cw",
+        "functionName": "sd_lc8UguONHLnOF5di",
         "category": "Function",
         "x": 450,
         "y": 500,
@@ -836,12 +793,12 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_u4CX7y4FeZ0yV54a",
+        "id": "sd_pxNy9MEtIup5UToC",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "showButton",
@@ -855,22 +812,22 @@
         "y": 480,
         "wires": [
             [
-                "sd_Osf3azaK9Cis5yKY"
+                "sd_XVAYQd5o2sxuLgFj"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_Osf3azaK9Cis5yKY",
+        "id": "sd_XVAYQd5o2sxuLgFj",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.showHideButton = true",
-        "functionName": "sd_Osf3azaK9Cis5yKY",
+        "functionName": "sd_XVAYQd5o2sxuLgFj",
         "category": "Function",
         "x": 985,
         "y": 480,
@@ -879,12 +836,13 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_svfVBeDStyUwSD9k",
+        "id": "sd_KVfO6NjlAsyJXdYp",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "hideButton",
@@ -898,22 +856,22 @@
         "y": 480,
         "wires": [
             [
-                "sd_HCMg1Wp8GOTXOUCS"
+                "sd_USWdrfLZh2riubeC"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_HCMg1Wp8GOTXOUCS",
+        "id": "sd_USWdrfLZh2riubeC",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.showHideButton = false",
-        "functionName": "sd_HCMg1Wp8GOTXOUCS",
+        "functionName": "sd_USWdrfLZh2riubeC",
         "category": "Function",
         "x": 1225,
         "y": 480,
@@ -925,9 +883,9 @@
         "generated": true
     },
     {
-        "id": "sd_amw2Q3A92xOyk2Pn",
+        "id": "sd_TC45UabBaDMlmEz1",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "showRequstedfor",
@@ -950,28 +908,28 @@
         "y": 380,
         "wires": [
             [
-                "sd_4AsGmhNUvWJ6Kjkr"
+                "sd_gLNPSgR1dCC5b2MZ"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_4AsGmhNUvWJ6Kjkr",
+        "id": "sd_gLNPSgR1dCC5b2MZ",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.showHideElement= true;\nbh.emitValue=bh.input.filteredvalues?.target?.value;",
-        "functionName": "sd_4AsGmhNUvWJ6Kjkr",
+        "functionName": "sd_gLNPSgR1dCC5b2MZ",
         "category": "Function",
         "x": 305,
         "y": 380,
         "wires": [
             [
-                "sd_CFZe2HLNQwcREGZX"
+                "sd_Ml6PjdblZpS8q4rN"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -979,9 +937,9 @@
         "generated": true
     },
     {
-        "id": "sd_LzX7JBTKERtykE01",
+        "id": "sd_ZRO3ydycIQAsRNVF",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "hideRequstedfor",
@@ -1004,28 +962,28 @@
         "y": 580,
         "wires": [
             [
-                "sd_woXsLjYIiE93sSGF"
+                "sd_9O92w8jEA0JvIs3P"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_woXsLjYIiE93sSGF",
+        "id": "sd_9O92w8jEA0JvIs3P",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.showHideElement= false;\nbh.endPoint = 'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;\nbh.method =\"get\";",
-        "functionName": "sd_woXsLjYIiE93sSGF",
+        "functionName": "sd_9O92w8jEA0JvIs3P",
         "category": "Function",
         "x": 205,
         "y": 580,
         "wires": [
             [
-                "sd_3C4rUDlPdIve4KEm"
+                "sd_tEXYIVzf0emfxde5"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1033,9 +991,9 @@
         "generated": true
     },
     {
-        "id": "sd_ZZSLC5IsvQ7MWe9z",
+        "id": "sd_jrQif0HWd6HlUxVc",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "Reset Form",
@@ -1058,22 +1016,22 @@
         "y": 500,
         "wires": [
             [
-                "sd_NJ7Bka5lSWxQJoAb"
+                "sd_cegUeaWDbER1GKlf"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_NJ7Bka5lSWxQJoAb",
+        "id": "sd_cegUeaWDbER1GKlf",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": " bh.input.form.reset();",
-        "functionName": "sd_NJ7Bka5lSWxQJoAb",
+        "functionName": "sd_cegUeaWDbER1GKlf",
         "category": "Function",
         "x": 705,
         "y": 500,
@@ -1085,9 +1043,9 @@
         "generated": true
     },
     {
-        "id": "sd_R766mMd5SmwjWrs7",
+        "id": "sd_QNEdIDShKwzG537i",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "showID",
@@ -1101,22 +1059,22 @@
         "y": 600,
         "wires": [
             [
-                "sd_Ag6YZ0twzIgYdQ4g"
+                "sd_gZwY5sEtYN9aTphV"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_Ag6YZ0twzIgYdQ4g",
+        "id": "sd_gZwY5sEtYN9aTphV",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.showID= true\npage.showPan = false",
-        "functionName": "sd_Ag6YZ0twzIgYdQ4g",
+        "functionName": "sd_gZwY5sEtYN9aTphV",
         "category": "Function",
         "x": 685,
         "y": 600,
@@ -1128,9 +1086,9 @@
         "generated": true
     },
     {
-        "id": "sd_O0O5XmehaUrWfPZv",
+        "id": "sd_072Q56fBlCgqnQZW",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "hideID",
@@ -1144,22 +1102,22 @@
         "y": 585.1875,
         "wires": [
             [
-                "sd_CfToqqfcnjjxZVq0"
+                "sd_wXc3JeHmm3f1Phyt"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_CfToqqfcnjjxZVq0",
+        "id": "sd_wXc3JeHmm3f1Phyt",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.showID= false\npage.showPan = true",
-        "functionName": "sd_CfToqqfcnjjxZVq0",
+        "functionName": "sd_wXc3JeHmm3f1Phyt",
         "category": "Function",
         "x": 966,
         "y": 585.1875,
@@ -1171,9 +1129,9 @@
         "generated": true
     },
     {
-        "id": "sd_bbaBvYkJ652qvZXA",
+        "id": "sd_ywPdeBxUVIpCOyJh",
         "type": "SnackBar",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
@@ -1198,13 +1156,13 @@
             "value": ""
         },
         "direction": "ltr",
-        "functionName": "sd_bbaBvYkJ652qvZXA",
+        "functionName": "sd_ywPdeBxUVIpCOyJh",
         "category": "General",
         "x": 320,
         "y": 280,
         "wires": [
             [
-                "sd_RhR3LYUVBWeOB74n"
+                "sd_l9u4r2IwiXQumodY"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1212,9 +1170,9 @@
         "generated": true
     },
     {
-        "id": "sd_RhR3LYUVBWeOB74n",
+        "id": "sd_l9u4r2IwiXQumodY",
         "type": "PageCallService",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "flow",
         "name": "",
@@ -1273,13 +1231,13 @@
         ],
         "accept_bh": false,
         "accept_csd": true,
-        "functionName": "sd_RhR3LYUVBWeOB74n",
+        "functionName": "sd_l9u4r2IwiXQumodY",
         "category": "General",
         "x": 425,
         "y": 280,
         "wires": [
             [
-                "sd_ThmPfpnGhggt2qxH"
+                "sd_NQl5CPdzhPEPyrJB"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1287,9 +1245,9 @@
         "generated": true
     },
     {
-        "id": "sd_nQp7Ok4Ni2vmpKyc",
+        "id": "sd_mczjChn3UvbFYKU5",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "dateChange",
@@ -1312,22 +1270,22 @@
         "y": 180,
         "wires": [
             [
-                "sd_7E0kFOs0S0LoIGyd"
+                "sd_dcH2UmSxMGn8SNEc"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_7E0kFOs0S0LoIGyd",
+        "id": "sd_dcH2UmSxMGn8SNEc",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.futureDate = new Date(bh.input.date.value);\n",
-        "functionName": "sd_7E0kFOs0S0LoIGyd",
+        "functionName": "sd_dcH2UmSxMGn8SNEc",
         "category": "Function",
         "x": 1170,
         "y": 180,
@@ -1339,9 +1297,9 @@
         "generated": true
     },
     {
-        "id": "sd_C15spxFfj0Omfycc",
+        "id": "sd_6WwNHYZkRl9IvKif",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "saveAsDraft",
@@ -1372,17 +1330,17 @@
         "y": 360,
         "wires": [
             [
-                "sd_UTu9MfO7IadBmBxp"
+                "sd_V2rbLEg3Juf4Nfb1"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_mxbCz9XxUSQZRtV6",
+        "id": "sd_kv3JVQzFjTM8VzoL",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "select",
@@ -1405,22 +1363,22 @@
         "y": 280,
         "wires": [
             [
-                "sd_iHuwVRB3Pigul8fQ"
+                "sd_X7KI3RFpexkBqtk3"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_iHuwVRB3Pigul8fQ",
+        "id": "sd_X7KI3RFpexkBqtk3",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "if(bh.input.event.value == \"Other\"){\npage.other = true;\n} \n\n",
-        "functionName": "sd_iHuwVRB3Pigul8fQ",
+        "functionName": "sd_X7KI3RFpexkBqtk3",
         "category": "Function",
         "x": 1145,
         "y": 280,
@@ -1432,9 +1390,9 @@
         "generated": true
     },
     {
-        "id": "sd_8zpG7jfRfYsDD2BM",
+        "id": "sd_ErqWhmTpSGgOJoWe",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "selectHide",
@@ -1457,22 +1415,22 @@
         "y": 280,
         "wires": [
             [
-                "sd_8T8FKJ0zojGoSQEc"
+                "sd_qjGwUl0iEwZDQaIV"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_8T8FKJ0zojGoSQEc",
+        "id": "sd_qjGwUl0iEwZDQaIV",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "if(bh.input.event.value != \"Other\"){\npage.other = false;\n} \n\n\n",
-        "functionName": "sd_8T8FKJ0zojGoSQEc",
+        "functionName": "sd_qjGwUl0iEwZDQaIV",
         "category": "Function",
         "x": 725,
         "y": 280,
@@ -1484,9 +1442,9 @@
         "generated": true
     },
     {
-        "id": "sd_ESLTSjDTnZmavh2m",
+        "id": "sd_PsojXwaaRfpmK7QH",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "ToCitySelect",
@@ -1509,22 +1467,22 @@
         "y": 280,
         "wires": [
             [
-                "sd_JYH7Y01swLQYwjuy"
+                "sd_9hDywdubEEBKkFRB"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_JYH7Y01swLQYwjuy",
+        "id": "sd_9hDywdubEEBKkFRB",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "if(bh.input.event.value == \"Other\"){\npage.otherToCity = true;\n} \n\n",
-        "functionName": "sd_JYH7Y01swLQYwjuy",
+        "functionName": "sd_9hDywdubEEBKkFRB",
         "category": "Function",
         "x": 925,
         "y": 280,
@@ -1536,20 +1494,20 @@
         "generated": true
     },
     {
-        "id": "sd_noKRxnhXl7OSmoZh",
+        "id": "sd_JOZmL09ok2EgWdiJ",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "bh.key = 'currentUserDetails';",
-        "functionName": "sd_noKRxnhXl7OSmoZh",
+        "functionName": "sd_JOZmL09ok2EgWdiJ",
         "category": "Function",
         "x": 985,
         "y": 80,
         "wires": [
             [
-                "sd_GF2DiGmJmusBZGDm"
+                "sd_0DOZmwybf31sJ5yt"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1557,9 +1515,9 @@
         "generated": true
     },
     {
-        "id": "sd_GF2DiGmJmusBZGDm",
+        "id": "sd_0DOZmwybf31sJ5yt",
         "type": "Storage",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
@@ -1575,13 +1533,13 @@
             "type": "this.page",
             "value": "requesterDetails"
         },
-        "functionName": "sd_GF2DiGmJmusBZGDm",
+        "functionName": "sd_0DOZmwybf31sJ5yt",
         "category": "Storage",
         "x": 1065,
         "y": 80,
         "wires": [
             [
-                "sd_PTHJPibTtSc5S7Ii"
+                "sd_VX0RwVfFSie0PIxW"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1589,20 +1547,20 @@
         "generated": true
     },
     {
-        "id": "sd_PTHJPibTtSc5S7Ii",
+        "id": "sd_VX0RwVfFSie0PIxW",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`",
-        "functionName": "sd_PTHJPibTtSc5S7Ii",
+        "functionName": "sd_VX0RwVfFSie0PIxW",
         "category": "Function",
         "x": 1145,
         "y": 80,
         "wires": [
             [
-                "sd_tk1X4TMBLBccVdQM"
+                "sd_IJNJRjjcU34jKDj1"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1610,9 +1568,9 @@
         "generated": true
     },
     {
-        "id": "sd_Zx4YnCv9rqUMeX5F",
+        "id": "sd_RbSRoqKXETQMSP5p",
         "type": "PageCallService",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "flow",
         "name": "",
@@ -1671,13 +1629,13 @@
         ],
         "accept_bh": false,
         "accept_csd": true,
-        "functionName": "sd_Zx4YnCv9rqUMeX5F",
+        "functionName": "sd_RbSRoqKXETQMSP5p",
         "category": "General",
         "x": 585,
         "y": 380,
         "wires": [
             [
-                "sd_bGJNq67yiqLlcZxB"
+                "sd_dgaYMpAgMT9h5mNk"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1685,20 +1643,20 @@
         "generated": true
     },
     {
-        "id": "sd_CFZe2HLNQwcREGZX",
+        "id": "sd_Ml6PjdblZpS8q4rN",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "bh.endPoint = 'genericGet/getPersonalDetails';\nbh.method =\"get\";",
-        "functionName": "sd_CFZe2HLNQwcREGZX",
+        "functionName": "sd_Ml6PjdblZpS8q4rN",
         "category": "Function",
         "x": 445,
         "y": 380,
         "wires": [
             [
-                "sd_Zx4YnCv9rqUMeX5F"
+                "sd_RbSRoqKXETQMSP5p"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1706,20 +1664,20 @@
         "generated": true
     },
     {
-        "id": "sd_bGJNq67yiqLlcZxB",
+        "id": "sd_dgaYMpAgMT9h5mNk",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "page.filterPersonalDetail = page.allPersonalDetails\nlet tempArr=page.filterPersonalDetail.filter(obj => obj.email?.toLowerCase().includes(bh?.emitValue?.toLowerCase()))\npage.allPersonalDetails=tempArr;\n",
-        "functionName": "sd_bGJNq67yiqLlcZxB",
+        "functionName": "sd_dgaYMpAgMT9h5mNk",
         "category": "Function",
         "x": 745,
         "y": 380,
         "wires": [
             [
-                "sd_U1fqj48F6iGGPMhn"
+                "sd_SD5QMEswKeNOHyzF"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1727,9 +1685,9 @@
         "generated": true
     },
     {
-        "id": "sd_Q0v6NlJ8kvxZfziB",
+        "id": "sd_7s7KelVdLFWYWtnt",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "onSelectionChange",
@@ -1752,22 +1710,22 @@
         "y": 700,
         "wires": [
             [
-                "sd_Dwt1Wymb3cJ2N4Vq"
+                "sd_lik2dSMHzcFJYXgR"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_Dwt1Wymb3cJ2N4Vq",
+        "id": "sd_lik2dSMHzcFJYXgR",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "let personalDetails = page.allPersonalDetails.find(el => bh.input.event.option.value == el.email)\nif (personalDetails) {\n    personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth'])\n    page.personalDetailsForm.patchValue(personalDetails);\n}",
-        "functionName": "sd_Dwt1Wymb3cJ2N4Vq",
+        "functionName": "sd_lik2dSMHzcFJYXgR",
         "category": "Function",
         "x": 225,
         "y": 700,
@@ -1779,9 +1737,9 @@
         "generated": true
     },
     {
-        "id": "sd_3C4rUDlPdIve4KEm",
+        "id": "sd_tEXYIVzf0emfxde5",
         "type": "PageCallService",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "flow",
         "name": "",
@@ -1840,13 +1798,13 @@
         ],
         "accept_bh": false,
         "accept_csd": true,
-        "functionName": "sd_3C4rUDlPdIve4KEm",
+        "functionName": "sd_tEXYIVzf0emfxde5",
         "category": "General",
         "x": 305,
         "y": 580,
         "wires": [
             [
-                "sd_96VxExgs74Rn3m6g"
+                "sd_TwA2eswjPYV5FyoI"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1854,14 +1812,14 @@
         "generated": true
     },
     {
-        "id": "sd_96VxExgs74Rn3m6g",
+        "id": "sd_TwA2eswjPYV5FyoI",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "bh.local.selfDetails['dateOfBirth'] = new Date(bh.local.selfDetails['dateOfBirth'])\npage.personalDetailsForm.patchValue(bh.local.selfDetails);",
-        "functionName": "sd_96VxExgs74Rn3m6g",
+        "functionName": "sd_TwA2eswjPYV5FyoI",
         "category": "Function",
         "x": 405,
         "y": 580,
@@ -1873,9 +1831,9 @@
         "generated": true
     },
     {
-        "id": "sd_ZhJ9WfU4oghVZtZs",
+        "id": "sd_IoH4u7HtzR7dNTlX",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "cancel button",
@@ -1898,22 +1856,22 @@
         "y": 380,
         "wires": [
             [
-                "sd_E6ZjDNeLnSIeXTM5"
+                "sd_zIFmQUzCvcoS3xgB"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_E6ZjDNeLnSIeXTM5",
+        "id": "sd_zIFmQUzCvcoS3xgB",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": " bh.input.form.reset();\n this.outputVar.emit(page.showDashboard)",
-        "functionName": "sd_E6ZjDNeLnSIeXTM5",
+        "functionName": "sd_zIFmQUzCvcoS3xgB",
         "category": "Function",
         "x": 1140,
         "y": 380,
@@ -1925,9 +1883,9 @@
         "generated": true
     },
     {
-        "id": "sd_tk1X4TMBLBccVdQM",
+        "id": "sd_IJNJRjjcU34jKDj1",
         "type": "Storage",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
@@ -1943,21 +1901,23 @@
             "type": "this.page",
             "value": "currentUserDetails"
         },
-        "functionName": "sd_tk1X4TMBLBccVdQM",
+        "functionName": "sd_IJNJRjjcU34jKDj1",
         "category": "Storage",
         "x": 1265,
         "y": 80,
         "wires": [
-            []
+            [
+                "sd_5JxqTFveX4y0jIsM"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
     },
     {
-        "id": "sd_ThmPfpnGhggt2qxH",
+        "id": "sd_NQl5CPdzhPEPyrJB",
         "type": "Storage",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
@@ -1973,7 +1933,7 @@
             "value": "currentUserTravelDetails"
         },
         "resultMapping": {},
-        "functionName": "sd_ThmPfpnGhggt2qxH",
+        "functionName": "sd_NQl5CPdzhPEPyrJB",
         "category": "Storage",
         "x": 525,
         "y": 280,
@@ -1985,14 +1945,14 @@
         "generated": true
     },
     {
-        "id": "sd_U1fqj48F6iGGPMhn",
+        "id": "sd_SD5QMEswKeNOHyzF",
         "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "script": "//const filterValue = bh.input.filteredvalues;\n//page.filterPersonalDetail.filter(option => option.includes(filterValue));\n  //console.log(bh.input.filteredvalues,\"value\")",
-        "functionName": "sd_U1fqj48F6iGGPMhn",
+        "functionName": "sd_SD5QMEswKeNOHyzF",
         "category": "Function",
         "x": 885,
         "y": 380,
@@ -2004,9 +1964,9 @@
         "generated": true
     },
     {
-        "id": "sd_8rTAm0B1Ps7sjuuX",
+        "id": "sd_ElPg2sb82E2sViqt",
         "type": "PageStart",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "pages",
         "nodeType": "start",
         "name": "closeProfile",
@@ -2020,22 +1980,22 @@
         "y": 780,
         "wires": [
             [
-                "sd_kmo6VghNM9qfNdtp"
+                "sd_W6rsPbUeAuFcG4SJ"
             ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
-        "serviceName": "new_travel_requestComponent"
+        "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_kmo6VghNM9qfNdtp",
+        "id": "sd_W6rsPbUeAuFcG4SJ",
         "type": "CloseDialog",
-        "z": "sd_osEacZsdUBcy4IJg",
+        "z": "sd_TO8KXUn3nydbh4fD",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
         "data": "this.page.profileDialog",
-        "functionName": "sd_kmo6VghNM9qfNdtp",
+        "functionName": "sd_W6rsPbUeAuFcG4SJ",
         "category": "Dialog",
         "x": 155.171875,
         "y": 780.03125,
@@ -2049,6 +2009,117 @@
                 "constant": false
             }
         },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ub5bhbzwbngwdNfd",
+        "type": "GetDialogData",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "dialogDataMapping": "bh.dialogData",
+        "functionName": "sd_ub5bhbzwbngwdNfd",
+        "category": "Dialog",
+        "x": 1425,
+        "y": 260,
+        "wires": [
+            [
+                "sd_bcNXeTciGHvpGsHn"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "dialogDataMapping": {
+                "type": "bh",
+                "value": "dialogData",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_bcNXeTciGHvpGsHn",
+        "type": "Script",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.dialogData['dateOfBirth'] = new Date(bh.dialogData['dateOfBirth'])\npage.personalDetailsForm.patchValue(bh.dialogData.personalDetails);\npage.travelForm.patchValue(bh.dialogData.requestDetails[0].travelDetails);\npage.travelRequestType = bh.dialogData['travelRequestType']\nbh.dialogData.requestDetails.forEach(requestDetail => {\n    console.log(\"requestDetail\",requestDetail)\n    page.travelForm.get('requestDetails').push(new FormGroup({\n        travelDetails: page.Fb.group({\n            travelMode: [requestDetail.travelDetails.travelMode, [Validators.required]],\n            travelType: [requestDetail.travelDetails.travelType, [Validators.required]],\n            travelRequestType: [false, [Validators.required]],\n            travelPurpose: [requestDetail.travelDetails.travelPurpose, [Validators.required]],\n            projectID: [requestDetail.travelDetails.projectID, [Validators.required]],\n            fromCity: [requestDetail.travelDetails.fromCity, [Validators.required]],\n            toCity: [requestDetail.travelDetails.toCity, [Validators.required]],\n            fromDate: [requestDetail.travelDetails.fromDate, [Validators.required]],\n            toDate: [requestDetail.travelDetails.toDate, [Validators.required]],\n            tripType: [requestDetail.travelDetails.tripType, [Validators.required]],\n            requestedFor: [requestDetail.travelDetails.requestedFor],\n            requestType: [requestDetail.travelDetails.requestType],\n            preferredTime: [requestDetail.travelDetails.preferredTime, [Validators.required]],\n            travelerComments: [requestDetail.travelDetails.travelerComments],\n            passportDocument: [requestDetail.travelDetails.passportDocument],\n            visaRequired: [requestDetail.travelDetails.visaRequired, [Validators.required]],\n            covidCertificate: [requestDetail.travelDetails.covidCertificate, page.showVisa ? [Validators.required] : []],\n            passport: [requestDetail.travelDetails.passport],\n            needvehicle: [requestDetail.travelDetails.needvehicle, [Validators.required]],\n            needAccommodation: [requestDetail.travelDetails.needAccommodation, [Validators.required]]\n        }),\n        accommodationDetails: page.Fb.group({\n            accommodationPreference: [requestDetail.accommodationDetails.accommodationPreference, [Validators.required]],\n            city: [requestDetail.accommodationDetails.city, [Validators.required]],\n            checkInDate: [requestDetail.accommodationDetails.checkInDate],\n            checkOutDate: [requestDetail.accommodationDetails.checkOutDate],\n            checkInTime: [requestDetail.accommodationDetails.checkInTime, [Validators.required]],\n            checkOutTime: [requestDetail.accommodationDetails.checkOutTime],\n            employeeComments: [requestDetail.accommodationDetails.employeeComments]\n        })\n    }));\n})\n",
+        "functionName": "sd_bcNXeTciGHvpGsHn",
+        "category": "Function",
+        "x": 1570,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_fm6TtpRpIiyDeBY6",
+        "type": "PageStart",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "prepopulateDialogData",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "prepopulateDialogData",
+        "category": "General",
+        "x": 1305,
+        "y": 260,
+        "wires": [
+            [
+                "sd_ub5bhbzwbngwdNfd"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_5JxqTFveX4y0jIsM",
+        "type": "PageCallService",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_TO8KXUn3nydbh4fD",
+            "type": "tab",
+            "createdDate": "2022-09-22T08:11:04.885Z",
+            "label": "travelRequestDialog",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_fm6TtpRpIiyDeBY6",
+            "flowName": "prepopulateDialogData"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./travelRequestDialog",
+        "startName": "prepopulateDialogData",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "sd_5JxqTFveX4y0jIsM",
+        "category": "General",
+        "x": 1425,
+        "y": 80,
+        "wires": [
+            []
+        ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
