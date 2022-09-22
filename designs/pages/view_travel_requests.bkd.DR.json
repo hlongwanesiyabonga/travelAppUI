@@ -1391,6 +1391,12 @@
                                     "_value": "true",
                                     "_type": "kv",
                                     "_attrDef": "p"
+                                },
+                                {
+                                    "_key": "*ngIf",
+                                    "_value": "page?.currentUserDetails?.designation.includes('Manager')",
+                                    "_type": "kv",
+                                    "_attrDef": "c"
                                 }
                             ],
                             "b2a16479-2f1d-7b00-69ad-2e8970893b9b": {

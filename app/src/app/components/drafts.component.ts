@@ -8,10 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
-  ChangeDetectorRef,
   ViewChild,
   ViewChildren,
-  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -22,6 +20,7 @@ import { MatSort } from '@angular/material/sort'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'; //_splitter_
 import { travelRequestDialogComponent } from './travelRequestDialog.component'; //_splitter_
+import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -113,6 +112,20 @@ export class draftsComponent {
       //appendnew_next_closeProfile
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_boXVYC1ZRfRLqU1m');
+    }
+  }
+
+  submitForm(profileForm: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { profileForm: profileForm };
+      bh.local = {};
+      bh = this.sd_9Cxs8MUpAk73lY93(bh);
+      //appendnew_next_submitForm
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_wcirQmCns1OQECi8');
     }
   }
 
@@ -378,6 +391,129 @@ export class draftsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_WL5ix7y38h5CoFFc');
+    }
+  }
+
+  sd_9Cxs8MUpAk73lY93(bh) {
+    try {
+      const page = this.page;
+      (bh.method = 'put'),
+        (bh.endPoint = '/updateTravelRequest/draft' + page.personalDetails._id);
+
+      bh = this.sd_uYlqcy7mSH8GDCL2(bh);
+      //appendnew_next_sd_9Cxs8MUpAk73lY93
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_9Cxs8MUpAk73lY93');
+    }
+  }
+
+  async sd_uYlqcy7mSH8GDCL2(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        bh.input.profileForm
+      );
+      this.page.personalDetails = outputVariables.local.result;
+
+      bh = this.sd_S2pVEThQjSbVXJcj(bh);
+      //appendnew_next_sd_uYlqcy7mSH8GDCL2
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_uYlqcy7mSH8GDCL2');
+    }
+  }
+
+  sd_S2pVEThQjSbVXJcj(bh) {
+    try {
+      bh = this.sd_CpIaN3pvQSxnd0YH(bh);
+      //appendnew_next_sd_S2pVEThQjSbVXJcj
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_S2pVEThQjSbVXJcj');
+    }
+  }
+
+  sd_CpIaN3pvQSxnd0YH(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.profileDialog);
+
+      bh = this.sd_zsceFCUV2c6Fjagk(bh);
+      //appendnew_next_sd_CpIaN3pvQSxnd0YH
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_CpIaN3pvQSxnd0YH');
+    }
+  }
+
+  async sd_zsceFCUV2c6Fjagk(bh) {
+    try {
+      let otherwiseFlag = true;
+      if (
+        this.sdService.operators['null'](
+          this.page.personalDetails,
+          undefined,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_fzIrJs3XaG5xLBLe(bh);
+        otherwiseFlag = false;
+      }
+      if (
+        this.sdService.operators['else'](
+          otherwiseFlag,
+          undefined,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = await this.sd_wJGnDH4UPEwtuVv2(bh);
+        otherwiseFlag = false;
+      }
+
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_zsceFCUV2c6Fjagk');
+    }
+  }
+
+  sd_fzIrJs3XaG5xLBLe(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Failed to update record', 'OK', {
+          duration: 2000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      //appendnew_next_sd_fzIrJs3XaG5xLBLe
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_fzIrJs3XaG5xLBLe');
+    }
+  }
+
+  sd_wJGnDH4UPEwtuVv2(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Record updated successfully', 'OK', {
+          duration: 2000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      //appendnew_next_sd_wJGnDH4UPEwtuVv2
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_wJGnDH4UPEwtuVv2');
     }
   }
 
