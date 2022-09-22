@@ -19,7 +19,11 @@ import { MatPaginator } from '@angular/material/paginator'; //_splitter_
 import { MatSort } from '@angular/material/sort'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog'; //_splitter_
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from '@angular/material/dialog'; //_splitter_
 import { new_travel_requestComponent } from './new_travel_request.component'; //_splitter_
 //append_imports_end
 
@@ -126,6 +130,20 @@ export class view_travel_requestsComponent {
       //appendnew_next_travelRequests
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_eCXsL7vdmekvuaBV');
+    }
+  }
+
+  closeProfile(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_Fvb4Hy4Un5uWq1to(bh);
+      //appendnew_next_closeProfile
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_nkSZo3woMN4ojnF7');
     }
   }
 
@@ -494,6 +512,18 @@ export class view_travel_requestsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ddvJTJeq8er1YH6q');
+    }
+  }
+
+  sd_Fvb4Hy4Un5uWq1to(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.profileDialog);
+
+      //appendnew_next_sd_Fvb4Hy4Un5uWq1to
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Fvb4Hy4Un5uWq1to');
     }
   }
 

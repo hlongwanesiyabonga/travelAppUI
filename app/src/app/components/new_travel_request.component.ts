@@ -25,6 +25,7 @@ import {
 } from '@angular/forms'; //_splitter_
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
+import { MatDialogRef } from '@angular/material/dialog'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -374,6 +375,20 @@ export class new_travel_requestComponent {
     }
   }
 
+  closeProfile(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_kmo6VghNM9qfNdtp(bh);
+      //appendnew_next_closeProfile
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_8rTAm0B1Ps7sjuuX');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -604,20 +619,10 @@ export class new_travel_requestComponent {
       this.page.currentUserDetails = JSON.parse(
         sessionStorage.getItem('currentUserDetails')
       );
-      bh = this.sd_pbsnLf20Nw8bnCbB(bh);
       //appendnew_next_sd_tk1X4TMBLBccVdQM
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_tk1X4TMBLBccVdQM');
-    }
-  }
-
-  sd_pbsnLf20Nw8bnCbB(bh) {
-    try {
-      //appendnew_next_sd_pbsnLf20Nw8bnCbB
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_pbsnLf20Nw8bnCbB');
     }
   }
 
@@ -1077,6 +1082,18 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_E6ZjDNeLnSIeXTM5');
+    }
+  }
+
+  sd_kmo6VghNM9qfNdtp(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.profileDialog);
+
+      //appendnew_next_sd_kmo6VghNM9qfNdtp
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_kmo6VghNM9qfNdtp');
     }
   }
 

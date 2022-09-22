@@ -829,7 +829,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "new_travel_requestComponent"
     },
     {
         "id": "sd_u4CX7y4FeZ0yV54a",
@@ -1918,25 +1919,6 @@
         "generated": true
     },
     {
-        "id": "sd_pbsnLf20Nw8bnCbB",
-        "type": "Script",
-        "z": "sd_osEacZsdUBcy4IJg",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "",
-        "functionName": "sd_pbsnLf20Nw8bnCbB",
-        "category": "Function",
-        "x": 1365,
-        "y": 80,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
         "id": "sd_tk1X4TMBLBccVdQM",
         "type": "Storage",
         "z": "sd_osEacZsdUBcy4IJg",
@@ -1960,9 +1942,7 @@
         "x": 1265,
         "y": 80,
         "wires": [
-            [
-                "sd_pbsnLf20Nw8bnCbB"
-            ]
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -2013,6 +1993,56 @@
         "wires": [
             []
         ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_8rTAm0B1Ps7sjuuX",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "closeProfile",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "closeProfile",
+        "category": "General",
+        "x": 65,
+        "y": 780,
+        "wires": [
+            [
+                "sd_kmo6VghNM9qfNdtp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_kmo6VghNM9qfNdtp",
+        "type": "CloseDialog",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.profileDialog",
+        "functionName": "sd_kmo6VghNM9qfNdtp",
+        "category": "Dialog",
+        "x": 155.171875,
+        "y": 780.03125,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "profileDialog",
+                "constant": false
+            }
+        },
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true

@@ -71,7 +71,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "draftsComponent"
     },
     {
         "id": "sd_ReZBx8bKxceaKrVx",
@@ -92,7 +93,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "draftsComponent"
     },
     {
         "id": "sd_nOwahpMteYVDindU",
@@ -335,7 +337,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequest?type=draft\" + page.currentUserDetails.email;",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"getTravelRequestDrafts\";",
         "functionName": "sd_2GFLx5BdaAS4aODV",
         "category": "Function",
         "x": 265,
@@ -477,27 +479,8 @@
         "y": 300,
         "wires": [
             [
-                "sd_PYXDYPkwJBBmNNkA"
+                "sd_s60c9qBRLfh76DEF"
             ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_PYXDYPkwJBBmNNkA",
-        "type": "Script",
-        "z": "sd_gWuHjY66VqGmkjjZ",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "setTableTokens",
-        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet temp = {};\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    temp['_id'] = el['_id'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\nconsole.log(tableData)\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;",
-        "functionName": "setTableTokens",
-        "category": "Function",
-        "x": 665,
-        "y": 300,
-        "wires": [
-            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -531,6 +514,333 @@
                 "sd_2GFLx5BdaAS4aODV"
             ]
         ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_s60c9qBRLfh76DEF",
+        "type": "Script",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "setTableTokens",
+        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    let temp = {};\n    temp['_id'] = el['_id'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\n\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;",
+        "functionName": "setTableTokens",
+        "category": "Function",
+        "x": 685,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_vp5oGI1508VqSOh0",
+        "type": "PageStart",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "open view request",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "selectedRowID",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "openViewRequest",
+        "category": "General",
+        "x": 147,
+        "y": 151.8125,
+        "wires": [
+            [
+                "sd_rWOKoogr1AdKrW32"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "draftsComponent"
+    },
+    {
+        "id": "sd_yCFzIt4RQMz1idDv",
+        "type": "OpenDialog",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 4,
+        "flow": {
+            "flowId": "sd_osEacZsdUBcy4IJg",
+            "label": "new_travel_request"
+        },
+        "relativePath": "./new_travel_request",
+        "data": "bh.data",
+        "ariaDescribedBy": "this.page",
+        "ariaLabel": "this.page",
+        "ariaLabelledBy": "this.page",
+        "autoFocus": "this.page",
+        "backdropClass": "this.page",
+        "closeOnNavigation": "this.page",
+        "direction": "this.page",
+        "disableClose": true,
+        "hasBackdrop": "this.page",
+        "height": "this.page",
+        "maxHeight": "\"85vh\"",
+        "minHeight": "\"85vh\"",
+        "width": "this.page",
+        "maxWidth": "this.page",
+        "minWidth": "\"85vw\"",
+        "panelClass": "this.page.scroll",
+        "position": "this.page",
+        "restoreFocus": "this.page",
+        "role": "this.page",
+        "resultMapping": "bh.x",
+        "functionName": "sd_yCFzIt4RQMz1idDv",
+        "category": "Dialog",
+        "x": 427,
+        "y": 151.8125,
+        "wires": [
+            [],
+            [
+                "sd_zbJL4USWY4e4tyD2"
+            ],
+            [],
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh",
+                "value": "data",
+                "constant": false
+            },
+            "ariaDescribedBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabel": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "ariaLabelledBy": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "autoFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "backdropClass": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "closeOnNavigation": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "direction": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "disableClose": {
+                "type": "bool",
+                "value": "true",
+                "constant": false
+            },
+            "hasBackdrop": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "height": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxHeight": {
+                "type": "str",
+                "value": "85vh",
+                "constant": false
+            },
+            "minHeight": {
+                "type": "str",
+                "value": "85vh",
+                "constant": false
+            },
+            "width": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "maxWidth": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "minWidth": {
+                "type": "str",
+                "value": "85vw",
+                "constant": false
+            },
+            "panelClass": {
+                "type": "this.page",
+                "value": "scroll",
+                "constant": false
+            },
+            "position": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "restoreFocus": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "role": {
+                "type": "this.page",
+                "value": "",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh",
+                "value": "x",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_rWOKoogr1AdKrW32",
+        "type": "Script",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.data = page.receivedTableData['data']?.find(obj => bh.input.selectedRowID == obj._id);\n\n",
+        "functionName": "sd_rWOKoogr1AdKrW32",
+        "category": "Function",
+        "x": 327,
+        "y": 151.8125,
+        "wires": [
+            [
+                "sd_yCFzIt4RQMz1idDv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_zbJL4USWY4e4tyD2",
+        "type": "GetDialogData",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "dialogDataMapping": "bh.x",
+        "functionName": "sd_zbJL4USWY4e4tyD2",
+        "category": "Dialog",
+        "x": 547,
+        "y": 151.8125,
+        "wires": [
+            [
+                "sd_0xjxjf5khlZA21r7"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "dialogDataMapping": {
+                "type": "bh",
+                "value": "x",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_0xjxjf5khlZA21r7",
+        "type": "Script",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "",
+        "functionName": "sd_0xjxjf5khlZA21r7",
+        "category": "Function",
+        "x": 647,
+        "y": 151.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_boXVYC1ZRfRLqU1m",
+        "type": "PageStart",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "closeProfile",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "closeProfile",
+        "category": "General",
+        "x": 85,
+        "y": 400,
+        "wires": [
+            [
+                "sd_WL5ix7y38h5CoFFc"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "draftsComponent"
+    },
+    {
+        "id": "sd_WL5ix7y38h5CoFFc",
+        "type": "CloseDialog",
+        "z": "sd_gWuHjY66VqGmkjjZ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.profileDialog",
+        "functionName": "sd_WL5ix7y38h5CoFFc",
+        "category": "Dialog",
+        "x": 175.171875,
+        "y": 400.03125,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "profileDialog",
+                "constant": false
+            }
+        },
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
