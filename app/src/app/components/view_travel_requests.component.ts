@@ -414,6 +414,7 @@ export class view_travel_requestsComponent {
       bh.data = page.receivedTableData['data']?.find(
         (obj) => bh.input.selectedRowID == obj._id
       );
+      console.log(bh.data, 'data');
 
       bh = this.sd_foqFWGeyE6VpOSKm(bh);
       //appendnew_next_sd_LseCR5GaQVmcl4q2

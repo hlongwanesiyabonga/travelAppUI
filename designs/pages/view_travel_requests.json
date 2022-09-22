@@ -793,7 +793,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.data = page.receivedTableData['data']?.find(obj => bh.input.selectedRowID == obj._id);\n\n",
+        "script": "bh.data = page.receivedTableData['data']?.find(obj => bh.input.selectedRowID == obj._id);\nconsole.log(bh.data,\"data\")\n\n",
         "functionName": "sd_LseCR5GaQVmcl4q2",
         "category": "Function",
         "x": 285,

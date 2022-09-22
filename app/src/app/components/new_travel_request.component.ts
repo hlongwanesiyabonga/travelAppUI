@@ -389,6 +389,19 @@ export class new_travel_requestComponent {
     }
   }
 
+  sd_XdwsStmGaMiNR4FX(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      //appendnew_next_sd_XdwsStmGaMiNR4FX
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_XdwsStmGaMiNR4FX');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
