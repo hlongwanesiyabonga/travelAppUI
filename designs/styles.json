@@ -116,6 +116,19 @@
         "mat-footer-cell",
         "rejectBtn",
         "editTableIcon",
-        "viewTableIcon"
+        "viewTableIcon",
+        "marginBottom5",
+        "copyrightRow",
+        "marginLeft30",
+        "marginRight30",
+        "bodyHeight",
+        "mainBox",
+        "title",
+        "mat-checkbox-frame",
+        "mat-checkbox-checked",
+        "mat-checkbox-background",
+        "mat-checkbox-indeterminate",
+        "rememberText",
+        "mat-form-field-flex"
     ]
 }
