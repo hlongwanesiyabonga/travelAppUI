@@ -61,6 +61,7 @@
         "serviceImportPath": "./view_travel_requests",
         "startName": "getTravelRequests",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_SSbGg5g6eV3KHa01",
         "category": "General",
@@ -83,7 +84,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests\"\npage.select =[{viewvalue:\"My request\"},{viewvalue:\"Traveler Request\"}]",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests\"\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]",
         "functionName": "sd_LXI6ABPdqGPWtVPw",
         "category": "Function",
         "x": 584,
@@ -638,10 +639,10 @@
         "name": "",
         "outputs": 4,
         "flow": {
-            "flowId": "sd_osEacZsdUBcy4IJg",
-            "label": "new_travel_request"
+            "flowId": "sd_TO8KXUn3nydbh4fD",
+            "label": "travelRequestDialog"
         },
-        "relativePath": "./new_travel_request",
+        "relativePath": "./travelRequestDialog",
         "data": "bh.data",
         "ariaDescribedBy": "this.page",
         "ariaLabel": "this.page",
@@ -669,9 +670,7 @@
         "y": 360,
         "wires": [
             [],
-            [
-                "sd_UfZ9ZCunxCKKHHpA"
-            ],
+            [],
             [],
             []
         ],
@@ -793,7 +792,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.data = page.receivedTableData['data']?.find(obj => bh.input.selectedRowID == obj._id);\n\n",
+        "script": "bh.data = page.receivedTableData['data'].find(obj => bh.input.selectedRowID == obj._id);\n\n",
         "functionName": "sd_LseCR5GaQVmcl4q2",
         "category": "Function",
         "x": 285,
@@ -802,53 +801,6 @@
             [
                 "sd_foqFWGeyE6VpOSKm"
             ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_UfZ9ZCunxCKKHHpA",
-        "type": "GetDialogData",
-        "z": "sd_OefGVbZestbMEEML",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "dialogDataMapping": "bh.x",
-        "functionName": "sd_UfZ9ZCunxCKKHHpA",
-        "category": "Dialog",
-        "x": 505,
-        "y": 360,
-        "wires": [
-            [
-                "sd_zGxjcrMc4rXQJyRF"
-            ]
-        ],
-        "__ssdTypeInputs__": {
-            "dialogDataMapping": {
-                "type": "bh",
-                "value": "x",
-                "constant": false
-            }
-        },
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_zGxjcrMc4rXQJyRF",
-        "type": "Script",
-        "z": "sd_OefGVbZestbMEEML",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "",
-        "functionName": "sd_zGxjcrMc4rXQJyRF",
-        "category": "Function",
-        "x": 605,
-        "y": 360,
-        "wires": [
-            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -900,15 +852,15 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "Traveler Request",
+                "v": "My requests",
                 "vt": "str",
-                "gv": "\"Traveler Request\""
+                "gv": "\"My requests\""
             },
             {
                 "t": "eq",
-                "v": "My request",
+                "v": "Traveler requests",
                 "vt": "str",
-                "gv": "\"My request\""
+                "gv": "\"Traveler requests\""
             }
         ],
         "checkall": "false",
