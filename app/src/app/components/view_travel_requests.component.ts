@@ -19,7 +19,11 @@ import { MatPaginator } from '@angular/material/paginator'; //_splitter_
 import { MatSort } from '@angular/material/sort'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog'; //_splitter_
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from '@angular/material/dialog'; //_splitter_
 import { new_travel_requestComponent } from './new_travel_request.component'; //_splitter_
 //append_imports_end
 
@@ -73,19 +77,6 @@ export class view_travel_requestsComponent {
     }
   }
 
-  onFilter_2(filterEvent: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { filterEvent: filterEvent };
-      bh.local = {};
-      //appendnew_next_onFilter_2
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_4QB6d44LFvxAJuWT');
-    }
-  }
-
   getTravelRequests(...others) {
     try {
       var bh: any = this.__page_injector__
@@ -125,6 +116,34 @@ export class view_travel_requestsComponent {
       //appendnew_next_openViewRequest
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_HMmCFgfRZ8BIIgLg');
+    }
+  }
+
+  travelRequests(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_8LeNRH6C6NMR34zl(bh);
+      //appendnew_next_travelRequests
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_eCXsL7vdmekvuaBV');
+    }
+  }
+
+  closeProfile(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_Fvb4Hy4Un5uWq1to(bh);
+      //appendnew_next_closeProfile
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_nkSZo3woMN4ojnF7');
     }
   }
 
@@ -171,6 +190,8 @@ export class view_travel_requestsComponent {
       this.page.tableHeaders = [];
       this.page.tableCells = [];
       this.page.receivedTableData = [];
+      this.page.email = undefined;
+      this.page.select = undefined;
       bh = this.sd_LXI6ABPdqGPWtVPw(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
@@ -184,6 +205,10 @@ export class view_travel_requestsComponent {
       const page = this.page;
       bh.method = 'get';
       bh.endPoint = 'travelRequests/getTravelRequests';
+      page.select = [
+        { viewvalue: 'My request' },
+        { viewvalue: 'Traveler Request' },
+      ];
       bh = this.sd_SSbGg5g6eV3KHa01(bh);
       //appendnew_next_sd_LXI6ABPdqGPWtVPw
       return bh;
@@ -291,7 +316,7 @@ export class view_travel_requestsComponent {
   logTable(bh) {
     try {
       const page = this.page;
-      console.log('this table', page.receivedTableData);
+      console.log(page.receivedTableData);
       bh = this.table(bh);
       //appendnew_next_logTable
       return bh;
@@ -319,7 +344,6 @@ export class view_travel_requestsComponent {
       const page = this.page;
       let tableData = [];
       let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
-      let temp = {};
       let tableSetup = {
         traveler: {
           tableHeaders: [
@@ -337,7 +361,6 @@ export class view_travel_requestsComponent {
             'travelMode',
             'fromCity',
             'toCity',
-            'status',
             'action',
           ],
         },
@@ -347,11 +370,10 @@ export class view_travel_requestsComponent {
         : 'other'),
         (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
       page.tableCells = tableSetup[bh.role]['tableCells'];
-      page.receivedTableData['data'].forEach((el, i) => {
+      page.receivedTableData['data'].forEach((el) => {
         let temp = {};
         temp['_id'] = el['_id'];
         temp['dateCreated'] = el['dateCreated'];
-        temp['status'] = el['status'];
         temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
         temp['travelMode'] =
           el['requestDetails'][0]['travelDetails']['travelMode'];
@@ -359,7 +381,7 @@ export class view_travel_requestsComponent {
         temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
         tableData.push(temp);
       });
-      console.log(tableData);
+
       page.tableData = new page.tableDataSource(tableData);
       page.tableData.paginator = bh.pageViews.MatPaginator;
       page.tableData.sort = bh.pageViews.MatSort;
@@ -389,11 +411,9 @@ export class view_travel_requestsComponent {
   sd_LseCR5GaQVmcl4q2(bh) {
     try {
       const page = this.page;
-      bh.data = page.receivedTableData['data'].find(
+      bh.data = page.receivedTableData['data']?.find(
         (obj) => bh.input.selectedRowID == obj._id
       );
-      console.log('data works', bh.data);
-      // console.log(bh.input)
 
       bh = this.sd_foqFWGeyE6VpOSKm(bh);
       //appendnew_next_sd_LseCR5GaQVmcl4q2
@@ -444,12 +464,66 @@ export class view_travel_requestsComponent {
 
   sd_zGxjcrMc4rXQJyRF(bh) {
     try {
-      const page = this.page;
-      console.log('working', bh.x);
       //appendnew_next_sd_zGxjcrMc4rXQJyRF
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_zGxjcrMc4rXQJyRF');
+    }
+  }
+
+  sd_8LeNRH6C6NMR34zl(bh) {
+    try {
+      if (
+        this.sdService.operators['eq'](
+          bh.input.event.value,
+          'Traveler Request',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_HPCHaM7tAhCjPbLU(bh);
+      } else if (
+        this.sdService.operators['eq'](
+          bh.input.event.value,
+          'My request',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_ddvJTJeq8er1YH6q(bh);
+      }
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_8LeNRH6C6NMR34zl');
+    }
+  }
+
+  sd_ddvJTJeq8er1YH6q(bh) {
+    try {
+      const page = this.page;
+      page.email = 'neutrinostravellm@gmail.com';
+      bh.method = 'get';
+      bh.endPoint =
+        'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
+        page.email;
+      bh = this.sd_bC5p0BEPQlu4QyLn(bh);
+      //appendnew_next_sd_ddvJTJeq8er1YH6q
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ddvJTJeq8er1YH6q');
+    }
+  }
+
+  sd_Fvb4Hy4Un5uWq1to(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.profileDialog);
+
+      //appendnew_next_sd_Fvb4Hy4Un5uWq1to
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Fvb4Hy4Un5uWq1to');
     }
   }
 

@@ -61,7 +61,6 @@
         "serviceImportPath": "./view_travel_requests",
         "startName": "getTravelRequests",
         "inputParams": [],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_SSbGg5g6eV3KHa01",
         "category": "General",
@@ -84,7 +83,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests\"",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests\"\npage.select =[{viewvalue:\"My request\"},{viewvalue:\"Traveler Request\"}]",
         "functionName": "sd_LXI6ABPdqGPWtVPw",
         "category": "Function",
         "x": 584,
@@ -100,56 +99,6 @@
         "serviceName": "view_travel_requestsComponent"
     },
     {
-        "id": "sd_3m4hJPLPaowq9zBr",
-        "type": "Script",
-        "z": "sd_OefGVbZestbMEEML",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "console.log(bh.input.filterEvent);\nconst filterValue = (bh.input.filterEvent.target as HTMLInputElement).value;\nthis.page.tableData.filter = filterValue.trim().toLowerCase();",
-        "functionName": "sd_iBlFYTlpoczCmWts_2",
-        "category": "Function",
-        "x": 205,
-        "y": 180,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "view_travel_requestsComponent"
-    },
-    {
-        "id": "sd_4QB6d44LFvxAJuWT",
-        "type": "PageStart",
-        "z": "sd_OefGVbZestbMEEML",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "onFilter_2",
-        "outputs": 1,
-        "inputVariables": [
-            {
-                "key": "filterEvent",
-                "defaultValue": {
-                    "type": "any",
-                    "value": ""
-                },
-                "output": false
-            }
-        ],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "onFilter_2",
-        "category": "General",
-        "x": 80,
-        "y": 180,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "view_travel_requestsComponent"
-    },
-    {
         "id": "sd_FVFM6b18mqiSTaD8",
         "type": "PageStart",
         "z": "sd_OefGVbZestbMEEML",
@@ -162,8 +111,8 @@
         "flow_type": "sync",
         "functionName": "getTravelRequests",
         "category": "General",
-        "x": 85,
-        "y": 300,
+        "x": 45,
+        "y": 180,
         "wires": [
             [
                 "sd_8rwHpkPcEjQAdQ9f"
@@ -224,24 +173,6 @@
         "generated": true
     },
     {
-        "id": "sd_mrou17ks70fZXpqi",
-        "type": "Script",
-        "z": "sd_OefGVbZestbMEEML",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "let tableSetup = {\n    \"generalLedgerList\": {\n        \"tableHeaders\": ['Vote ID', 'Vote Description', 'Date and Time', 'Vote Status', 'Requestor', 'Transaction ID', 'Item', 'Function', 'Project', 'Fund', 'Region', 'Costing'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'DateCreated', 'voteReqStatus', 'requestor', 'transactionType', 'item', 'function', 'project', 'fund', 'region', 'costing']\n    },\n    \"deactivationRequestList\": {\n        \"tableHeaders\": ['Vote ID', 'Vote Description', 'Department', 'Vote Status', 'Deactivation Reason', 'Requestor', 'Date and Time'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'department', 'voteReqStatus', 'rejectionReason', 'requestor', 'DateCreated']\n    },\n    \"glCreationRequestsList\": {\n        \"tableHeaders\": ['GL Creation Request Nos', 'Vote Description', 'Department', 'Requestor', 'Date and Time', 'GL Creation Request Status'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'department', 'requestor', 'DateCreated', 'voteReqStatus']\n    },\n    \"approvedOrRejectedRequests\": {\n        \"tableHeaders\": ['GL Creation Request Nos', 'Vote Description', 'Deactivation Request Nos', 'Rejection Reason', 'Department', 'Requestor', 'Date and Time'],\n        \"tableCells\": ['GLVoteRequestNumber', 'voteDescription', 'deactivationRequestNos', 'rejectionReason', 'department', 'requestor', 'DateCreated']\n    },\n};\n// let selectedReport = bh.input.api.slice(8);\nconsole.log(bh.input.api,\"api\")\npage.tableHeaders = tableSetup[selectedReport]['tableHeaders'];\npage.tableCells = tableSetup[selectedReport]['tableCells'];",
-        "functionName": "sd_mrou17ks70fZXpqi",
-        "category": "Function",
-        "x": 305,
-        "y": 160,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true
-    },
-    {
         "id": "sd_HPCHaM7tAhCjPbLU",
         "type": "Script",
         "z": "sd_OefGVbZestbMEEML",
@@ -251,8 +182,8 @@
         "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;",
         "functionName": "sd_HPCHaM7tAhCjPbLU",
         "category": "Function",
-        "x": 245,
-        "y": 300,
+        "x": 345,
+        "y": 140,
         "wires": [
             [
                 "sd_bC5p0BEPQlu4QyLn"
@@ -326,8 +257,8 @@
         "accept_csd": true,
         "functionName": "sd_bC5p0BEPQlu4QyLn",
         "category": "General",
-        "x": 345,
-        "y": 300,
+        "x": 445,
+        "y": 140,
         "wires": [
             [
                 "sd_d5laVS4z760LyRps"
@@ -358,8 +289,8 @@
         },
         "functionName": "sd_8rwHpkPcEjQAdQ9f",
         "category": "Storage",
-        "x": 165,
-        "y": 300,
+        "x": 245,
+        "y": 140,
         "wires": [
             [
                 "sd_HPCHaM7tAhCjPbLU"
@@ -376,11 +307,11 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "log table",
-        "script": "console.log(\"this table\",page.receivedTableData)",
+        "script": "console.log(page.receivedTableData)",
         "functionName": "logTable",
         "category": "Function",
-        "x": 445,
-        "y": 300,
+        "x": 545,
+        "y": 140,
         "wires": [
             [
                 "sd_HgsN216NweFheonG"
@@ -437,8 +368,8 @@
         ],
         "functionName": "table",
         "category": "Function",
-        "x": 545,
-        "y": 300,
+        "x": 645,
+        "y": 140,
         "wires": [
             [
                 "sd_PJCi5a6up5yJxqw5"
@@ -455,11 +386,11 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "setTableTokens",
-        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet temp = {};\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    temp['_id'] = el['_id'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\nconsole.log(tableData)\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;",
+        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    let temp = {};\n    temp['_id'] = el['_id'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\n\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;",
         "functionName": "setTableTokens",
         "category": "Function",
-        "x": 645,
-        "y": 300,
+        "x": 725,
+        "y": 140,
         "wires": [
             []
         ],
@@ -636,6 +567,20 @@
                     "type": "literal",
                     "value": "[]"
                 }
+            },
+            {
+                "textIp": "email",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "select",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_E9QbOlnVduPNV5MO_1",
@@ -673,8 +618,8 @@
         "flow_type": "sync",
         "functionName": "openViewRequest",
         "category": "General",
-        "x": 85,
-        "y": 400,
+        "x": 105,
+        "y": 360,
         "wires": [
             [
                 "sd_LseCR5GaQVmcl4q2"
@@ -720,8 +665,8 @@
         "resultMapping": "bh.x",
         "functionName": "sd_foqFWGeyE6VpOSKm",
         "category": "Dialog",
-        "x": 365,
-        "y": 400,
+        "x": 385,
+        "y": 360,
         "wires": [
             [],
             [
@@ -842,53 +787,17 @@
         "generated": true
     },
     {
-        "id": "sd_w3HiTaQUsC0bGiQr",
-        "type": "UseDependency",
-        "z": "sd_OefGVbZestbMEEML",
-        "viewType": "client-pages",
-        "nodeType": "flow",
-        "name": "",
-        "inputs": 1,
-        "outputs": 1,
-        "property": "",
-        "propertyType": "bh",
-        "propertyGv": "bh.",
-        "alias": "",
-        "modules": [
-            {
-                "textIp": "myformserviceService",
-                "typedIpValue": {
-                    "type": "this.page",
-                    "value": "backendService"
-                },
-                "injectable": true
-            }
-        ],
-        "import_all": false,
-        "library": "app/services/myformserviceService/myformserviceService.service",
-        "serviceDesignerType": "pages",
-        "functionName": "sd_w3HiTaQUsC0bGiQr",
-        "category": "Function",
-        "x": 585,
-        "y": 560,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true
-    },
-    {
         "id": "sd_LseCR5GaQVmcl4q2",
         "type": "Script",
         "z": "sd_OefGVbZestbMEEML",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.data = page.receivedTableData['data'].find(obj => bh.input.selectedRowID == obj._id);\nconsole.log(\"data works\" ,bh.data)\n// console.log(bh.input)\n",
+        "script": "bh.data = page.receivedTableData['data']?.find(obj => bh.input.selectedRowID == obj._id);\n\n",
         "functionName": "sd_LseCR5GaQVmcl4q2",
         "category": "Function",
-        "x": 265,
-        "y": 400,
+        "x": 285,
+        "y": 360,
         "wires": [
             [
                 "sd_foqFWGeyE6VpOSKm"
@@ -908,8 +817,8 @@
         "dialogDataMapping": "bh.x",
         "functionName": "sd_UfZ9ZCunxCKKHHpA",
         "category": "Dialog",
-        "x": 485,
-        "y": 400,
+        "x": 505,
+        "y": 360,
         "wires": [
             [
                 "sd_zGxjcrMc4rXQJyRF"
@@ -933,14 +842,161 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(\"working\", bh.x)",
+        "script": "",
         "functionName": "sd_zGxjcrMc4rXQJyRF",
         "category": "Function",
-        "x": 585,
-        "y": 400,
+        "x": 605,
+        "y": 360,
         "wires": [
             []
         ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_eCXsL7vdmekvuaBV",
+        "type": "PageStart",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "travel requests",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "travelRequests",
+        "category": "General",
+        "x": 125,
+        "y": 240,
+        "wires": [
+            [
+                "sd_8LeNRH6C6NMR34zl"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "view_travel_requestsComponent"
+    },
+    {
+        "id": "sd_8LeNRH6C6NMR34zl",
+        "type": "PageSwitch",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "event.value",
+        "propertyType": "bh.input",
+        "propertyGv": "bh.input.event.value",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Traveler Request",
+                "vt": "str",
+                "gv": "\"Traveler Request\""
+            },
+            {
+                "t": "eq",
+                "v": "My request",
+                "vt": "str",
+                "gv": "\"My request\""
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_8LeNRH6C6NMR34zl",
+        "category": "Function",
+        "x": 225,
+        "y": 240,
+        "wires": [
+            [
+                "sd_HPCHaM7tAhCjPbLU"
+            ],
+            [
+                "sd_ddvJTJeq8er1YH6q"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ddvJTJeq8er1YH6q",
+        "type": "Script",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.email =\"neutrinostravellm@gmail.com\"\nbh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.email;",
+        "functionName": "sd_ddvJTJeq8er1YH6q",
+        "category": "Function",
+        "x": 385,
+        "y": 280,
+        "wires": [
+            [
+                "sd_bC5p0BEPQlu4QyLn"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nkSZo3woMN4ojnF7",
+        "type": "PageStart",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "closeProfile",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "closeProfile",
+        "category": "General",
+        "x": 85,
+        "y": 440,
+        "wires": [
+            [
+                "sd_Fvb4Hy4Un5uWq1to"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "view_travel_requestsComponent"
+    },
+    {
+        "id": "sd_Fvb4Hy4Un5uWq1to",
+        "type": "CloseDialog",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.profileDialog",
+        "functionName": "sd_Fvb4Hy4Un5uWq1to",
+        "category": "Dialog",
+        "x": 175.171875,
+        "y": 440.03125,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "profileDialog",
+                "constant": false
+            }
+        },
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true

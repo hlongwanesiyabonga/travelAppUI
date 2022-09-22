@@ -147,7 +147,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.profileForm = new FormGroup({\n    firstName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    lastName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    dateOfBirth: new FormControl('', [Validators.required]),\n    gender: new FormControl('', [Validators.required]),\n    email: new FormControl('', [Validators.required, Validators.email]),\n    designation: new FormControl('', [Validators.required]),\n    idNumber: new FormControl('', [Validators.required]),\n    panNumber: new FormControl('', [Validators.required]),\n    passportNumber: new FormControl('', [Validators.required]),\n    nationality: new FormControl('', [Validators.required]),\n    station: new FormControl('', [Validators.required]),\n    lineManager: new FormControl('', [Validators.required]),\n    lineManagerEmail: new FormControl('',[Validators.required]),\n  });",
+        "script": "page.profileForm = new FormGroup({\n    firstName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    lastName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    dateOfBirth: new FormControl('', [Validators.required]),\n    gender: new FormControl('', [Validators.required]),\n    email: new FormControl('', [Validators.required, Validators.email]),\n    designation: new FormControl('', [Validators.required]),\n    idNumber: new FormControl(''),\n    panNumber: new FormControl(''),\n    passportNumber: new FormControl('', [Validators.required]),\n    nationality: new FormControl('', [Validators.required]),\n    station: new FormControl('', [Validators.required]),\n    lineManager: new FormControl('', [Validators.required]),\n    lineManagerEmail: new FormControl('',[Validators.required]),\n  });",
         "functionName": "sd_9DF1Fu5s1DNEsmYT",
         "category": "Function",
         "x": 345,
@@ -293,7 +293,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.email = \"neo.thobela@neutrinos.co\"\nbh.method = \"get\",\nbh.endPoint = \"genericGet/getPersonalDetails?email=\"+page.email;\nconsole.log(page.profileForm)",
+        "script": "page.email = \"neo.thobela@neutrinos.co\"\nbh.method = \"get\",\nbh.endPoint = \"genericGet/getPersonalDetails?email=\"+page.email;\n",
         "functionName": "sd_w8eStMhAcIG7jxxh",
         "category": "Function",
         "x": 465,
@@ -314,7 +314,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.profileForm.patchValue(page.personalDetails);\nconsole.log(\"person Details\",page.profileForm.patchValue(page.personalDetails));",
+        "script": "page.profileForm.patchValue(page.personalDetails);\n",
         "functionName": "sd_82pZJpednRsfaIA8",
         "category": "Function",
         "x": 705,
@@ -348,8 +348,8 @@
         "flow_type": "sync",
         "functionName": "submitForm",
         "category": "General",
-        "x": 80,
-        "y": 280,
+        "x": 65,
+        "y": 340,
         "wires": [
             [
                 "sd_Z13nth8o712Wsc0M"
@@ -423,8 +423,8 @@
         "accept_csd": true,
         "functionName": "sd_yqUFTe7V98URWISq",
         "category": "General",
-        "x": 285,
-        "y": 280,
+        "x": 270,
+        "y": 340,
         "wires": [
             [
                 "sd_UqAPQwq6ORogiCYa"
@@ -441,11 +441,11 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"put\",\nbh.endPoint = \"genericEdit/updatePersonalDetails/\" + page.personalDetails._id;\nconsole.log(\"test\",bh.input)",
+        "script": "bh.method = \"put\",\nbh.endPoint = \"genericEdit/updatePersonalDetails/\" + page.personalDetails._id;\n",
         "functionName": "sd_Z13nth8o712Wsc0M",
         "category": "Function",
-        "x": 185,
-        "y": 280,
+        "x": 170,
+        "y": 340,
         "wires": [
             [
                 "sd_yqUFTe7V98URWISq"
@@ -462,11 +462,152 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(\"pd form\",page.personalDetails)",
+        "script": "",
         "functionName": "sd_UqAPQwq6ORogiCYa",
         "category": "Function",
-        "x": 380,
-        "y": 280,
+        "x": 365,
+        "y": 340,
+        "wires": [
+            [
+                "sd_zHIV9wTwUiqyPSxa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_zHIV9wTwUiqyPSxa",
+        "type": "CloseDialog",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.profileDialog",
+        "functionName": "sd_zHIV9wTwUiqyPSxa",
+        "category": "Dialog",
+        "x": 445,
+        "y": 340,
+        "wires": [
+            [
+                "sd_GppmMxDENGT7R7qP"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "profileDialog",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_aekjHsHcTRQZMsuY",
+        "type": "SnackBar",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Failed to update record"
+        },
+        "action": {
+            "type": "str",
+            "value": "OK"
+        },
+        "duration": {
+            "type": "num",
+            "value": "2000"
+        },
+        "horizontalPosition": "center",
+        "verticalPosition": "bottom",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_aekjHsHcTRQZMsuY",
+        "category": "General",
+        "x": 685,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_GppmMxDENGT7R7qP",
+        "type": "PageSwitch",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "personalDetails",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.personalDetails",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_GppmMxDENGT7R7qP",
+        "category": "Function",
+        "x": 560,
+        "y": 340,
+        "wires": [
+            [
+                "sd_aekjHsHcTRQZMsuY"
+            ],
+            [
+                "sd_n8LdV82ZSqYXpJol"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_n8LdV82ZSqYXpJol",
+        "type": "SnackBar",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Record updated successfully"
+        },
+        "action": {
+            "type": "str",
+            "value": "OK"
+        },
+        "duration": {
+            "type": "num",
+            "value": "2000"
+        },
+        "horizontalPosition": "center",
+        "verticalPosition": "bottom",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_n8LdV82ZSqYXpJol",
+        "category": "General",
+        "x": 674,
+        "y": 397.8125,
         "wires": [
             []
         ],

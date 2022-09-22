@@ -127,7 +127,7 @@ export class callServerApis {
   async sd_uFfzVvBAauUEjRTo(bh) {
     try {
       bh.apiUrl = 'http://localhost:8081/api/' + bh.input.endPoint;
-      console.log('body', bh.input);
+
       bh = await this.sd_hUBaFoLrD4z6GgAt(bh);
       //appendnew_next_sd_uFfzVvBAauUEjRTo
       return bh;

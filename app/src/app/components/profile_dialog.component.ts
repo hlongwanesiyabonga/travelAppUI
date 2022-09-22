@@ -23,6 +23,7 @@ import {
 } from '@angular/forms'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MatDialogRef } from '@angular/material/dialog'; //_splitter_
+import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -142,8 +143,8 @@ export class profile_dialogComponent {
         gender: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required, Validators.email]),
         designation: new FormControl('', [Validators.required]),
-        idNumber: new FormControl('', [Validators.required]),
-        panNumber: new FormControl('', [Validators.required]),
+        idNumber: new FormControl(''),
+        panNumber: new FormControl(''),
         passportNumber: new FormControl('', [Validators.required]),
         nationality: new FormControl('', [Validators.required]),
         station: new FormControl('', [Validators.required]),
@@ -164,7 +165,7 @@ export class profile_dialogComponent {
       page.email = 'neo.thobela@neutrinos.co';
       (bh.method = 'get'),
         (bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email);
-      console.log(page.profileForm);
+
       bh = this.sd_naVttDn00PvByen9(bh);
       //appendnew_next_sd_w8eStMhAcIG7jxxh
       return bh;
@@ -197,10 +198,7 @@ export class profile_dialogComponent {
     try {
       const page = this.page;
       page.profileForm.patchValue(page.personalDetails);
-      console.log(
-        'person Details',
-        page.profileForm.patchValue(page.personalDetails)
-      );
+
       //appendnew_next_sd_82pZJpednRsfaIA8
       return bh;
     } catch (e) {
@@ -226,7 +224,7 @@ export class profile_dialogComponent {
       (bh.method = 'put'),
         (bh.endPoint =
           'genericEdit/updatePersonalDetails/' + page.personalDetails._id);
-      console.log('test', bh.input);
+
       bh = this.sd_yqUFTe7V98URWISq(bh);
       //appendnew_next_sd_Z13nth8o712Wsc0M
       return bh;
@@ -257,12 +255,90 @@ export class profile_dialogComponent {
 
   sd_UqAPQwq6ORogiCYa(bh) {
     try {
-      const page = this.page;
-      console.log('pd form', page.personalDetails);
+      bh = this.sd_zHIV9wTwUiqyPSxa(bh);
       //appendnew_next_sd_UqAPQwq6ORogiCYa
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_UqAPQwq6ORogiCYa');
+    }
+  }
+
+  sd_zHIV9wTwUiqyPSxa(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.profileDialog);
+
+      bh = this.sd_GppmMxDENGT7R7qP(bh);
+      //appendnew_next_sd_zHIV9wTwUiqyPSxa
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_zHIV9wTwUiqyPSxa');
+    }
+  }
+
+  async sd_GppmMxDENGT7R7qP(bh) {
+    try {
+      let otherwiseFlag = true;
+      if (
+        this.sdService.operators['null'](
+          this.page.personalDetails,
+          undefined,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_aekjHsHcTRQZMsuY(bh);
+        otherwiseFlag = false;
+      }
+      if (
+        this.sdService.operators['else'](
+          otherwiseFlag,
+          undefined,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = await this.sd_n8LdV82ZSqYXpJol(bh);
+        otherwiseFlag = false;
+      }
+
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_GppmMxDENGT7R7qP');
+    }
+  }
+
+  sd_aekjHsHcTRQZMsuY(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Failed to update record', 'OK', {
+          duration: 2000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      //appendnew_next_sd_aekjHsHcTRQZMsuY
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_aekjHsHcTRQZMsuY');
+    }
+  }
+
+  sd_n8LdV82ZSqYXpJol(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Record updated successfully', 'OK', {
+          duration: 2000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      //appendnew_next_sd_n8LdV82ZSqYXpJol
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_n8LdV82ZSqYXpJol');
     }
   }
 

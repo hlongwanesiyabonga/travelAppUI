@@ -18,6 +18,12 @@ import { MatTableDataSource } from '@angular/material/table'; //_splitter_
 import { MatPaginator } from '@angular/material/paginator'; //_splitter_
 import { MatSort } from '@angular/material/sort'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from '@angular/material/dialog'; //_splitter_
+import { new_travel_requestComponent } from './new_travel_request.component'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -81,6 +87,34 @@ export class draftsComponent {
       //appendnew_next_getTravelRequests
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Sm6rj5aD8BjreRHu');
+    }
+  }
+
+  openViewRequest(selectedRowID: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { selectedRowID: selectedRowID };
+      bh.local = {};
+      bh = this.sd_rWOKoogr1AdKrW32(bh);
+      //appendnew_next_openViewRequest
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_vp5oGI1508VqSOh0');
+    }
+  }
+
+  closeProfile(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_WL5ix7y38h5CoFFc(bh);
+      //appendnew_next_closeProfile
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_boXVYC1ZRfRLqU1m');
     }
   }
 
@@ -193,9 +227,7 @@ export class draftsComponent {
     try {
       const page = this.page;
       bh.method = 'get';
-      bh.endPoint =
-        'travelRequests/getTravelRequest?type=draft' +
-        page.currentUserDetails.email;
+      bh.endPoint = 'getTravelRequestDrafts';
       bh = this.sd_jITV2Ea0aWpdhosP(bh);
       //appendnew_next_sd_2GFLx5BdaAS4aODV
       return bh;
@@ -255,7 +287,6 @@ export class draftsComponent {
       const page = this.page;
       let tableData = [];
       let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
-      let temp = {};
       let tableSetup = {
         traveler: {
           tableHeaders: [
@@ -283,6 +314,7 @@ export class draftsComponent {
         (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
       page.tableCells = tableSetup[bh.role]['tableCells'];
       page.receivedTableData['data'].forEach((el) => {
+        let temp = {};
         temp['_id'] = el['_id'];
         temp['dateCreated'] = el['dateCreated'];
         temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
@@ -292,14 +324,89 @@ export class draftsComponent {
         temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
         tableData.push(temp);
       });
-      console.log(tableData);
+
       page.tableData = new page.tableDataSource(tableData);
       page.tableData.paginator = bh.pageViews.MatPaginator;
       page.tableData.sort = bh.pageViews.MatSort;
       //appendnew_next_setTableTokens
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_PYXDYPkwJBBmNNkA');
+      return this.errorHandler(bh, e, 'sd_s60c9qBRLfh76DEF');
+    }
+  }
+
+  sd_rWOKoogr1AdKrW32(bh) {
+    try {
+      const page = this.page;
+      bh.data = page.receivedTableData['data']?.find(
+        (obj) => bh.input.selectedRowID == obj._id
+      );
+
+      bh = this.sd_yCFzIt4RQMz1idDv(bh);
+      //appendnew_next_sd_rWOKoogr1AdKrW32
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_rWOKoogr1AdKrW32');
+    }
+  }
+
+  sd_yCFzIt4RQMz1idDv(bh) {
+    try {
+      const new_travel_requestDialog = this.__page_injector__.get(MatDialog);
+      const new_travel_requestDialogRef = new_travel_requestDialog.open(
+        new_travel_requestComponent,
+        {
+          data: bh.data,
+          disableClose: true,
+          maxHeight: '85vh',
+          minHeight: '85vh',
+          minWidth: '85vw',
+          panelClass: this.page.scroll,
+        }
+      );
+      new_travel_requestDialogRef.afterClosed().subscribe((event) => {
+        bh.x = event;
+        this.sd_zbJL4USWY4e4tyD2(bh);
+
+        //appendnew_next_sd_yCFzIt4RQMz1idDv;
+      });
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_yCFzIt4RQMz1idDv');
+    }
+  }
+
+  sd_zbJL4USWY4e4tyD2(bh) {
+    try {
+      bh.x = this.__page_injector__.get(MAT_DIALOG_DATA);
+
+      bh = this.sd_0xjxjf5khlZA21r7(bh);
+      //appendnew_next_sd_zbJL4USWY4e4tyD2
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_zbJL4USWY4e4tyD2');
+    }
+  }
+
+  sd_0xjxjf5khlZA21r7(bh) {
+    try {
+      //appendnew_next_sd_0xjxjf5khlZA21r7
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_0xjxjf5khlZA21r7');
+    }
+  }
+
+  sd_WL5ix7y38h5CoFFc(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.profileDialog);
+
+      //appendnew_next_sd_WL5ix7y38h5CoFFc
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_WL5ix7y38h5CoFFc');
     }
   }
 
