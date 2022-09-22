@@ -8,8 +8,10 @@ import {
   Input,
   Output,
   EventEmitter,
+  ChangeDetectorRef,
   ViewChild,
   ViewChildren,
+  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -19,12 +21,8 @@ import { MatPaginator } from '@angular/material/paginator'; //_splitter_
 import { MatSort } from '@angular/material/sort'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
-import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-} from '@angular/material/dialog'; //_splitter_
-import { new_travel_requestComponent } from './new_travel_request.component'; //_splitter_
+import { MatDialog, MatDialogRef } from '@angular/material/dialog'; //_splitter_
+import { travelRequestDialogComponent } from './travelRequestDialog.component'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -206,8 +204,8 @@ export class view_travel_requestsComponent {
       bh.method = 'get';
       bh.endPoint = 'travelRequests/getTravelRequests';
       page.select = [
-        { viewvalue: 'My request' },
-        { viewvalue: 'Traveler Request' },
+        { viewvalue: 'My requests' },
+        { viewvalue: 'Traveler requests' },
       ];
       bh = this.sd_SSbGg5g6eV3KHa01(bh);
       //appendnew_next_sd_LXI6ABPdqGPWtVPw
@@ -411,7 +409,7 @@ export class view_travel_requestsComponent {
   sd_LseCR5GaQVmcl4q2(bh) {
     try {
       const page = this.page;
-      bh.data = page.receivedTableData['data']?.find(
+      bh.data = page.receivedTableData['data'].find(
         (obj) => bh.input.selectedRowID == obj._id
       );
       console.log(bh.data, 'data');
@@ -426,9 +424,9 @@ export class view_travel_requestsComponent {
 
   sd_foqFWGeyE6VpOSKm(bh) {
     try {
-      const new_travel_requestDialog = this.__page_injector__.get(MatDialog);
-      const new_travel_requestDialogRef = new_travel_requestDialog.open(
-        new_travel_requestComponent,
+      const travelRequestDialogDialog = this.__page_injector__.get(MatDialog);
+      const travelRequestDialogDialogRef = travelRequestDialogDialog.open(
+        travelRequestDialogComponent,
         {
           data: bh.data,
           disableClose: true,
@@ -438,37 +436,10 @@ export class view_travel_requestsComponent {
           panelClass: this.page.scroll,
         }
       );
-      new_travel_requestDialogRef.afterClosed().subscribe((event) => {
-        bh.x = event;
-        this.sd_UfZ9ZCunxCKKHHpA(bh);
-
-        //appendnew_next_sd_foqFWGeyE6VpOSKm;
-      });
 
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_foqFWGeyE6VpOSKm');
-    }
-  }
-
-  sd_UfZ9ZCunxCKKHHpA(bh) {
-    try {
-      bh.x = this.__page_injector__.get(MAT_DIALOG_DATA);
-
-      bh = this.sd_zGxjcrMc4rXQJyRF(bh);
-      //appendnew_next_sd_UfZ9ZCunxCKKHHpA
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_UfZ9ZCunxCKKHHpA');
-    }
-  }
-
-  sd_zGxjcrMc4rXQJyRF(bh) {
-    try {
-      //appendnew_next_sd_zGxjcrMc4rXQJyRF
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_zGxjcrMc4rXQJyRF');
     }
   }
 
@@ -477,7 +448,7 @@ export class view_travel_requestsComponent {
       if (
         this.sdService.operators['eq'](
           bh.input.event.value,
-          'Traveler Request',
+          'My requests',
           undefined,
           undefined
         )
@@ -486,7 +457,7 @@ export class view_travel_requestsComponent {
       } else if (
         this.sdService.operators['eq'](
           bh.input.event.value,
-          'My request',
+          'Traveler requests',
           undefined,
           undefined
         )
