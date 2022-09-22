@@ -8,10 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
-  ChangeDetectorRef,
   ViewChild,
   ViewChildren,
-  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -256,6 +254,8 @@ export class view_travel_requestsComponent {
           cssClass: 'redBg',
         },
       ];
+
+      console.log(page.currentUserDetails, 'ffffffffffuuuuuuuucccccckkkkkk');
       //appendnew_next_sd_BSTpLgaf8MQyg93d
       return bh;
     } catch (e) {
@@ -412,7 +412,6 @@ export class view_travel_requestsComponent {
       bh.data = page.receivedTableData['data'].find(
         (obj) => bh.input.selectedRowID == obj._id
       );
-      console.log(bh.data, 'data');
 
       bh = this.sd_foqFWGeyE6VpOSKm(bh);
       //appendnew_next_sd_LseCR5GaQVmcl4q2
