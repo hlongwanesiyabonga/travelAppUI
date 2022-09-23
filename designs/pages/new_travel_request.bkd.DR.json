@@ -25195,7 +25195,8 @@
                                     "input": [
                                         "page.travelForm"
                                     ]
-                                }
+                                },
+                                "_customAttributeFlag": "customInput"
                             },
                             {
                                 "_key": "[disabled]",

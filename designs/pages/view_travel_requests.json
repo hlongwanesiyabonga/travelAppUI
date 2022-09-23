@@ -61,16 +61,13 @@
         "serviceImportPath": "./view_travel_requests",
         "startName": "getTravelRequests",
         "inputParams": [],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_SSbGg5g6eV3KHa01",
         "category": "General",
         "x": 664,
         "y": 60,
         "wires": [
-            [
-                "sd_BSTpLgaf8MQyg93d"
-            ]
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -262,7 +259,7 @@
         "y": 140,
         "wires": [
             [
-                "sd_d5laVS4z760LyRps"
+                "sd_SVmBRisZCA8liH2m"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -311,31 +308,12 @@
         "script": "console.log(page.receivedTableData)",
         "functionName": "logTable",
         "category": "Function",
-        "x": 545,
+        "x": 665,
         "y": 140,
         "wires": [
             [
                 "sd_HgsN216NweFheonG"
             ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_BSTpLgaf8MQyg93d",
-        "type": "Script",
-        "z": "sd_OefGVbZestbMEEML",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "page.dashboardCards =[\n    {amount: 15, topText: 'Total', icon : 'description', cssClass: 'blueBg'},\n    {amount: 6, topText: 'Pending', icon : 'hourglass_full', cssClass: 'orangeBg'},\n    {amount: 5, topText: 'Approved', icon : 'thumb_up', cssClass: 'greenBg'},\n    {amount: 4, topText: 'Rejected', icon : 'thumb_down', cssClass: 'redBg'},\n];\n\nconsole.log(page.currentUserDetails, 'ffffffffffuuuuuuuucccccckkkkkk')",
-        "functionName": "sd_BSTpLgaf8MQyg93d",
-        "category": "Function",
-        "x": 753,
-        "y": 60,
-        "wires": [
-            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -369,7 +347,7 @@
         ],
         "functionName": "table",
         "category": "Function",
-        "x": 645,
+        "x": 765,
         "y": 140,
         "wires": [
             [
@@ -387,10 +365,10 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "setTableTokens",
-        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet temp = {};\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'status', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    temp['_id'] = el['_id'];\n    temp['status'] = el['status'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\nconsole.log(tableData)\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;\n\n// let tableData = [];\n// let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\n// let tableSetup = {\n//     \"traveler\": {\n//         \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n//         \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n//     }\n// };\n// bh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n//     page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\n// page.tableCells = tableSetup[bh.role]['tableCells'];\n// page.receivedTableData['data'].forEach(el => {\n//     let temp = {};\n//     temp['_id'] = el['_id'];\n//     temp['dateCreated'] = el['dateCreated'];\n//     temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n//     temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n//     temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n//     temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n//     tableData.push(temp);\n// })\n\n// page.tableData = new page.tableDataSource(tableData);\n// page.tableData.paginator = bh.pageViews.MatPaginator;\n// page.tableData.sort = bh.pageViews.MatSort;",
+        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Owner', 'Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['owner', 'dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'status', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    let temp = {};\n    temp['_id'] = el['_id'];\n    temp['owner'] = el['owner'];\n    temp['status'] = el['status'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\nconsole.log(tableData)\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;\n\n// let tableData = [];\n// let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\n// let tableSetup = {\n//     \"traveler\": {\n//         \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n//         \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n//     }\n// };\n// bh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n//     page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\n// page.tableCells = tableSetup[bh.role]['tableCells'];\n// page.receivedTableData['data'].forEach(el => {\n//     let temp = {};\n//     temp['_id'] = el['_id'];\n//     temp['dateCreated'] = el['dateCreated'];\n//     temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n//     temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n//     temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n//     temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n//     tableData.push(temp);\n// })\n\n// page.tableData = new page.tableDataSource(tableData);\n// page.tableData.paginator = bh.pageViews.MatPaginator;\n// page.tableData.sort = bh.pageViews.MatSort;",
         "functionName": "setTableTokens",
         "category": "Function",
-        "x": 725,
+        "x": 845,
         "y": 140,
         "wires": [
             []
@@ -581,6 +559,13 @@
                 "typedIpValue": {
                     "type": "literal",
                     "value": ""
+                }
+            },
+            {
+                "textIp": "counts",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
                 }
             }
         ],
@@ -892,11 +877,11 @@
         "script": "page.email =\"neutrinostravellm@gmail.com\"\nbh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.email;",
         "functionName": "sd_ddvJTJeq8er1YH6q",
         "category": "Function",
-        "x": 385,
+        "x": 365,
         "y": 280,
         "wires": [
             [
-                "sd_bC5p0BEPQlu4QyLn"
+                "sd_NkxgCnpOljpjI5HQ"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -949,6 +934,102 @@
                 "constant": false
             }
         },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_NkxgCnpOljpjI5HQ",
+        "type": "PageCallService",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "receivedTableData",
+                "mapVarName": "result",
+                "localVar": "this.page.receivedTableData"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_NkxgCnpOljpjI5HQ",
+        "category": "General",
+        "x": 525,
+        "y": 280,
+        "wires": [
+            [
+                "sd_d5laVS4z760LyRps"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_SVmBRisZCA8liH2m",
+        "type": "Script",
+        "z": "sd_OefGVbZestbMEEML",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\nbh.receivedTableData = page.receivedTableData['data'];\n\npage.counts = {\n    pendingCounts: [],\n    approvedCounts: [],\n    rejectedCounts: [],\n    totalCounts: bh.receivedTableData.length\n\n}\n\nbh.receivedTableData.forEach(item => {\n    if (item.status == 'Approved') {\n        page.counts.approvedCounts.push(item);\n    } else if (item.status == 'Rejected') {\n        page.counts.rejectedCounts.push(item);\n    } else {\n        page.counts.pendingCounts.push(item);\n    }\n})\n\npage.dashboardCards =[\n    {amount: page?.counts?.totalCounts, topText: 'Total', icon : 'description', cssClass: 'blueBg'},\n    {amount: page?.counts?.pendingCounts?.length, topText: 'Pending', icon : 'hourglass_full', cssClass: 'orangeBg'},\n    {amount: page?.counts?.approvedCounts?.length, topText: 'Approved', icon : 'thumb_up', cssClass: 'greenBg'},\n    {amount: page?.counts?.rejectedCounts?.length, topText: 'Rejected', icon : 'thumb_down', cssClass: 'redBg'},\n];\n",
+        "functionName": "sd_SVmBRisZCA8liH2m",
+        "category": "Function",
+        "x": 525,
+        "y": 140,
+        "wires": [
+            [
+                "sd_d5laVS4z760LyRps"
+            ]
+        ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true

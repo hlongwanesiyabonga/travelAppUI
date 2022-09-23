@@ -593,7 +593,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "//combine the 2 forms\npage.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":null,\n    \"managerApproval\" : {\n        \"approvedRequest\" : null,\n        \"comments\" : \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": new Date().toISOString()\n    };\n    \n\n\nbh.endPoint = (bh.input.reqType) ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method =\"post\";\npage.currentUserTravelDetails =page.formObj",
+        "script": "//combine the 2 forms\npage.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":null,\n    \"managerApproval\" : {\n        \"approvedRequest\" : null,\n        \"comments\" : \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": page.dialogData.datecreated,\n    \"travelRequestType\": page.dialogData.travelRequestType\n    };\n    \n\nbh.endPoint = 'addTravelRequest';\nbh.method =\"post\";\npage.currentUserTravelDetails =page.formObj",
         "functionName": "sd_V2rbLEg3Juf4Nfb1",
         "category": "Function",
         "x": 185,
@@ -929,7 +929,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.showHideElement= true;\nbh.emitValue=bh.input.filteredvalues?.target?.value;",
+        "script": "page.showHideElement= true;\nbh.emitValue=bh.input.filteredvalues?.target?.value;\nconsole.log(page.travelRequestType, 'shit!!!')",
         "functionName": "sd_gLNPSgR1dCC5b2MZ",
         "category": "Function",
         "x": 305,
@@ -1977,18 +1977,20 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "data": "this.page.profileDialog",
+        "data": "this.page.res",
         "functionName": "sd_W6rsPbUeAuFcG4SJ",
         "category": "Dialog",
         "x": 585,
         "y": 800,
         "wires": [
-            []
+            [
+                "sd_ncmiqR4NzcHb5ukx"
+            ]
         ],
         "__ssdTypeInputs__": {
             "data": {
                 "type": "this.page",
-                "value": "profileDialog",
+                "value": "res",
                 "constant": false
             }
         },
@@ -2273,5 +2275,74 @@
         "__n_excludedFromValidation__": {},
         "generateNext": true,
         "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_ncmiqR4NzcHb5ukx",
+        "type": "Script",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": " this.outputVar.emit(page.showDashboard)",
+        "functionName": "sd_ncmiqR4NzcHb5ukx",
+        "category": "Function",
+        "x": 705,
+        "y": 800,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_smLSsWyzNmOgkUu3",
+        "type": "PageStart",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "closeDialog",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "closeDialog",
+        "category": "General",
+        "x": 505,
+        "y": 920,
+        "wires": [
+            [
+                "sd_xCBH60J09UZ4FCmi"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_xCBH60J09UZ4FCmi",
+        "type": "CloseDialog",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.res",
+        "functionName": "sd_xCBH60J09UZ4FCmi",
+        "category": "Dialog",
+        "x": 665,
+        "y": 920,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "res",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
     }
 ]

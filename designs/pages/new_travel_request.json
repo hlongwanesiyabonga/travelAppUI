@@ -586,15 +586,13 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "//combine the 2 forms\npage.formObj = {\n    \"personalDetails\": page.personalDetailsForm.value,\n    \"requestDetails\": bh.input.form.requestDetails,\n    \"status\": null,\n    \"managerApproval\": {\n        \"approvedRequest\": null,\n        \"comments\": \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": new Date(),\n    \"travelRequestType\": page.travelRequestType\n};\n\nbh.endPoint = (bh.input.reqType) ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method = \"post\";\npage.currentUserTravelDetails = page.formObj",
+        "script": "//combine the 2 forms\nconsole.log(page.travelRequestType, 'retype');\npage.formObj = {\n    \"personalDetails\": page.personalDetailsForm.value,\n    \"requestDetails\": bh.input.form.requestDetails,\n    \"status\": null,\n    \"managerApproval\": {\n        \"approvedRequest\": null,\n        \"comments\": \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": new Date(),\n    \"travelRequestType\": page.travelRequestType\n};\n\nbh.endPoint = (bh.input.reqType) ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method = \"post\";\npage.currentUserTravelDetails = page.formObj",
         "functionName": "sd_UTu9MfO7IadBmBxp",
         "category": "Function",
         "x": 185,
         "y": 280,
         "wires": [
-            [
-                "sd_bbaBvYkJ652qvZXA"
-            ]
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -632,7 +630,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    requestedFor: [ ''],\n    requestType: [''],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: [''],\n    passportDocument: [''],\n    visaRequired: [false, [Validators.required]],\n    covidCertificate: ['', page.showVisa ? [Validators.required] :[]],\n   passport: [''],\n    needvehicle: ['No', [Validators.required]],\n    needAccommodation: ['', [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: [false, [Validators.required]],\n    city: [false, [Validators.required]],\n    checkInDate: [''],\n    checkOutDate: [''],\n    checkInTime: [false, [Validators.required]],\n    checkOutTime: [''],\n    employeeComments: ['']\n\n  })\n}));\n\n\n",
+        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    requestedFor: [ ''],\n    requestType: [''],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: [''],\n    passportDocument: [''],\n    visaRequired: ['No', []],\n    covidCertificate: ['', page.showVisa ? [Validators.required] :[]],\n   passport: [''],\n    needvehicle: ['No', [Validators.required]],\n    needAccommodation: ['', [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: [false, [Validators.required]],\n    city: [false, [Validators.required]],\n    checkInDate: [false],\n    checkOutDate: [false],\n    checkInTime: [false],\n    checkOutTime: [false],\n    employeeComments: [false]\n\n  })\n}));\n\n\n",
         "functionName": "sd_LYJcmnJwoRoJ6qQz",
         "category": "Function",
         "x": 905,
@@ -782,7 +780,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "if(bh.input.event.value == \"International\"){\npage.showVisa= true;\n}else{\n    page.showVisa= false;\n}\n",
+        "script": "if(bh.input.event.value == \"International\"){\npage.showVisa = true;\n}else{\n    page.showVisa= false;\n}\n",
         "functionName": "sd_X4aSuU8d6NJHFUCt",
         "category": "Function",
         "x": 190,
@@ -965,7 +963,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.showHideElement= true;\nbh.emitValue=bh.input.filteredvalues?.target?.value;",
+        "script": "page.showHideElement= true;\nbh.emitValue=bh.input.filteredvalues?.target?.value;\n\nconsole.log(page.travelRequestType, '///////')",
         "functionName": "sd_4AsGmhNUvWJ6Kjkr",
         "category": "Function",
         "x": 305,
@@ -1209,8 +1207,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_RhR3LYUVBWeOB74n",
@@ -1280,12 +1277,12 @@
         "y": 280,
         "wires": [
             [
-                "sd_ThmPfpnGhggt2qxH"
+                "sd_ThmPfpnGhggt2qxH",
+                "sd_wWxGnntqC5Z5Jqxn"
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_nQp7Ok4Ni2vmpKyc",
@@ -1454,7 +1451,7 @@
         "flow_type": "sync",
         "functionName": "selectHide",
         "category": "General",
-        "x": 645,
+        "x": 685,
         "y": 280,
         "wires": [
             [
@@ -1475,7 +1472,7 @@
         "script": "if(bh.input.event.value != \"Other\"){\npage.other = false;\n} \n\n\n",
         "functionName": "sd_8T8FKJ0zojGoSQEc",
         "category": "Function",
-        "x": 725,
+        "x": 765,
         "y": 280,
         "wires": [
             []
@@ -1506,7 +1503,7 @@
         "flow_type": "sync",
         "functionName": "toCitySelect",
         "category": "General",
-        "x": 825,
+        "x": 865,
         "y": 280,
         "wires": [
             [
@@ -1527,7 +1524,7 @@
         "script": "if(bh.input.event.value == \"Other\"){\npage.otherToCity = true;\n} \n\n",
         "functionName": "sd_JYH7Y01swLQYwjuy",
         "category": "Function",
-        "x": 925,
+        "x": 965,
         "y": 280,
         "wires": [
             []
@@ -1982,8 +1979,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_U1fqj48F6iGGPMhn",
@@ -2073,5 +2069,23 @@
         "__n_excludedFromValidation__": {},
         "generateNext": true,
         "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_wWxGnntqC5Z5Jqxn",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": " this.outputVar.emit(page.showDashboard)",
+        "functionName": "sd_wWxGnntqC5Z5Jqxn",
+        "category": "Function",
+        "x": 625,
+        "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]

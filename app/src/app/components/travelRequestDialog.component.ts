@@ -8,8 +8,10 @@ import {
   Input,
   Output,
   EventEmitter,
+  ChangeDetectorRef,
   ViewChild,
   ViewChildren,
+  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -412,6 +414,20 @@ export class travelRequestDialogComponent {
     }
   }
 
+  closeDialog(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_xCBH60J09UZ4FCmi(bh);
+      //appendnew_next_closeDialog
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_smLSsWyzNmOgkUu3');
+    }
+  }
+
   //appendnew_flow_travelRequestDialogComponent_start
 
   sd_0D94v0rlivWhVCrS(bh) {
@@ -693,12 +709,11 @@ export class travelRequestDialogComponent {
           comments: '',
         },
         owner: page.personalDetailsForm.value.email,
-        dateCreated: new Date().toISOString(),
+        dateCreated: page.dialogData.datecreated,
+        travelRequestType: page.dialogData.travelRequestType,
       };
 
-      bh.endPoint = bh.input.reqType
-        ? 'addTravelRequest?type=draft'
-        : 'addTravelRequest';
+      bh.endPoint = 'addTravelRequest';
       bh.method = 'post';
       page.currentUserTravelDetails = page.formObj;
       bh = this.sd_ywPdeBxUVIpCOyJh(bh);
@@ -871,6 +886,7 @@ export class travelRequestDialogComponent {
       const page = this.page;
       page.showHideElement = true;
       bh.emitValue = bh.input.filteredvalues?.target?.value;
+      console.log(page.travelRequestType, 'shit!!!');
       bh = this.sd_Ml6PjdblZpS8q4rN(bh);
       //appendnew_next_sd_gLNPSgR1dCC5b2MZ
       return bh;
@@ -1297,12 +1313,36 @@ export class travelRequestDialogComponent {
   sd_W6rsPbUeAuFcG4SJ(bh) {
     try {
       const _dialogRef = this.__page_injector__.get(MatDialogRef);
-      _dialogRef.close(this.page.profileDialog);
+      _dialogRef.close(this.page.res);
 
+      bh = this.sd_ncmiqR4NzcHb5ukx(bh);
       //appendnew_next_sd_W6rsPbUeAuFcG4SJ
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_W6rsPbUeAuFcG4SJ');
+    }
+  }
+
+  sd_ncmiqR4NzcHb5ukx(bh) {
+    try {
+      const page = this.page;
+      this.outputVar.emit(page.showDashboard);
+      //appendnew_next_sd_ncmiqR4NzcHb5ukx
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ncmiqR4NzcHb5ukx');
+    }
+  }
+
+  sd_xCBH60J09UZ4FCmi(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.res);
+
+      //appendnew_next_sd_xCBH60J09UZ4FCmi
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_xCBH60J09UZ4FCmi');
     }
   }
 

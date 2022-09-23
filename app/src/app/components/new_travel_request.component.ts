@@ -25,7 +25,6 @@ import {
   FormBuilder,
   FormArray,
 } from '@angular/forms'; //_splitter_
-import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MatDialogRef } from '@angular/material/dialog'; //_splitter_
 //append_imports_end
@@ -675,6 +674,7 @@ export class new_travel_requestComponent {
   sd_UTu9MfO7IadBmBxp(bh) {
     try {
       const page = this.page; //combine the 2 forms
+      console.log(page.travelRequestType, 'retype');
       page.formObj = {
         personalDetails: page.personalDetailsForm.value,
         requestDetails: bh.input.form.requestDetails,
@@ -693,62 +693,10 @@ export class new_travel_requestComponent {
         : 'addTravelRequest';
       bh.method = 'post';
       page.currentUserTravelDetails = page.formObj;
-      bh = this.sd_bbaBvYkJ652qvZXA(bh);
       //appendnew_next_sd_UTu9MfO7IadBmBxp
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_UTu9MfO7IadBmBxp');
-    }
-  }
-
-  sd_bbaBvYkJ652qvZXA(bh) {
-    try {
-      this.__page_injector__
-        .get(MatSnackBar)
-        .open('Form Has Been Submitted', '', {
-          duration: 3000,
-          direction: 'ltr',
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-      bh = this.sd_RhR3LYUVBWeOB74n(bh);
-      //appendnew_next_sd_bbaBvYkJ652qvZXA
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_bbaBvYkJ652qvZXA');
-    }
-  }
-
-  async sd_RhR3LYUVBWeOB74n(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        this.page.formObj
-      );
-      bh.response = outputVariables.local.result;
-
-      bh = this.sd_ThmPfpnGhggt2qxH(bh);
-      //appendnew_next_sd_RhR3LYUVBWeOB74n
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_RhR3LYUVBWeOB74n');
-    }
-  }
-
-  sd_ThmPfpnGhggt2qxH(bh) {
-    try {
-      localStorage.setItem(
-        'currentUserTravelDetails',
-        JSON.stringify(this.page.currentUserTravelDetails)
-      );
-      //appendnew_next_sd_ThmPfpnGhggt2qxH
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ThmPfpnGhggt2qxH');
     }
   }
 
@@ -772,7 +720,7 @@ export class new_travel_requestComponent {
             preferredTime: ['', [Validators.required]],
             travelerComments: [''],
             passportDocument: [''],
-            visaRequired: [false, [Validators.required]],
+            visaRequired: ['No', []],
             covidCertificate: ['', page.showVisa ? [Validators.required] : []],
             passport: [''],
             needvehicle: ['No', [Validators.required]],
@@ -781,11 +729,11 @@ export class new_travel_requestComponent {
           accommodationDetails: page.Fb.group({
             accommodationPreference: [false, [Validators.required]],
             city: [false, [Validators.required]],
-            checkInDate: [''],
-            checkOutDate: [''],
-            checkInTime: [false, [Validators.required]],
-            checkOutTime: [''],
-            employeeComments: [''],
+            checkInDate: [false],
+            checkOutDate: [false],
+            checkInTime: [false],
+            checkOutTime: [false],
+            employeeComments: [false],
           }),
         })
       );
@@ -862,6 +810,8 @@ export class new_travel_requestComponent {
       const page = this.page;
       page.showHideElement = true;
       bh.emitValue = bh.input.filteredvalues?.target?.value;
+
+      console.log(page.travelRequestType, '///////');
       bh = this.sd_CFZe2HLNQwcREGZX(bh);
       //appendnew_next_sd_4AsGmhNUvWJ6Kjkr
       return bh;

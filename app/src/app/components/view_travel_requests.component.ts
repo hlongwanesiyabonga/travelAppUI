@@ -8,8 +8,10 @@ import {
   Input,
   Output,
   EventEmitter,
+  ChangeDetectorRef,
   ViewChild,
   ViewChildren,
+  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -188,6 +190,7 @@ export class view_travel_requestsComponent {
       this.page.receivedTableData = [];
       this.page.email = undefined;
       this.page.select = undefined;
+      this.page.counts = {};
       bh = this.sd_LXI6ABPdqGPWtVPw(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
@@ -217,49 +220,10 @@ export class view_travel_requestsComponent {
     try {
       let outputVariables = this.getTravelRequests();
 
-      bh = this.sd_BSTpLgaf8MQyg93d(bh);
       //appendnew_next_sd_SSbGg5g6eV3KHa01
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_SSbGg5g6eV3KHa01');
-    }
-  }
-
-  sd_BSTpLgaf8MQyg93d(bh) {
-    try {
-      const page = this.page;
-      page.dashboardCards = [
-        {
-          amount: 15,
-          topText: 'Total',
-          icon: 'description',
-          cssClass: 'blueBg',
-        },
-        {
-          amount: 6,
-          topText: 'Pending',
-          icon: 'hourglass_full',
-          cssClass: 'orangeBg',
-        },
-        {
-          amount: 5,
-          topText: 'Approved',
-          icon: 'thumb_up',
-          cssClass: 'greenBg',
-        },
-        {
-          amount: 4,
-          topText: 'Rejected',
-          icon: 'thumb_down',
-          cssClass: 'redBg',
-        },
-      ];
-
-      console.log(page.currentUserDetails, 'ffffffffffuuuuuuuucccccckkkkkk');
-      //appendnew_next_sd_BSTpLgaf8MQyg93d
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_BSTpLgaf8MQyg93d');
     }
   }
 
@@ -303,11 +267,72 @@ export class view_travel_requestsComponent {
       );
       this.page.receivedTableData = outputVariables.local.result;
 
-      bh = this.logTable(bh);
+      bh = this.sd_SVmBRisZCA8liH2m(bh);
       //appendnew_next_sd_bC5p0BEPQlu4QyLn
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_bC5p0BEPQlu4QyLn');
+    }
+  }
+
+  sd_SVmBRisZCA8liH2m(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      bh.endPoint =
+        'travelRequests/getTravelRequests?owner=' +
+        page.currentUserDetails.email;
+      bh.receivedTableData = page.receivedTableData['data'];
+
+      page.counts = {
+        pendingCounts: [],
+        approvedCounts: [],
+        rejectedCounts: [],
+        totalCounts: bh.receivedTableData.length,
+      };
+
+      bh.receivedTableData.forEach((item) => {
+        if (item.status == 'Approved') {
+          page.counts.approvedCounts.push(item);
+        } else if (item.status == 'Rejected') {
+          page.counts.rejectedCounts.push(item);
+        } else {
+          page.counts.pendingCounts.push(item);
+        }
+      });
+
+      page.dashboardCards = [
+        {
+          amount: page?.counts?.totalCounts,
+          topText: 'Total',
+          icon: 'description',
+          cssClass: 'blueBg',
+        },
+        {
+          amount: page?.counts?.pendingCounts?.length,
+          topText: 'Pending',
+          icon: 'hourglass_full',
+          cssClass: 'orangeBg',
+        },
+        {
+          amount: page?.counts?.approvedCounts?.length,
+          topText: 'Approved',
+          icon: 'thumb_up',
+          cssClass: 'greenBg',
+        },
+        {
+          amount: page?.counts?.rejectedCounts?.length,
+          topText: 'Rejected',
+          icon: 'thumb_down',
+          cssClass: 'redBg',
+        },
+      ];
+
+      bh = this.logTable(bh);
+      //appendnew_next_sd_SVmBRisZCA8liH2m
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_SVmBRisZCA8liH2m');
     }
   }
 
@@ -342,10 +367,10 @@ export class view_travel_requestsComponent {
       const page = this.page;
       let tableData = [];
       let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
-      let temp = {};
       let tableSetup = {
         traveler: {
           tableHeaders: [
+            'Owner',
             'Date Created',
             'Trip Type',
             'Travel Mode',
@@ -355,6 +380,7 @@ export class view_travel_requestsComponent {
             'Action',
           ],
           tableCells: [
+            'owner',
             'dateCreated',
             `tripType`,
             'travelMode',
@@ -371,7 +397,9 @@ export class view_travel_requestsComponent {
         (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
       page.tableCells = tableSetup[bh.role]['tableCells'];
       page.receivedTableData['data'].forEach((el) => {
+        let temp = {};
         temp['_id'] = el['_id'];
+        temp['owner'] = el['owner'];
         temp['status'] = el['status'];
         temp['dateCreated'] = el['dateCreated'];
         temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
@@ -506,11 +534,31 @@ export class view_travel_requestsComponent {
       bh.endPoint =
         'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
         page.email;
-      bh = this.sd_bC5p0BEPQlu4QyLn(bh);
+      bh = this.sd_NkxgCnpOljpjI5HQ(bh);
       //appendnew_next_sd_ddvJTJeq8er1YH6q
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ddvJTJeq8er1YH6q');
+    }
+  }
+
+  async sd_NkxgCnpOljpjI5HQ(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.receivedTableData = outputVariables.local.result;
+
+      bh = this.logTable(bh);
+      //appendnew_next_sd_NkxgCnpOljpjI5HQ
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_NkxgCnpOljpjI5HQ');
     }
   }
 

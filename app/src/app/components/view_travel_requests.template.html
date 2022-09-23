@@ -44,9 +44,9 @@
             </th>
 
             <td mat-cell *matCellDef="let element; let INDEX = index;" matTooltipPosition="right" matTooltip="{{element[column]}}" class="tableCellsTruncate textAlignLeft">
-              <span *ngIf="page.tableHeaders[i] == &apos;dateCreated&apos;" class="noWhiteSpace">{{element[column] | date:&apos;medium&apos;}}</span>
-              <span *ngIf="page.tableHeaders[i] !== &apos;dateCreated&apos;">{{element[column]}}</span>
-              <span *ngIf="page.tableCells[i] == &apos;action&apos;"><mat-icon *ngIf="element.status !=&apos;Approved&apos; || element.status !=&apos;Rejected&apos;" (click)="openViewRequest(element._id)" class="editTableIcon">edit</mat-icon><mat-icon class="viewTableIcon">visibility</mat-icon></span>
+              <span *ngIf="page.tableCells[i] == &apos;dateCreated&apos;" class="noWhiteSpace">{{element[column] | date:&apos;short&apos;}}</span>
+              <span *ngIf="page.tableCells[i] !== &apos;dateCreated&apos;">{{element[column]}}</span>
+              <span *ngIf="page.tableCells[i] == &apos;action&apos;"> <mat-icon [fxHide]="(element[&apos;status&apos;] == &apos;Rejected&apos; || element[&apos;status&apos;] == &apos;Approved&apos;) &amp;&amp; (page.currentUserDetails.designation.includes(&apos;Manager&apos;) &amp;&amp; page.currentUserDetails.email == element[&apos;owner&apos;])" (click)="openViewRequest(element._id)" class="editTableIcon">edit</mat-icon><mat-icon class="viewTableIcon">visibility</mat-icon></span>
             </td>
           </ng-container>
 

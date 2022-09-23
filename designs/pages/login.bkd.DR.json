@@ -275,7 +275,7 @@
                             },
                             {
                                 "_key": "imgSrc",
-                                "_value": "/Web/neutrinos-logo.png",
+                                "_value": "/Web/image/neutrinos-logo.png",
                                 "_type": "kv",
                                 "_attrDef": "p"
                             },

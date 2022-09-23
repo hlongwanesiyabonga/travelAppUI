@@ -120,6 +120,7 @@ export const appRoutes = [
       { path: 'new-request', component: new_travel_requestComponent },
     ],
   },
+  { path: 'login', component: loginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
