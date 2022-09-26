@@ -8,10 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
-  ChangeDetectorRef,
   ViewChild,
   ViewChildren,
-  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -529,11 +527,10 @@ export class view_travel_requestsComponent {
   sd_ddvJTJeq8er1YH6q(bh) {
     try {
       const page = this.page;
-      page.email = 'neutrinostravellm@gmail.com';
       bh.method = 'get';
       bh.endPoint =
         'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
-        page.email;
+        page.currentUserDetails.email;
       bh = this.sd_NkxgCnpOljpjI5HQ(bh);
       //appendnew_next_sd_ddvJTJeq8er1YH6q
       return bh;

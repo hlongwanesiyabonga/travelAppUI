@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -89,7 +91,7 @@ export class new_travel_requestComponent {
     }
   }
 
-  onFileChange(event: any = undefined, ...others) {
+  onFileChangePassport(event: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
@@ -97,7 +99,7 @@ export class new_travel_requestComponent {
       bh.input = { event: event };
       bh.local = {};
       bh = this.sd_L8dj6KHB0MWU3lHf(bh);
-      //appendnew_next_onFileChange
+      //appendnew_next_onFileChangePassport
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_dQi0ZDxCALyvvKO5');
     }
@@ -387,16 +389,17 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_XdwsStmGaMiNR4FX(...others) {
+  onFileChangeCovidCertificate(event: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { event: event };
       bh.local = {};
-      //appendnew_next_sd_XdwsStmGaMiNR4FX
+      bh = this.sd_NdOb38LF45BXgFu7(bh);
+      //appendnew_next_onFileChangeCovidCertificate
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_XdwsStmGaMiNR4FX');
+      return this.errorHandler(bh, e, 'sd_0838gPBNC7BDXI7r');
     }
   }
 
@@ -431,6 +434,8 @@ export class new_travel_requestComponent {
       this.page.filterPersonalDetail = [];
       this.page.tempArr = undefined;
       this.page.travelRequestType = undefined;
+      this.page.passportBase64 = undefined;
+      this.page.covidBase64 = undefined;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;
@@ -468,9 +473,10 @@ export class new_travel_requestComponent {
       ];
       page.city = [
         { viewvalue: 'Cape Town' },
-        { viewvalue: 'Johnnesburg' },
+        { viewvalue: 'Johannesburg' },
         { viewvalue: 'Bangalore' },
         { viewvalue: 'New York' },
+        { viewvalue: 'Brisbane' },
         { viewvalue: 'Other' },
       ];
       page.travelType = [
@@ -498,6 +504,7 @@ export class new_travel_requestComponent {
         { viewvalue: 'Meeting' },
         { viewvalue: 'Shootout' },
         { viewvalue: 'Sales' },
+        { viewvalue: 'Project Continuation' },
       ];
       page.accomodationPreferance = [
         { viewvalue: 'hotel' },
@@ -657,11 +664,15 @@ export class new_travel_requestComponent {
       const page = this.page;
       if (bh.input.event.target.files.length > 0) {
         const file = bh.input.event.target.files[0];
-        const reader = new FileReader();
+        var reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => {};
+        reader.onload = function () {
+          page.passportBase64 = reader.result;
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
       }
-
       //appendnew_next_sd_L8dj6KHB0MWU3lHf
       return bh;
     } catch (e) {
@@ -685,6 +696,14 @@ export class new_travel_requestComponent {
         dateCreated: new Date(),
         travelRequestType: page.travelRequestType,
       };
+      let tempDetails = [];
+      page.formObj.requestDetails.forEach((detail) => {
+        detail['travelDetails']['passportDocument'] = page.passportBase64;
+        detail['travelDetails']['covidCertificate'] = page.covidBase64;
+        tempDetails.push(detail);
+      });
+      page.formObj.requestDetails = tempDetails;
+      console.log(page.formObj, 'form');
 
       bh.endPoint = bh.input.reqType
         ? 'addTravelRequest?type=draft'
@@ -767,21 +786,23 @@ export class new_travel_requestComponent {
             requestType: [''],
             preferredTime: ['', [Validators.required]],
             travelerComments: [''],
-            passportDocument: [''],
-            visaRequired: ['No', []],
-            covidCertificate: ['', page.showVisa ? [Validators.required] : []],
-            passport: [''],
-            needvehicle: ['No', [Validators.required]],
+            passportDocument: [page.passportBase64],
+            visaRequired: [''],
+            covidCertificate: [
+              page.covidBase64,
+              page.showVisa ? [Validators.required] : [],
+            ],
+            needvehicle: ['', [Validators.required]],
             needAccommodation: ['', [Validators.required]],
           }),
           accommodationDetails: page.Fb.group({
             accommodationPreference: [false, [Validators.required]],
             city: [false, [Validators.required]],
-            checkInDate: [false],
-            checkOutDate: [false],
-            checkInTime: [false],
-            checkOutTime: [false],
-            employeeComments: [false],
+            checkInDate: [''],
+            checkOutDate: [''],
+            checkInTime: [''],
+            checkOutTime: [''],
+            employeeComments: [''],
           }),
         })
       );
@@ -1108,6 +1129,28 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_kmo6VghNM9qfNdtp');
+    }
+  }
+
+  sd_NdOb38LF45BXgFu7(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.target.files.length > 0) {
+        const file = bh.input.event.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          page.covidBase64 = reader.result;
+          console.log(page.covidBase64);
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
+      }
+      //appendnew_next_sd_NdOb38LF45BXgFu7
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_NdOb38LF45BXgFu7');
     }
   }
 

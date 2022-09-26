@@ -151,7 +151,7 @@
         "functionName": "sd_9DF1Fu5s1DNEsmYT",
         "category": "Function",
         "x": 385,
-        "y": 60,
+        "y": 80,
         "wires": [
             [
                 "sd_w8eStMhAcIG7jxxh"
@@ -314,7 +314,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.profileForm.patchValue(page.personalDetails);\n",
+        "script": "page.personalDetails.designation = page.personalDetails.designation.toString();\npage.profileForm.patchValue(page.personalDetails);\nconsole.log(page.personalDetails.designation.includes(\"Line Manager\"));",
         "functionName": "sd_82pZJpednRsfaIA8",
         "category": "Function",
         "x": 705,

@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -256,8 +258,8 @@ export class loginComponent {
   sd_icEjpnoC8D5oXEcL(bh) {
     try {
       const page = this.page;
+      bh.local.response.designation = bh.local.response.designation.toString();
       console.log(bh.local.response, 'yyy');
-      // bh.local.response = bh.local.response[0]
       bh = this.sd_UPp1ycwAW0SwTrgX(bh);
       //appendnew_next_sd_icEjpnoC8D5oXEcL
       return bh;

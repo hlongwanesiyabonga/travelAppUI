@@ -535,7 +535,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(bh.local.response, 'yyy')\n// bh.local.response = bh.local.response[0]",
+        "script": "bh.local.response.designation= bh.local.response.designation.toString()\nconsole.log(bh.local.response, 'yyy')",
         "functionName": "sd_icEjpnoC8D5oXEcL",
         "category": "Function",
         "x": 725,

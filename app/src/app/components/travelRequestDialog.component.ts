@@ -8,10 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
-  ChangeDetectorRef,
   ViewChild,
   ViewChildren,
-  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -28,6 +26,7 @@ import {
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'; //_splitter_
+import { DomSanitizer } from '@angular/platform-browser'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -421,10 +420,52 @@ export class travelRequestDialogComponent {
         .constructFlowObject(this);
       bh.input = {};
       bh.local = {};
-      bh = this.sd_xCBH60J09UZ4FCmi(bh);
+      bh = this.sd_W6rsPbUeAuFcG4SJ(bh);
       //appendnew_next_closeDialog
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_smLSsWyzNmOgkUu3');
+    }
+  }
+
+  uploadQuote(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_wdMwi9ZbLAlxRxH8(bh);
+      //appendnew_next_uploadQuote
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_r41KO2mAGq6SKWF0');
+    }
+  }
+
+  submitQuote(form: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { form: form };
+      bh.local = {};
+      bh = this.sd_ncxKDlycwDA2XZ7r(bh);
+      //appendnew_next_submitQuote
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_DZ9EGXgcP0TVId8R');
+    }
+  }
+
+  getQuote(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_oG1Uf2X2x8G6qZa1(bh);
+      //appendnew_next_getQuote
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_0oCS5xYt5FlnnR4v');
     }
   }
 
@@ -460,6 +501,9 @@ export class travelRequestDialogComponent {
       this.page.tempArr = undefined;
       this.page.travelRequestType = undefined;
       this.page.status = undefined;
+      this.page.quoteForm = {};
+      this.page.quoteFromDB = '';
+      this.page.quotes = [];
       bh = this.sd_zOe59wrgU7Wsi6yz(bh);
       //appendnew_next_sd_0D94v0rlivWhVCrS
       return bh;
@@ -497,9 +541,10 @@ export class travelRequestDialogComponent {
       ];
       page.city = [
         { viewvalue: 'Cape Town' },
-        { viewvalue: 'Johnnesburg' },
+        { viewvalue: 'Johannesburg' },
         { viewvalue: 'Bangalore' },
         { viewvalue: 'New York' },
+        { viewvalue: 'Brisbane' },
         { viewvalue: 'Other' },
       ];
       page.travelType = [
@@ -527,6 +572,7 @@ export class travelRequestDialogComponent {
         { viewvalue: 'Meeting' },
         { viewvalue: 'Shootout' },
         { viewvalue: 'Sales' },
+        { viewvalue: 'Project Continuation' },
       ];
       page.accomodationPreferance = [
         { viewvalue: 'hotel' },
@@ -1148,7 +1194,6 @@ export class travelRequestDialogComponent {
       );
       page.travelRequestType = page.dialogData['travelRequestType'];
       page.dialogData.requestDetails.forEach((requestDetail) => {
-        console.log('requestDetail', requestDetail);
         page.travelForm.get('requestDetails').push(
           new FormGroup({
             travelDetails: page.Fb.group({
@@ -1241,6 +1286,7 @@ export class travelRequestDialogComponent {
 
       console.log(page.dialogData, '_idddddd 333633');
 
+      bh = this.sd_cJE31LAw8f5oCIgL(bh);
       //appendnew_next_sd_bcNXeTciGHvpGsHn
       return bh;
     } catch (e) {
@@ -1248,9 +1294,21 @@ export class travelRequestDialogComponent {
     }
   }
 
+  sd_cJE31LAw8f5oCIgL(bh) {
+    try {
+      let outputVariables = this.getQuote();
+
+      //appendnew_next_sd_cJE31LAw8f5oCIgL
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_cJE31LAw8f5oCIgL');
+    }
+  }
+
   sd_5F5jcmXlhCIMy6Bx(bh) {
     try {
       const page = this.page;
+      console.log(bh.input.status, 'ssss');
       page.formObj = {
         personalDetails: page.personalDetailsForm.value,
         requestDetails: bh.input.form.requestDetails,
@@ -1296,11 +1354,7 @@ export class travelRequestDialogComponent {
 
   sd_yBPeEJgoe1VPrAad(bh) {
     try {
-      const page = this.page; // let personalDetails = page.allPersonalDetails.find(el => bh.input.event.option.value == el.email)
-      // if (personalDetails) {
-      //     personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth'])
-      //     page.personalDetailsForm.patchValue(personalDetails);
-      // }
+      const page = this.page;
       console.log(bh.result, 'status');
       bh = this.sd_W6rsPbUeAuFcG4SJ(bh);
       //appendnew_next_sd_yBPeEJgoe1VPrAad
@@ -1313,9 +1367,8 @@ export class travelRequestDialogComponent {
   sd_W6rsPbUeAuFcG4SJ(bh) {
     try {
       const _dialogRef = this.__page_injector__.get(MatDialogRef);
-      _dialogRef.close(this.page.res);
+      _dialogRef.close(bh.local.res);
 
-      bh = this.sd_ncmiqR4NzcHb5ukx(bh);
       //appendnew_next_sd_W6rsPbUeAuFcG4SJ
       return bh;
     } catch (e) {
@@ -1323,26 +1376,124 @@ export class travelRequestDialogComponent {
     }
   }
 
-  sd_ncmiqR4NzcHb5ukx(bh) {
+  sd_wdMwi9ZbLAlxRxH8(bh) {
     try {
       const page = this.page;
-      this.outputVar.emit(page.showDashboard);
-      //appendnew_next_sd_ncmiqR4NzcHb5ukx
+      if (bh.input.event.target.files.length > 0) {
+        const file = bh.input.event.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          page.quoteForm.quote = reader.result;
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
+      }
+
+      //appendnew_next_sd_wdMwi9ZbLAlxRxH8
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ncmiqR4NzcHb5ukx');
+      return this.errorHandler(bh, e, 'sd_wdMwi9ZbLAlxRxH8');
     }
   }
 
-  sd_xCBH60J09UZ4FCmi(bh) {
+  sd_ncxKDlycwDA2XZ7r(bh) {
     try {
-      const _dialogRef = this.__page_injector__.get(MatDialogRef);
-      _dialogRef.close(this.page.res);
+      const page = this.page;
+      page.quoteForm.owner = page.dialogData._id;
+      page.quoteForm.tempObj = page.dialogData;
+      console.log('mxm', page.quoteForm);
+      bh.method = 'put';
+      bh.endPoint = 'uploadQuote';
 
-      //appendnew_next_sd_xCBH60J09UZ4FCmi
+      bh = this.sd_PXnJi80nbubCd7TJ(bh);
+      //appendnew_next_sd_ncxKDlycwDA2XZ7r
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_xCBH60J09UZ4FCmi');
+      return this.errorHandler(bh, e, 'sd_ncxKDlycwDA2XZ7r');
+    }
+  }
+
+  async sd_PXnJi80nbubCd7TJ(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        this.page.quoteForm
+      );
+      bh.result = outputVariables.local.result;
+
+      bh = this.sd_W6rsPbUeAuFcG4SJ(bh);
+      //appendnew_next_sd_PXnJi80nbubCd7TJ
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_PXnJi80nbubCd7TJ');
+    }
+  }
+
+  sd_oG1Uf2X2x8G6qZa1(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      bh.endPoint = 'getQuote?owner=' + page.dialogData._id;
+
+      bh = this.sd_DLO6MYy6pX5Q7vGG(bh);
+      //appendnew_next_sd_oG1Uf2X2x8G6qZa1
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_oG1Uf2X2x8G6qZa1');
+    }
+  }
+
+  async sd_DLO6MYy6pX5Q7vGG(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.quoteFromDB = outputVariables.local.result;
+
+      bh = this.sd_gGwnk2jlmuCL45q5(bh);
+      //appendnew_next_sd_DLO6MYy6pX5Q7vGG
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_DLO6MYy6pX5Q7vGG');
+    }
+  }
+
+  sd_gGwnk2jlmuCL45q5(bh) {
+    try {
+      this.page.sanitizer = this.__page_injector__.get(DomSanitizer);
+      bh = this.sd_Jhurd9NWmbHPFsqu(bh);
+      //appendnew_next_sd_gGwnk2jlmuCL45q5
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_gGwnk2jlmuCL45q5');
+    }
+  }
+
+  sd_Jhurd9NWmbHPFsqu(bh) {
+    try {
+      const page = this.page;
+      page.quotes = page.quoteFromDB['data'];
+      // .forEach(quote => {
+      //     page.sanitizer.bypassSecurityTrustResourceUrl(quote['quote']);
+      //     page.quotes.push(quote);
+      // })
+
+      console.log(page.quotes, ' zzzzz');
+      //appendnew_next_sd_Jhurd9NWmbHPFsqu
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Jhurd9NWmbHPFsqu');
     }
   }
 

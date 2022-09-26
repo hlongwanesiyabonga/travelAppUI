@@ -36,7 +36,9 @@
       </div>
     </div>
     <div fxLayout="row wrap" class="mainContent" fxLayoutAlign="start stretch" [fxShow]="true">
-      <div class="dynamicTableContainer">
+      <h1 *ngIf="page?.receivedTableData?.data?.length == 0" class="dynamicTableContainer">
+        No current requests</h1>
+      <div *ngIf="page?.receivedTableData?.data?.length &gt; 0" class="dynamicTableContainer">
         <table mat-table [dataSource]="page?.tableData" #tableData class="fullWidth dynamicTable" matSort>
           <ng-container *ngFor="let column of page.tableCells; let i = index" [matColumnDef]="column">
             <th mat-header-cell *matHeaderCellDef [mat-sort-header]="page.tableHeaders[i]" class="noWrap">

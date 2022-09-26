@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -209,8 +211,10 @@ export class profile_dialogComponent {
   sd_82pZJpednRsfaIA8(bh) {
     try {
       const page = this.page;
+      page.personalDetails.designation =
+        page.personalDetails.designation.toString();
       page.profileForm.patchValue(page.personalDetails);
-
+      console.log(page.personalDetails.designation.includes('Line Manager'));
       //appendnew_next_sd_82pZJpednRsfaIA8
       return bh;
     } catch (e) {

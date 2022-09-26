@@ -247,6 +247,27 @@
                     "type": "literal",
                     "value": ""
                 }
+            },
+            {
+                "textIp": "quoteForm",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "quoteFromDB",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "''"
+                }
+            },
+            {
+                "textIp": "quotes",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
             }
         ],
         "functionName": "sd_0D94v0rlivWhVCrS",
@@ -402,7 +423,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "select Data",
-        "script": "page.identification =[ {viewvalue : \"ID Number\"},{viewvalue : \"PAN Number\"},{viewvalue : \"Passoprt Number\"} ]\npage.options =  [{viewvalue : \"Yes\"},{viewvalue : \"No\"},{viewvalue : \"Unsure\"}];\npage.city =[{viewvalue: \"Cape Town\"},{viewvalue: \"Johnnesburg\"},{viewvalue: \"Bangalore\"},{viewvalue: \"New York\"},{viewvalue: \"Other\"}]\npage.travelType = [{viewvalue : \"International\"},{viewvalue : \"Domestic\"}];\npage.travelMode = [{viewvalue: \"Road\"},{viewvalue: \"Airway\"},{viewvalue: \"Railway\"}];\npage.nationality = [{viewvalue: \"South African\"},{viewvalue: \"Asian\"},{viewvalue: \"Eurpoean\"},{viewvalue: \"Indian\"},{viewvalue: \"Other\"}];\npage.gender =  [{viewvalue: \"Male\"},{viewvalue: \"Female\"},{viewvalue: \"Other\"}];\npage.purposeOfTravel = [{viewvalue: \"Meeting\"},{viewvalue: \"Shootout\"},{viewvalue: \"Sales\"}];\npage.accomodationPreferance =[{viewvalue: \"hotel\"},{viewvalue: \"B&B\"}]",
+        "script": "page.identification =[ {viewvalue : \"ID Number\"},{viewvalue : \"PAN Number\"},{viewvalue : \"Passoprt Number\"} ]\npage.options =  [{viewvalue : \"Yes\"},{viewvalue : \"No\"},{viewvalue : \"Unsure\"}];\npage.city =[{viewvalue: \"Cape Town\"},{viewvalue: \"Johannesburg\"},{viewvalue: \"Bangalore\"},{viewvalue: \"New York\"},{viewvalue: \"Brisbane\"},{viewvalue: \"Other\"}]\npage.travelType = [{viewvalue : \"International\"},{viewvalue : \"Domestic\"}];\npage.travelMode = [{viewvalue: \"Road\"},{viewvalue: \"Airway\"},{viewvalue: \"Railway\"}];\npage.nationality = [{viewvalue: \"South African\"},{viewvalue: \"Asian\"},{viewvalue: \"Eurpoean\"},{viewvalue: \"Indian\"},{viewvalue: \"Other\"}];\npage.gender =  [{viewvalue: \"Male\"},{viewvalue: \"Female\"},{viewvalue: \"Other\"}];\npage.purposeOfTravel = [{viewvalue: \"Meeting\"},{viewvalue: \"Shootout\"},{viewvalue: \"Sales\"},{viewvalue: \"Project Continuation\"}];\npage.accomodationPreferance =[{viewvalue: \"hotel\"},{viewvalue: \"B&B\"}]",
         "functionName": "selectData",
         "category": "Function",
         "x": 465,
@@ -887,7 +908,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_TC45UabBaDMlmEz1",
@@ -941,7 +963,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_ZRO3ydycIQAsRNVF",
@@ -1977,19 +2000,17 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "data": "this.page.res",
+        "data": "bh.local.res",
         "functionName": "sd_W6rsPbUeAuFcG4SJ",
         "category": "Dialog",
         "x": 585,
         "y": 800,
         "wires": [
-            [
-                "sd_ncmiqR4NzcHb5ukx"
-            ]
+            []
         ],
         "__ssdTypeInputs__": {
             "data": {
-                "type": "this.page",
+                "type": "bh.local",
                 "value": "res",
                 "constant": false
             }
@@ -2033,13 +2054,15 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.dialogData['dateOfBirth'] = new Date(page.dialogData['dateOfBirth'])\npage.personalDetailsForm.patchValue(page.dialogData.personalDetails);\npage.travelForm.patchValue(page.dialogData.requestDetails[0].travelDetails);\npage.travelRequestType = page.dialogData['travelRequestType']\npage.dialogData.requestDetails.forEach(requestDetail => {\n    console.log(\"requestDetail\",requestDetail)\n    page.travelForm.get('requestDetails').push(new FormGroup({\n        travelDetails: page.Fb.group({\n            travelMode: [requestDetail.travelDetails.travelMode, [Validators.required]],\n            travelType: [requestDetail.travelDetails.travelType, [Validators.required]],\n            travelRequestType: [false, [Validators.required]],\n            travelPurpose: [requestDetail.travelDetails.travelPurpose, [Validators.required]],\n            projectID: [requestDetail.travelDetails.projectID, [Validators.required]],\n            fromCity: [requestDetail.travelDetails.fromCity, [Validators.required]],\n            toCity: [requestDetail.travelDetails.toCity, [Validators.required]],\n            fromDate: [requestDetail.travelDetails.fromDate, [Validators.required]],\n            toDate: [requestDetail.travelDetails.toDate, [Validators.required]],\n            tripType: [requestDetail.travelDetails.tripType, [Validators.required]],\n            requestedFor: [requestDetail.travelDetails.requestedFor],\n            requestType: [requestDetail.travelDetails.requestType],\n            preferredTime: [requestDetail.travelDetails.preferredTime, [Validators.required]],\n            travelerComments: [requestDetail.travelDetails.travelerComments],\n            passportDocument: [requestDetail.travelDetails.passportDocument],\n            visaRequired: [requestDetail.travelDetails.visaRequired, [Validators.required]],\n            covidCertificate: [requestDetail.travelDetails.covidCertificate, page.showVisa ? [Validators.required] : []],\n            passport: [requestDetail.travelDetails.passport],\n            needvehicle: [requestDetail.travelDetails.needvehicle, [Validators.required]],\n            needAccommodation: [requestDetail.travelDetails.needAccommodation, [Validators.required]]\n        }),\n        accommodationDetails: page.Fb.group({\n            accommodationPreference: [requestDetail.accommodationDetails.accommodationPreference, [Validators.required]],\n            city: [requestDetail.accommodationDetails.city, [Validators.required]],\n            checkInDate: [requestDetail.accommodationDetails.checkInDate],\n            checkOutDate: [requestDetail.accommodationDetails.checkOutDate],\n            checkInTime: [requestDetail.accommodationDetails.checkInTime, [Validators.required]],\n            checkOutTime: [requestDetail.accommodationDetails.checkOutTime],\n            employeeComments: [requestDetail.accommodationDetails.employeeComments]\n        })\n    }));\n})\n\nconsole.log(page.dialogData, '_idddddd 333633')\n",
+        "script": "page.dialogData['dateOfBirth'] = new Date(page.dialogData['dateOfBirth'])\npage.personalDetailsForm.patchValue(page.dialogData.personalDetails);\npage.travelForm.patchValue(page.dialogData.requestDetails[0].travelDetails);\npage.travelRequestType = page.dialogData['travelRequestType']\npage.dialogData.requestDetails.forEach(requestDetail => {\n    page.travelForm.get('requestDetails').push(new FormGroup({\n        travelDetails: page.Fb.group({\n            travelMode: [requestDetail.travelDetails.travelMode, [Validators.required]],\n            travelType: [requestDetail.travelDetails.travelType, [Validators.required]],\n            travelRequestType: [false, [Validators.required]],\n            travelPurpose: [requestDetail.travelDetails.travelPurpose, [Validators.required]],\n            projectID: [requestDetail.travelDetails.projectID, [Validators.required]],\n            fromCity: [requestDetail.travelDetails.fromCity, [Validators.required]],\n            toCity: [requestDetail.travelDetails.toCity, [Validators.required]],\n            fromDate: [requestDetail.travelDetails.fromDate, [Validators.required]],\n            toDate: [requestDetail.travelDetails.toDate, [Validators.required]],\n            tripType: [requestDetail.travelDetails.tripType, [Validators.required]],\n            requestedFor: [requestDetail.travelDetails.requestedFor],\n            requestType: [requestDetail.travelDetails.requestType],\n            preferredTime: [requestDetail.travelDetails.preferredTime, [Validators.required]],\n            travelerComments: [requestDetail.travelDetails.travelerComments],\n            passportDocument: [requestDetail.travelDetails.passportDocument],\n            visaRequired: [requestDetail.travelDetails.visaRequired, [Validators.required]],\n            covidCertificate: [requestDetail.travelDetails.covidCertificate, page.showVisa ? [Validators.required] : []],\n            passport: [requestDetail.travelDetails.passport],\n            needvehicle: [requestDetail.travelDetails.needvehicle, [Validators.required]],\n            needAccommodation: [requestDetail.travelDetails.needAccommodation, [Validators.required]]\n        }),\n        accommodationDetails: page.Fb.group({\n            accommodationPreference: [requestDetail.accommodationDetails.accommodationPreference, [Validators.required]],\n            city: [requestDetail.accommodationDetails.city, [Validators.required]],\n            checkInDate: [requestDetail.accommodationDetails.checkInDate],\n            checkOutDate: [requestDetail.accommodationDetails.checkOutDate],\n            checkInTime: [requestDetail.accommodationDetails.checkInTime, [Validators.required]],\n            checkOutTime: [requestDetail.accommodationDetails.checkOutTime],\n            employeeComments: [requestDetail.accommodationDetails.employeeComments]\n        })\n    }));\n})\n\nconsole.log(page.dialogData, '_idddddd 333633')\n",
         "functionName": "sd_bcNXeTciGHvpGsHn",
         "category": "Function",
-        "x": 1570,
-        "y": 280,
+        "x": 1545,
+        "y": 260,
         "wires": [
-            []
+            [
+                "sd_cJE31LAw8f5oCIgL"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -2097,11 +2120,10 @@
         "serviceImportPath": "./travelRequestDialog",
         "startName": "prepopulateDialogData",
         "inputParams": [],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_5JxqTFveX4y0jIsM",
         "category": "General",
-        "x": 1445,
+        "x": 1365,
         "y": 80,
         "wires": [
             []
@@ -2117,7 +2139,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\": page.dialogData.status,\n    \"managerApproval\" : {\n        \"approvedRequest\": bh.input.status,\n        \"comments\" : \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": page.dialogData.dateCreated\n    };\n\n    console.log(page.formObj, 'formmmmm')\nbh.method = 'put';\nbh.endPoint = \"updateRequestStatus/\" + page.dialogData._id;",
+        "script": "console.log(bh.input.status, 'ssss');\npage.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\": page.dialogData.status,\n    \"managerApproval\" : {\n        \"approvedRequest\": bh.input.status,\n        \"comments\" : \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": page.dialogData.dateCreated\n    };\n\n    console.log(page.formObj, 'formmmmm')\nbh.method = 'put';\nbh.endPoint = \"updateRequestStatus/\" + page.dialogData._id;",
         "functionName": "sd_5F5jcmXlhCIMy6Bx",
         "category": "Function",
         "x": 265,
@@ -2213,11 +2235,11 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "// let personalDetails = page.allPersonalDetails.find(el => bh.input.event.option.value == el.email)\n// if (personalDetails) {\n//     personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth'])\n//     page.personalDetailsForm.patchValue(personalDetails);\n// }\nconsole.log(bh.result,\"status\")",
+        "script": "\nconsole.log(bh.result,\"status\")",
         "functionName": "sd_yBPeEJgoe1VPrAad",
         "category": "Function",
         "x": 485,
-        "y": 800,
+        "y": 760,
         "wires": [
             [
                 "sd_W6rsPbUeAuFcG4SJ"
@@ -2292,8 +2314,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_smLSsWyzNmOgkUu3",
@@ -2312,7 +2333,7 @@
         "y": 920,
         "wires": [
             [
-                "sd_xCBH60J09UZ4FCmi"
+                "sd_W6rsPbUeAuFcG4SJ"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -2341,6 +2362,404 @@
                 "constant": false
             }
         },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_r41KO2mAGq6SKWF0",
+        "type": "PageStart",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "uploadQuote",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "uploadQuote",
+        "category": "General",
+        "x": 105,
+        "y": 1020,
+        "wires": [
+            [
+                "sd_wdMwi9ZbLAlxRxH8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_wdMwi9ZbLAlxRxH8",
+        "type": "Script",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if (bh.input.event.target.files.length > 0) {\n  const file = bh.input.event.target.files[0];\n  var reader = new FileReader();\n  reader.readAsDataURL(file);\n  reader.onload = function () {\n    page.quoteForm.quote = reader.result;\n  \n  };\n  reader.onerror = function (error) {\n    console.log('Error: ', error);\n  };\n}\n\n",
+        "functionName": "sd_wdMwi9ZbLAlxRxH8",
+        "category": "Function",
+        "x": 245,
+        "y": 1020,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_DZ9EGXgcP0TVId8R",
+        "type": "PageStart",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "submitQuote",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submitQuote",
+        "category": "General",
+        "x": 105,
+        "y": 920,
+        "wires": [
+            [
+                "sd_ncxKDlycwDA2XZ7r"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_ncxKDlycwDA2XZ7r",
+        "type": "Script",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.quoteForm.owner = page.dialogData._id;\npage.quoteForm.tempObj = page.dialogData;\nconsole.log('mxm', page.quoteForm);\nbh.method =\"put\";\nbh.endPoint=\"uploadQuote\"\n\n\n",
+        "functionName": "sd_ncxKDlycwDA2XZ7r",
+        "category": "Function",
+        "x": 185,
+        "y": 920,
+        "wires": [
+            [
+                "sd_PXnJi80nbubCd7TJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_PXnJi80nbubCd7TJ",
+        "type": "PageCallService",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "this.page",
+                "value": "quoteForm"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh",
+                "value": "result",
+                "mapVarName": "result",
+                "localVar": "bh.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            "this.page.quoteForm"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_PXnJi80nbubCd7TJ",
+        "category": "General",
+        "x": 305,
+        "y": 920,
+        "wires": [
+            [
+                "sd_W6rsPbUeAuFcG4SJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_0oCS5xYt5FlnnR4v",
+        "type": "PageStart",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "getQuote",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "getQuote",
+        "category": "General",
+        "x": 105,
+        "y": 1140,
+        "wires": [
+            [
+                "sd_oG1Uf2X2x8G6qZa1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_oG1Uf2X2x8G6qZa1",
+        "type": "Script",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method =\"get\";\nbh.endPoint=\"getQuote?owner=\" + page.dialogData._id\n\n\n",
+        "functionName": "sd_oG1Uf2X2x8G6qZa1",
+        "category": "Function",
+        "x": 185,
+        "y": 1140,
+        "wires": [
+            [
+                "sd_DLO6MYy6pX5Q7vGG"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_DLO6MYy6pX5Q7vGG",
+        "type": "PageCallService",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "this.page",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "quoteFromDB",
+                "mapVarName": "result",
+                "localVar": "this.page.quoteFromDB"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_DLO6MYy6pX5Q7vGG",
+        "category": "General",
+        "x": 305,
+        "y": 1140,
+        "wires": [
+            [
+                "sd_gGwnk2jlmuCL45q5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_cJE31LAw8f5oCIgL",
+        "type": "PageCallService",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_TO8KXUn3nydbh4fD",
+            "type": "tab",
+            "createdDate": "2022-09-22T08:11:04.885Z",
+            "label": "travelRequestDialog",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_0oCS5xYt5FlnnR4v",
+            "flowName": "getQuote"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./travelRequestDialog",
+        "startName": "getQuote",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "sd_cJE31LAw8f5oCIgL",
+        "category": "General",
+        "x": 1665,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Jhurd9NWmbHPFsqu",
+        "type": "Script",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.quotes = page.quoteFromDB['data'];\n// .forEach(quote => {\n//     page.sanitizer.bypassSecurityTrustResourceUrl(quote['quote']);\n//     page.quotes.push(quote);\n// })\n\nconsole.log(page.quotes,' zzzzz');",
+        "functionName": "sd_Jhurd9NWmbHPFsqu",
+        "category": "Function",
+        "x": 525,
+        "y": 1140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gGwnk2jlmuCL45q5",
+        "type": "UseDependency",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "DomSanitizer",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "sanitizer"
+                },
+                "injectable": true
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/platform-browser",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_gGwnk2jlmuCL45q5",
+        "category": "Function",
+        "x": 420,
+        "y": 1140,
+        "wires": [
+            [
+                "sd_Jhurd9NWmbHPFsqu"
+            ]
+        ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true

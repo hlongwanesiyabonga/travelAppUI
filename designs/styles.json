@@ -130,6 +130,7 @@
         "mat-checkbox-background",
         "mat-checkbox-indeterminate",
         "rememberText",
-        "mat-form-field-flex"
+        "mat-form-field-flex",
+        "height500px"
     ]
 }

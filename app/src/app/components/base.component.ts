@@ -141,7 +141,7 @@ export class baseComponent {
         .constructFlowObject(this);
       bh.input = {};
       bh.local = {};
-      bh = this.sd_4tj3WGNebkyyBzpN(bh);
+      bh = this.sd_OQjI385J3FVr3hmI(bh);
       //appendnew_next_showLogout
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_BRtIOMg7bjEnUQdA');
@@ -285,10 +285,22 @@ export class baseComponent {
       page.showDrafts = false;
       page.showDashboard = false;
       page.showLogout = false;
+      bh = this.closeSideNav(bh);
       //appendnew_next_sd_KVlNAJ6NtuO27Mha
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_KVlNAJ6NtuO27Mha');
+    }
+  }
+
+  closeSideNav(bh) {
+    try {
+      const page = this.page;
+      page.sideNav.hide();
+      //appendnew_next_closeSideNav
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_9CvsQ9gEDQRmzLGq');
     }
   }
 
@@ -319,22 +331,6 @@ export class baseComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_4Y6EVejP40Y0iuRl');
-    }
-  }
-
-  sd_4tj3WGNebkyyBzpN(bh) {
-    try {
-      const page = this.page;
-      page.showLogout = true;
-      page.showNewRequests = false;
-      page.showReports = false;
-      page.showDrafts = false;
-      page.showDashboard = false;
-      bh = this.sd_OQjI385J3FVr3hmI(bh);
-      //appendnew_next_sd_4tj3WGNebkyyBzpN
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_4tj3WGNebkyyBzpN');
     }
   }
 
