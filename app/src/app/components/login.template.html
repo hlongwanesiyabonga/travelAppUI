@@ -1,7 +1,7 @@
 <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="center center" [fxShow]="true">
   <div fxLayout="row wrap" class="bodyHeight fullWidth" fxLayoutAlign="center center" [fxShow]="true">
     <div fxLayout="column wrap" class="mainBox" fxLayoutAlign="start stretch" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginBottom20" fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="/Web/image/neutrinos-logo.png" width="63px"></div>
+      <div fxLayout="row wrap" class="marginBottom20" fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="/Web/Image/neutrinos-logo.png" width="63px"></div>
       <div fxLayout="row wrap" class="marginBottom20" fxLayoutAlign="center stretch" [fxShow]="true">
         <h2 class="title">
           <p>Log in to Neutrinos Travel Request App</p>
@@ -37,7 +37,7 @@
               Forgot password?</label></div>
         </div>
       </form>
-      <div fxLayout="row wrap" class="marginBottom20" fxLayoutAlign="center stretch" [fxShow]="true"><button mat-button>Sign In</button></div>
+      <div fxLayout="row wrap" class="marginBottom20" fxLayoutAlign="center stretch" [fxShow]="true"><button mat-button (click)="login()">Sign In</button></div>
     </div>
   </div>
   <div fxLayout="row wrap" class="copyrightRow fullWidth" fxLayoutAlign="space-between center" [fxShow]="true">

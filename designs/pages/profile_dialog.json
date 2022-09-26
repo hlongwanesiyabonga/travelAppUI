@@ -133,7 +133,7 @@
         "y": 80,
         "wires": [
             [
-                "sd_9DF1Fu5s1DNEsmYT"
+                "sd_lS5rufmtfkHAtZ8u"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -150,8 +150,8 @@
         "script": "page.profileForm = new FormGroup({\n    firstName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    lastName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    dateOfBirth: new FormControl('', [Validators.required]),\n    gender: new FormControl('', [Validators.required]),\n    email: new FormControl('', [Validators.required, Validators.email]),\n    designation: new FormControl('', [Validators.required]),\n    idNumber: new FormControl(''),\n    panNumber: new FormControl(''),\n    passportNumber: new FormControl('', [Validators.required]),\n    nationality: new FormControl('', [Validators.required]),\n    station: new FormControl('', [Validators.required]),\n    lineManager: new FormControl('', [Validators.required]),\n    lineManagerEmail: new FormControl('',[Validators.required]),\n  });",
         "functionName": "sd_9DF1Fu5s1DNEsmYT",
         "category": "Function",
-        "x": 345,
-        "y": 80,
+        "x": 385,
+        "y": 60,
         "wires": [
             [
                 "sd_w8eStMhAcIG7jxxh"
@@ -275,7 +275,7 @@
         "accept_csd": true,
         "functionName": "sd_naVttDn00PvByen9",
         "category": "General",
-        "x": 565,
+        "x": 605,
         "y": 80,
         "wires": [
             [
@@ -293,7 +293,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.email = \"neo.thobela@neutrinos.co\"\nbh.method = \"get\",\nbh.endPoint = \"genericGet/getPersonalDetails?email=\"+page.email;\n",
+        "script": "console.log(page.personalDetails, '/////')\nbh.method = \"get\",\nbh.endPoint = \"genericGet/getPersonalDetails?email=\"+page.personalDetails.email;\n",
         "functionName": "sd_w8eStMhAcIG7jxxh",
         "category": "Function",
         "x": 465,
@@ -614,6 +614,38 @@
         "y": 397.8125,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_lS5rufmtfkHAtZ8u",
+        "type": "Storage",
+        "z": "sd_CuX9VlaR3Za6sCxz",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "personalDetails"
+        },
+        "functionName": "sd_lS5rufmtfkHAtZ8u",
+        "category": "Storage",
+        "x": 305,
+        "y": 80,
+        "wires": [
+            [
+                "sd_9DF1Fu5s1DNEsmYT"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

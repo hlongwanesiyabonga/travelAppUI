@@ -8,10 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  ChangeDetectorRef,
-  ViewChild,
-  ViewChildren,
-  DoCheck,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -19,6 +15,7 @@ import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.ser
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MatDialog } from '@angular/material/dialog'; //_splitter_
 import { profile_dialogComponent } from './profile_dialog.component'; //_splitter_
+import { Router } from '@angular/router'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -195,7 +192,7 @@ export class baseComponent {
       this.page.body = undefined;
       this.page.endPoint = undefined;
       this.page.personalDetails = {};
-      bh = this.sd_omtxhHSTT0bkCN7b(bh);
+      bh = this.sd_Uq7EpfeVgT8CmNMt(bh);
       //appendnew_next_sd_nrTQrGEzRLT39o1H
       return bh;
     } catch (e) {
@@ -203,14 +200,27 @@ export class baseComponent {
     }
   }
 
+  sd_Uq7EpfeVgT8CmNMt(bh) {
+    try {
+      this.page.personalDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.sd_omtxhHSTT0bkCN7b(bh);
+      //appendnew_next_sd_Uq7EpfeVgT8CmNMt
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Uq7EpfeVgT8CmNMt');
+    }
+  }
+
   sd_omtxhHSTT0bkCN7b(bh) {
     try {
       const page = this.page;
-      page.email = 'neutrinostravellm@gmail.com';
       (bh.method = 'get'),
-        (bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email);
+        (bh.endPoint =
+          'genericGet/getPersonalDetails?email=' + page.personalDetails.email);
 
-      bh = this.sd_Ld8Z0R56kFnzLxOy(bh);
+      bh = this.sd_jKRe6SB9iNqwObaU(bh);
       //appendnew_next_sd_omtxhHSTT0bkCN7b
       return bh;
     } catch (e) {
@@ -218,7 +228,7 @@ export class baseComponent {
     }
   }
 
-  async sd_Ld8Z0R56kFnzLxOy(bh) {
+  async sd_jKRe6SB9iNqwObaU(bh) {
     try {
       const callServerApisInstance: callServerApis =
         this.__page_injector__.get(callServerApis);
@@ -230,45 +240,10 @@ export class baseComponent {
       );
       this.page.personalDetails = outputVariables.local.result;
 
-      bh = this.sd_Xuc0VNU6iF0UqpDu(bh);
-      //appendnew_next_sd_Ld8Z0R56kFnzLxOy
+      //appendnew_next_sd_jKRe6SB9iNqwObaU
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_Ld8Z0R56kFnzLxOy');
-    }
-  }
-
-  sd_Xuc0VNU6iF0UqpDu(bh) {
-    try {
-      bh = this.sd_ti9tbxXUHmz0mETK(bh);
-      //appendnew_next_sd_Xuc0VNU6iF0UqpDu
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Xuc0VNU6iF0UqpDu');
-    }
-  }
-
-  sd_ti9tbxXUHmz0mETK(bh) {
-    try {
-      let outputVariables = this.storePersonalDetails();
-
-      bh = this.sd_Uq7EpfeVgT8CmNMt(bh);
-      //appendnew_next_sd_ti9tbxXUHmz0mETK
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ti9tbxXUHmz0mETK');
-    }
-  }
-
-  sd_Uq7EpfeVgT8CmNMt(bh) {
-    try {
-      this.page.personalDetails = JSON.parse(
-        sessionStorage.getItem('currentUserDetails')
-      );
-      //appendnew_next_sd_Uq7EpfeVgT8CmNMt
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Uq7EpfeVgT8CmNMt');
+      return await this.errorHandler(bh, e, 'sd_jKRe6SB9iNqwObaU');
     }
   }
 
@@ -355,10 +330,36 @@ export class baseComponent {
       page.showReports = false;
       page.showDrafts = false;
       page.showDashboard = false;
+      bh = this.sd_OQjI385J3FVr3hmI(bh);
       //appendnew_next_sd_4tj3WGNebkyyBzpN
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_4tj3WGNebkyyBzpN');
+    }
+  }
+
+  sd_OQjI385J3FVr3hmI(bh) {
+    try {
+      sessionStorage.removeItem('currentUserDetails');
+      bh = this.sd_kCjbiuUON8G85Qss(bh);
+      //appendnew_next_sd_OQjI385J3FVr3hmI
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_OQjI385J3FVr3hmI');
+    }
+  }
+
+  async sd_kCjbiuUON8G85Qss(bh) {
+    try {
+      const { paramObj: qprm, path: path } =
+        this.sdService.getPathAndQParamsObj('/login');
+      await this.__page_injector__
+        .get(Router)
+        .navigate([this.sdService.formatPathWithParams(path, undefined)]);
+      //appendnew_next_sd_kCjbiuUON8G85Qss
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_kCjbiuUON8G85Qss');
     }
   }
 

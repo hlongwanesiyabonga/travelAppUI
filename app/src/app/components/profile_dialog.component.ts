@@ -8,8 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -119,11 +117,24 @@ export class profile_dialogComponent {
   sd_vSJRDVn3BrkDsFnQ(bh) {
     try {
       this.page.FormGroup = FormGroup;
-      bh = this.sd_9DF1Fu5s1DNEsmYT(bh);
+      bh = this.sd_lS5rufmtfkHAtZ8u(bh);
       //appendnew_next_sd_vSJRDVn3BrkDsFnQ
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_vSJRDVn3BrkDsFnQ');
+    }
+  }
+
+  sd_lS5rufmtfkHAtZ8u(bh) {
+    try {
+      this.page.personalDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.sd_9DF1Fu5s1DNEsmYT(bh);
+      //appendnew_next_sd_lS5rufmtfkHAtZ8u
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_lS5rufmtfkHAtZ8u');
     }
   }
 
@@ -162,9 +173,10 @@ export class profile_dialogComponent {
   sd_w8eStMhAcIG7jxxh(bh) {
     try {
       const page = this.page;
-      page.email = 'neo.thobela@neutrinos.co';
+      console.log(page.personalDetails, '/////');
       (bh.method = 'get'),
-        (bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email);
+        (bh.endPoint =
+          'genericGet/getPersonalDetails?email=' + page.personalDetails.email);
 
       bh = this.sd_naVttDn00PvByen9(bh);
       //appendnew_next_sd_w8eStMhAcIG7jxxh

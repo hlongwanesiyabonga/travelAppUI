@@ -376,11 +376,11 @@
         "script": "page.travelForm = new FormGroup({\n  requestDetails: page.Fb.array([])\n});",
         "functionName": "formControlsCreation",
         "category": "Function",
-        "x": 685,
+        "x": 645,
         "y": 80,
         "wires": [
             [
-                "sd_bvYvWg7Xv6GTK5wB"
+                "sd_tk1X4TMBLBccVdQM"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -450,7 +450,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.date = new Date();\npage.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate\npage.email = \"neutrinostravellm@gmail.com\"\nbh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;\nbh.method =\"get\";",
+        "script": "page.date = new Date();\npage.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate\n\nbh.endPoint = 'genericGet/getPersonalDetails?email=' + page.currentUserDetails.email;\nbh.method =\"get\";",
         "functionName": "sd_bvYvWg7Xv6GTK5wB",
         "category": "Function",
         "x": 805,
@@ -592,7 +592,9 @@
         "x": 185,
         "y": 280,
         "wires": [
-            []
+            [
+                "sd_bbaBvYkJ652qvZXA"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -1207,7 +1209,8 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": false,
+        "generated": true
     },
     {
         "id": "sd_RhR3LYUVBWeOB74n",
@@ -1277,12 +1280,12 @@
         "y": 280,
         "wires": [
             [
-                "sd_ThmPfpnGhggt2qxH",
                 "sd_wWxGnntqC5Z5Jqxn"
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": false,
+        "generated": true
     },
     {
         "id": "sd_nQp7Ok4Ni2vmpKyc",
@@ -1599,9 +1602,7 @@
         "x": 1145,
         "y": 80,
         "wires": [
-            [
-                "sd_tk1X4TMBLBccVdQM"
-            ]
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -1943,43 +1944,16 @@
         },
         "functionName": "sd_tk1X4TMBLBccVdQM",
         "category": "Storage",
-        "x": 1265,
+        "x": 725,
         "y": 80,
         "wires": [
-            []
+            [
+                "sd_bvYvWg7Xv6GTK5wB"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
-    },
-    {
-        "id": "sd_ThmPfpnGhggt2qxH",
-        "type": "Storage",
-        "z": "sd_osEacZsdUBcy4IJg",
-        "viewType": "client-pages",
-        "nodeType": "flow",
-        "name": "",
-        "operationType": "setItem",
-        "storageType": "localStorage",
-        "outputs": 1,
-        "key": {
-            "type": "str",
-            "value": "currentUserTravelDetails"
-        },
-        "value": {
-            "type": "this.page",
-            "value": "currentUserTravelDetails"
-        },
-        "resultMapping": {},
-        "functionName": "sd_ThmPfpnGhggt2qxH",
-        "category": "Storage",
-        "x": 525,
-        "y": 280,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true
     },
     {
         "id": "sd_U1fqj48F6iGGPMhn",
@@ -2080,12 +2054,13 @@
         "script": " this.outputVar.emit(page.showDashboard)",
         "functionName": "sd_wWxGnntqC5Z5Jqxn",
         "category": "Function",
-        "x": 625,
-        "y": 240,
+        "x": 545,
+        "y": 280,
         "wires": [
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": false,
+        "generated": true
     }
 ]
