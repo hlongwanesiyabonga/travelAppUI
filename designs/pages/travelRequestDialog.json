@@ -2763,5 +2763,181 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_cNLMcwR75ezpR7i8",
+        "type": "CloseDialog",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "bh.local.res",
+        "functionName": "sd_cNLMcwR75ezpR7i8",
+        "category": "Dialog",
+        "x": 525,
+        "y": 1300,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "res",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_1MMz9HowfqKgZnsv",
+        "type": "Script",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.quoteStatus, 'ssss');\nbh.body = {\n    managerApproval: {\n        \"approvedRequest\": page.dialogData.managerApproval.approvedRequest,\n        \"comments\": \"\",\n        \"quoteApproved\": bh.input.quoteStatus,\n        \"quoteComments\": \"\"\n    }\n}\nbh.method = 'put';\nbh.endPoint = \"updateQuoteStatus/\" + page.dialogData._id;",
+        "functionName": "sd_1MMz9HowfqKgZnsv",
+        "category": "Function",
+        "x": 205,
+        "y": 1300,
+        "wires": [
+            [
+                "sd_AjspPKvtbnZq2Nyf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_AjspPKvtbnZq2Nyf",
+        "type": "PageCallService",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_hkAMxxfqyGUP7RIf",
+            "type": "tab",
+            "createdDate": "2022-06-28T19:32:02.953Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": "body"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh",
+                "value": "result",
+                "mapVarName": "result",
+                "localVar": "bh.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            "bh.body"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_AjspPKvtbnZq2Nyf",
+        "category": "General",
+        "x": 305,
+        "y": 1300,
+        "wires": [
+            [
+                "sd_fecQCoAU0SKVLTOL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_fecQCoAU0SKVLTOL",
+        "type": "Script",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nconsole.log(bh.result,\"status\")",
+        "functionName": "sd_fecQCoAU0SKVLTOL",
+        "category": "Function",
+        "x": 425,
+        "y": 1260,
+        "wires": [
+            [
+                "sd_cNLMcwR75ezpR7i8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HCBAnIu14EoHzUNm",
+        "type": "PageStart",
+        "z": "sd_TO8KXUn3nydbh4fD",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "changeQuoteStatus",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "quoteStatus",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "changeQuoteStatus",
+        "category": "General",
+        "x": 85,
+        "y": 1300,
+        "wires": [
+            [
+                "sd_1MMz9HowfqKgZnsv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
     }
 ]

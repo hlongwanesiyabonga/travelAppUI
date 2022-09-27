@@ -292,7 +292,8 @@
         "y": 140,
         "wires": [
             [
-                "sd_HPCHaM7tAhCjPbLU"
+                "sd_HPCHaM7tAhCjPbLU",
+                "sd_ddvJTJeq8er1YH6q"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -605,8 +606,8 @@
         "flow_type": "sync",
         "functionName": "openViewRequest",
         "category": "General",
-        "x": 105,
-        "y": 360,
+        "x": 85,
+        "y": 380,
         "wires": [
             [
                 "sd_LseCR5GaQVmcl4q2"
@@ -652,8 +653,8 @@
         "resultMapping": "bh.x",
         "functionName": "sd_foqFWGeyE6VpOSKm",
         "category": "Dialog",
-        "x": 385,
-        "y": 360,
+        "x": 365,
+        "y": 380,
         "wires": [
             [],
             [],
@@ -781,8 +782,8 @@
         "script": "bh.data = page.receivedTableData['data'].find(obj => bh.input.selectedRowID == obj._id);\n\n",
         "functionName": "sd_LseCR5GaQVmcl4q2",
         "category": "Function",
-        "x": 285,
-        "y": 360,
+        "x": 265,
+        "y": 380,
         "wires": [
             [
                 "sd_foqFWGeyE6VpOSKm"
@@ -875,7 +876,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "\nbh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.currentUserDetails.email;",
+        "script": "bh.method = \"get\";\nif (page.currentUserDetails.designation.includes('Travel')) {\n    bh.endPoint = \"travelRequests/getTravelRequests\";\n} else {\n    bh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.currentUserDetails.email;\n}",
         "functionName": "sd_ddvJTJeq8er1YH6q",
         "category": "Function",
         "x": 365,
@@ -902,8 +903,8 @@
         "flow_type": "sync",
         "functionName": "closeProfile",
         "category": "General",
-        "x": 85,
-        "y": 440,
+        "x": 65,
+        "y": 460,
         "wires": [
             [
                 "sd_Fvb4Hy4Un5uWq1to"
@@ -923,8 +924,8 @@
         "data": "this.page.profileDialog",
         "functionName": "sd_Fvb4Hy4Un5uWq1to",
         "category": "Dialog",
-        "x": 175.171875,
-        "y": 440.03125,
+        "x": 155.171875,
+        "y": 460.03125,
         "wires": [
             []
         ],

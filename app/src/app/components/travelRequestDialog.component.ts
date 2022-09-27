@@ -469,6 +469,20 @@ export class travelRequestDialogComponent {
     }
   }
 
+  changeQuoteStatus(quoteStatus: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { quoteStatus: quoteStatus };
+      bh.local = {};
+      bh = this.sd_1MMz9HowfqKgZnsv(bh);
+      //appendnew_next_changeQuoteStatus
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_HCBAnIu14EoHzUNm');
+    }
+  }
+
   //appendnew_flow_travelRequestDialogComponent_start
 
   sd_0D94v0rlivWhVCrS(bh) {
@@ -1494,6 +1508,72 @@ export class travelRequestDialogComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Jhurd9NWmbHPFsqu');
+    }
+  }
+
+  sd_1MMz9HowfqKgZnsv(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.input.quoteStatus, 'ssss');
+      bh.body = {
+        managerApproval: {
+          approvedRequest: page.dialogData.managerApproval.approvedRequest,
+          comments: '',
+          quoteApproved: bh.input.quoteStatus,
+          quoteComments: '',
+        },
+      };
+      bh.method = 'put';
+      bh.endPoint = 'updateQuoteStatus/' + page.dialogData._id;
+      bh = this.sd_AjspPKvtbnZq2Nyf(bh);
+      //appendnew_next_sd_1MMz9HowfqKgZnsv
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_1MMz9HowfqKgZnsv');
+    }
+  }
+
+  async sd_AjspPKvtbnZq2Nyf(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        bh.body
+      );
+      bh.result = outputVariables.local.result;
+
+      bh = this.sd_fecQCoAU0SKVLTOL(bh);
+      //appendnew_next_sd_AjspPKvtbnZq2Nyf
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_AjspPKvtbnZq2Nyf');
+    }
+  }
+
+  sd_fecQCoAU0SKVLTOL(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.result, 'status');
+      bh = this.sd_cNLMcwR75ezpR7i8(bh);
+      //appendnew_next_sd_fecQCoAU0SKVLTOL
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_fecQCoAU0SKVLTOL');
+    }
+  }
+
+  sd_cNLMcwR75ezpR7i8(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(bh.local.res);
+
+      //appendnew_next_sd_cNLMcwR75ezpR7i8
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_cNLMcwR75ezpR7i8');
     }
   }
 

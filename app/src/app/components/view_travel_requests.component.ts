@@ -231,6 +231,7 @@ export class view_travel_requestsComponent {
         sessionStorage.getItem('currentUserDetails')
       );
       bh = this.sd_HPCHaM7tAhCjPbLU(bh);
+      bh = this.sd_ddvJTJeq8er1YH6q(bh);
       //appendnew_next_sd_8rwHpkPcEjQAdQ9f
       return bh;
     } catch (e) {
@@ -444,6 +445,45 @@ export class view_travel_requestsComponent {
     }
   }
 
+  sd_ddvJTJeq8er1YH6q(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      if (page.currentUserDetails.designation.includes('Travel')) {
+        bh.endPoint = 'travelRequests/getTravelRequests';
+      } else {
+        bh.endPoint =
+          'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
+          page.currentUserDetails.email;
+      }
+      bh = this.sd_NkxgCnpOljpjI5HQ(bh);
+      //appendnew_next_sd_ddvJTJeq8er1YH6q
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ddvJTJeq8er1YH6q');
+    }
+  }
+
+  async sd_NkxgCnpOljpjI5HQ(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.receivedTableData = outputVariables.local.result;
+
+      bh = this.logTable(bh);
+      //appendnew_next_sd_NkxgCnpOljpjI5HQ
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_NkxgCnpOljpjI5HQ');
+    }
+  }
+
   async sd_e2jI7LQDxK8XdWjP(bh) {
     try {
       const { paramObj: qprm, path: path } =
@@ -521,41 +561,6 @@ export class view_travel_requestsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_8LeNRH6C6NMR34zl');
-    }
-  }
-
-  sd_ddvJTJeq8er1YH6q(bh) {
-    try {
-      const page = this.page;
-      bh.method = 'get';
-      bh.endPoint =
-        'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
-        page.currentUserDetails.email;
-      bh = this.sd_NkxgCnpOljpjI5HQ(bh);
-      //appendnew_next_sd_ddvJTJeq8er1YH6q
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ddvJTJeq8er1YH6q');
-    }
-  }
-
-  async sd_NkxgCnpOljpjI5HQ(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        undefined
-      );
-      this.page.receivedTableData = outputVariables.local.result;
-
-      bh = this.logTable(bh);
-      //appendnew_next_sd_NkxgCnpOljpjI5HQ
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_NkxgCnpOljpjI5HQ');
     }
   }
 

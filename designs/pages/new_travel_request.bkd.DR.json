@@ -6172,7 +6172,7 @@
                                                 },
                                                 {
                                                     "_key": "placeholder",
-                                                    "_value": "JohnDoe@gmail.com",
+                                                    "_value": "Email Address",
                                                     "_type": "kv",
                                                     "_attrDef": "p",
                                                     "_useAsLabel": true

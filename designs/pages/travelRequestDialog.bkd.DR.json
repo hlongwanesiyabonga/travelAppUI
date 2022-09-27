@@ -24996,6 +24996,12 @@
                             "_value": "",
                             "_type": "kv",
                             "_attrDef": "c"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "page?.currentUserDetails?.designation.includes('Travel')",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ],
                     "cb9af061-1ebb-f667-7b62-89f5bafeec44": {
@@ -26808,6 +26814,230 @@
                         ]
                     }
                 },
+                "0dbdad01-f781-0fcb-8dae-36cb3f504c12": {
+                    "paletteKey": "FlexLayoutRow",
+                    "parentEditorKey": "7899f597-731a-ed22-ce78-e4564d89f01a",
+                    "commentid": null,
+                    "designerReference": [
+                        {
+                            "_key": "componentLabel",
+                            "_value": "approve/reject quote LM",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_useAsLabel": true
+                        },
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": [
+                                "marginRight20",
+                                "marginBottom1em",
+                                "marinTop1em"
+                            ],
+                            "_type": "dav",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxFlex",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxLayoutGap",
+                            "_value": "1em",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "wrap",
+                            "_value": "wrap",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "layoutAlign",
+                            "_value": "end",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "pLayoutAlign",
+                            "_value": "end",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[fxShow]",
+                            "_value": "true",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxFlex.xs",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved' && page?.currentUserDetails?.designation.includes('Manager') && page.quotes.length > 0 &&  page?.currentUserDetails?.email !== page?.dialogData?.owner",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        }
+                    ],
+                    "6ece6935-ef5c-ac9a-5f11-389e2145474b": {
+                        "paletteKey": "NG-RaisedButton",
+                        "parentEditorKey": "0dbdad01-f781-0fcb-8dae-36cb3f504c12",
+                        "commentid": null,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": [
+                                    "redBorderedButton"
+                                ],
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "buttonname",
+                                "_value": "Reject Quote LM",
+                                "_type": "a",
+                                "_attrDef": "p",
+                                "_useAsLabel": true
+                            },
+                            {
+                                "_key": "color",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "(click)",
+                                "_value": "changeQuoteStatus('Rejected')",
+                                "_type": "kv",
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_HCBAnIu14EoHzUNm",
+                                    "functionName": "changeQuoteStatus",
+                                    "activeTree": "pages",
+                                    "z": "sd_TO8KXUn3nydbh4fD",
+                                    "input": [
+                                        "'Rejected'"
+                                    ]
+                                }
+                            },
+                            {
+                                "_key": "[disabled]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[disableRipple]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "type",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "routerLink",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    },
+                    "ad339f7a-350e-0159-2293-65f1f8d1773a": {
+                        "paletteKey": "NG-RaisedButton",
+                        "parentEditorKey": "0dbdad01-f781-0fcb-8dae-36cb3f504c12",
+                        "commentid": null,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": [
+                                    "greenBorderButton"
+                                ],
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "buttonname",
+                                "_value": "Approve Quote LM",
+                                "_type": "a",
+                                "_attrDef": "p",
+                                "_useAsLabel": true
+                            },
+                            {
+                                "_key": "color",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "(click)",
+                                "_value": "changeQuoteStatus('Rejected')",
+                                "_type": "kv",
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_HCBAnIu14EoHzUNm",
+                                    "functionName": "changeQuoteStatus",
+                                    "activeTree": "pages",
+                                    "z": "sd_TO8KXUn3nydbh4fD",
+                                    "input": [
+                                        "'Rejected'"
+                                    ]
+                                }
+                            },
+                            {
+                                "_key": "[disabled]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[disableRipple]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "type",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "routerLink",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    }
+                },
                 "1f1fbaf5-9678-1afe-173d-416f73002089": {
                     "paletteKey": "FlexLayoutRow",
                     "parentEditorKey": "7899f597-731a-ed22-ce78-e4564d89f01a",
@@ -26880,7 +27110,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved' && page?.dialogData?.travelerApproval?.quoteApproved",
+                            "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner == page?.currentUserDetails?.email) && page.quotes.length > 0",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26970,7 +27200,7 @@
                             },
                             {
                                 "_key": "buttonname",
-                                "_value": "Accept Quote",
+                                "_value": "Approve Quote",
                                 "_type": "a",
                                 "_attrDef": "p",
                                 "_useAsLabel": true
@@ -26983,9 +27213,18 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "",
+                                "_value": "changeQuoteStatus('Approved')",
                                 "_type": "kv",
-                                "_attrDef": "p"
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_HCBAnIu14EoHzUNm",
+                                    "functionName": "changeQuoteStatus",
+                                    "activeTree": "pages",
+                                    "z": "sd_TO8KXUn3nydbh4fD",
+                                    "input": [
+                                        "'Approved'"
+                                    ]
+                                }
                             },
                             {
                                 "_key": "[disabled]",
