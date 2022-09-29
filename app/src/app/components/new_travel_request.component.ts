@@ -142,6 +142,43 @@ export class new_travel_requestComponent {
     }
   }
 
+  selectChangesFunction(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_KSMim0D7ZZLU1qV0(bh);
+      //appendnew_next_selectChangesFunction
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_hKIdGwv5EY1dYacv');
+    }
+  }
+
+  submit_clear_draft(
+    event: any = undefined,
+    form: any = undefined,
+    personalDetailsForm: any = undefined,
+    ...others
+  ) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {
+        event: event,
+        form: form,
+        personalDetailsForm: personalDetailsForm,
+      };
+      bh.local = {};
+      bh = this.sd_Tyw2L65nU6abERyb(bh);
+      //appendnew_next_submit_clear_draft
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Kwd7KJtk5BkZ9WYJ');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -152,7 +189,7 @@ export class new_travel_requestComponent {
       this.page.futureDate = undefined;
       this.page.userInfo = undefined;
       this.page.showInternaionalTravel = 'false';
-      this.page.showVISA = 'false';
+      this.page.showVISA = false;
       this.page.project = undefined;
       this.page.requestDetails = undefined;
       this.page.requestDetailsForm = undefined;
@@ -173,6 +210,7 @@ export class new_travel_requestComponent {
       this.page.filterPersonalDetail = [];
       this.page.tempArr = undefined;
       this.page.travelRequestType = undefined;
+      this.page.addLeg = false;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;
@@ -431,6 +469,116 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_95E59tpBNueqjcTi');
+    }
+  }
+
+  sd_KSMim0D7ZZLU1qV0(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.value == 'International') {
+        page.showVISA = true;
+      } else if (bh.input.event.value == 'Domestic') {
+        page.showVISA = false;
+      } else if (bh.input.event.value == 'one-way') {
+        page.addLeg = true;
+      } else if (bh.input.event.value == 'Return') {
+        page.addLeg = false;
+      }
+      //appendnew_next_sd_KSMim0D7ZZLU1qV0
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_KSMim0D7ZZLU1qV0');
+    }
+  }
+
+  sd_Tyw2L65nU6abERyb(bh) {
+    try {
+      const page = this.page; //combine the 2 forms
+      console.log(page.travelRequestType, 'retype');
+      page.formObj = {
+        personalDetails: bh.input.personalDetailsForm,
+        requestDetails: bh.input.form.requestDetails,
+        status: null,
+        managerApproval: {
+          approvedRequest: null,
+          comments: '',
+        },
+        owner: bh.input.personalDetailsForm.email,
+        dateCreated: new Date(),
+        travelRequestType: page.travelRequestType,
+      };
+      console.log(page.formObj, 'page.formObj');
+      //     let tempDetails = []
+      // page.formObj.requestDetails.forEach(detail => {
+      //     detail['travelDetails']['passportDocument'] = page.passportBase64;
+      //     detail['travelDetails']['covidCertificate'] = page.covidBase64;
+      //     tempDetails.push(detail);
+      // })
+      // page.formObj.requestDetails = tempDetails;
+      // console.log(page.formObj, 'form');
+
+      bh.endPoint =
+        bh.input.event == 'Draft'
+          ? 'addTravelRequest?type=draft'
+          : 'addTravelRequest';
+      bh.method = 'post';
+      // page.currentUserTravelDetails = page.formObj
+      console.log('end', bh.endPoint);
+      bh = this.sd_hzlAOioSF7sfAnch(bh);
+      //appendnew_next_sd_Tyw2L65nU6abERyb
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Tyw2L65nU6abERyb');
+    }
+  }
+
+  sd_hzlAOioSF7sfAnch(bh) {
+    try {
+      if (
+        this.sdService.operators['eq'](
+          bh.input.event,
+          'Submit',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_NtmVgjxzgfE27lTh(bh);
+      } else if (
+        this.sdService.operators['eq'](
+          bh.input.event,
+          'Draft',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_lB67lzj3szt8sQDn(bh);
+      }
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_hzlAOioSF7sfAnch');
+    }
+  }
+
+  sd_NtmVgjxzgfE27lTh(bh) {
+    try {
+      const page = this.page;
+      console.log('Submit');
+      //appendnew_next_sd_NtmVgjxzgfE27lTh
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_NtmVgjxzgfE27lTh');
+    }
+  }
+
+  sd_lB67lzj3szt8sQDn(bh) {
+    try {
+      const page = this.page;
+      console.log('draft');
+      //appendnew_next_sd_lB67lzj3szt8sQDn
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_lB67lzj3szt8sQDn');
     }
   }
 

@@ -104,7 +104,7 @@
                 <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                     Email</label>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
-                    <input matInput type="email" placeholder="JohnDoe@gmail.com" [required]="false" formControlName="email">
+                    <input matInput type="email" placeholder="Email" [required]="false" formControlName="email">
                     <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.email?.errors?.required">Email is required</mat-error>
                   </mat-form-field>
                 </div>
@@ -163,7 +163,7 @@
                             <div class="noMargin">
                               <h1 class="noMargin">
                                 <mat-icon class="fontSize20px">flight_takeoff</mat-icon>
-                                Travel Details
+                                Travel Details {{i + 1}}
                               </h1>
                             </div>
                           </div>
@@ -173,13 +173,13 @@
                                 <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="space-between center" [fxShow]="true">
                                   <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                                     <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
-                                      <mat-radio-button [value]="&apos;one-way&apos;" [required]="false" (change)="showButton()"></mat-radio-button><label>
+                                      <mat-radio-button [value]="&apos;one-way&apos;" [required]="false" (change)="selectChangesFunction($event)"></mat-radio-button><label>
                                         One-Way</label>
                                     </div>
                                   </div>
                                   <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                                     <div fxLayout="row wrap" class="groupedInput" fxLayoutAlign="center center" [fxShow]="true">
-                                      <mat-radio-button [value]="&apos;Return&apos;" [required]="false" (change)="hideButton()"></mat-radio-button><label>
+                                      <mat-radio-button [value]="&apos;Return&apos;" [required]="false" (change)="selectChangesFunction($event)"></mat-radio-button><label>
                                         Return</label>
                                     </div>
                                   </div>
@@ -224,7 +224,7 @@
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               Travel Type</label>
                             <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;">
-                              <mat-select formControlName="travelType" placeholder="Travel Type" [required]="false" (selectionChange)="showVisa($event)">
+                              <mat-select formControlName="travelType" placeholder="Travel Type" [required]="false" (selectionChange)="selectChangesFunction($event)">
                                 <ng-template ngFor let-option [ngForOf]="page.travelType" let-i="index">
                                   <mat-option [value]="option.viewvalue">{{option.viewvalue}}</mat-option>
                                 </ng-template>
@@ -298,8 +298,8 @@
                             </mat-form-field>
                           </div>
                         </div>
-                        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between center" [fxShow]="true">
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                        <div fxLayout="row wrap" class="fullWidth" fxLayoutGap="2%" fxLayoutAlign="start stretch" [fxShow]="true">
+                          <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showVISA"><label>
                               Do you have a VISA</label>
                             <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true">
                               <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
@@ -350,7 +350,7 @@
                           </div>
                         </div>
                         <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between center" [fxShow]="true">
-                          <div fxLayout="column wrap" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true"><label>
+                          <div fxLayout="column wrap" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.showVISA"><label>
                               <label class="marginBottom1em">Upload Covid Certificate</label>
 
                             </label><label>
@@ -365,7 +365,7 @@
  -->
                               <!-- <button type="button" (click)="RequestUpload()">Ok</button> -->
                             </label></div>
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
+                          <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showVISA"><label>
                               <label class="marginBottom1em">Upload Passport</label>
                             </label><label>
 
@@ -484,8 +484,8 @@
                         </div>
                       </div>
                     </div>
-                    <div fxLayout="row wrap" class="marginTop20" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-raised-button class="blackButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length === (i + 1)" (click)="addNewRequestForm()" [disabled]="!page.travelForm.valid">
-                        <mat-icon>add</mat-icon>Add Leg
+                    <div fxLayout="row wrap" class="marginTop20" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.addLeg"><button mat-raised-button class="blackButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length === (i + 1)" (click)="addNewRequestForm()" [disabled]="!page.travelForm.valid">
+                        <mat-icon>add</mat-icon>Add Leg {{i + 1}}
                       </button><button mat-raised-button class="redButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length &gt; 1" (click)="removeNewRequestFormLeg(i)">
                         <mat-icon>clear</mat-icon>Remove Leg
                       </button></div>
@@ -500,7 +500,7 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
     <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="1em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="blackButton">Cancel</button><button mat-raised-button class="redBorderedButton">Clear</button><button mat-raised-button class="redButton">Submit</button><button mat-raised-button class="grayBtn">Save As Draft</button></div>
+      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="1em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="blackButton">Cancel</button><button mat-raised-button class="redBorderedButton">Clear</button><button mat-raised-button class="redButton" (click)="submit_clear_draft(&apos;Submit&apos;,page.travelForm.value,page.personalDetailsForm.value)">Submit</button><button mat-raised-button class="grayBtn" (click)="submit_clear_draft(&apos;Draft&apos;,page.travelForm.value,page.personalDetailsForm.value)">Save As Draft</button></div>
     </div>
   </div>
 </div>
