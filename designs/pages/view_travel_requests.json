@@ -1,0 +1,260 @@
+[
+    {
+        "id": "sd_M6CpklMyTxKCR3le",
+        "type": "tab",
+        "createdDate": "2022-09-24T21:12:19.815Z",
+        "label": "view_travel_requests",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "view_travel_requestsComponent"
+    },
+    {
+        "id": "sd_zEmBiVp4U4ztVQKa",
+        "type": "PageVariables",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "tableData",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "currentUserDetails",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            },
+            {
+                "textIp": "dashboardCards",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "tableHeaders",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "tableCells",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "receivedTableData",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "email",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "select",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "counts",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "{}"
+                }
+            }
+        ],
+        "functionName": "sd_E9QbOlnVduPNV5MO_1",
+        "category": "Function",
+        "x": 425,
+        "y": 80,
+        "wires": [
+            [
+                "sd_aahVPe9dAncg9gEt"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_BTf9i9QAszbO7i3N",
+        "type": "OnInit",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "functionName": "sd_BTf9i9QAszbO7i3N",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 80,
+        "wires": [
+            [
+                "sd_C6YF8Mvo5QyzHF4Z"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "view_travel_requestsComponent"
+    },
+    {
+        "id": "sd_aahVPe9dAncg9gEt",
+        "type": "Script",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests\"\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]",
+        "functionName": "sd_aahVPe9dAncg9gEt",
+        "category": "Function",
+        "x": 544,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_C6YF8Mvo5QyzHF4Z",
+        "type": "UseDependency",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "TableDataSource",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MatTableDataSource",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "tableDataSource"
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/table",
+        "serviceDesignerType": "pages",
+        "functionName": "tableDataSource",
+        "category": "Function",
+        "x": 145,
+        "y": 80,
+        "wires": [
+            [
+                "sd_k0GsnlncEM6BWlE4"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_k0GsnlncEM6BWlE4",
+        "type": "UseDependency",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Paginator",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MatPaginator",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": " paginator"
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/paginator",
+        "serviceDesignerType": "pages",
+        "functionName": "paginator",
+        "category": "Function",
+        "x": 245,
+        "y": 80,
+        "wires": [
+            [
+                "sd_ls98oIMbqy17xKnu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ls98oIMbqy17xKnu",
+        "type": "UseDependency",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "Sort",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "MatSort",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": " sort"
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/material/sort",
+        "serviceDesignerType": "pages",
+        "functionName": "sort",
+        "category": "Function",
+        "x": 325,
+        "y": 80,
+        "wires": [
+            [
+                "sd_zEmBiVp4U4ztVQKa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

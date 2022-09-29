@@ -1,0 +1,55 @@
+[
+    {
+        "id": "sd_cL2Dk3ymewl6P3KV",
+        "type": "tab",
+        "createdDate": "2022-09-24T19:30:59.140Z",
+        "label": "travelRequestDialog",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_FAXWHm6Bjo3xL5lG",
+        "type": "OnInit",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_FAXWHm6Bjo3xL5lG",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_iR1pT2Lx7BhwEM6f"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_iR1pT2Lx7BhwEM6f",
+        "type": "PageVariables",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_iR1pT2Lx7BhwEM6f",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

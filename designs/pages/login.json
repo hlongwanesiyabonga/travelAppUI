@@ -1,0 +1,139 @@
+[
+    {
+        "id": "sd_oLqqWgrxFPwslUVW",
+        "type": "tab",
+        "createdDate": "2022-09-24T21:11:39.361Z",
+        "label": "login",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "loginComponent"
+    },
+    {
+        "id": "sd_VEhD6JA5MviEUTK7",
+        "type": "Script",
+        "z": "sd_oLqqWgrxFPwslUVW",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.loginForm = new FormGroup({\n    username: new FormControl(''),\n    password: new FormControl(''),\n    rememberMe: new FormControl('')\n    });\n",
+        "functionName": "sd_VEhD6JA5MviEUTK7",
+        "category": "Function",
+        "x": 345,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_CA0pwhy3lCDuuaVK",
+        "type": "OnInit",
+        "z": "sd_oLqqWgrxFPwslUVW",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_CA0pwhy3lCDuuaVK",
+        "category": "Lifecycle Events",
+        "x": 45,
+        "y": 60,
+        "wires": [
+            [
+                "sd_vD8ov3liDUFpn56q"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "loginComponent"
+    },
+    {
+        "id": "sd_vD8ov3liDUFpn56q",
+        "type": "PageVariables",
+        "z": "sd_oLqqWgrxFPwslUVW",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_vD8ov3liDUFpn56q",
+        "category": "Function",
+        "x": 145,
+        "y": 60,
+        "wires": [
+            [
+                "sd_WZK03MsWEHkvd9EO"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_WZK03MsWEHkvd9EO",
+        "type": "UseDependency",
+        "z": "sd_oLqqWgrxFPwslUVW",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ReactiveFormsModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FG"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_WZK03MsWEHkvd9EO",
+        "category": "Function",
+        "x": 245,
+        "y": 60,
+        "wires": [
+            [
+                "sd_VEhD6JA5MviEUTK7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

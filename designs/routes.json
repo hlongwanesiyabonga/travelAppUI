@@ -1,0 +1,28 @@
+{
+    "routes": [
+        {
+            "component": "baseComponent",
+            "path": "home",
+            "children": [
+                {
+                    "component": "travelRequestDialogComponent",
+                    "path": "travelRequestDialog"
+                }
+            ]
+        },
+        {
+            "path": "login",
+            "component": "loginComponent"
+        },
+        {
+            "path": "''",
+            "redirectTo": "/home",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "PageNotFoundComponent"
+        }
+    ]
+}

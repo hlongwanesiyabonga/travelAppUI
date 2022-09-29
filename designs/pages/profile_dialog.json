@@ -1,0 +1,232 @@
+[
+    {
+        "id": "sd_A1xam8VNTMz4CCzQ",
+        "type": "tab",
+        "createdDate": "2022-09-24T21:12:04.626Z",
+        "label": "profile_dialog",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_jsZ0xku4AjeU8rcC",
+        "type": "OnInit",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_jsZ0xku4AjeU8rcC",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_lnMk19gZOi0bJZ48"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_lnMk19gZOi0bJZ48",
+        "type": "PageVariables",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "profileDialog",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "personalDetails",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "email",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_lnMk19gZOi0bJZ48",
+        "category": "Function",
+        "x": 145,
+        "y": 60,
+        "wires": [
+            [
+                "sd_xx62tjFUW7n15Ifp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_xx62tjFUW7n15Ifp",
+        "type": "UseDependency",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ReactiveFormsModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FormGroup"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_xx62tjFUW7n15Ifp",
+        "category": "Function",
+        "x": 245,
+        "y": 60,
+        "wires": [
+            [
+                "sd_ARtraoWN58k86m3h"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ARtraoWN58k86m3h",
+        "type": "Script",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.profileForm = new FormGroup({\n    firstName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    lastName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    dateOfBirth: new FormControl('', [Validators.required]),\n    gender: new FormControl('', [Validators.required]),\n    email: new FormControl('', [Validators.required, Validators.email]),\n    designation: new FormControl('', [Validators.required]),\n    idNumber: new FormControl(''),\n    panNumber: new FormControl(''),\n    passportNumber: new FormControl('', [Validators.required]),\n    nationality: new FormControl('', [Validators.required]),\n    station: new FormControl('', [Validators.required]),\n    lineManager: new FormControl('', [Validators.required]),\n    lineManagerEmail: new FormControl('',[Validators.required]),\n  });",
+        "functionName": "sd_ARtraoWN58k86m3h",
+        "category": "Function",
+        "x": 345,
+        "y": 60,
+        "wires": [
+            [
+                "sd_5i5FiAD9t0bIPp1u"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_OapnCf7vzU1kCnPt",
+        "type": "PageStart",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "closeProfile",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "closeProfile",
+        "category": "General",
+        "x": 65,
+        "y": 140,
+        "wires": [
+            [
+                "sd_Ne6pC7a1MDk7brU8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_Ne6pC7a1MDk7brU8",
+        "type": "CloseDialog",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.profileDialog",
+        "functionName": "sd_Ne6pC7a1MDk7brU8",
+        "category": "Dialog",
+        "x": 155.171875,
+        "y": 140.03125,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "profileDialog",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_5i5FiAD9t0bIPp1u",
+        "type": "Script",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.email = \"neo.thobela@neutrinos.co\"\nbh.method = \"get\",\nbh.endPoint = \"genericGet/getPersonalDetails?email=\"+page.email;\n",
+        "functionName": "sd_5i5FiAD9t0bIPp1u",
+        "category": "Function",
+        "x": 465,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]
