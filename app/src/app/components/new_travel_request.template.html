@@ -15,7 +15,7 @@
                   <div fxLayout="column wrap" class="inputContainer" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                       Requester</label>
                     <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
-                      <input matInput type="text" placeholder="First Name" value="{{page.requester}}" [required]="false" [disabled]="true">
+                      <input matInput type="text" placeholder="Requester" value="{{page.requester}}" [required]="false" [disabled]="true">
                       <mat-error align="end" *ngIf="page.personalDetailsForm?.controls?.firstName?.errors?.required">First Name is required</mat-error>
                     </mat-form-field>
                   </div>
@@ -484,9 +484,9 @@
                         </div>
                       </div>
                     </div>
-                    <div fxLayout="row wrap" class="marginTop20" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.showHideButton"><button mat-raised-button class="blackButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length === (i + 1)" (click)="addNewRequestForm()" [disabled]="!page.travelForm.valid">
+                    <div fxLayout="row wrap" class="marginTop20" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-raised-button class="blackButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length === (i + 1)" (click)="addNewRequestForm()" [disabled]="!page.travelForm.valid">
                         <mat-icon>add</mat-icon>Add Leg
-                      </button><button mat-raised-button class="redButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length &gt; 1">
+                      </button><button mat-raised-button class="redButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length &gt; 1" (click)="removeNewRequestFormLeg(i)">
                         <mat-icon>clear</mat-icon>Remove Leg
                       </button></div>
                   </div>

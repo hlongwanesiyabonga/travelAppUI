@@ -128,6 +128,20 @@ export class new_travel_requestComponent {
     }
   }
 
+  removeNewRequestFormLeg(i = 0, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { i: i };
+      bh.local = {};
+      bh = this.sd_95E59tpBNueqjcTi(bh);
+      //appendnew_next_removeNewRequestFormLeg
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_67aOoRf2YhdTaSXA');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -231,7 +245,7 @@ export class new_travel_requestComponent {
         { viewvalue: 'hotel' },
         { viewvalue: 'B&B' },
       ];
-      bh = this.pDetails(bh);
+      bh = this.personalDetails(bh);
       //appendnew_next_selectData
       return bh;
     } catch (e) {
@@ -239,10 +253,12 @@ export class new_travel_requestComponent {
     }
   }
 
-  pDetails(bh) {
+  personalDetails(bh) {
     try {
       const page = this.page;
       page.personalDetailsForm = new FormGroup({
+        requestedFor: new FormControl(''),
+        requestType: new FormControl(''),
         firstName: new FormControl('', [
           Validators.minLength(3),
           Validators.required,
@@ -269,7 +285,7 @@ export class new_travel_requestComponent {
       });
 
       bh = this.formControlsCreation(bh);
-      //appendnew_next_pDetails
+      //appendnew_next_personalDetails
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_XoSN8pKbkzY3VXRC');
@@ -336,11 +352,15 @@ export class new_travel_requestComponent {
       const page = this.page;
       if (bh.input.event.target.files.length > 0) {
         const file = bh.input.event.target.files[0];
-        const reader = new FileReader();
+        var reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => {};
+        reader.onload = function () {
+          page.passportBase64 = reader.result;
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
       }
-
       //appendnew_next_sd_L8dj6KHB0MWU3lHf
       return bh;
     } catch (e) {
@@ -363,25 +383,23 @@ export class new_travel_requestComponent {
             fromDate: ['', [Validators.required]],
             toDate: ['', [Validators.required]],
             tripType: ['', [Validators.required]],
-            requestedFor: [''],
-            requestType: [''],
             preferredTime: ['', [Validators.required]],
             travelerComments: [''],
             passportDocument: [''],
             visaRequired: ['', []],
-            covidCertificate: ['', [Validators.required]],
+            covidCertificate: [''],
             passport: [''],
             needvehicle: ['', [Validators.required]],
             needAccommodation: ['', [Validators.required]],
           }),
           accommodationDetails: page.Fb.group({
-            accommodationPreference: ['', [Validators.required]],
-            city: ['', [Validators.required]],
-            checkInDate: ['', [Validators.required]],
-            checkOutDate: ['', [Validators.required]],
-            checkInTime: ['', [Validators.required]],
-            checkOutTime: ['', [Validators.required]],
-            employeeComments: ['', [Validators.required]],
+            accommodationPreference: [''],
+            city: [''],
+            checkInDate: [''],
+            checkOutDate: [''],
+            checkInTime: [''],
+            checkOutTime: [''],
+            employeeComments: [''],
           }),
         })
       );
@@ -402,6 +420,17 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_7E0kFOs0S0LoIGyd');
+    }
+  }
+
+  sd_95E59tpBNueqjcTi(bh) {
+    try {
+      const page = this.page;
+      page.travelForm.get('requestDetails').removeAt(bh.input.i);
+      //appendnew_next_sd_95E59tpBNueqjcTi
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_95E59tpBNueqjcTi');
     }
   }
 
