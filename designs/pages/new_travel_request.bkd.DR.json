@@ -1076,7 +1076,7 @@
                                                     },
                                                     {
                                                         "_key": "placeholder",
-                                                        "_value": "First Name",
+                                                        "_value": "Requester",
                                                         "_type": "kv",
                                                         "_attrDef": "p",
                                                         "_useAsLabel": true
@@ -6229,7 +6229,7 @@
                                                 },
                                                 {
                                                     "_key": "placeholder",
-                                                    "_value": "JohnDoe@gmail.com",
+                                                    "_value": "Email",
                                                     "_type": "kv",
                                                     "_attrDef": "p",
                                                     "_useAsLabel": true
@@ -9281,7 +9281,7 @@
                                                                         },
                                                                         {
                                                                             "_key": "html",
-                                                                            "_value": "<h1 class=\"noMargin\"><mat-icon class=\"fontSize20px\">flight_takeoff</mat-icon>\r\nTravel Details</h1>",
+                                                                            "_value": "<h1 class=\"noMargin\"><mat-icon class=\"fontSize20px\">flight_takeoff</mat-icon>\r\nTravel Details  {{i + 1}}</h1>",
                                                                             "_type": "a",
                                                                             "_attrDef": "p"
                                                                         }
@@ -9753,16 +9753,18 @@
                                                                                         },
                                                                                         {
                                                                                             "_key": "(change)",
-                                                                                            "_value": "showButton()",
+                                                                                            "_value": "selectChangesFunction($event)",
                                                                                             "_type": "kv",
                                                                                             "_attrDef": "p",
                                                                                             "_customAttributeFlag": "flowpicker",
                                                                                             "objValue": {
-                                                                                                "nodeID": "sd_u4CX7y4FeZ0yV54a",
-                                                                                                "functionName": "showButton",
+                                                                                                "nodeID": "sd_hKIdGwv5EY1dYacv",
+                                                                                                "functionName": "selectChangesFunction",
                                                                                                 "activeTree": "pages",
                                                                                                 "z": "sd_osEacZsdUBcy4IJg",
-                                                                                                "input": []
+                                                                                                "input": [
+                                                                                                    "$event"
+                                                                                                ]
                                                                                             }
                                                                                         },
                                                                                         {
@@ -10193,16 +10195,18 @@
                                                                                         },
                                                                                         {
                                                                                             "_key": "(change)",
-                                                                                            "_value": "hideButton()",
+                                                                                            "_value": "selectChangesFunction($event)",
                                                                                             "_type": "kv",
                                                                                             "_attrDef": "p",
                                                                                             "_customAttributeFlag": "flowpicker",
                                                                                             "objValue": {
-                                                                                                "nodeID": "sd_svfVBeDStyUwSD9k",
-                                                                                                "functionName": "hideButton",
+                                                                                                "nodeID": "sd_hKIdGwv5EY1dYacv",
+                                                                                                "functionName": "selectChangesFunction",
                                                                                                 "activeTree": "pages",
                                                                                                 "z": "sd_osEacZsdUBcy4IJg",
-                                                                                                "input": []
+                                                                                                "input": [
+                                                                                                    "$event"
+                                                                                                ]
                                                                                             }
                                                                                         },
                                                                                         {
@@ -12494,13 +12498,13 @@
                                                                     },
                                                                     {
                                                                         "_key": "(selectionChange)",
-                                                                        "_value": "showVisa($event)",
+                                                                        "_value": "selectChangesFunction($event)",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p",
                                                                         "_customAttributeFlag": "flowpicker",
                                                                         "objValue": {
-                                                                            "nodeID": "sd_yVr7Vfx7YWewSJIT",
-                                                                            "functionName": "showVisa",
+                                                                            "nodeID": "sd_hKIdGwv5EY1dYacv",
+                                                                            "functionName": "selectChangesFunction",
                                                                             "activeTree": "pages",
                                                                             "z": "sd_osEacZsdUBcy4IJg",
                                                                             "input": [
@@ -15855,7 +15859,7 @@
                                                             },
                                                             {
                                                                 "_key": "fxLayoutGap",
-                                                                "_value": "",
+                                                                "_value": "2%",
                                                                 "_type": "kv",
                                                                 "_attrDef": "p"
                                                             },
@@ -15867,13 +15871,13 @@
                                                             },
                                                             {
                                                                 "_key": "layoutAlign",
-                                                                "_value": "space-between",
+                                                                "_value": "start",
                                                                 "_type": "a",
                                                                 "_attrDef": "p"
                                                             },
                                                             {
                                                                 "_key": "pLayoutAlign",
-                                                                "_value": "center",
+                                                                "_value": "stretch",
                                                                 "_type": "a",
                                                                 "_attrDef": "p"
                                                             },
@@ -15955,6 +15959,12 @@
                                                                 {
                                                                     "_key": "fxFlex.sm",
                                                                     "_value": "49",
+                                                                    "_type": "kv",
+                                                                    "_attrDef": "c"
+                                                                },
+                                                                {
+                                                                    "_key": "*ngIf",
+                                                                    "_value": "page.showVISA",
                                                                     "_type": "kv",
                                                                     "_attrDef": "c"
                                                                 }
@@ -18775,6 +18785,12 @@
                                                                     "_value": "true",
                                                                     "_type": "kv",
                                                                     "_attrDef": "p"
+                                                                },
+                                                                {
+                                                                    "_key": "*ngIf",
+                                                                    "_value": "page.showVISA",
+                                                                    "_type": "kv",
+                                                                    "_attrDef": "c"
                                                                 }
                                                             ],
                                                             "b00268bd-1689-bf73-9143-4d23a4823714": {
@@ -19277,6 +19293,12 @@
                                                                 {
                                                                     "_key": "fxFlex.sm",
                                                                     "_value": "49",
+                                                                    "_type": "kv",
+                                                                    "_attrDef": "c"
+                                                                },
+                                                                {
+                                                                    "_key": "*ngIf",
+                                                                    "_value": "page.showVISA",
                                                                     "_type": "kv",
                                                                     "_attrDef": "c"
                                                                 }
@@ -25206,7 +25228,7 @@
                                                     },
                                                     {
                                                         "_key": "*ngIf",
-                                                        "_value": "page.showHideButton",
+                                                        "_value": "page.addLeg",
                                                         "_type": "kv",
                                                         "_attrDef": "c"
                                                     }
@@ -25232,7 +25254,7 @@
                                                         },
                                                         {
                                                             "_key": "buttonname",
-                                                            "_value": "<mat-icon >add</mat-icon>Add Leg",
+                                                            "_value": "<mat-icon >add</mat-icon>Add Leg {{i + 1}} ",
                                                             "_type": "a",
                                                             "_attrDef": "p",
                                                             "_useAsLabel": true
@@ -25323,9 +25345,18 @@
                                                         },
                                                         {
                                                             "_key": "(click)",
-                                                            "_value": "",
+                                                            "_value": "removeNewRequestFormLeg(i)",
                                                             "_type": "kv",
-                                                            "_attrDef": "p"
+                                                            "_attrDef": "p",
+                                                            "objValue": {
+                                                                "nodeID": "sd_67aOoRf2YhdTaSXA",
+                                                                "functionName": "removeNewRequestFormLeg",
+                                                                "activeTree": "pages",
+                                                                "z": "sd_osEacZsdUBcy4IJg",
+                                                                "input": [
+                                                                    "i"
+                                                                ]
+                                                            }
                                                         },
                                                         {
                                                             "_key": "[disabled]",
@@ -25700,10 +25731,20 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "",
+                                "_value": "submit_clear_draft('Submit',page.travelForm.value,page.personalDetailsForm.value)",
                                 "_type": "kv",
                                 "_attrDef": "p",
-                                "_customAttributeFlag": "customInput"
+                                "objValue": {
+                                    "nodeID": "sd_Kwd7KJtk5BkZ9WYJ",
+                                    "functionName": "submit_clear_draft",
+                                    "activeTree": "pages",
+                                    "z": "sd_osEacZsdUBcy4IJg",
+                                    "input": [
+                                        "'Submit'",
+                                        "page.travelForm.value",
+                                        "page.personalDetailsForm.value"
+                                    ]
+                                }
                             },
                             {
                                 "_key": "[disabled]",
@@ -25766,9 +25807,20 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "",
+                                "_value": "submit_clear_draft('Draft',page.travelForm.value,page.personalDetailsForm.value)",
                                 "_type": "kv",
-                                "_attrDef": "p"
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_Kwd7KJtk5BkZ9WYJ",
+                                    "functionName": "submit_clear_draft",
+                                    "activeTree": "pages",
+                                    "z": "sd_osEacZsdUBcy4IJg",
+                                    "input": [
+                                        "'Draft'",
+                                        "page.travelForm.value",
+                                        "page.personalDetailsForm.value"
+                                    ]
+                                }
                             },
                             {
                                 "_key": "[disabled]",
