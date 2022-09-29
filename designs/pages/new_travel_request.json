@@ -731,10 +731,10 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "if(bh.input.event.value ==\"International\"){\npage.showVISA = true;  \n}\nelse if(bh.input.event.value ==\"Domestic\") {\n    page.showVISA = false;  \n}else if(bh.input.event.value ==\"one-way\"){\n    page.addLeg = true;\n} else if(bh.input.event.value ==\"Return\"){\n     page.addLeg = false;\n}else if(bh.input.event.value ==\"On Behalf\"){\n    console.log(\"on behalf\")\n    page.requestedFor = true;\n} else if(bh.input.event.value ==\"Self\"){\n     page.requestedFor = false;\n      console.log(\"Self\");\n }",
+        "script": "if(bh.input.event.value ==\"International\"){\npage.showVISA = true;  \n}\nelse if(bh.input.event.value ==\"Domestic\") {\n    page.showVISA = false;  \n}else if(bh.input.event.value ==\"one-way\"){\n    page.addLeg = true;\n} else if(bh.input.event.value ==\"Return\"){\n     page.addLeg = false;\n}else if(bh.input.event.value ==\"On Behalf\"){\n    console.log(\"on behalf\")\n    page.requestedFor = true;\n} else if(bh.input.event.value ==\"Self\"){\n     page.requestedFor = false;\n     \n     bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;\n    bh.method =\"get\";\n }",
         "functionName": "sd_KSMim0D7ZZLU1qV0",
         "category": "Function",
-        "x": 1260,
+        "x": 1265,
         "y": 180,
         "wires": [
             []
@@ -1344,23 +1344,361 @@
         "generated": true
     },
     {
-        "id": "sd_BMbG0jqY54LWdJB1",
+        "id": "sd_dqTGtSubVUnQi0az",
         "type": "PageStart",
         "z": "sd_osEacZsdUBcy4IJg",
         "viewType": "pages",
         "nodeType": "start",
-        "name": "",
+        "name": "requstedForHideandShow",
         "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "element",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
         "flow_type": "sync",
-        "functionName": "sd_BMbG0jqY54LWdJB1",
+        "functionName": "requstedForHideandShow",
         "category": "General",
-        "x": 140,
-        "y": 580,
+        "x": 1060,
+        "y": 320,
         "wires": [
-            []
+            [
+                "sd_Xvjb4YiItErwxAGT"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": true,
         "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_Xvjb4YiItErwxAGT",
+        "type": "PageSwitch",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "element.value",
+        "propertyType": "bh.input",
+        "propertyGv": "bh.input.element.value",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Self",
+                "vt": "str",
+                "gv": "\"Self\""
+            },
+            {
+                "t": "eq",
+                "v": "On Behalf",
+                "vt": "str",
+                "gv": "\"On Behalf\""
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_Xvjb4YiItErwxAGT",
+        "category": "Function",
+        "x": 1165,
+        "y": 320,
+        "wires": [
+            [
+                "sd_Z5Ai9J8jTiXMTgQP"
+            ],
+            [
+                "sd_27m2bbalKXjHhtVY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Z5Ai9J8jTiXMTgQP",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"self\")\npage.requestedFor = true;\n\nbh.endPoint = 'genericGet/getPersonalDetails?email=' + 'neutrinostravellm@gmail.com';\nbh.method =\"get\";",
+        "functionName": "sd_Z5Ai9J8jTiXMTgQP",
+        "category": "Function",
+        "x": 1285,
+        "y": 260,
+        "wires": [
+            [
+                "sd_SrKlYlChBAf5kKDc"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_27m2bbalKXjHhtVY",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"on behalf\")\npage.requestedFor = false;\nbh.emitValue=bh.input.element\nbh.endPoint = 'genericGet/getPersonalDetails';\nbh.method =\"get\";",
+        "functionName": "sd_27m2bbalKXjHhtVY",
+        "category": "Function",
+        "x": 1285,
+        "y": 380,
+        "wires": [
+            [
+                "sd_6LA12F1oOjsVUSrq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_SrKlYlChBAf5kKDc",
+        "type": "PageCallService",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "Personaldetails",
+                "mapVarName": "result",
+                "localVar": "this.page.Personaldetails"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_SrKlYlChBAf5kKDc",
+        "category": "General",
+        "x": 1385,
+        "y": 260,
+        "wires": [
+            [
+                "sd_A5D9OXwhReKwLuIU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_A5D9OXwhReKwLuIU",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.personalDetails['dateOfBirth'] = new Date(page.personalDetails['dateOfBirth'])\npage.personalDetailsForm.patchValue(page.personalDetails);",
+        "functionName": "sd_A5D9OXwhReKwLuIU",
+        "category": "Function",
+        "x": 1505,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_6LA12F1oOjsVUSrq",
+        "type": "PageCallService",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "personaldetails",
+                "mapVarName": "result",
+                "localVar": "this.page.personaldetails"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_6LA12F1oOjsVUSrq",
+        "category": "General",
+        "x": 1385,
+        "y": 380,
+        "wires": [
+            [
+                "sd_BH4NURT71PCehw8v"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_BH4NURT71PCehw8v",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(page.personaldetails)\npage.filterPersonalDetail = page.personaldetails\nlet tempArr=page.filterPersonalDetail.filter(obj => obj.email?.toLowerCase().includes(bh?.emitValue?.toLowerCase()))\npage.personaldetails=tempArr;",
+        "functionName": "sd_BH4NURT71PCehw8v",
+        "category": "Function",
+        "x": 1500,
+        "y": 380,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_JShCDxMGh8jcvoIX",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "onSelectionChange",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "onSelectionChange",
+        "category": "General",
+        "x": 1445,
+        "y": 160,
+        "wires": [
+            [
+                "sd_7t1sLpdPvZbg9PtU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_7t1sLpdPvZbg9PtU",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let personalDetails = page.allPersonalDetails.find(el => bh.input.event.option.value == el.email)\nif (personalDetails) {\n    personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth'])\n    page.personalDetailsForm.patchValue(personalDetails);\n}",
+        "functionName": "sd_7t1sLpdPvZbg9PtU",
+        "category": "Function",
+        "x": 1585,
+        "y": 160,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
     }
 ]

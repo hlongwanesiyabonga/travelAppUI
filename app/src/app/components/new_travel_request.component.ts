@@ -195,16 +195,31 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_BMbG0jqY54LWdJB1(...others) {
+  requstedForHideandShow(element: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { element: element };
       bh.local = {};
-      //appendnew_next_sd_BMbG0jqY54LWdJB1
+      bh = this.sd_Xvjb4YiItErwxAGT(bh);
+      //appendnew_next_requstedForHideandShow
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_BMbG0jqY54LWdJB1');
+      return this.errorHandler(bh, e, 'sd_dqTGtSubVUnQi0az');
+    }
+  }
+
+  onSelectionChange(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_7t1sLpdPvZbg9PtU(bh);
+      //appendnew_next_onSelectionChange
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_JShCDxMGh8jcvoIX');
     }
   }
 
@@ -601,7 +616,10 @@ export class new_travel_requestComponent {
         page.requestedFor = true;
       } else if (bh.input.event.value == 'Self') {
         page.requestedFor = false;
-        console.log('Self');
+
+        bh.endPoint =
+          'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;
+        bh.method = 'get';
       }
       //appendnew_next_sd_KSMim0D7ZZLU1qV0
       return bh;
@@ -766,6 +784,156 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ZTozXZqj4lBEKTQr');
+    }
+  }
+
+  sd_Xvjb4YiItErwxAGT(bh) {
+    try {
+      if (
+        this.sdService.operators['eq'](
+          bh.input.element.value,
+          'Self',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_Z5Ai9J8jTiXMTgQP(bh);
+      } else if (
+        this.sdService.operators['eq'](
+          bh.input.element.value,
+          'On Behalf',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_27m2bbalKXjHhtVY(bh);
+      }
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Xvjb4YiItErwxAGT');
+    }
+  }
+
+  sd_Z5Ai9J8jTiXMTgQP(bh) {
+    try {
+      const page = this.page;
+      console.log('self');
+      page.requestedFor = true;
+
+      bh.endPoint =
+        'genericGet/getPersonalDetails?email=' + 'neutrinostravellm@gmail.com';
+      bh.method = 'get';
+      bh = this.sd_SrKlYlChBAf5kKDc(bh);
+      //appendnew_next_sd_Z5Ai9J8jTiXMTgQP
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Z5Ai9J8jTiXMTgQP');
+    }
+  }
+
+  async sd_SrKlYlChBAf5kKDc(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.Personaldetails = outputVariables.local.result;
+
+      bh = this.sd_A5D9OXwhReKwLuIU(bh);
+      //appendnew_next_sd_SrKlYlChBAf5kKDc
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_SrKlYlChBAf5kKDc');
+    }
+  }
+
+  sd_A5D9OXwhReKwLuIU(bh) {
+    try {
+      const page = this.page;
+      page.personalDetails['dateOfBirth'] = new Date(
+        page.personalDetails['dateOfBirth']
+      );
+      page.personalDetailsForm.patchValue(page.personalDetails);
+      //appendnew_next_sd_A5D9OXwhReKwLuIU
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_A5D9OXwhReKwLuIU');
+    }
+  }
+
+  sd_27m2bbalKXjHhtVY(bh) {
+    try {
+      const page = this.page;
+      console.log('on behalf');
+      page.requestedFor = false;
+      bh.emitValue = bh.input.element;
+      bh.endPoint = 'genericGet/getPersonalDetails';
+      bh.method = 'get';
+      bh = this.sd_6LA12F1oOjsVUSrq(bh);
+      //appendnew_next_sd_27m2bbalKXjHhtVY
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_27m2bbalKXjHhtVY');
+    }
+  }
+
+  async sd_6LA12F1oOjsVUSrq(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.personaldetails = outputVariables.local.result;
+
+      bh = this.sd_BH4NURT71PCehw8v(bh);
+      //appendnew_next_sd_6LA12F1oOjsVUSrq
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_6LA12F1oOjsVUSrq');
+    }
+  }
+
+  sd_BH4NURT71PCehw8v(bh) {
+    try {
+      const page = this.page;
+      console.log(page.personaldetails);
+      page.filterPersonalDetail = page.personaldetails;
+      let tempArr = page.filterPersonalDetail.filter((obj) =>
+        obj.email?.toLowerCase().includes(bh?.emitValue?.toLowerCase())
+      );
+      page.personaldetails = tempArr;
+      //appendnew_next_sd_BH4NURT71PCehw8v
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_BH4NURT71PCehw8v');
+    }
+  }
+
+  sd_7t1sLpdPvZbg9PtU(bh) {
+    try {
+      const page = this.page;
+      let personalDetails = page.allPersonalDetails.find(
+        (el) => bh.input.event.option.value == el.email
+      );
+      if (personalDetails) {
+        personalDetails['dateOfBirth'] = new Date(
+          personalDetails['dateOfBirth']
+        );
+        page.personalDetailsForm.patchValue(personalDetails);
+      }
+      //appendnew_next_sd_7t1sLpdPvZbg9PtU
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_7t1sLpdPvZbg9PtU');
     }
   }
 

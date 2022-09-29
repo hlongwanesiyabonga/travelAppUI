@@ -28,13 +28,13 @@
                             <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="space-between center" [fxShow]="true">
                               <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                                 <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
-                                  <mat-radio-button [value]="&apos;Self&apos;" [required]="false" (change)="selectChangesFunction($event)"></mat-radio-button><label>
+                                  <mat-radio-button [value]="&apos;Self&apos;" [required]="false" (change)="requstedForHideandShow($event)"></mat-radio-button><label>
                                     Self</label>
                                 </div>
                               </div>
                               <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                                 <div fxLayout="row wrap" class="groupedInput" fxLayoutAlign="space-between center" [fxShow]="true">
-                                  <mat-radio-button [value]="&apos;On Behalf&apos;" [required]="false" (change)="selectChangesFunction($event)"></mat-radio-button><label>
+                                  <mat-radio-button [value]="&apos;On Behalf&apos;" [required]="false" (change)="requstedForHideandShow($event)"></mat-radio-button><label>
                                     On Behalf</label>
                                 </div>
                               </div>
@@ -49,9 +49,9 @@
                     <div>
                       <mat-form-field appearance="outline">
                         <!-- <mat-label>Requested </mat-label> -->
-                        <input type="text" id="search" (input)="showRequstedfor($event)" placeholder="Requested For" matInput [matAutocomplete]="auto">
+                        <input type="text" id="search" (input)="requstedForHideandShow($event)" placeholder="Requested For" matInput [matAutocomplete]="auto">
                         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChange($event)">
-                          <mat-option *ngFor="let option of page?.allPersonalDetails" [value]="option.email">
+                          <mat-option *ngFor="let option of page?.personaldetails" [value]="option.email">
                             {{option.email}}
                           </mat-option>
                         </mat-autocomplete>
