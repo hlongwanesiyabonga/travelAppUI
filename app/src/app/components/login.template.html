@@ -37,7 +37,7 @@
               Forgot password?</label></div>
         </div>
       </form>
-      <div fxLayout="row wrap" class="marginBottom20" fxLayoutAlign="center stretch" [fxShow]="true"><button mat-button>Sign In</button></div>
+      <div fxLayout="row wrap" class="marginBottom20" fxLayoutAlign="center stretch" [fxShow]="true"><button mat-button (click)="login()">Sign In</button></div>
     </div>
   </div>
   <div fxLayout="row wrap" class="copyrightRow fullWidth" fxLayoutAlign="space-between center" [fxShow]="true">
