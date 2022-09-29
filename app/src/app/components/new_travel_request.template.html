@@ -28,13 +28,13 @@
                             <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="space-between center" [fxShow]="true">
                               <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                                 <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
-                                  <mat-radio-button [value]="&apos;Self&apos;" [required]="false" (change)="hideRequstedfor($event)"></mat-radio-button><label>
+                                  <mat-radio-button [value]="&apos;Self&apos;" [required]="false" (change)="selectChangesFunction($event)"></mat-radio-button><label>
                                     Self</label>
                                 </div>
                               </div>
                               <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                                 <div fxLayout="row wrap" class="groupedInput" fxLayoutAlign="space-between center" [fxShow]="true">
-                                  <mat-radio-button [value]="&apos;On Behalf&apos;" [required]="false" (change)="showRequstedfor()"></mat-radio-button><label>
+                                  <mat-radio-button [value]="&apos;On Behalf&apos;" [required]="false" (change)="selectChangesFunction($event)"></mat-radio-button><label>
                                     On Behalf</label>
                                 </div>
                               </div>
@@ -500,7 +500,7 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
     <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="1em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="blackButton">Cancel</button><button mat-raised-button class="redBorderedButton">Clear</button><button mat-raised-button class="redButton" (click)="submit_clear_draft(&apos;Submit&apos;,page.travelForm.value,page.personalDetailsForm.value)">Submit</button><button mat-raised-button class="grayBtn" (click)="submit_clear_draft(&apos;Draft&apos;,page.travelForm.value,page.personalDetailsForm.value)">Save As Draft</button></div>
+      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="1em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="blackButton">Cancel</button><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Clear</button><button mat-raised-button class="redButton" (click)="submit_clear_draft(&apos;Submit&apos;,page.travelForm.value,page.personalDetailsForm.value)">Submit</button><button mat-raised-button class="grayBtn" (click)="submit_clear_draft(&apos;Draft&apos;,page.travelForm.value,page.personalDetailsForm.value)">Save As Draft</button></div>
     </div>
   </div>
 </div>

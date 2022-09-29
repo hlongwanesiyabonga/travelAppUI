@@ -21,6 +21,8 @@ import {
   FormBuilder,
   FormArray,
 } from '@angular/forms'; //_splitter_
+import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
+import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -176,6 +178,33 @@ export class new_travel_requestComponent {
       //appendnew_next_submit_clear_draft
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Kwd7KJtk5BkZ9WYJ');
+    }
+  }
+
+  resetForm(form: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { form: form };
+      bh.local = {};
+      bh = this.sd_ZTozXZqj4lBEKTQr(bh);
+      //appendnew_next_resetForm
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_O2HdwEGI8Rs7tJA4');
+    }
+  }
+
+  sd_BMbG0jqY54LWdJB1(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      //appendnew_next_sd_BMbG0jqY54LWdJB1
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_BMbG0jqY54LWdJB1');
     }
   }
 
@@ -336,7 +365,7 @@ export class new_travel_requestComponent {
       page.travelForm = new FormGroup({
         requestDetails: page.Fb.array([]),
       });
-      bh = this.sd_bvYvWg7Xv6GTK5wB(bh);
+      bh = this.getPersonalDetails(bh);
       //appendnew_next_formControlsCreation
       return bh;
     } catch (e) {
@@ -344,7 +373,7 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_bvYvWg7Xv6GTK5wB(bh) {
+  getPersonalDetails(bh) {
     try {
       const page = this.page;
       page.date = new Date();
@@ -353,22 +382,106 @@ export class new_travel_requestComponent {
       page.email = 'neutrinostravellm@gmail.com';
       bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
       bh.method = 'get';
-      bh = this.sd_eYkVAuOfjYx8O61u(bh);
-      //appendnew_next_sd_bvYvWg7Xv6GTK5wB
+      bh = this.sd_9CcspaWLwsjeh7Li(bh);
+      //appendnew_next_getPersonalDetails
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_bvYvWg7Xv6GTK5wB');
     }
   }
 
-  sd_eYkVAuOfjYx8O61u(bh) {
+  sd_9CcspaWLwsjeh7Li(bh) {
+    try {
+      this.page.currentUserDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.sd_eFiLUtoMjxJgvq2q(bh);
+      //appendnew_next_sd_9CcspaWLwsjeh7Li
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_9CcspaWLwsjeh7Li');
+    }
+  }
+
+  sd_eFiLUtoMjxJgvq2q(bh) {
+    try {
+      const page = this.page; // page.date = new Date();
+      // page.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate
+
+      // bh.endPoint = 'genericGet/getPersonalDetails?email=' + "neo.thobela@neutrinos.co";
+      // bh.method ="get";
+      bh = this.sd_ingqGw7RleshURbt(bh);
+      //appendnew_next_sd_eFiLUtoMjxJgvq2q
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_eFiLUtoMjxJgvq2q');
+    }
+  }
+
+  async sd_ingqGw7RleshURbt(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.personalDetails = outputVariables.local.result;
+
+      bh = this.sd_Kls047KIBkKDp6tK(bh);
+      //appendnew_next_sd_ingqGw7RleshURbt
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_ingqGw7RleshURbt');
+    }
+  }
+
+  sd_Kls047KIBkKDp6tK(bh) {
     try {
       let outputVariables = this.addNewRequestForm();
 
-      //appendnew_next_sd_eYkVAuOfjYx8O61u
+      bh = this.patchPersonalDeatils(bh);
+      //appendnew_next_sd_Kls047KIBkKDp6tK
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_eYkVAuOfjYx8O61u');
+      return this.errorHandler(bh, e, 'sd_Kls047KIBkKDp6tK');
+    }
+  }
+
+  patchPersonalDeatils(bh) {
+    try {
+      const page = this.page;
+      bh.key = 'currentUserDetails';
+      page.personalDetailsForm.patchValue(page.personalDetails);
+      bh = this.sd_gHPr72vSMvOwupAk(bh);
+      //appendnew_next_patchPersonalDeatils
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_7bcT7RLcuOOEXtsv');
+    }
+  }
+
+  sd_gHPr72vSMvOwupAk(bh) {
+    try {
+      this.page.requesterDetails = JSON.parse(sessionStorage.getItem(bh.key));
+      bh = this.sd_ZWhQp9HYeJRrnOhp(bh);
+      //appendnew_next_sd_gHPr72vSMvOwupAk
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_gHPr72vSMvOwupAk');
+    }
+  }
+
+  sd_ZWhQp9HYeJRrnOhp(bh) {
+    try {
+      const page = this.page;
+      page.requester = `${page.personalDetails.firstName} ${page.personalDetails.lastName}`;
+      //appendnew_next_sd_ZWhQp9HYeJRrnOhp
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ZWhQp9HYeJRrnOhp');
     }
   }
 
@@ -483,6 +596,12 @@ export class new_travel_requestComponent {
         page.addLeg = true;
       } else if (bh.input.event.value == 'Return') {
         page.addLeg = false;
+      } else if (bh.input.event.value == 'On Behalf') {
+        console.log('on behalf');
+        page.requestedFor = true;
+      } else if (bh.input.event.value == 'Self') {
+        page.requestedFor = false;
+        console.log('Self');
       }
       //appendnew_next_sd_KSMim0D7ZZLU1qV0
       return bh;
@@ -508,22 +627,22 @@ export class new_travel_requestComponent {
         travelRequestType: page.travelRequestType,
       };
       console.log(page.formObj, 'page.formObj');
-      //     let tempDetails = []
-      // page.formObj.requestDetails.forEach(detail => {
-      //     detail['travelDetails']['passportDocument'] = page.passportBase64;
-      //     detail['travelDetails']['covidCertificate'] = page.covidBase64;
-      //     tempDetails.push(detail);
-      // })
-      // page.formObj.requestDetails = tempDetails;
-      // console.log(page.formObj, 'form');
+      let tempDetails = [];
+      page.formObj.requestDetails.forEach((detail) => {
+        detail['travelDetails']['passportDocument'] = page.passportBase64;
+        detail['travelDetails']['covidCertificate'] = page.covidBase64;
+        tempDetails.push(detail);
+      });
+      page.formObj.requestDetails = tempDetails;
+      console.log(page.formObj, 'form');
 
       bh.endPoint =
         bh.input.event == 'Draft'
           ? 'addTravelRequest?type=draft'
           : 'addTravelRequest';
       bh.method = 'post';
-      // page.currentUserTravelDetails = page.formObj
-      console.log('end', bh.endPoint);
+      page.currentUserTravelDetails = page.formObj;
+
       bh = this.sd_hzlAOioSF7sfAnch(bh);
       //appendnew_next_sd_Tyw2L65nU6abERyb
       return bh;
@@ -564,6 +683,8 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       console.log('Submit');
+      console.log('end', bh.endPoint);
+      bh = this.sd_7iwpttQpIoNxNQF5(bh);
       //appendnew_next_sd_NtmVgjxzgfE27lTh
       return bh;
     } catch (e) {
@@ -571,14 +692,80 @@ export class new_travel_requestComponent {
     }
   }
 
+  sd_7iwpttQpIoNxNQF5(bh) {
+    try {
+      this.__page_injector__.get(MatSnackBar).open('Form is submitted', 'Ok', {
+        duration: 3000,
+        direction: 'ltr',
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      });
+      bh = this.sd_wRxX62BDfvlhRLUP(bh);
+      //appendnew_next_sd_7iwpttQpIoNxNQF5
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_7iwpttQpIoNxNQF5');
+    }
+  }
+
+  async sd_wRxX62BDfvlhRLUP(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        this.page.formObj
+      );
+      bh.response = outputVariables.local.result;
+
+      //appendnew_next_sd_wRxX62BDfvlhRLUP
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_wRxX62BDfvlhRLUP');
+    }
+  }
+
   sd_lB67lzj3szt8sQDn(bh) {
     try {
       const page = this.page;
       console.log('draft');
+      console.log('end', bh.endPoint);
+      bh = this.sd_wj1AZTaIkbCFLwaM(bh);
       //appendnew_next_sd_lB67lzj3szt8sQDn
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_lB67lzj3szt8sQDn');
+    }
+  }
+
+  sd_wj1AZTaIkbCFLwaM(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Form is saved as draft', 'OK', {
+          duration: 3000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      bh = this.sd_wRxX62BDfvlhRLUP(bh);
+      //appendnew_next_sd_wj1AZTaIkbCFLwaM
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_wj1AZTaIkbCFLwaM');
+    }
+  }
+
+  sd_ZTozXZqj4lBEKTQr(bh) {
+    try {
+      const page = this.page;
+      bh.input.form.reset();
+      //appendnew_next_sd_ZTozXZqj4lBEKTQr
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ZTozXZqj4lBEKTQr');
     }
   }
 
