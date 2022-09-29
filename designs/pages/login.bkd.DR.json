@@ -2586,9 +2586,16 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "",
+                                "_value": "login()",
                                 "_type": "kv",
-                                "_attrDef": "p"
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_Zmp0pc5HmDOnfEvU",
+                                    "functionName": "login",
+                                    "activeTree": "pages",
+                                    "z": "sd_oLqqWgrxFPwslUVW",
+                                    "input": []
+                                }
                             },
                             {
                                 "_key": "[disabled]",
