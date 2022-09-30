@@ -575,7 +575,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: [''],\n    passportDocument: [''],\n    visaRequired: ['', []],\n    visa:[''],\n    covidCertificate: [''],\n   passport: [''],\n    needvehicle: ['', [Validators.required]],\n    needAccommodation: ['', [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: [''],\n    city: [''],\n    checkInDate: [''],\n    checkOutDate: [''],\n    checkInTime: [''],\n    checkOutTime: [''],\n    employeeComments: ['']\n\n  })\n}));\n\n\n",
+        "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: [''],\n    passportDocument: [''],\n    visaRequired: ['', []],\n    visa:[''],\n    covidCertificate: [''],\n   passport: [''],\n    needvehicle: ['', [Validators.required]],\n    needAccommodation: ['', [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: [''],\n    city: [''],\n    checkInDate: [''],\n    checkOutDate: [''],\n    checkInTime: [''],\n    checkOutTime: [''],\n    employeeComments: ['']\n\n  })\n}));\n//page.travelForm.requestDetails.patchValue();\n\n\n\n",
         "functionName": "sd_LYJcmnJwoRoJ6qQz",
         "category": "Function",
         "x": 845,
@@ -1111,7 +1111,7 @@
         "script": "// page.date = new Date();\n// page.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate\n\n// bh.endPoint = 'genericGet/getPersonalDetails?email=' + \"neo.thobela@neutrinos.co\";\n// bh.method =\"get\";",
         "functionName": "sd_eFiLUtoMjxJgvq2q",
         "category": "Function",
-        "x": 925,
+        "x": 945,
         "y": 80,
         "wires": [
             [
@@ -1153,7 +1153,7 @@
         "accept_csd": false,
         "functionName": "sd_Kls047KIBkKDp6tK",
         "category": "General",
-        "x": 1145,
+        "x": 1125,
         "y": 80,
         "wires": [
             [
@@ -1174,7 +1174,7 @@
         "script": "bh.key = 'currentUserDetails';\npage.personalDetailsForm.patchValue(page.personalDetails);",
         "functionName": "patchPersonalDeatils",
         "category": "Function",
-        "x": 1285,
+        "x": 1225,
         "y": 80,
         "wires": [
             [
@@ -1206,7 +1206,7 @@
         },
         "functionName": "sd_gHPr72vSMvOwupAk",
         "category": "Storage",
-        "x": 1365,
+        "x": 1305,
         "y": 80,
         "wires": [
             [
