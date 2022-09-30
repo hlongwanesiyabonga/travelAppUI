@@ -53,3 +53,10 @@
         "generated": true
     }
 ]
+
+
+page.showDashboard
+page.showReports
+page.showDrafts
+page.showNewRequests
+page.showLogout

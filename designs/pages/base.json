@@ -521,25 +521,6 @@
         "serviceName": "baseComponent"
     },
     {
-        "id": "sd_9CvsQ9gEDQRmzLGq",
-        "type": "Script",
-        "z": "sd_2SmtltpgSscQJfqT",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "close side nav",
-        "script": "page.sideNav.hide();",
-        "functionName": "closeSideNav",
-        "category": "Function",
-        "x": 420,
-        "y": 520,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
         "id": "sd_omtxhHSTT0bkCN7b",
         "type": "Script",
         "z": "sd_2SmtltpgSscQJfqT",
@@ -878,6 +859,13 @@
         "nodeType": "flow",
         "name": "",
         "path": "/login",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
         "functionName": "sd_kCjbiuUON8G85Qss",
         "category": "Navigation",
         "x": 325,
@@ -913,6 +901,25 @@
             [
                 "sd_kCjbiuUON8G85Qss"
             ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_9CvsQ9gEDQRmzLGq",
+        "type": "Script",
+        "z": "sd_2SmtltpgSscQJfqT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "close side nav",
+        "script": "page.sideNav.hide();",
+        "functionName": "closeSideNav",
+        "category": "Function",
+        "x": 420,
+        "y": 520,
+        "wires": [
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

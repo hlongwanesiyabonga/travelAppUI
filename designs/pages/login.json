@@ -178,7 +178,7 @@
         "script": "page.userCreds = page.loginForm.value;\nbh.method = 'get';\nbh.endPoint = `login?username=${page.userCreds.username}&password=${page.userCreds.password}`",
         "functionName": "sd_nS6cYefZcGYhZLU6",
         "category": "Function",
-        "x": 185,
+        "x": 145,
         "y": 240,
         "wires": [
             [
@@ -298,8 +298,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_BfLgEsk0rU7kxBP9",
@@ -321,7 +320,9 @@
             "value": "2500"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -335,8 +336,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_2abhcHyWSuiruSZX",
@@ -346,6 +346,13 @@
         "nodeType": "flow",
         "name": "",
         "path": "/home/new-request",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
         "functionName": "sd_2abhcHyWSuiruSZX",
         "category": "Navigation",
         "x": 945,
@@ -354,8 +361,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_UPp1ycwAW0SwTrgX",
@@ -386,8 +392,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_89gHBSYfG69ZEQnl",
@@ -396,15 +401,13 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(bh.response)",
+        "script": "console.log(\"response\", bh.response)",
         "functionName": "sd_89gHBSYfG69ZEQnl",
         "category": "Function",
         "x": 345,
         "y": 240,
         "wires": [
-            [
-                "sd_OMFHt7hKcpPI1tpH"
-            ]
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -429,8 +432,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_og1sc73KuT5Q5PtJ",
@@ -450,8 +452,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_7pJNvcZRRdRuMvXH",
@@ -525,8 +526,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_icEjpnoC8D5oXEcL",
@@ -546,7 +546,24 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
+    },
+    {
+        "id": "sd_O4qDP8FgXUSfv3Wf",
+        "type": "Script",
+        "z": "sd_pmfwpqMBMOczws9i",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log('form', page.userCreds)",
+        "functionName": "sd_O4qDP8FgXUSfv3Wf",
+        "category": "Function",
+        "x": 180,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]
