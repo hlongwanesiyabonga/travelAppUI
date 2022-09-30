@@ -153,7 +153,7 @@
         "y": 60,
         "wires": [
             [
-                "sd_5i5FiAD9t0bIPp1u"
+                "sd_Yh22CstwbVP0U8AN"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -211,19 +211,51 @@
         "generated": true
     },
     {
-        "id": "sd_5i5FiAD9t0bIPp1u",
+        "id": "sd_MBz5EGrssnMaWTm5",
         "type": "Script",
         "z": "sd_A1xam8VNTMz4CCzQ",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.email = \"neo.thobela@neutrinos.co\"\nbh.method = \"get\",\nbh.endPoint = \"genericGet/getPersonalDetails?email=\"+page.email;\n",
-        "functionName": "sd_5i5FiAD9t0bIPp1u",
+        "script": "\npage.currentUserDetails.designation = page.currentUserDetails.designation.toString();\npage.profileForm.patchValue(page.currentUserDetails);\nconsole.log(\"hiiii\",page.profileForm)",
+        "functionName": "sd_MBz5EGrssnMaWTm5",
         "category": "Function",
-        "x": 465,
+        "x": 585,
         "y": 60,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Yh22CstwbVP0U8AN",
+        "type": "Storage",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "currentUserDetails"
+        },
+        "functionName": "sd_Yh22CstwbVP0U8AN",
+        "category": "Storage",
+        "x": 460,
+        "y": 60,
+        "wires": [
+            [
+                "sd_MBz5EGrssnMaWTm5"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
