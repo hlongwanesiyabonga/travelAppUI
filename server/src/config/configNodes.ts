@@ -1478,7 +1478,11 @@ export default {
                 }
             },
             "__n_excludedFromValidation__": {},
-            "users": {}
+            "users": {
+                "SSD_SERVICE_ID_sd_w3nUYpAbLMOJmYgX": [
+                    "sd_jZmpyhDOIiHSerWv"
+                ]
+            }
         },
         "sd_jlIteXYYWodgyKo2": {
             "id": "sd_jlIteXYYWodgyKo2",

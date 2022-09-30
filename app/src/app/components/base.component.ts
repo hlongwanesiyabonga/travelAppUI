@@ -177,10 +177,23 @@ export class baseComponent {
       this.page.body = undefined;
       this.page.endPoint = undefined;
       this.page.personalDetails = {};
+      bh = this.sd_RnOYjIQ1cmPEuhLI(bh);
       //appendnew_next_sd_qkPRetutvSxANjfB
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_qkPRetutvSxANjfB');
+    }
+  }
+
+  sd_RnOYjIQ1cmPEuhLI(bh) {
+    try {
+      this.page.personalDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      //appendnew_next_sd_RnOYjIQ1cmPEuhLI
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_RnOYjIQ1cmPEuhLI');
     }
   }
 

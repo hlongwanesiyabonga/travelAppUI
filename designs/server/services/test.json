@@ -1,0 +1,71 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_0XWQoU7mrWGPgOEF",
+        "type": "tab",
+        "createdDate": "2022-09-29T12:46:09.683Z",
+        "label": "test",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "test",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_LAE142K41IpxTUpX",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_0XWQoU7mrWGPgOEF",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "test",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "test": {
+                "get": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "x": 200,
+        "y": 280,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "test",
+        "functionName": "sd_LAE142K41IpxTUpX"
+    }
+]

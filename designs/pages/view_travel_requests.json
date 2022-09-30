@@ -96,7 +96,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "view_travel_requestsComponent"
     },
     {
         "id": "sd_BTf9i9QAszbO7i3N",
@@ -120,25 +121,6 @@
         "__n_excludedFromValidation__": {},
         "generateNext": true,
         "serviceName": "view_travel_requestsComponent"
-    },
-    {
-        "id": "sd_aahVPe9dAncg9gEt",
-        "type": "Script",
-        "z": "sd_M6CpklMyTxKCR3le",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests\"\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]",
-        "functionName": "sd_aahVPe9dAncg9gEt",
-        "category": "Function",
-        "x": 544,
-        "y": 80,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
     },
     {
         "id": "sd_C6YF8Mvo5QyzHF4Z",
@@ -251,6 +233,173 @@
         "wires": [
             [
                 "sd_zEmBiVp4U4ztVQKa"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ZiMf7unJMN9WTCdx",
+        "type": "PageStart",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "",
+        "outputs": 1,
+        "flow_type": "sync",
+        "functionName": "sd_ZiMf7unJMN9WTCdx",
+        "category": "General",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "sd_Uur1CFhWbiRr002z"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "view_travel_requestsComponent"
+    },
+    {
+        "id": "sd_Uur1CFhWbiRr002z",
+        "type": "Storage",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "currentUserDetails"
+        },
+        "functionName": "sd_Uur1CFhWbiRr002z",
+        "category": "Storage",
+        "x": 205,
+        "y": 260,
+        "wires": [
+            [
+                "sd_6B0ZK9AaHRdVo67p"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ONCHSdS1F5TeFZ1l",
+        "type": "PageCallService",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh",
+                "value": "result",
+                "mapVarName": "result",
+                "localVar": "bh.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_ONCHSdS1F5TeFZ1l",
+        "category": "General",
+        "x": 405,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_aahVPe9dAncg9gEt",
+        "type": "Script",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]",
+        "functionName": "sd_aahVPe9dAncg9gEt",
+        "category": "Function",
+        "x": 544,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_6B0ZK9AaHRdVo67p",
+        "type": "Script",
+        "z": "sd_M6CpklMyTxKCR3le",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?\"\n\n",
+        "functionName": "sd_6B0ZK9AaHRdVo67p",
+        "category": "Function",
+        "x": 305,
+        "y": 260,
+        "wires": [
+            [
+                "sd_ONCHSdS1F5TeFZ1l"
             ]
         ],
         "__n_excludedFromValidation__": {},

@@ -131,7 +131,9 @@
         "x": 185,
         "y": 80,
         "wires": [
-            []
+            [
+                "sd_RnOYjIQ1cmPEuhLI"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -570,6 +572,36 @@
         "category": "Navigation",
         "x": 185,
         "y": 680,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_RnOYjIQ1cmPEuhLI",
+        "type": "Storage",
+        "z": "sd_JTAA8osGAbN1doPe",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "personalDetails"
+        },
+        "functionName": "sd_RnOYjIQ1cmPEuhLI",
+        "category": "Storage",
+        "x": 265,
+        "y": 80,
         "wires": [
             []
         ],

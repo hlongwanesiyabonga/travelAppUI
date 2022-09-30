@@ -15,6 +15,7 @@ import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.ser
 import { MatTableDataSource } from '@angular/material/table'; //_splitter_
 import { MatPaginator } from '@angular/material/paginator'; //_splitter_
 import { MatSort } from '@angular/material/sort'; //_splitter_
+import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -60,6 +61,20 @@ export class view_travel_requestsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_BTf9i9QAszbO7i3N');
+    }
+  }
+
+  sd_ZiMf7unJMN9WTCdx(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_Uur1CFhWbiRr002z(bh);
+      //appendnew_next_sd_ZiMf7unJMN9WTCdx
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ZiMf7unJMN9WTCdx');
     }
   }
 
@@ -120,8 +135,6 @@ export class view_travel_requestsComponent {
   sd_aahVPe9dAncg9gEt(bh) {
     try {
       const page = this.page;
-      bh.method = 'get';
-      bh.endPoint = 'travelRequests/getTravelRequests';
       page.select = [
         { viewvalue: 'My requests' },
         { viewvalue: 'Traveler requests' },
@@ -130,6 +143,52 @@ export class view_travel_requestsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_aahVPe9dAncg9gEt');
+    }
+  }
+
+  sd_Uur1CFhWbiRr002z(bh) {
+    try {
+      this.page.currentUserDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.sd_6B0ZK9AaHRdVo67p(bh);
+      //appendnew_next_sd_Uur1CFhWbiRr002z
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Uur1CFhWbiRr002z');
+    }
+  }
+
+  sd_6B0ZK9AaHRdVo67p(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      bh.endPoint = 'travelRequests/getTravelRequests?';
+
+      bh = this.sd_ONCHSdS1F5TeFZ1l(bh);
+      //appendnew_next_sd_6B0ZK9AaHRdVo67p
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_6B0ZK9AaHRdVo67p');
+    }
+  }
+
+  async sd_ONCHSdS1F5TeFZ1l(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      bh.result = outputVariables.local.result;
+
+      //appendnew_next_sd_ONCHSdS1F5TeFZ1l
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_ONCHSdS1F5TeFZ1l');
     }
   }
 

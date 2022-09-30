@@ -133,7 +133,7 @@ export class profile_dialogComponent {
         lineManager: new FormControl('', [Validators.required]),
         lineManagerEmail: new FormControl('', [Validators.required]),
       });
-      bh = this.sd_5i5FiAD9t0bIPp1u(bh);
+      bh = this.sd_Yh22CstwbVP0U8AN(bh);
       //appendnew_next_sd_ARtraoWN58k86m3h
       return bh;
     } catch (e) {
@@ -141,17 +141,30 @@ export class profile_dialogComponent {
     }
   }
 
-  sd_5i5FiAD9t0bIPp1u(bh) {
+  sd_Yh22CstwbVP0U8AN(bh) {
     try {
-      const page = this.page;
-      page.email = 'neo.thobela@neutrinos.co';
-      (bh.method = 'get'),
-        (bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email);
-
-      //appendnew_next_sd_5i5FiAD9t0bIPp1u
+      this.page.currentUserDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.sd_MBz5EGrssnMaWTm5(bh);
+      //appendnew_next_sd_Yh22CstwbVP0U8AN
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_5i5FiAD9t0bIPp1u');
+      return this.errorHandler(bh, e, 'sd_Yh22CstwbVP0U8AN');
+    }
+  }
+
+  sd_MBz5EGrssnMaWTm5(bh) {
+    try {
+      const page = this.page;
+      page.currentUserDetails.designation =
+        page.currentUserDetails.designation.toString();
+      page.profileForm.patchValue(page.currentUserDetails);
+      console.log('hiiii', page.profileForm);
+      //appendnew_next_sd_MBz5EGrssnMaWTm5
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_MBz5EGrssnMaWTm5');
     }
   }
 
