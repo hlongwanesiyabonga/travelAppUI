@@ -271,6 +271,7 @@
                             </div>
                           </div>
                         </div>
+                        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"></div>
                         <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between center" [fxShow]="true">
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               From Date</label>
@@ -299,7 +300,7 @@
                           </div>
                         </div>
                         <div fxLayout="row wrap" class="fullWidth" fxLayoutGap="2%" fxLayoutAlign="start stretch" [fxShow]="true">
-                          <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showVISA"><label>
+                          <div fxLayout="column wrap" class="marginBottom0pt3em inputContainer" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showVISA"><label>
                               Do you have a VISA</label>
                             <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start center" [fxShow]="true">
                               <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
@@ -349,8 +350,8 @@
                             </mat-form-field>
                           </div>
                         </div>
-                        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between center" [fxShow]="true">
-                          <div fxLayout="column wrap" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.showVISA"><label>
+                        <div fxLayout="row wrap" class="fullWidth marginBottom1em" fxLayoutAlign="space-between center" [fxShow]="true">
+                          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.showVISA"><label>
                               <label class="marginBottom1em">Upload Covid Certificate</label>
 
                             </label><label>
@@ -358,6 +359,24 @@
                               <input formControlName="covidCertificate" id="file" type="file" class="form-control" (change)="onFileChange($event)">
                               <!-- <input type="file" (change)="csvInputChange($event)" formControlName ="covidCertificate"/> -->
                               <!-- <div class ="marginBottom0pt3em">Upload Covid Certificate</div>
+<button mat-button class="blackButton " (click)="csvInput.click()">Upload File</button> -->
+                              <!-- <div class="form-group">
+      <label for="file">Choose File</label><br /> <input type="file" id="file" (change)="uploadFiles($event.target.files)">
+    </div>
+ -->
+                              <!-- <button type="button" (click)="RequestUpload()">Ok</button> -->
+                            </label></div>
+                          <div fxLayout="column wrap" class="inputContainer" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" *ngIf="page.showVISA"><label>
+                              <label class="marginBottom1em">Upload Visa</label>
+                            </label><label>
+
+                              <input formControlName="visa" id="file2" type="file" class="form-control" (change)="onFileChange($event)">
+                              <!-- <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+            <div *ngIf="f.file.errors.required">File is required.</div>
+        </div> -->
+
+                              <!-- <input mat-button type="file" (change)="csvInputChange($event)" formControlName ="passport" /> -->
+                              <!-- <div class ="marginBottom0pt3em" class="blackButton " >Upload Passport</div>
 <button mat-button class="blackButton " (click)="csvInput.click()">Upload File</button> -->
                               <!-- <div class="form-group">
       <label for="file">Choose File</label><br /> <input type="file" id="file" (change)="uploadFiles($event.target.files)">
@@ -383,6 +402,8 @@
  -->
                               <!-- <button type="button" (click)="RequestUpload()">Ok</button> -->
                             </label></div>
+                        </div>
+                        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                           <div fxLayout="column wrap" fxFlex="32" fxLayoutGap=".3em" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49" class.xs="margin-top:10px">
                             <mat-radio-group class="fullWidth" formControlName="needAccommodation" [required]="true">
                               <div fxLayout="column wrap" fxLayoutGap="0.3em" fxLayoutAlign="start stretch" [fxShow]="true"><label>

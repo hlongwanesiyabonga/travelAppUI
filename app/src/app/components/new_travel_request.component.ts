@@ -553,6 +553,7 @@ export class new_travel_requestComponent {
             travelerComments: [''],
             passportDocument: [''],
             visaRequired: ['', []],
+            visa: [''],
             covidCertificate: [''],
             passport: [''],
             needvehicle: ['', [Validators.required]],
@@ -894,27 +895,10 @@ export class new_travel_requestComponent {
       );
       this.page.personaldetails = outputVariables.local.result;
 
-      bh = this.sd_BH4NURT71PCehw8v(bh);
       //appendnew_next_sd_6LA12F1oOjsVUSrq
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_6LA12F1oOjsVUSrq');
-    }
-  }
-
-  sd_BH4NURT71PCehw8v(bh) {
-    try {
-      const page = this.page;
-      console.log(page.personaldetails);
-      page.filterPersonalDetail = page.personaldetails;
-      let tempArr = page.filterPersonalDetail.filter((obj) =>
-        obj.email?.toLowerCase().includes(bh?.emitValue?.toLowerCase())
-      );
-      page.personaldetails = tempArr;
-      //appendnew_next_sd_BH4NURT71PCehw8v
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_BH4NURT71PCehw8v');
     }
   }
 
