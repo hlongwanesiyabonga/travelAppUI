@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -28,6 +30,10 @@ import { travelRequestDialogComponent } from './travelRequestDialog.component'; 
   ],
 })
 export class draftsComponent {
+  @ViewChild(MatSort)
+  public MatSort: any = null;
+  @ViewChild(MatPaginator)
+  public MatPaginator: any = null;
   page: any = { dep: {} };
   constructor(
     private __page_injector__: Injector,
@@ -198,23 +204,15 @@ export class draftsComponent {
     }
   }
 
-  async sd_5mJKpAKXc0bTZZyy(bh) {
+  sd_5mJKpAKXc0bTZZyy(bh) {
     try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        undefined
-      );
-      this.page.tableData = outputVariables.local.result;
+      let outputVariables = this.getTravelRequests();
 
       bh = this.sd_ZAuxPcsfV74FeOsi(bh);
       //appendnew_next_sd_5mJKpAKXc0bTZZyy
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_5mJKpAKXc0bTZZyy');
+      return this.errorHandler(bh, e, 'sd_5mJKpAKXc0bTZZyy');
     }
   }
 
@@ -226,6 +224,7 @@ export class draftsComponent {
       //     {amount: 5, topText: 'Approved', icon : 'thumb_up', cssClass: 'greenBg'},
       //     {amount: 4, topText: 'Rejected', icon : 'thumb_down', cssClass: 'redBg'},
       // ];
+      console.log(page.tableData);
       //appendnew_next_sd_ZAuxPcsfV74FeOsi
       return bh;
     } catch (e) {
@@ -251,10 +250,108 @@ export class draftsComponent {
       const page = this.page;
       bh.method = 'get';
       bh.endPoint = 'getTravelRequestDrafts';
+      bh = this.sd_5HSvvAAlbVxWMrSM(bh);
       //appendnew_next_sd_lbtlLEQlxqy4C52Q
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_lbtlLEQlxqy4C52Q');
+    }
+  }
+
+  async sd_5HSvvAAlbVxWMrSM(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.receivedTableData = outputVariables.local.result;
+
+      bh = this.logTable(bh);
+      //appendnew_next_sd_5HSvvAAlbVxWMrSM
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_5HSvvAAlbVxWMrSM');
+    }
+  }
+
+  logTable(bh) {
+    try {
+      const page = this.page;
+      console.log('this table', page.receivedTableData);
+      bh = this.table(bh);
+      //appendnew_next_logTable
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_WVc7JxjRDeZUFStw');
+    }
+  }
+
+  table(bh) {
+    try {
+      bh.pageViews = Object.assign(bh.pageViews || {}, {
+        MatSort: this.MatSort,
+        MatPaginator: this.MatPaginator,
+      });
+      bh = this.setTableTokens(bh);
+      //appendnew_next_table
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_FEzlg1JIzC1mej2X');
+    }
+  }
+
+  setTableTokens(bh) {
+    try {
+      const page = this.page;
+      let tableData = [];
+      let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
+      let tableSetup = {
+        traveler: {
+          tableHeaders: [
+            'Date Created',
+            'Trip Type',
+            'Travel Mode',
+            'From City',
+            'To City',
+            'Status',
+            'Action',
+          ],
+          tableCells: [
+            'dateCreated',
+            `tripType`,
+            'travelMode',
+            'fromCity',
+            'toCity',
+            'action',
+          ],
+        },
+      };
+      //bh.role = tableSetup.traveler
+      page.tableHeaders = tableSetup['traveler']['tableHeaders'];
+      page.tableCells = tableSetup['traveler']['tableCells'];
+      page.receivedTableData['data'].forEach((el) => {
+        let temp = {};
+        temp['_id'] = el['_id'];
+        temp['dateCreated'] = el['dateCreated'];
+        temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
+        temp['travelMode'] =
+          el['requestDetails'][0]['travelDetails']['travelMode'];
+        temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];
+        temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
+        tableData.push(temp);
+      });
+
+      page.tableData = new page.tableDataSource(tableData);
+      page.tableData.paginator = bh.pageViews.MatPaginator;
+      page.tableData.sort = bh.pageViews.MatSort;
+      //appendnew_next_setTableTokens
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_lfpoJtSxNNiwXT43');
     }
   }
 

@@ -66,57 +66,24 @@
         "isValidNode": true,
         "noerr": 0,
         "service": {
-            "id": "sd_RlbkgAJauuYtTx07",
+            "id": "sd_XVCZI1NQxgXsjXfL",
             "type": "tab",
-            "createdDate": "2022-09-29T08:41:02.628Z",
-            "label": "callServerApis",
+            "createdDate": "2022-09-29T06:57:12.048Z",
+            "label": "drafts",
             "disabled": false,
             "info": "",
             "functionSeq": 0
         },
         "flow": {
-            "flowId": "sd_nCumUxwkMp8Q3Kjk",
-            "flowName": "dynamic"
+            "flowId": "sd_m4f1RBLWW5ALYhB3",
+            "flowName": "getTravelRequests"
         },
-        "inputVariables": [
-            {
-                "key": "endPoint",
-                "map": true,
-                "valueType": "bh",
-                "value": "endPoint"
-            },
-            {
-                "key": "method",
-                "map": true,
-                "valueType": "bh",
-                "value": "method"
-            },
-            {
-                "key": "body",
-                "map": true,
-                "valueType": "bh",
-                "value": ""
-            }
-        ],
-        "outputMapping": [
-            {
-                "mapVarType": "local",
-                "key": "result",
-                "valueType": "this.page",
-                "value": "tableData",
-                "mapVarName": "result",
-                "localVar": "this.page.tableData"
-            }
-        ],
-        "serviceImportPath": "app/sd-services/callServerApis",
-        "startName": "dynamic",
-        "inputParams": [
-            "bh.endPoint",
-            "bh.method",
-            null
-        ],
-        "accept_bh": false,
-        "accept_csd": true,
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./drafts",
+        "startName": "getTravelRequests",
+        "inputParams": [],
+        "accept_csd": false,
         "functionName": "sd_5mJKpAKXc0bTZZyy",
         "category": "General",
         "x": 685,
@@ -160,7 +127,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "// page.dashboardCards =[\n//     {amount: 15, topText: 'Total', icon : 'description', cssClass: 'blueBg'},\n//     {amount: 6, topText: 'Pending', icon : 'hourglass_full', cssClass: 'orangeBg'},\n//     {amount: 5, topText: 'Approved', icon : 'thumb_up', cssClass: 'greenBg'},\n//     {amount: 4, topText: 'Rejected', icon : 'thumb_down', cssClass: 'redBg'},\n// ];",
+        "script": "// page.dashboardCards =[\n//     {amount: 15, topText: 'Total', icon : 'description', cssClass: 'blueBg'},\n//     {amount: 6, topText: 'Pending', icon : 'hourglass_full', cssClass: 'orangeBg'},\n//     {amount: 5, topText: 'Approved', icon : 'thumb_up', cssClass: 'greenBg'},\n//     {amount: 4, topText: 'Rejected', icon : 'thumb_down', cssClass: 'redBg'},\n// ];\nconsole.log(page.tableData)",
         "functionName": "sd_ZAuxPcsfV74FeOsi",
         "category": "Function",
         "x": 765,
@@ -400,7 +367,9 @@
         "x": 405,
         "y": 320,
         "wires": [
-            []
+            [
+                "sd_5HSvvAAlbVxWMrSM"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -417,16 +386,16 @@
         "isValidNode": true,
         "noerr": 0,
         "service": {
-            "id": "sd_hkAMxxfqyGUP7RIf",
+            "id": "sd_RlbkgAJauuYtTx07",
             "type": "tab",
-            "createdDate": "2022-06-28T19:32:02.953Z",
+            "createdDate": "2022-09-29T08:41:02.628Z",
             "label": "callServerApis",
             "disabled": false,
             "info": "",
             "functionSeq": 0
         },
         "flow": {
-            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
             "flowName": "dynamic"
         },
         "inputVariables": [
@@ -478,7 +447,8 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": false,
+        "generated": true
     },
     {
         "id": "sd_WVc7JxjRDeZUFStw",
@@ -498,7 +468,8 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": false,
+        "generated": true
     },
     {
         "id": "sd_FEzlg1JIzC1mej2X",
@@ -536,7 +507,8 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": false,
+        "generated": true
     },
     {
         "id": "sd_wJBnESgJGGNuKJn4",
@@ -577,7 +549,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "setTableTokens",
-        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    let temp = {};\n    temp['_id'] = el['_id'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\n\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;",
+        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n    }\n};\n //bh.role = tableSetup.traveler\n    page.tableHeaders = tableSetup[\"traveler\"]['tableHeaders'];\npage.tableCells = tableSetup[\"traveler\"]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    let temp = {};\n    temp['_id'] = el['_id'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\n\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;",
         "functionName": "setTableTokens",
         "category": "Function",
         "x": 825,
@@ -586,7 +558,8 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": false,
+        "generated": true
     },
     {
         "id": "sd_EZ3NVWoCTRthdcdE",
