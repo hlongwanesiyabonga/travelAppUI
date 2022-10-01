@@ -23,8 +23,8 @@ import {
   FormBuilder,
   FormArray,
 } from '@angular/forms'; //_splitter_
-import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
+import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -87,20 +87,6 @@ export class new_travel_requestComponent {
       //appendnew_next_date
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_bdozh8xtjLzM0QiG');
-    }
-  }
-
-  onFileChange(event: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { event: event };
-      bh.local = {};
-      bh = this.sd_L8dj6KHB0MWU3lHf(bh);
-      //appendnew_next_onFileChange
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_dQi0ZDxCALyvvKO5');
     }
   }
 
@@ -225,6 +211,62 @@ export class new_travel_requestComponent {
     }
   }
 
+  requstedForFilter(element: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { element: element };
+      bh.local = {};
+      bh = this.sd_27m2bbalKXjHhtVY(bh);
+      //appendnew_next_requstedForFilter
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_LayNzMEnXlF21Fw6');
+    }
+  }
+
+  onFileChangeCovidCertificate(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_A6EdTfWK9ewnKuJT(bh);
+      //appendnew_next_onFileChangeCovidCertificate
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_KpgD821Qkh9Ll0GG');
+    }
+  }
+
+  onFileChangePassport(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_5BqagivLPnIpSaQX(bh);
+      //appendnew_next_onFileChangePassport
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_eebBTEGIzE391LWp');
+    }
+  }
+
+  onFileChangeVISA(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_w2hf3wCdCGd0T8ws(bh);
+      //appendnew_next_onFileChangeVISA
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ohBvQUSct5bb7Wds');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -341,6 +383,7 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       page.personalDetailsForm = new FormGroup({
+        // requester: new FormControl (''),
         requestedFor: new FormControl(''),
         requestType: new FormControl(''),
         firstName: new FormControl('', [
@@ -382,11 +425,24 @@ export class new_travel_requestComponent {
       page.travelForm = new FormGroup({
         requestDetails: page.Fb.array([]),
       });
-      bh = this.getPersonalDetails(bh);
+      bh = this.sd_9CcspaWLwsjeh7Li(bh);
       //appendnew_next_formControlsCreation
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_DFBceSl6hbfqJq3d');
+    }
+  }
+
+  sd_9CcspaWLwsjeh7Li(bh) {
+    try {
+      this.page.currentUserDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.getPersonalDetails(bh);
+      //appendnew_next_sd_9CcspaWLwsjeh7Li
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_9CcspaWLwsjeh7Li');
     }
   }
 
@@ -396,10 +452,10 @@ export class new_travel_requestComponent {
       page.date = new Date();
       page.futureDate =
         page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate;
-      page.email = 'neutrinostravellm@gmail.com';
-      bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
+      bh.endPoint =
+        'genericGet/getPersonalDetails?email=' + page.currentUserDetails.email;
       bh.method = 'get';
-      bh = this.sd_9CcspaWLwsjeh7Li(bh);
+      bh = this.sd_Kls047KIBkKDp6tK(bh);
       //appendnew_next_getPersonalDetails
       return bh;
     } catch (e) {
@@ -407,59 +463,11 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_9CcspaWLwsjeh7Li(bh) {
-    try {
-      this.page.currentUserDetails = JSON.parse(
-        sessionStorage.getItem('currentUserDetails')
-      );
-      bh = this.sd_eFiLUtoMjxJgvq2q(bh);
-      //appendnew_next_sd_9CcspaWLwsjeh7Li
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_9CcspaWLwsjeh7Li');
-    }
-  }
-
-  sd_eFiLUtoMjxJgvq2q(bh) {
-    try {
-      const page = this.page; // page.date = new Date();
-      // page.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate
-
-      // bh.endPoint = 'genericGet/getPersonalDetails?email=' + "neo.thobela@neutrinos.co";
-      // bh.method ="get";
-      bh = this.sd_ingqGw7RleshURbt(bh);
-      //appendnew_next_sd_eFiLUtoMjxJgvq2q
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_eFiLUtoMjxJgvq2q');
-    }
-  }
-
-  async sd_ingqGw7RleshURbt(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        undefined
-      );
-      this.page.personalDetails = outputVariables.local.result;
-
-      bh = this.sd_Kls047KIBkKDp6tK(bh);
-      //appendnew_next_sd_ingqGw7RleshURbt
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_ingqGw7RleshURbt');
-    }
-  }
-
   sd_Kls047KIBkKDp6tK(bh) {
     try {
       let outputVariables = this.addNewRequestForm();
 
-      bh = this.patchPersonalDeatils(bh);
+      bh = this.fetchDetails(bh);
       //appendnew_next_sd_Kls047KIBkKDp6tK
       return bh;
     } catch (e) {
@@ -467,13 +475,13 @@ export class new_travel_requestComponent {
     }
   }
 
-  patchPersonalDeatils(bh) {
+  fetchDetails(bh) {
     try {
       const page = this.page;
       bh.key = 'currentUserDetails';
-      page.personalDetailsForm.patchValue(page.personalDetails);
+      //page.personalDetailsForm.patchValue(page.personalDetails);
       bh = this.sd_gHPr72vSMvOwupAk(bh);
-      //appendnew_next_patchPersonalDeatils
+      //appendnew_next_fetchDetails
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_7bcT7RLcuOOEXtsv');
@@ -494,7 +502,8 @@ export class new_travel_requestComponent {
   sd_ZWhQp9HYeJRrnOhp(bh) {
     try {
       const page = this.page;
-      page.requester = `${page.personalDetails.firstName} ${page.personalDetails.lastName}`;
+      page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`;
+      //page.personalDetailsForm?.value?.requester?.patchValue(page.requester)
       //appendnew_next_sd_ZWhQp9HYeJRrnOhp
       return bh;
     } catch (e) {
@@ -512,27 +521,6 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_p628PvB6Wft0W8cy');
-    }
-  }
-
-  sd_L8dj6KHB0MWU3lHf(bh) {
-    try {
-      const page = this.page;
-      if (bh.input.event.target.files.length > 0) {
-        const file = bh.input.event.target.files[0];
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-          page.passportBase64 = reader.result;
-        };
-        reader.onerror = function (error) {
-          console.log('Error: ', error);
-        };
-      }
-      //appendnew_next_sd_L8dj6KHB0MWU3lHf
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_L8dj6KHB0MWU3lHf');
     }
   }
 
@@ -823,10 +811,10 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       console.log('self');
-      page.requestedFor = true;
+      page.requestedFor = false;
 
       bh.endPoint =
-        'genericGet/getPersonalDetails?email=' + 'neutrinostravellm@gmail.com';
+        'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;
       bh.method = 'get';
       bh = this.sd_SrKlYlChBAf5kKDc(bh);
       //appendnew_next_sd_Z5Ai9J8jTiXMTgQP
@@ -846,7 +834,7 @@ export class new_travel_requestComponent {
         bh.method,
         undefined
       );
-      this.page.Personaldetails = outputVariables.local.result;
+      bh.local.selfDetails = outputVariables.local.result;
 
       bh = this.sd_A5D9OXwhReKwLuIU(bh);
       //appendnew_next_sd_SrKlYlChBAf5kKDc
@@ -859,10 +847,10 @@ export class new_travel_requestComponent {
   sd_A5D9OXwhReKwLuIU(bh) {
     try {
       const page = this.page;
-      page.personalDetails['dateOfBirth'] = new Date(
-        page.personalDetails['dateOfBirth']
+      bh.local.selfDetails['dateOfBirth'] = new Date(
+        bh.local.selfDetails['dateOfBirth']
       );
-      page.personalDetailsForm.patchValue(page.personalDetails);
+      page.personalDetailsForm.patchValue(bh.local.selfDetails);
       //appendnew_next_sd_A5D9OXwhReKwLuIU
       return bh;
     } catch (e) {
@@ -874,8 +862,8 @@ export class new_travel_requestComponent {
     try {
       const page = this.page;
       console.log('on behalf');
-      page.requestedFor = false;
-      bh.emitValue = bh.input.element;
+      page.requestedFor = true;
+      bh.emitValue = bh.input.element?.target?.value;
       bh.endPoint = 'genericGet/getPersonalDetails';
       bh.method = 'get';
       bh = this.sd_6LA12F1oOjsVUSrq(bh);
@@ -896,12 +884,28 @@ export class new_travel_requestComponent {
         bh.method,
         undefined
       );
-      this.page.personaldetails = outputVariables.local.result;
+      this.page.allPersonalDetails = outputVariables.local.result;
 
+      bh = this.sd_BH4NURT71PCehw8v(bh);
       //appendnew_next_sd_6LA12F1oOjsVUSrq
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_6LA12F1oOjsVUSrq');
+    }
+  }
+
+  sd_BH4NURT71PCehw8v(bh) {
+    try {
+      const page = this.page;
+      page.filterPersonalDetail = page.allPersonalDetails;
+      let tempArr = page.filterPersonalDetail.filter((obj) =>
+        obj.email?.toLowerCase().includes(bh?.emitValue?.toLowerCase())
+      );
+      page.allPersonalDetails = tempArr;
+      //appendnew_next_sd_BH4NURT71PCehw8v
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_BH4NURT71PCehw8v');
     }
   }
 
@@ -921,6 +925,70 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_7t1sLpdPvZbg9PtU');
+    }
+  }
+
+  sd_A6EdTfWK9ewnKuJT(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.target.files.length > 0) {
+        const file = bh.input.event.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          page.covidBase64 = reader.result;
+          console.log(page.covidBase64);
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
+      }
+      //appendnew_next_sd_A6EdTfWK9ewnKuJT
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_A6EdTfWK9ewnKuJT');
+    }
+  }
+
+  sd_5BqagivLPnIpSaQX(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.target.files.length > 0) {
+        const file = bh.input.event.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          page.passportBase64 = reader.result;
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
+      }
+      //appendnew_next_sd_5BqagivLPnIpSaQX
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_5BqagivLPnIpSaQX');
+    }
+  }
+
+  sd_w2hf3wCdCGd0T8ws(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.target.files.length > 0) {
+        const file = bh.input.event.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          page.visa64 = reader.result;
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
+      }
+      //appendnew_next_sd_w2hf3wCdCGd0T8ws
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_w2hf3wCdCGd0T8ws');
     }
   }
 

@@ -23,8 +23,9 @@ import {
   FormBuilder,
   FormArray,
 } from '@angular/forms'; //_splitter_
-import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
+import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
+import { MatDialogRef } from '@angular/material/dialog'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -35,6 +36,8 @@ import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
   ],
 })
 export class travelRequestDialogComponent {
+  @Output('outputVar')
+  public outputVar: any = new EventEmitter<any>();
   page: any = { dep: {} };
   constructor(
     private __page_injector__: Injector,
@@ -52,7 +55,7 @@ export class travelRequestDialogComponent {
       .get(SDPageCommonService)
       .constructFlowObject(this);
     {
-      this.sd_FAXWHm6Bjo3xL5lG(bh);
+      this.sd_DkSmuciNKdrOH77u(bh);
     }
   }
 
@@ -64,13 +67,13 @@ export class travelRequestDialogComponent {
     //append_listeners
   }
 
-  sd_FAXWHm6Bjo3xL5lG(bh) {
+  sd_DkSmuciNKdrOH77u(bh) {
     try {
-      bh = this.sd_iR1pT2Lx7BhwEM6f(bh);
-      //appendnew_next_sd_FAXWHm6Bjo3xL5lG
+      bh = this.sd_dKR1CDYhHBtFp2Cu(bh);
+      //appendnew_next_sd_DkSmuciNKdrOH77u
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_FAXWHm6Bjo3xL5lG');
+      return this.errorHandler(bh, e, 'sd_DkSmuciNKdrOH77u');
     }
   }
 
@@ -81,24 +84,10 @@ export class travelRequestDialogComponent {
         .constructFlowObject(this);
       bh.input = { currentDate: currentDate };
       bh.local = {};
-      bh = this.sd_CjFSt36fOIu4lpDL(bh);
+      bh = this.sd_ppAmTCAYbLaLSTaX(bh);
       //appendnew_next_date
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_xBp5GVcL0SUmEbkv');
-    }
-  }
-
-  onFileChange(event: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { event: event };
-      bh.local = {};
-      bh = this.sd_UWVcKE6DXSDThuuQ(bh);
-      //appendnew_next_onFileChange
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_VaQV1paW98mBQ7Si');
+      return this.errorHandler(bh, e, 'sd_uWHq1Dp7Csd3aBiF');
     }
   }
 
@@ -109,10 +98,10 @@ export class travelRequestDialogComponent {
         .constructFlowObject(this);
       bh.input = {};
       bh.local = {};
-      bh = this.sd_EyGROgP57Iag2SiZ(bh);
+      bh = this.sd_evDNWZsHJfXOCRaM(bh);
       //appendnew_next_addNewRequestForm
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_4lArJKLqH9rN9F8T');
+      return this.errorHandler(bh, e, 'sd_e7DOoTSFnpZdf0rD');
     }
   }
 
@@ -123,10 +112,10 @@ export class travelRequestDialogComponent {
         .constructFlowObject(this);
       bh.input = { date: date };
       bh.local = {};
-      bh = this.sd_45MJTDSsUv2Cms8M(bh);
+      bh = this.sd_NfT0QW285F3ULrlr(bh);
       //appendnew_next_dateChange
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_5wfKSR2eNpf5k2eI');
+      return this.errorHandler(bh, e, 'sd_u1ttUNEAUx5QFPmN');
     }
   }
 
@@ -137,10 +126,10 @@ export class travelRequestDialogComponent {
         .constructFlowObject(this);
       bh.input = { i: i };
       bh.local = {};
-      bh = this.sd_ozsRL0vMPFEtFy6W(bh);
+      bh = this.sd_SQ4jVKq0a9z9QQ05(bh);
       //appendnew_next_removeNewRequestFormLeg
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Yd8TbCwSCC3udYZv');
+      return this.errorHandler(bh, e, 'sd_UCYiFWFzQseD0jRM');
     }
   }
 
@@ -151,10 +140,10 @@ export class travelRequestDialogComponent {
         .constructFlowObject(this);
       bh.input = { event: event };
       bh.local = {};
-      bh = this.sd_jLrIJvQAeV1CIFOj(bh);
+      bh = this.sd_xjdqwERfXI7cnMsA(bh);
       //appendnew_next_selectChangesFunction
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_IQb9gv2oxKg9rRFT');
+      return this.errorHandler(bh, e, 'sd_R5NsX4bq7Abdda13');
     }
   }
 
@@ -174,10 +163,10 @@ export class travelRequestDialogComponent {
         personalDetailsForm: personalDetailsForm,
       };
       bh.local = {};
-      bh = this.sd_RhBQh2iGzuNZhh96(bh);
+      bh = this.sd_ZwfIuQKrmasydlhZ(bh);
       //appendnew_next_submit_clear_draft
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_yB68l2mQWEDoV83C');
+      return this.errorHandler(bh, e, 'sd_vHBUwGAsuiNp1qT9');
     }
   }
 
@@ -188,10 +177,10 @@ export class travelRequestDialogComponent {
         .constructFlowObject(this);
       bh.input = { form: form };
       bh.local = {};
-      bh = this.sd_WxZzRsXRLtx5CW9D(bh);
+      bh = this.sd_0RUidJjykP7OTPSg(bh);
       //appendnew_next_resetForm
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_hAygMGvE3HO8Wofa');
+      return this.errorHandler(bh, e, 'sd_c0ARQOJr3ERIQNoo');
     }
   }
 
@@ -202,10 +191,10 @@ export class travelRequestDialogComponent {
         .constructFlowObject(this);
       bh.input = { element: element };
       bh.local = {};
-      bh = this.sd_dBciEwXGsk85KDag(bh);
+      bh = this.sd_cUd8vpTDrDwNedMh(bh);
       //appendnew_next_requstedForHideandShow
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Ix0XtGpRID5SZSnG');
+      return this.errorHandler(bh, e, 'sd_FpSVUfAFGPuCgGeT');
     }
   }
 
@@ -216,26 +205,86 @@ export class travelRequestDialogComponent {
         .constructFlowObject(this);
       bh.input = { event: event };
       bh.local = {};
-      bh = this.sd_rjmX3FoZOVch079a(bh);
+      bh = this.sd_fzJp34GIv6oUdopb(bh);
       //appendnew_next_onSelectionChange
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Hbfdq7MKlA4eo0Ji');
+      return this.errorHandler(bh, e, 'sd_1UTdGB9sCgtubUsj');
+    }
+  }
+
+  requstedForFilter(element: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { element: element };
+      bh.local = {};
+      bh = this.sd_KmjZixvZ4izwdupr(bh);
+      //appendnew_next_requstedForFilter
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_hs9LplnwwLonxV6Z');
+    }
+  }
+
+  onFileChangeCovidCertificate(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_NaxqEzPfFReFUSoO(bh);
+      //appendnew_next_onFileChangeCovidCertificate
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_29njAULcoIfjcyW6');
+    }
+  }
+
+  onFileChangePassport(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_3xt3Vv5VCln8qBf9(bh);
+      //appendnew_next_onFileChangePassport
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_EoiSx9rxclgOS4Rf');
+    }
+  }
+
+  onFileChangeVISA(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_QuloaPWjRMdhjCSN(bh);
+      //appendnew_next_onFileChangeVISA
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_idoOrI20tJYwW2dI');
+    }
+  }
+
+  closeDialog(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_xbmjI6QOi3Utcox6(bh);
+      //appendnew_next_closeDialog
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_1kbwyDGL1GaJuGCz');
     }
   }
 
   //appendnew_flow_travelRequestDialogComponent_start
 
-  sd_iR1pT2Lx7BhwEM6f(bh) {
-    try {
-      bh = this.sd_tpxLLA0VJSAReIPb(bh);
-      //appendnew_next_sd_iR1pT2Lx7BhwEM6f
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_iR1pT2Lx7BhwEM6f');
-    }
-  }
-
-  sd_tpxLLA0VJSAReIPb(bh) {
+  sd_dKR1CDYhHBtFp2Cu(bh) {
     try {
       this.page.personalDetailsForm = undefined;
       this.page.travelForm = undefined;
@@ -265,25 +314,25 @@ export class travelRequestDialogComponent {
       this.page.tempArr = undefined;
       this.page.travelRequestType = undefined;
       this.page.addLeg = false;
-      bh = this.sd_20vnyMi21DWXFmOW(bh);
-      //appendnew_next_sd_tpxLLA0VJSAReIPb
+      bh = this.sd_p2jobIDNOPwMmWIv(bh);
+      //appendnew_next_sd_dKR1CDYhHBtFp2Cu
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_tpxLLA0VJSAReIPb');
+      return this.errorHandler(bh, e, 'sd_dKR1CDYhHBtFp2Cu');
     }
   }
 
-  sd_20vnyMi21DWXFmOW(bh) {
+  sd_p2jobIDNOPwMmWIv(bh) {
     try {
       this.page.FormGroup = FormGroup;
       this.page.ReactiveFormsModule = ReactiveFormsModule;
       this.page.Fb = this.__page_injector__.get(FormBuilder);
       this.page.FormArray = FormArray;
       bh = this.selectData(bh);
-      //appendnew_next_sd_20vnyMi21DWXFmOW
+      //appendnew_next_sd_p2jobIDNOPwMmWIv
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_20vnyMi21DWXFmOW');
+      return this.errorHandler(bh, e, 'sd_p2jobIDNOPwMmWIv');
     }
   }
 
@@ -341,7 +390,7 @@ export class travelRequestDialogComponent {
       //appendnew_next_selectData
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_42cvEYfMvhsur5aP');
+      return this.errorHandler(bh, e, 'sd_qiSMaI9iI9CnF6TZ');
     }
   }
 
@@ -349,6 +398,7 @@ export class travelRequestDialogComponent {
     try {
       const page = this.page;
       page.personalDetailsForm = new FormGroup({
+        // requester: new FormControl (''),
         requestedFor: new FormControl(''),
         requestType: new FormControl(''),
         firstName: new FormControl('', [
@@ -380,7 +430,7 @@ export class travelRequestDialogComponent {
       //appendnew_next_personalDetails
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ORdeL0S4nk4II7xN');
+      return this.errorHandler(bh, e, 'sd_R9qC4c8FVuAuJn3k');
     }
   }
 
@@ -390,11 +440,24 @@ export class travelRequestDialogComponent {
       page.travelForm = new FormGroup({
         requestDetails: page.Fb.array([]),
       });
-      bh = this.getPersonalDetails(bh);
+      bh = this.sd_tqA5pIlDHIwV3aKk(bh);
       //appendnew_next_formControlsCreation
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_A5aFjCT7sHLrkHyC');
+      return this.errorHandler(bh, e, 'sd_iCXWSYCRWV3J74hy');
+    }
+  }
+
+  sd_tqA5pIlDHIwV3aKk(bh) {
+    try {
+      this.page.currentUserDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.getPersonalDetails(bh);
+      //appendnew_next_sd_tqA5pIlDHIwV3aKk
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_tqA5pIlDHIwV3aKk');
     }
   }
 
@@ -404,147 +467,79 @@ export class travelRequestDialogComponent {
       page.date = new Date();
       page.futureDate =
         page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate;
-      page.email = 'neutrinostravellm@gmail.com';
-      bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
+      bh.endPoint =
+        'genericGet/getPersonalDetails?email=' + page.currentUserDetails.email;
       bh.method = 'get';
-      bh = this.sd_tkvmhpvMQKejG2FK(bh);
+      bh = this.sd_ub1Q1tUrQeMF1rdJ(bh);
       //appendnew_next_getPersonalDetails
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_szxU6r9ResU7aQoy');
+      return this.errorHandler(bh, e, 'sd_YiPpV3vwZ0LMah9G');
     }
   }
 
-  sd_tkvmhpvMQKejG2FK(bh) {
-    try {
-      this.page.currentUserDetails = JSON.parse(
-        sessionStorage.getItem('currentUserDetails')
-      );
-      bh = this.sd_jE1nQHer344yEyYS(bh);
-      //appendnew_next_sd_tkvmhpvMQKejG2FK
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_tkvmhpvMQKejG2FK');
-    }
-  }
-
-  sd_jE1nQHer344yEyYS(bh) {
-    try {
-      const page = this.page; // page.date = new Date();
-      // page.futureDate = page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate
-
-      // bh.endPoint = 'genericGet/getPersonalDetails?email=' + "neo.thobela@neutrinos.co";
-      // bh.method ="get";
-      bh = this.sd_F0sOVcw7Yeo9PZig(bh);
-      //appendnew_next_sd_jE1nQHer344yEyYS
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_jE1nQHer344yEyYS');
-    }
-  }
-
-  async sd_F0sOVcw7Yeo9PZig(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        undefined
-      );
-      this.page.personalDetails = outputVariables.local.result;
-
-      bh = this.sd_0GAHygRqlgrt9QR0(bh);
-      //appendnew_next_sd_F0sOVcw7Yeo9PZig
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_F0sOVcw7Yeo9PZig');
-    }
-  }
-
-  sd_0GAHygRqlgrt9QR0(bh) {
+  sd_ub1Q1tUrQeMF1rdJ(bh) {
     try {
       let outputVariables = this.addNewRequestForm();
 
-      bh = this.patchPersonalDeatils(bh);
-      //appendnew_next_sd_0GAHygRqlgrt9QR0
+      bh = this.fetchDetails(bh);
+      //appendnew_next_sd_ub1Q1tUrQeMF1rdJ
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_0GAHygRqlgrt9QR0');
+      return this.errorHandler(bh, e, 'sd_ub1Q1tUrQeMF1rdJ');
     }
   }
 
-  patchPersonalDeatils(bh) {
+  fetchDetails(bh) {
     try {
       const page = this.page;
       bh.key = 'currentUserDetails';
-      page.personalDetailsForm.patchValue(page.personalDetails);
-      bh = this.sd_N4CeRShqtAQKE4Os(bh);
-      //appendnew_next_patchPersonalDeatils
+      //page.personalDetailsForm.patchValue(page.personalDetails);
+      bh = this.sd_AbJDxIpvNWing52Y(bh);
+      //appendnew_next_fetchDetails
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_90h21eoNafLgHzdI');
+      return this.errorHandler(bh, e, 'sd_YsC9OHJcqI0z6xgD');
     }
   }
 
-  sd_N4CeRShqtAQKE4Os(bh) {
+  sd_AbJDxIpvNWing52Y(bh) {
     try {
       this.page.requesterDetails = JSON.parse(sessionStorage.getItem(bh.key));
-      bh = this.sd_IzyGWphLXrSBTeUd(bh);
-      //appendnew_next_sd_N4CeRShqtAQKE4Os
+      bh = this.sd_mJTAUBsUUXyI6Bll(bh);
+      //appendnew_next_sd_AbJDxIpvNWing52Y
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_N4CeRShqtAQKE4Os');
+      return this.errorHandler(bh, e, 'sd_AbJDxIpvNWing52Y');
     }
   }
 
-  sd_IzyGWphLXrSBTeUd(bh) {
+  sd_mJTAUBsUUXyI6Bll(bh) {
     try {
       const page = this.page;
-      page.requester = `${page.personalDetails.firstName} ${page.personalDetails.lastName}`;
-      //appendnew_next_sd_IzyGWphLXrSBTeUd
+      page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`;
+      //page.personalDetailsForm?.value?.requester?.patchValue(page.requester)
+      //appendnew_next_sd_mJTAUBsUUXyI6Bll
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_IzyGWphLXrSBTeUd');
+      return this.errorHandler(bh, e, 'sd_mJTAUBsUUXyI6Bll');
     }
   }
 
-  sd_CjFSt36fOIu4lpDL(bh) {
+  sd_ppAmTCAYbLaLSTaX(bh) {
     try {
       const page = this.page;
       page.date = new Date();
       page.futureDate = new Date(bh.input.currentDate - 1);
 
-      //appendnew_next_sd_CjFSt36fOIu4lpDL
+      //appendnew_next_sd_ppAmTCAYbLaLSTaX
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_CjFSt36fOIu4lpDL');
+      return this.errorHandler(bh, e, 'sd_ppAmTCAYbLaLSTaX');
     }
   }
 
-  sd_UWVcKE6DXSDThuuQ(bh) {
-    try {
-      const page = this.page;
-      if (bh.input.event.target.files.length > 0) {
-        const file = bh.input.event.target.files[0];
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-          page.passportBase64 = reader.result;
-        };
-        reader.onerror = function (error) {
-          console.log('Error: ', error);
-        };
-      }
-      //appendnew_next_sd_UWVcKE6DXSDThuuQ
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_UWVcKE6DXSDThuuQ');
-    }
-  }
-
-  sd_EyGROgP57Iag2SiZ(bh) {
+  sd_evDNWZsHJfXOCRaM(bh) {
     try {
       const page = this.page;
       page.travelForm.get('requestDetails').push(
@@ -582,37 +577,37 @@ export class travelRequestDialogComponent {
       );
       //page.travelForm.requestDetails.patchValue();
 
-      //appendnew_next_sd_EyGROgP57Iag2SiZ
+      //appendnew_next_sd_evDNWZsHJfXOCRaM
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_EyGROgP57Iag2SiZ');
+      return this.errorHandler(bh, e, 'sd_evDNWZsHJfXOCRaM');
     }
   }
 
-  sd_45MJTDSsUv2Cms8M(bh) {
+  sd_NfT0QW285F3ULrlr(bh) {
     try {
       const page = this.page;
       page.futureDate = new Date(bh.input.date.value);
 
-      //appendnew_next_sd_45MJTDSsUv2Cms8M
+      //appendnew_next_sd_NfT0QW285F3ULrlr
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_45MJTDSsUv2Cms8M');
+      return this.errorHandler(bh, e, 'sd_NfT0QW285F3ULrlr');
     }
   }
 
-  sd_ozsRL0vMPFEtFy6W(bh) {
+  sd_SQ4jVKq0a9z9QQ05(bh) {
     try {
       const page = this.page;
       page.travelForm.get('requestDetails').removeAt(bh.input.i);
-      //appendnew_next_sd_ozsRL0vMPFEtFy6W
+      //appendnew_next_sd_SQ4jVKq0a9z9QQ05
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ozsRL0vMPFEtFy6W');
+      return this.errorHandler(bh, e, 'sd_SQ4jVKq0a9z9QQ05');
     }
   }
 
-  sd_jLrIJvQAeV1CIFOj(bh) {
+  sd_xjdqwERfXI7cnMsA(bh) {
     try {
       const page = this.page;
       if (bh.input.event.value == 'International') {
@@ -633,14 +628,14 @@ export class travelRequestDialogComponent {
           'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;
         bh.method = 'get';
       }
-      //appendnew_next_sd_jLrIJvQAeV1CIFOj
+      //appendnew_next_sd_xjdqwERfXI7cnMsA
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_jLrIJvQAeV1CIFOj');
+      return this.errorHandler(bh, e, 'sd_xjdqwERfXI7cnMsA');
     }
   }
 
-  sd_RhBQh2iGzuNZhh96(bh) {
+  sd_ZwfIuQKrmasydlhZ(bh) {
     try {
       const page = this.page; //combine the 2 forms
       console.log(page.travelRequestType, 'retype');
@@ -673,15 +668,15 @@ export class travelRequestDialogComponent {
       bh.method = 'post';
       page.currentUserTravelDetails = page.formObj;
 
-      bh = this.sd_hsdpV0QU2ovlZeKB(bh);
-      //appendnew_next_sd_RhBQh2iGzuNZhh96
+      bh = this.sd_h2n3H0SwiraKo0e4(bh);
+      //appendnew_next_sd_ZwfIuQKrmasydlhZ
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_RhBQh2iGzuNZhh96');
+      return this.errorHandler(bh, e, 'sd_ZwfIuQKrmasydlhZ');
     }
   }
 
-  sd_hsdpV0QU2ovlZeKB(bh) {
+  sd_h2n3H0SwiraKo0e4(bh) {
     try {
       if (
         this.sdService.operators['eq'](
@@ -691,7 +686,7 @@ export class travelRequestDialogComponent {
           undefined
         )
       ) {
-        bh = this.sd_hTp6pH20FR1OwGka(bh);
+        bh = this.sd_SEqDdT4LGpkFP90j(bh);
       } else if (
         this.sdService.operators['eq'](
           bh.input.event,
@@ -700,29 +695,29 @@ export class travelRequestDialogComponent {
           undefined
         )
       ) {
-        bh = this.sd_IgO49pGPJ0cKLev0(bh);
+        bh = this.sd_oxrXVLpBEz5UnCHc(bh);
       }
 
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_hsdpV0QU2ovlZeKB');
+      return this.errorHandler(bh, e, 'sd_h2n3H0SwiraKo0e4');
     }
   }
 
-  sd_hTp6pH20FR1OwGka(bh) {
+  sd_SEqDdT4LGpkFP90j(bh) {
     try {
       const page = this.page;
       console.log('Submit');
       console.log('end', bh.endPoint);
-      bh = this.sd_Ffw0CizztGpsYzbz(bh);
-      //appendnew_next_sd_hTp6pH20FR1OwGka
+      bh = this.sd_tXxtjaupvgy5tu7R(bh);
+      //appendnew_next_sd_SEqDdT4LGpkFP90j
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_hTp6pH20FR1OwGka');
+      return this.errorHandler(bh, e, 'sd_SEqDdT4LGpkFP90j');
     }
   }
 
-  sd_Ffw0CizztGpsYzbz(bh) {
+  sd_tXxtjaupvgy5tu7R(bh) {
     try {
       this.__page_injector__.get(MatSnackBar).open('Form is submitted', 'Ok', {
         duration: 3000,
@@ -730,15 +725,15 @@ export class travelRequestDialogComponent {
         horizontalPosition: 'center',
         verticalPosition: 'bottom',
       });
-      bh = this.sd_EGuZ2Z24W8XDNV98(bh);
-      //appendnew_next_sd_Ffw0CizztGpsYzbz
+      bh = this.sd_nBaRWTRf8M3mIXDh(bh);
+      //appendnew_next_sd_tXxtjaupvgy5tu7R
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Ffw0CizztGpsYzbz');
+      return this.errorHandler(bh, e, 'sd_tXxtjaupvgy5tu7R');
     }
   }
 
-  async sd_EGuZ2Z24W8XDNV98(bh) {
+  async sd_nBaRWTRf8M3mIXDh(bh) {
     try {
       const callServerApisInstance: callServerApis =
         this.__page_injector__.get(callServerApis);
@@ -750,27 +745,27 @@ export class travelRequestDialogComponent {
       );
       bh.response = outputVariables.local.result;
 
-      //appendnew_next_sd_EGuZ2Z24W8XDNV98
+      //appendnew_next_sd_nBaRWTRf8M3mIXDh
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_EGuZ2Z24W8XDNV98');
+      return await this.errorHandler(bh, e, 'sd_nBaRWTRf8M3mIXDh');
     }
   }
 
-  sd_IgO49pGPJ0cKLev0(bh) {
+  sd_oxrXVLpBEz5UnCHc(bh) {
     try {
       const page = this.page;
       console.log('draft');
       console.log('end', bh.endPoint);
-      bh = this.sd_xvkRkcQ3GFat07Ex(bh);
-      //appendnew_next_sd_IgO49pGPJ0cKLev0
+      bh = this.sd_pVcK3Rg7eLNIGS7p(bh);
+      //appendnew_next_sd_oxrXVLpBEz5UnCHc
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_IgO49pGPJ0cKLev0');
+      return this.errorHandler(bh, e, 'sd_oxrXVLpBEz5UnCHc');
     }
   }
 
-  sd_xvkRkcQ3GFat07Ex(bh) {
+  sd_pVcK3Rg7eLNIGS7p(bh) {
     try {
       this.__page_injector__
         .get(MatSnackBar)
@@ -780,26 +775,26 @@ export class travelRequestDialogComponent {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         });
-      bh = this.sd_EGuZ2Z24W8XDNV98(bh);
-      //appendnew_next_sd_xvkRkcQ3GFat07Ex
+      bh = this.sd_nBaRWTRf8M3mIXDh(bh);
+      //appendnew_next_sd_pVcK3Rg7eLNIGS7p
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_xvkRkcQ3GFat07Ex');
+      return this.errorHandler(bh, e, 'sd_pVcK3Rg7eLNIGS7p');
     }
   }
 
-  sd_WxZzRsXRLtx5CW9D(bh) {
+  sd_0RUidJjykP7OTPSg(bh) {
     try {
       const page = this.page;
       bh.input.form.reset();
-      //appendnew_next_sd_WxZzRsXRLtx5CW9D
+      //appendnew_next_sd_0RUidJjykP7OTPSg
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_WxZzRsXRLtx5CW9D');
+      return this.errorHandler(bh, e, 'sd_0RUidJjykP7OTPSg');
     }
   }
 
-  sd_dBciEwXGsk85KDag(bh) {
+  sd_cUd8vpTDrDwNedMh(bh) {
     try {
       if (
         this.sdService.operators['eq'](
@@ -809,7 +804,7 @@ export class travelRequestDialogComponent {
           undefined
         )
       ) {
-        bh = this.sd_HYmx0XMZt8RGn7F3(bh);
+        bh = this.sd_Pf2zuzjAD1ISXrNp(bh);
       } else if (
         this.sdService.operators['eq'](
           bh.input.element.value,
@@ -818,33 +813,33 @@ export class travelRequestDialogComponent {
           undefined
         )
       ) {
-        bh = this.sd_UFhHtayfQypwUSay(bh);
+        bh = this.sd_KmjZixvZ4izwdupr(bh);
       }
 
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_dBciEwXGsk85KDag');
+      return this.errorHandler(bh, e, 'sd_cUd8vpTDrDwNedMh');
     }
   }
 
-  sd_HYmx0XMZt8RGn7F3(bh) {
+  sd_Pf2zuzjAD1ISXrNp(bh) {
     try {
       const page = this.page;
       console.log('self');
-      page.requestedFor = true;
+      page.requestedFor = false;
 
       bh.endPoint =
-        'genericGet/getPersonalDetails?email=' + 'neutrinostravellm@gmail.com';
+        'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;
       bh.method = 'get';
-      bh = this.sd_D1BziCUMtAzIIfwZ(bh);
-      //appendnew_next_sd_HYmx0XMZt8RGn7F3
+      bh = this.sd_Wqi1RIaHcnKWF9IZ(bh);
+      //appendnew_next_sd_Pf2zuzjAD1ISXrNp
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_HYmx0XMZt8RGn7F3');
+      return this.errorHandler(bh, e, 'sd_Pf2zuzjAD1ISXrNp');
     }
   }
 
-  async sd_D1BziCUMtAzIIfwZ(bh) {
+  async sd_Wqi1RIaHcnKWF9IZ(bh) {
     try {
       const callServerApisInstance: callServerApis =
         this.__page_injector__.get(callServerApis);
@@ -854,47 +849,47 @@ export class travelRequestDialogComponent {
         bh.method,
         undefined
       );
-      this.page.Personaldetails = outputVariables.local.result;
+      bh.local.selfDetails = outputVariables.local.result;
 
-      bh = this.sd_nbo6BW7rjaEKUJNP(bh);
-      //appendnew_next_sd_D1BziCUMtAzIIfwZ
+      bh = this.sd_PAMTEUw5zOJq0gf3(bh);
+      //appendnew_next_sd_Wqi1RIaHcnKWF9IZ
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_D1BziCUMtAzIIfwZ');
+      return await this.errorHandler(bh, e, 'sd_Wqi1RIaHcnKWF9IZ');
     }
   }
 
-  sd_nbo6BW7rjaEKUJNP(bh) {
+  sd_PAMTEUw5zOJq0gf3(bh) {
     try {
       const page = this.page;
-      page.personalDetails['dateOfBirth'] = new Date(
-        page.personalDetails['dateOfBirth']
+      bh.local.selfDetails['dateOfBirth'] = new Date(
+        bh.local.selfDetails['dateOfBirth']
       );
-      page.personalDetailsForm.patchValue(page.personalDetails);
-      //appendnew_next_sd_nbo6BW7rjaEKUJNP
+      page.personalDetailsForm.patchValue(bh.local.selfDetails);
+      //appendnew_next_sd_PAMTEUw5zOJq0gf3
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_nbo6BW7rjaEKUJNP');
+      return this.errorHandler(bh, e, 'sd_PAMTEUw5zOJq0gf3');
     }
   }
 
-  sd_UFhHtayfQypwUSay(bh) {
+  sd_KmjZixvZ4izwdupr(bh) {
     try {
       const page = this.page;
       console.log('on behalf');
-      page.requestedFor = false;
-      bh.emitValue = bh.input.element;
+      page.requestedFor = true;
+      bh.emitValue = bh.input.element?.target?.value;
       bh.endPoint = 'genericGet/getPersonalDetails';
       bh.method = 'get';
-      bh = this.sd_23bn7ricihdnES43(bh);
-      //appendnew_next_sd_UFhHtayfQypwUSay
+      bh = this.sd_k8XsTz0zseEBFDU8(bh);
+      //appendnew_next_sd_KmjZixvZ4izwdupr
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_UFhHtayfQypwUSay');
+      return this.errorHandler(bh, e, 'sd_KmjZixvZ4izwdupr');
     }
   }
 
-  async sd_23bn7ricihdnES43(bh) {
+  async sd_k8XsTz0zseEBFDU8(bh) {
     try {
       const callServerApisInstance: callServerApis =
         this.__page_injector__.get(callServerApis);
@@ -904,16 +899,32 @@ export class travelRequestDialogComponent {
         bh.method,
         undefined
       );
-      this.page.personaldetails = outputVariables.local.result;
+      this.page.allPersonalDetails = outputVariables.local.result;
 
-      //appendnew_next_sd_23bn7ricihdnES43
+      bh = this.sd_06sUGUfBsL0CeLLy(bh);
+      //appendnew_next_sd_k8XsTz0zseEBFDU8
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_23bn7ricihdnES43');
+      return await this.errorHandler(bh, e, 'sd_k8XsTz0zseEBFDU8');
     }
   }
 
-  sd_rjmX3FoZOVch079a(bh) {
+  sd_06sUGUfBsL0CeLLy(bh) {
+    try {
+      const page = this.page;
+      page.filterPersonalDetail = page.allPersonalDetails;
+      let tempArr = page.filterPersonalDetail.filter((obj) =>
+        obj.email?.toLowerCase().includes(bh?.emitValue?.toLowerCase())
+      );
+      page.allPersonalDetails = tempArr;
+      //appendnew_next_sd_06sUGUfBsL0CeLLy
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_06sUGUfBsL0CeLLy');
+    }
+  }
+
+  sd_fzJp34GIv6oUdopb(bh) {
     try {
       const page = this.page;
       let personalDetails = page.allPersonalDetails.find(
@@ -925,10 +936,86 @@ export class travelRequestDialogComponent {
         );
         page.personalDetailsForm.patchValue(personalDetails);
       }
-      //appendnew_next_sd_rjmX3FoZOVch079a
+      //appendnew_next_sd_fzJp34GIv6oUdopb
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_rjmX3FoZOVch079a');
+      return this.errorHandler(bh, e, 'sd_fzJp34GIv6oUdopb');
+    }
+  }
+
+  sd_NaxqEzPfFReFUSoO(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.target.files.length > 0) {
+        const file = bh.input.event.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          page.covidBase64 = reader.result;
+          console.log(page.covidBase64);
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
+      }
+      //appendnew_next_sd_NaxqEzPfFReFUSoO
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_NaxqEzPfFReFUSoO');
+    }
+  }
+
+  sd_3xt3Vv5VCln8qBf9(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.target.files.length > 0) {
+        const file = bh.input.event.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          page.passportBase64 = reader.result;
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
+      }
+      //appendnew_next_sd_3xt3Vv5VCln8qBf9
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_3xt3Vv5VCln8qBf9');
+    }
+  }
+
+  sd_QuloaPWjRMdhjCSN(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.target.files.length > 0) {
+        const file = bh.input.event.target.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          page.visa64 = reader.result;
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
+      }
+      //appendnew_next_sd_QuloaPWjRMdhjCSN
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_QuloaPWjRMdhjCSN');
+    }
+  }
+
+  sd_xbmjI6QOi3Utcox6(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(bh.local.res);
+
+      //appendnew_next_sd_xbmjI6QOi3Utcox6
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_xbmjI6QOi3Utcox6');
     }
   }
 
