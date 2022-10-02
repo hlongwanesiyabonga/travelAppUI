@@ -236,7 +236,7 @@
                               From City</label>
                             <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.other">
                               <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;">
-                                <mat-select formControlName="fromCity" class="fullWidth" placeholder="From City" [required]="false" (selectionChange)="select($event)">
+                                <mat-select formControlName="fromCity" class="fullWidth" placeholder="From City" [required]="false" (selectionChange)="selectChangesFunction($event)">
                                   <ng-template ngFor let-option [ngForOf]="page.city" let-i="index">
                                     <mat-option [value]="option.viewvalue">{{option.viewvalue}}</mat-option>
                                   </ng-template>
@@ -255,7 +255,7 @@
                               To City</label>
                             <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.otherToCity">
                               <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;">
-                                <mat-select formControlName="toCity" placeholder="To City" [required]="false" (selectionChange)="toCitySelect($event)">
+                                <mat-select formControlName="toCity" placeholder="To City" [required]="false" (selectionChange)="toCityFunction($event)">
                                   <ng-template ngFor let-option [ngForOf]="page.city" let-i="index">
                                     <mat-option [value]="option.viewvalue">{{option.viewvalue}}</mat-option>
                                   </ng-template>
@@ -461,9 +461,9 @@
                         </div>
                         <div fxLayout="row wrap" class="fullWidth" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true">
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
-                              Check Out Date</label>
+                              Check In Date</label>
                             <mat-form-field [appearance]="&apos;outline&apos;" (click)="checkout.open()">
-                              <input matInput placeholder="check Out Date" [matDatepicker]="checkout" formControlName="checkOutDate" [min]="page.futureDate" [required]="false" [disabled]="false" readonly="true">
+                              <input matInput placeholder="check in Date" [matDatepicker]="checkout" formControlName="checkInDate" [min]="page.futureDate" [required]="false" [disabled]="false" readonly="true">
                               <mat-datepicker-toggle matSuffix [for]="checkout" disabled="false"></mat-datepicker-toggle>
                               <mat-datepicker #checkout [disabled]="false"></mat-datepicker>
                               <mat-error align="end" *ngIf="page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate">Check Out Date is Required</mat-error>
@@ -488,7 +488,7 @@
                           <div fxLayout="column wrap" class="inputContainer" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.xs="100" fxFlex.sm="49"><label>
                               Check In Date</label>
                             <mat-form-field [appearance]="&apos;outline&apos;" (click)="checkin.open()">
-                              <input matInput placeholder="check In Date" [matDatepicker]="checkin" formControlName="checkInDate" (dateChange)="dateChange($event)" [min]="page.futureDate" [required]="false" [disabled]="false" readonly="true">
+                              <input matInput placeholder="check OUt Date" [matDatepicker]="checkin" formControlName="checkOutDate" (dateChange)="dateChange($event)" [min]="page.futureDate" [required]="false" [disabled]="false" readonly="true">
                               <mat-datepicker-toggle matSuffix [for]="checkin" disabled="false"></mat-datepicker-toggle>
                               <mat-datepicker #checkin [disabled]="false"></mat-datepicker>
                               <mat-error align="end" *ngIf="page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkInDate">Check In Date is Rquired</mat-error>
@@ -508,7 +508,7 @@
                     <div fxLayout="row wrap" class="marginTop20" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.addLeg"><button mat-raised-button class="blackButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length === (i + 1)" (click)="addNewRequestForm()" [disabled]="!page.travelForm.valid">
                         <mat-icon>add</mat-icon>Add Leg {{i + 1}}
                       </button><button mat-raised-button class="redButton" *ngIf="page.travelForm.get(&apos;requestDetails&apos;).controls.length &gt; 1" (click)="removeNewRequestFormLeg(i)">
-                        <mat-icon>clear</mat-icon>Remove Leg
+                        <mat-icon>clear</mat-icon>Remove Leg {{i}}
                       </button></div>
                   </div>
                 </div>
@@ -521,7 +521,7 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
     <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="1em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="blackButton">Cancel</button><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Clear</button><button mat-raised-button class="redButton" (click)="submit_clear_draft(&apos;Submit&apos;,page.travelForm.value,page.personalDetailsForm.value)" [disabled]="!page.travelForm.valid">Submit</button><button mat-raised-button class="grayBtn" (click)="submit_clear_draft(&apos;Draft&apos;,page.travelForm.value,page.personalDetailsForm.value)">Save As Draft</button></div>
+      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="1em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="blackButton">Cancel</button><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Clear</button><button mat-raised-button class="redButton" (click)="submit_clear_draft(&apos;Submit&apos;,page.travelForm.value,page.personalDetailsForm.value)" [disabled]="!page.travelForm.valid">Submit</button><button mat-raised-button class="grayBtn" (click)="submit_clear_draft(&apos;Draft&apos;,page.travelForm.value,page.personalDetailsForm.value)">Save As Draft</button><button mat-raised-button (click)="submit_clear_draft(&apos;form&apos;,page.travelForm,page.personalDetailsForm)">Raised Button</button></div>
     </div>
   </div>
 </div>

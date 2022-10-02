@@ -439,7 +439,7 @@
         "flow_type": "sync",
         "functionName": "date",
         "category": "General",
-        "x": 465,
+        "x": 345,
         "y": 180,
         "wires": [
             [
@@ -479,10 +479,10 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.date = new Date();\npage.futureDate = new Date(bh.input.currentDate - 1);\n",
+        "script": "page.date = new Date();\npage.futureDate = new Date(bh.input.currentDate - 1);\n\n",
         "functionName": "sd_p628PvB6Wft0W8cy",
         "category": "Function",
-        "x": 625,
+        "x": 505,
         "y": 180,
         "wires": [
             []
@@ -505,7 +505,7 @@
         "flow_type": "sync",
         "functionName": "addNewRequestForm",
         "category": "General",
-        "x": 705,
+        "x": 645,
         "y": 180,
         "wires": [
             [
@@ -526,7 +526,7 @@
         "script": "page.travelForm.get('requestDetails').push(new FormGroup({\n  travelDetails: page.Fb.group({\n    travelMode: ['', [Validators.required]],\n    travelType: ['', [Validators.required]],\n    travelPurpose: ['', [Validators.required]],\n    projectID: ['', [Validators.required]],\n    fromCity: ['', [Validators.required]],\n    toCity: ['', [Validators.required]],\n    fromDate: ['', [Validators.required]],\n    toDate: ['', [Validators.required]],\n    tripType: ['', [Validators.required]],\n    preferredTime: ['', [Validators.required]],\n    travelerComments: [''],\n    passportDocument: [''],\n    visaRequired: ['', []],\n    visa:[''],\n    covidCertificate: [''],\n   passport: [''],\n    needvehicle: ['', [Validators.required]],\n    needAccommodation: ['', [Validators.required]]\n  }),\n  accommodationDetails: page.Fb.group({\n    accommodationPreference: [''],\n    city: [''],\n    checkInDate: [''],\n    checkOutDate: [''],\n    checkInTime: [''],\n    checkOutTime: [''],\n    employeeComments: ['']\n\n  })\n}));\n//page.travelForm.requestDetails.patchValue();\n\n\n\n",
         "functionName": "sd_LYJcmnJwoRoJ6qQz",
         "category": "Function",
-        "x": 845,
+        "x": 785,
         "y": 180,
         "wires": [
             []
@@ -558,7 +558,7 @@
         "flow_type": "sync",
         "functionName": "dateChange",
         "category": "General",
-        "x": 925,
+        "x": 865,
         "y": 180,
         "wires": [
             [
@@ -576,10 +576,10 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.futureDate = new Date(bh.input.date.value);\n",
+        "script": "page.futureDate = new Date(bh.input.date.value);\n\npage.travelForm.value.requestDetails[0].travelDetails['fromDate'] = new Date(page.travelForm.value.requestDetails[0].travelDetails.fromDate)\npage.travelForm.patchValue({\n    checkInDate :page.travelForm.value.requestDetails[0].travelDetails['fromDate'] });\n\n\n// if(page.travelForm.controls.requestDetails.controls[0].controls.travelDetails.controls.fromCity.status == 'VALID'){\n//     page.travelForm.requestDetails.accommodationDetails.patchValue({\n//         checkInDate : page.travelForm.value.requestDetails[0].travelDetails.fromDate.value\n//     })\n    \n// }\nconsole.log(page.travelForm.value.requestDetails[0].travelDetails['fromDate'])\n",
         "functionName": "sd_7E0kFOs0S0LoIGyd",
         "category": "Function",
-        "x": 1025,
+        "x": 965,
         "y": 180,
         "wires": [
             []
@@ -611,7 +611,7 @@
         "flow_type": "sync",
         "functionName": "removeNewRequestFormLeg",
         "category": "General",
-        "x": 265,
+        "x": 105,
         "y": 180,
         "wires": [
             [
@@ -632,7 +632,7 @@
         "script": "page.travelForm.get('requestDetails').removeAt(bh.input.i);",
         "functionName": "sd_95E59tpBNueqjcTi",
         "category": "Function",
-        "x": 385,
+        "x": 225,
         "y": 180,
         "wires": [
             []
@@ -663,7 +663,7 @@
         "flow_type": "sync",
         "functionName": "selectChangesFunction",
         "category": "General",
-        "x": 1145,
+        "x": 1085,
         "y": 180,
         "wires": [
             [
@@ -681,10 +681,10 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "if(bh.input.event.value ==\"International\"){\npage.showVISA = true;  \n}\nelse if(bh.input.event.value ==\"Domestic\") {\n    page.showVISA = false;  \n}else if(bh.input.event.value ==\"one-way\"){\n    page.addLeg = true;\n} else if(bh.input.event.value ==\"Return\"){\n     page.addLeg = false;\n}else if(bh.input.event.value ==\"On Behalf\"){\n    console.log(\"on behalf\")\n    page.requestedFor = true;\n} else if(bh.input.event.value ==\"Self\"){\n     page.requestedFor = false;\n     \n     bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;\n    bh.method =\"get\";\n }",
+        "script": "if(bh.input.event.value ==\"International\"){\npage.showVISA = true;  \n}\nelse if(bh.input.event.value ==\"Domestic\") {\n    page.showVISA = false;  \n}else if(bh.input.event.value ==\"one-way\"){\n    page.addLeg = true;\n} else if(bh.input.event.value ==\"Return\"){\n     page.addLeg = false;\n}else if(bh.input.event.value ==\"On Behalf\"){\n    console.log(\"on behalf\")\n    page.requestedFor = true;\n} else if(bh.input.event.value ==\"Self\"){\n     page.requestedFor = false;\n     \n     bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;\n    bh.method =\"get\";\n }\nelse if(bh.input.event.value == \"Other\"){\npage.other = true;\n} \n",
         "functionName": "sd_KSMim0D7ZZLU1qV0",
         "category": "Function",
-        "x": 1265,
+        "x": 1205,
         "y": 180,
         "wires": [
             []
@@ -749,7 +749,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "//combine the 2 forms\nconsole.log(page.travelRequestType, 'retype');\npage.formObj = {\n    \"personalDetails\": bh.input.personalDetailsForm,\n    \"requestDetails\": bh.input.form.requestDetails,\n    \"status\": null,\n    \"managerApproval\": {\n        \"approvedRequest\": null,\n        \"comments\": \"\"\n    },\n    \"owner\": bh.input.personalDetailsForm.email,\n    \"dateCreated\": new Date(),\n    \"travelRequestType\": page.travelRequestType\n};\nconsole.log(page.formObj, 'page.formObj');\n    let tempDetails = []\npage.formObj.requestDetails.forEach(detail => {\n    detail['travelDetails']['passportDocument'] = page.passportBase64;\n    detail['travelDetails']['covidCertificate'] = page.covidBase64;\n    tempDetails.push(detail);\n})\npage.formObj.requestDetails = tempDetails;\nconsole.log(page.formObj, 'form');\n\nbh.endPoint = (bh.input.event == \"Draft\") ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method = \"post\";\npage.currentUserTravelDetails = page.formObj\n",
+        "script": "//combine the 2 forms\nconsole.log(bh.input.form, 'retype');\n\npage.formObj = {\n    \"personalDetails\": bh.input.personalDetailsForm,\n    \"requestDetails\": bh.input.form.requestDetails,\n    \"status\": null,\n    \"managerApproval\": {\n        \"approvedRequest\": null,\n        \"comments\": \"\"\n    },\n    \"owner\": bh.input.personalDetailsForm.email,\n    \"dateCreated\": new Date(),\n    \"travelRequestType\": page.travelRequestType\n};\nconsole.log(page.formObj, 'page.formObj');\n    let tempDetails = []\npage.formObj.requestDetails.forEach(detail => {\n    detail['travelDetails']['passportDocument'] = page.passportBase64;\n    detail['travelDetails']['covidCertificate'] = page.covidBase64;\n    tempDetails.push(detail);\n})\npage.formObj.requestDetails = tempDetails;\nconsole.log(page.formObj, 'form');\n\nbh.endPoint = (bh.input.event == \"Draft\") ? 'addTravelRequest?type=draft' : 'addTravelRequest';\nbh.method = \"post\";\npage.currentUserTravelDetails = page.formObj\n",
         "functionName": "sd_Tyw2L65nU6abERyb",
         "category": "Function",
         "x": 185,
@@ -1601,7 +1601,7 @@
         "flow_type": "sync",
         "functionName": "onSelectionChange",
         "category": "General",
-        "x": 1445,
+        "x": 1345,
         "y": 160,
         "wires": [
             [
@@ -1622,7 +1622,7 @@
         "script": "let personalDetails = page.allPersonalDetails.find(el => bh.input.event.option.value == el.email)\nif (personalDetails) {\n    personalDetails['dateOfBirth'] = new Date(personalDetails['dateOfBirth'])\n    page.personalDetailsForm.patchValue(personalDetails);\n}",
         "functionName": "sd_7t1sLpdPvZbg9PtU",
         "category": "Function",
-        "x": 1585,
+        "x": 1485,
         "y": 160,
         "wires": [
             []
@@ -1790,8 +1790,8 @@
         "flow_type": "sync",
         "functionName": "onFileChangeVISA",
         "category": "General",
-        "x": 429,
-        "y": 546.8125,
+        "x": 765,
+        "y": 460,
         "wires": [
             [
                 "sd_w2hf3wCdCGd0T8ws"
@@ -1811,8 +1811,60 @@
         "script": "if (bh.input.event.target.files.length > 0) {\n      const file = bh.input.event.target.files[0];\n   var reader = new FileReader();\n   reader.readAsDataURL(file);\n   reader.onload = function () {\n     page.visa64=reader.result;\n      \n   };\n   reader.onerror = function (error) {\n     console.log('Error: ', error);\n   };\n}",
         "functionName": "sd_w2hf3wCdCGd0T8ws",
         "category": "Function",
-        "x": 549,
-        "y": 546.8125,
+        "x": 885,
+        "y": 460,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ys4kshg8EN6ckl2v",
+        "type": "PageStart",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "toCityFunction",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "event",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "toCityFunction",
+        "category": "General",
+        "x": 1325,
+        "y": 60,
+        "wires": [
+            [
+                "sd_vyhzEWKM6L1xMtBr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "new_travel_requestComponent"
+    },
+    {
+        "id": "sd_vyhzEWKM6L1xMtBr",
+        "type": "Script",
+        "z": "sd_osEacZsdUBcy4IJg",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if(bh.input.event.value == \"Other\"){\npage.otherToCity = true;\n} ",
+        "functionName": "sd_vyhzEWKM6L1xMtBr",
+        "category": "Function",
+        "x": 1405,
+        "y": 60,
         "wires": [
             []
         ],

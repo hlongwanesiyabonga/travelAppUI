@@ -267,6 +267,20 @@ export class new_travel_requestComponent {
     }
   }
 
+  toCityFunction(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_vyhzEWKM6L1xMtBr(bh);
+      //appendnew_next_toCityFunction
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ys4kshg8EN6ckl2v');
+    }
+  }
+
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -574,6 +588,25 @@ export class new_travel_requestComponent {
       const page = this.page;
       page.futureDate = new Date(bh.input.date.value);
 
+      page.travelForm.value.requestDetails[0].travelDetails['fromDate'] =
+        new Date(
+          page.travelForm.value.requestDetails[0].travelDetails.fromDate
+        );
+      page.travelForm.patchValue({
+        checkInDate:
+          page.travelForm.value.requestDetails[0].travelDetails['fromDate'],
+      });
+
+      // if(page.travelForm.controls.requestDetails.controls[0].controls.travelDetails.controls.fromCity.status == 'VALID'){
+      //     page.travelForm.requestDetails.accommodationDetails.patchValue({
+      //         checkInDate : page.travelForm.value.requestDetails[0].travelDetails.fromDate.value
+      //     })
+
+      // }
+      console.log(
+        page.travelForm.value.requestDetails[0].travelDetails['fromDate']
+      );
+
       //appendnew_next_sd_7E0kFOs0S0LoIGyd
       return bh;
     } catch (e) {
@@ -612,7 +645,10 @@ export class new_travel_requestComponent {
         bh.endPoint =
           'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;
         bh.method = 'get';
+      } else if (bh.input.event.value == 'Other') {
+        page.other = true;
       }
+
       //appendnew_next_sd_KSMim0D7ZZLU1qV0
       return bh;
     } catch (e) {
@@ -623,7 +659,8 @@ export class new_travel_requestComponent {
   sd_Tyw2L65nU6abERyb(bh) {
     try {
       const page = this.page; //combine the 2 forms
-      console.log(page.travelRequestType, 'retype');
+      console.log(bh.input.form, 'retype');
+
       page.formObj = {
         personalDetails: bh.input.personalDetailsForm,
         requestDetails: bh.input.form.requestDetails,
@@ -989,6 +1026,19 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_w2hf3wCdCGd0T8ws');
+    }
+  }
+
+  sd_vyhzEWKM6L1xMtBr(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.value == 'Other') {
+        page.otherToCity = true;
+      }
+      //appendnew_next_sd_vyhzEWKM6L1xMtBr
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_vyhzEWKM6L1xMtBr');
     }
   }
 

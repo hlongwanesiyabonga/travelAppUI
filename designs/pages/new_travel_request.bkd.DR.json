@@ -13075,13 +13075,13 @@
                                                                         },
                                                                         {
                                                                             "_key": "(selectionChange)",
-                                                                            "_value": "select($event)",
+                                                                            "_value": "selectChangesFunction($event)",
                                                                             "_type": "kv",
                                                                             "_attrDef": "p",
                                                                             "_customAttributeFlag": "flowpicker",
                                                                             "objValue": {
-                                                                                "nodeID": "sd_mxbCz9XxUSQZRtV6",
-                                                                                "functionName": "select",
+                                                                                "nodeID": "sd_hKIdGwv5EY1dYacv",
+                                                                                "functionName": "selectChangesFunction",
                                                                                 "activeTree": "pages",
                                                                                 "z": "sd_osEacZsdUBcy4IJg",
                                                                                 "input": [
@@ -13882,13 +13882,13 @@
                                                                         },
                                                                         {
                                                                             "_key": "(selectionChange)",
-                                                                            "_value": "toCitySelect($event)",
+                                                                            "_value": "toCityFunction($event)",
                                                                             "_type": "kv",
                                                                             "_attrDef": "p",
                                                                             "_customAttributeFlag": "flowpicker",
                                                                             "objValue": {
-                                                                                "nodeID": "sd_ESLTSjDTnZmavh2m",
-                                                                                "functionName": "toCitySelect",
+                                                                                "nodeID": "sd_ys4kshg8EN6ckl2v",
+                                                                                "functionName": "toCityFunction",
                                                                                 "activeTree": "pages",
                                                                                 "z": "sd_osEacZsdUBcy4IJg",
                                                                                 "input": [
@@ -23547,7 +23547,7 @@
                                                                         },
                                                                         {
                                                                             "_key": "html",
-                                                                            "_value": "Check Out Date",
+                                                                            "_value": "Check In Date",
                                                                             "_type": "a",
                                                                             "_attrDef": "p"
                                                                         }
@@ -23574,7 +23574,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "placeholder",
-                                                                        "_value": "check Out Date",
+                                                                        "_value": "check in Date",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p",
                                                                         "_useAsLabel": true
@@ -23655,7 +23655,8 @@
                                                                         "_key": "(dateChange)",
                                                                         "_value": "",
                                                                         "_type": "kv",
-                                                                        "_attrDef": "p"
+                                                                        "_attrDef": "p",
+                                                                        "_customAttributeFlag": "flowpicker"
                                                                     },
                                                                     {
                                                                         "_key": "(dateInput)",
@@ -23707,7 +23708,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "formControlName",
-                                                                        "_value": "checkOutDate",
+                                                                        "_value": "checkInDate",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p"
                                                                     },
@@ -25131,7 +25132,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "placeholder",
-                                                                        "_value": "check In Date",
+                                                                        "_value": "check OUt Date",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p",
                                                                         "_useAsLabel": true
@@ -25274,7 +25275,7 @@
                                                                     },
                                                                     {
                                                                         "_key": "formControlName",
-                                                                        "_value": "checkInDate",
+                                                                        "_value": "checkOutDate",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p"
                                                                     },
@@ -25982,7 +25983,7 @@
                                                         },
                                                         {
                                                             "_key": "buttonname",
-                                                            "_value": "<mat-icon>clear</mat-icon>Remove Leg",
+                                                            "_value": "<mat-icon>clear</mat-icon>Remove Leg {{i}}",
                                                             "_type": "a",
                                                             "_attrDef": "p",
                                                             "_useAsLabel": true
@@ -26478,6 +26479,79 @@
                                         "'Draft'",
                                         "page.travelForm.value",
                                         "page.personalDetailsForm.value"
+                                    ]
+                                }
+                            },
+                            {
+                                "_key": "[disabled]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[disableRipple]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "type",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "routerLink",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    },
+                    "2b8a7760-976b-44a3-8a19-ad784f4dc57a": {
+                        "paletteKey": "NG-RaisedButton",
+                        "parentEditorKey": "894bc751-3b92-6cf3-19e8-140ed3580164",
+                        "commentid": null,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": "",
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "buttonname",
+                                "_value": "Raised Button",
+                                "_type": "a",
+                                "_attrDef": "p",
+                                "_useAsLabel": true
+                            },
+                            {
+                                "_key": "color",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "(click)",
+                                "_value": "submit_clear_draft('form',page.travelForm,page.personalDetailsForm)",
+                                "_type": "kv",
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_Kwd7KJtk5BkZ9WYJ",
+                                    "functionName": "submit_clear_draft",
+                                    "activeTree": "pages",
+                                    "z": "sd_osEacZsdUBcy4IJg",
+                                    "input": [
+                                        "'form'",
+                                        "page.travelForm",
+                                        "page.personalDetailsForm"
                                     ]
                                 }
                             },
