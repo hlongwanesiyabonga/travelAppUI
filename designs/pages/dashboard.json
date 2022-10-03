@@ -177,7 +177,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\n\n\n",
         "functionName": "sd_64BY1qSbZIWkX8S4",
         "category": "Function",
         "x": 405,

@@ -246,6 +246,7 @@ export class dashboardComponent {
       bh.endPoint =
         'travelRequests/getTravelRequests?owner=' +
         page.currentUserDetails.email;
+
       bh = this.sd_yfn2PaT31GlOHAcu(bh);
       //appendnew_next_sd_64BY1qSbZIWkX8S4
       return bh;

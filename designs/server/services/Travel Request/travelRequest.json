@@ -253,7 +253,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequest"
     },
     {
         "id": "sd_S7BJ6mHX1JNpGksc",
@@ -505,7 +506,6 @@
             "obj": "bh.local.response",
             "send": "bh.local.response"
         },
-        "cookies": [],
         "inputs": 1,
         "outputs": 0,
         "editableListData": {
@@ -1832,5 +1832,226 @@
         "generateNext": true,
         "serviceName": "travelRequest",
         "functionName": "sd_WJkadmvKf6DaDeht"
+    },
+    {
+        "id": "sd_v64RKOvtoblXaTPA",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "/travelRequests/:route",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "get",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "/travelRequests/:route": {
+                "get": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "x": 125,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequest",
+        "functionName": "sd_v64RKOvtoblXaTPA"
+    },
+    {
+        "id": "sd_YV7FzQKinWXlqUQh",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.collection = 'travelRequests';",
+        "functionName": "sd_YV7FzQKinWXlqUQh",
+        "category": "Function",
+        "x": 240,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_oO6UzRMlO7R2ojvr",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "response",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh",
+            "value": "status",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "responseMapping": {
+            "status": {
+                "type": "bh",
+                "value": "status",
+                "ssd_typedInputField": true
+            },
+            "obj": {
+                "type": "bh.local",
+                "value": "response",
+                "ssd_typedInputField": true
+            },
+            "send": {
+                "type": "bh.local",
+                "value": "response",
+                "ssd_typedInputField": true
+            }
+        },
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_oO6UzRMlO7R2ojvr",
+        "category": "HTTP",
+        "x": 525,
+        "y": 600,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_kVOCqiHs5ExKoDLm",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.status = 200;\nbh.local.response  = {\n    msg: \"Records fetched successfully\",\n    data: bh.local.result\n}",
+        "functionName": "sd_kVOCqiHs5ExKoDLm",
+        "category": "Function",
+        "x": 425,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_J6qrNgG4acjgfNen",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_wkl99fcRfvDmQ56X",
+        "collection": "bh.collection",
+        "options": "",
+        "resultMapping": "bh.local.result",
+        "operation": "find",
+        "argumentArray": [
+            "query"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.input.query",
+        "fieldOrSpec": "",
+        "filter": "",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "",
+        "update": "",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "",
+        "docs": "",
+        "document": "bh.input.body",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_J6qrNgG4acjgfNen",
+        "category": "Storage",
+        "x": 345,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "bh",
+                "value": "collection",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "result",
+                "constant": false
+            },
+            "query": {
+                "type": "bh.input",
+                "value": "query",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "body",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]
