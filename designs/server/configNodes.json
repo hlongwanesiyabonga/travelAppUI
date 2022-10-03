@@ -36,7 +36,13 @@
                 }
             },
             "__n_excludedFromValidation__": {},
-            "users": {}
+            "users": {
+                "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8": [
+                    "sd_yKX6iXQNHInJzUKe",
+                    "sd_RMfhV1z22JgMafJy",
+                    "sd_lyJSjRulzkEENSBS"
+                ]
+            }
         },
         "sd_ZUbfONWXBXCu6yKC": {
             "id": "sd_ZUbfONWXBXCu6yKC",
@@ -74,7 +80,12 @@
                 }
             },
             "__n_excludedFromValidation__": {},
-            "users": {}
+            "users": {
+                "SSD_SERVICE_ID_sd_0DH74NLncovZabEo": [
+                    "sd_exlkeHkSFM4BxMG0",
+                    "sd_BHm1gwsnrC9vrsHt"
+                ]
+            }
         },
         "sd_z5jSYD02FOTnH2nW": {
             "id": "sd_z5jSYD02FOTnH2nW",
@@ -112,7 +123,11 @@
                 }
             },
             "__n_excludedFromValidation__": {},
-            "users": {}
+            "users": {
+                "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5": [
+                    "sd_3nmGpSpH2D5r5j00"
+                ]
+            }
         }
     },
     "db-config": {
@@ -455,7 +470,13 @@
                 }
             },
             "__n_excludedFromValidation__": {},
-            "users": {}
+            "users": {
+                "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8": [
+                    "sd_hjRoakWxt1lkNAqO",
+                    "sd_g5KnEKrbi0V9WqxW",
+                    "sd_6SBKPsCdFIsRNmXy"
+                ]
+            }
         },
         "sd_UgmG6TlmwQb0UCrb": {
             "id": "sd_UgmG6TlmwQb0UCrb",
@@ -796,7 +817,13 @@
                 }
             },
             "__n_excludedFromValidation__": {},
-            "users": {}
+            "users": {
+                "SSD_SERVICE_ID_sd_0DH74NLncovZabEo": [
+                    "sd_UyUwcAnSQLQs0IKP",
+                    "sd_IyuBs2vI9W6k1mzX",
+                    "sd_4pXad4d8lDXIRSUn"
+                ]
+            }
         },
         "sd_wkl99fcRfvDmQ56X": {
             "id": "sd_wkl99fcRfvDmQ56X",
@@ -1137,7 +1164,16 @@
                 }
             },
             "__n_excludedFromValidation__": {},
-            "users": {}
+            "users": {
+                "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5": [
+                    "sd_w6fiomQRP9BnbZA1",
+                    "sd_CcCBWAPp3UP0TN1b",
+                    "sd_aaG5SMg32j75YGuT",
+                    "sd_lZPpBY5c80imnVGF",
+                    "sd_B7yAu9TQmK4i2UrL",
+                    "sd_zmvm3ABmNmMgt4Vp"
+                ]
+            }
         },
         "sd_JjJOsfKXqK3as12Z": {
             "id": "sd_JjJOsfKXqK3as12Z",
@@ -1480,6 +1516,7 @@
             "__n_excludedFromValidation__": {},
             "users": {
                 "SSD_SERVICE_ID_sd_w3nUYpAbLMOJmYgX": [
+                    "sd_xhlp2RL744Nd9s4M",
                     "sd_jZmpyhDOIiHSerWv"
                 ]
             }
@@ -1823,7 +1860,16 @@
                 }
             },
             "__n_excludedFromValidation__": {},
-            "users": {}
+            "users": {
+                "SSD_SERVICE_ID_sd_83mTtgZ1dN7Rzsz1": [
+                    "sd_ps751bCfa6lnrjTv",
+                    "sd_bMGft6wwWAbiSTs8",
+                    "sd_istB7Xt5wKfch7j3",
+                    "sd_eHVwYyqIrxtnsDcq",
+                    "sd_60WS6OBQtswxTokD",
+                    "sd_CJU2z5t9UpTz0XFA"
+                ]
+            }
         }
     }
 }

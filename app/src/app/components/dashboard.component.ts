@@ -8,13 +8,19 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
-import { MatDialog } from '@angular/material/dialog'; //_splitter_
-import { profile_dialogComponent } from './profile_dialog.component'; //_splitter_
+import { MatTableDataSource } from '@angular/material/table'; //_splitter_
+import { MatPaginator } from '@angular/material/paginator'; //_splitter_
+import { MatSort } from '@angular/material/sort'; //_splitter_
+import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
+import { MatDialog, MatDialogRef } from '@angular/material/dialog'; //_splitter_
+import { travelRequestDialogComponent } from './travelRequestDialog.component'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -25,6 +31,10 @@ import { Router } from '@angular/router'; //_splitter_
   ],
 })
 export class dashboardComponent {
+  @ViewChild(MatSort)
+  public MatSort: any = null;
+  @ViewChild(MatPaginator)
+  public MatPaginator: any = null;
   page: any = { dep: {} };
   constructor(
     private __page_injector__: Injector,
@@ -41,7 +51,7 @@ export class dashboardComponent {
       .get(SDPageCommonService)
       .constructFlowObject(this);
     {
-      this.sd_3HV1XCEaEUZKREkt(bh);
+      this.sd_DEpURkbQd1yC7evr(bh);
     }
   }
 
@@ -53,236 +63,516 @@ export class dashboardComponent {
     //append_listeners
   }
 
-  sd_3HV1XCEaEUZKREkt(bh) {
+  sd_DEpURkbQd1yC7evr(bh) {
     try {
-      bh = this.sd_LNdL39GYyIoq6rCH(bh);
-      //appendnew_next_sd_3HV1XCEaEUZKREkt
+      bh = this.tableDataSource(bh);
+      //appendnew_next_sd_DEpURkbQd1yC7evr
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_3HV1XCEaEUZKREkt');
+      return this.errorHandler(bh, e, 'sd_DEpURkbQd1yC7evr');
     }
   }
 
-  openProfile(...others) {
+  getTravelRequests(...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
       bh.input = {};
       bh.local = {};
-      bh = this.sd_HgVMQjEEW1D9ztdF(bh);
-      //appendnew_next_openProfile
+      bh = this.sd_wBen0TdptHyjdKXK(bh);
+      //appendnew_next_getTravelRequests
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_05SuI1IMdECnbyt2');
+      return this.errorHandler(bh, e, 'sd_KU603WOMCzJgMHso');
     }
   }
 
-  showDashboard(...others) {
+  goTo(...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
       bh.input = {};
       bh.local = {};
-      bh = this.sd_xGzy2trSSE15PpHY(bh);
-      //appendnew_next_showDashboard
+      bh = this.sd_aLNXjBcLPztCW64j(bh);
+      //appendnew_next_goTo
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ShPbM5O5r19xsbYU');
+      return this.errorHandler(bh, e, 'sd_mrXvkf0duurSdFDY');
     }
   }
 
-  showNewRequests(...others) {
+  openViewRequest(selectedRowID: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { selectedRowID: selectedRowID };
+      bh.local = {};
+      bh = this.sd_mt8Cw5ZGD0NQSUMB(bh);
+      //appendnew_next_openViewRequest
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_AAtb2ycYY078mW7G');
+    }
+  }
+
+  travelRequests(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_KduSl3fVkcg9AJRL(bh);
+      //appendnew_next_travelRequests
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_C6J9HQwkO5SQorTg');
+    }
+  }
+
+  closeProfile(...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
       bh.input = {};
       bh.local = {};
-      bh = this.sd_FvxyqASGytgzu7eX(bh);
-      //appendnew_next_showNewRequests
+      bh = this.sd_YQGYIR1ExZCECWq7(bh);
+      //appendnew_next_closeProfile
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_f0s3KKyxo580irM6');
-    }
-  }
-
-  showDrafts(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_6uQAGNXidCY4Wcy7(bh);
-      //appendnew_next_showDrafts
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_PtFnxYiiWaEFlgyZ');
-    }
-  }
-
-  showReports(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_Lznsj4zhr3mh24Z5(bh);
-      //appendnew_next_showReports
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_jnoWbaKJr8ucc6gq');
-    }
-  }
-
-  showLogout(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_qfMSBbsib142L8rD(bh);
-      //appendnew_next_showLogout
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Dw5RvF9T4BvZVShf');
-    }
-  }
-
-  openSideNav(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_RtFhjIqT7gIBAtnL(bh);
-      //appendnew_next_openSideNav
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_aqApuU8e0v1xPrS0');
+      return this.errorHandler(bh, e, 'sd_g4XccWFtvoNrVVtf');
     }
   }
 
   //appendnew_flow_dashboardComponent_start
 
-  sd_LNdL39GYyIoq6rCH(bh) {
+  tableDataSource(bh) {
     try {
-      this.page.dialogWidth = undefined;
-      this.page.dialogHeight = undefined;
-      this.page.sideNav = false;
-      this.page.showDashboard = true;
-      this.page.showReports = false;
-      this.page.showDrafts = false;
-      this.page.showNewRequests = false;
-      this.page.showLogout = false;
-      this.page.method = undefined;
-      this.page.body = undefined;
-      this.page.endPoint = undefined;
-      this.page.personalDetails = {};
-      //appendnew_next_sd_LNdL39GYyIoq6rCH
+      this.page.tableDataSource = MatTableDataSource;
+      bh = this.paginator(bh);
+      //appendnew_next_tableDataSource
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_LNdL39GYyIoq6rCH');
+      return this.errorHandler(bh, e, 'sd_NHOLdr2QCcwKZOXC');
     }
   }
 
-  sd_HgVMQjEEW1D9ztdF(bh) {
+  paginator(bh) {
     try {
-      const profile_dialogDialog = this.__page_injector__.get(MatDialog);
-      const profile_dialogDialogRef = profile_dialogDialog.open(
-        profile_dialogComponent,
-        { minHeight: '85vh', minWidth: '85vw', panelClass: this.page.scroll }
+      this.page.paginator = MatPaginator;
+      bh = this.sort(bh);
+      //appendnew_next_paginator
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_6qNWcMnFIBJGKL63');
+    }
+  }
+
+  sort(bh) {
+    try {
+      this.page.sort = MatSort;
+      bh = this.sd_E9QbOlnVduPNV5MO_1(bh);
+      //appendnew_next_sort
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ZPDW1S2ZFYD7wn8h');
+    }
+  }
+
+  sd_E9QbOlnVduPNV5MO_1(bh) {
+    try {
+      this.page.tableData = [];
+      this.page.currentUserDetails = {};
+      this.page.dashboardCards = undefined;
+      this.page.tableHeaders = [];
+      this.page.tableCells = [];
+      this.page.receivedTableData = [];
+      this.page.email = undefined;
+      this.page.select = undefined;
+      this.page.counts = {};
+      bh = this.sd_q6OoeIYWQhQzzGjh(bh);
+      //appendnew_next_sd_E9QbOlnVduPNV5MO_1
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ptIeaoCYsPK9hjAj');
+    }
+  }
+
+  sd_q6OoeIYWQhQzzGjh(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      bh.endPoint = 'travelRequests/getTravelRequests';
+      page.select = [
+        { viewvalue: 'My requests' },
+        { viewvalue: 'Traveler requests' },
+      ];
+      bh = this.sd_jpxsohmPQY8GE1QJ(bh);
+      //appendnew_next_sd_q6OoeIYWQhQzzGjh
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_q6OoeIYWQhQzzGjh');
+    }
+  }
+
+  sd_jpxsohmPQY8GE1QJ(bh) {
+    try {
+      let outputVariables = this.getTravelRequests();
+
+      //appendnew_next_sd_jpxsohmPQY8GE1QJ
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_jpxsohmPQY8GE1QJ');
+    }
+  }
+
+  sd_wBen0TdptHyjdKXK(bh) {
+    try {
+      this.page.currentUserDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
       );
-
+      bh = this.sd_64BY1qSbZIWkX8S4(bh);
+      bh = this.sd_9iETZGjcCefaDHz4(bh);
+      //appendnew_next_sd_wBen0TdptHyjdKXK
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_HgVMQjEEW1D9ztdF');
+      return this.errorHandler(bh, e, 'sd_wBen0TdptHyjdKXK');
     }
   }
 
-  sd_xGzy2trSSE15PpHY(bh) {
+  sd_64BY1qSbZIWkX8S4(bh) {
     try {
       const page = this.page;
-      page.showDashboard = true;
-      page.showReports = false;
-      page.showDrafts = false;
-      page.showNewRequests = false;
-      page.showLogout = false;
-
-      //appendnew_next_sd_xGzy2trSSE15PpHY
+      bh.method = 'get';
+      bh.endPoint =
+        'travelRequests/getTravelRequests?owner=' +
+        page.currentUserDetails.email;
+      bh = this.sd_yfn2PaT31GlOHAcu(bh);
+      //appendnew_next_sd_64BY1qSbZIWkX8S4
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_xGzy2trSSE15PpHY');
+      return this.errorHandler(bh, e, 'sd_64BY1qSbZIWkX8S4');
     }
   }
 
-  sd_FvxyqASGytgzu7eX(bh) {
+  async sd_yfn2PaT31GlOHAcu(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.receivedTableData = outputVariables.local.result;
+
+      bh = this.sd_Vu9yUI2dYtvCzbiL(bh);
+      //appendnew_next_sd_yfn2PaT31GlOHAcu
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_yfn2PaT31GlOHAcu');
+    }
+  }
+
+  sd_Vu9yUI2dYtvCzbiL(bh) {
     try {
       const page = this.page;
-      page.showNewRequests = true;
-      page.showReports = false;
-      page.showDrafts = false;
-      page.showDashboard = false;
-      page.showLogout = false;
-      //appendnew_next_sd_FvxyqASGytgzu7eX
+      bh.method = 'get';
+      bh.endPoint =
+        'travelRequests/getTravelRequests?owner=' +
+        page.currentUserDetails.email;
+      bh.receivedTableData = page.receivedTableData['data'];
+
+      page.counts = {
+        pendingCounts: [],
+        approvedCounts: [],
+        rejectedCounts: [],
+        totalCounts: bh.receivedTableData.length,
+      };
+
+      bh.receivedTableData.forEach((item) => {
+        if (item.status == 'Approved') {
+          page.counts.approvedCounts.push(item);
+        } else if (item.status == 'Rejected') {
+          page.counts.rejectedCounts.push(item);
+        } else {
+          page.counts.pendingCounts.push(item);
+        }
+      });
+
+      page.dashboardCards = [
+        {
+          amount: page?.counts?.totalCounts,
+          topText: 'Total',
+          icon: 'description',
+          cssClass: 'blueBg',
+        },
+        {
+          amount: page?.counts?.pendingCounts?.length,
+          topText: 'Pending',
+          icon: 'hourglass_full',
+          cssClass: 'orangeBg',
+        },
+        {
+          amount: page?.counts?.approvedCounts?.length,
+          topText: 'Approved',
+          icon: 'thumb_up',
+          cssClass: 'greenBg',
+        },
+        {
+          amount: page?.counts?.rejectedCounts?.length,
+          topText: 'Rejected',
+          icon: 'thumb_down',
+          cssClass: 'redBg',
+        },
+      ];
+
+      bh = this.logTable(bh);
+      //appendnew_next_sd_Vu9yUI2dYtvCzbiL
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_FvxyqASGytgzu7eX');
+      return this.errorHandler(bh, e, 'sd_Vu9yUI2dYtvCzbiL');
     }
   }
 
-  sd_6uQAGNXidCY4Wcy7(bh) {
+  logTable(bh) {
     try {
       const page = this.page;
-      page.showDrafts = true;
-      page.showReports = false;
-      page.showNewRequests = false;
-      page.showDashboard = false;
-      page.showLogout = false;
-      //appendnew_next_sd_6uQAGNXidCY4Wcy7
+      console.log(page.receivedTableData);
+      bh = this.table(bh);
+      //appendnew_next_logTable
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_6uQAGNXidCY4Wcy7');
+      return this.errorHandler(bh, e, 'sd_jZwPAELogS09DzpJ');
     }
   }
 
-  sd_Lznsj4zhr3mh24Z5(bh) {
+  table(bh) {
+    try {
+      bh.pageViews = Object.assign(bh.pageViews || {}, {
+        MatSort: this.MatSort,
+        MatPaginator: this.MatPaginator,
+      });
+      bh = this.setTableTokens(bh);
+      //appendnew_next_table
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_UVcRAqphJAHQlCHH');
+    }
+  }
+
+  setTableTokens(bh) {
     try {
       const page = this.page;
-      page.showReports = true;
-      page.showNewRequests = false;
-      page.showDrafts = false;
-      page.showDashboard = false;
-      page.showLogout = false;
-      //appendnew_next_sd_Lznsj4zhr3mh24Z5
+      let tableData = [];
+      let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
+      let tableSetup = {
+        traveler: {
+          tableHeaders: [
+            'Owner',
+            'Date Created',
+            'Trip Type',
+            'Travel Mode',
+            'From City',
+            'To City',
+            'Status',
+            'Action',
+          ],
+          tableCells: [
+            'owner',
+            'dateCreated',
+            `tripType`,
+            'travelMode',
+            'fromCity',
+            'toCity',
+            'status',
+            'action',
+          ],
+        },
+      };
+      (bh.role = !userGroups.includes(page.currentUserDetails.designation)
+        ? 'traveler'
+        : 'other'),
+        (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
+      page.tableCells = tableSetup[bh.role]['tableCells'];
+      page.receivedTableData['data'].forEach((el) => {
+        let temp = {};
+        temp['_id'] = el['_id'];
+        temp['owner'] = el['owner'];
+        temp['status'] = el['status'];
+        temp['dateCreated'] = el['dateCreated'];
+        temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
+        temp['travelMode'] =
+          el['requestDetails'][0]['travelDetails']['travelMode'];
+        temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];
+        temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
+        tableData.push(temp);
+      });
+      console.log(tableData);
+      page.tableData = new page.tableDataSource(tableData);
+      page.tableData.paginator = bh.pageViews.MatPaginator;
+      page.tableData.sort = bh.pageViews.MatSort;
+
+      // let tableData = [];
+      // let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
+      // let tableSetup = {
+      //     "traveler": {
+      //         "tableHeaders": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],
+      //         "tableCells": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']
+      //     }
+      // };
+      // bh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',
+      //     page.tableHeaders = tableSetup[bh.role]['tableHeaders'];
+      // page.tableCells = tableSetup[bh.role]['tableCells'];
+      // page.receivedTableData['data'].forEach(el => {
+      //     let temp = {};
+      //     temp['_id'] = el['_id'];
+      //     temp['dateCreated'] = el['dateCreated'];
+      //     temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
+      //     temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];
+      //     temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];
+      //     temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
+      //     tableData.push(temp);
+      // })
+
+      // page.tableData = new page.tableDataSource(tableData);
+      // page.tableData.paginator = bh.pageViews.MatPaginator;
+      // page.tableData.sort = bh.pageViews.MatSort;
+      //appendnew_next_setTableTokens
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Lznsj4zhr3mh24Z5');
+      return this.errorHandler(bh, e, 'sd_XYkozKw50Fv54KKu');
     }
   }
 
-  async sd_qfMSBbsib142L8rD(bh) {
+  sd_9iETZGjcCefaDHz4(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      if (page.currentUserDetails.designation.includes('Travel')) {
+        bh.endPoint = 'travelRequests/getTravelRequests';
+      } else {
+        bh.endPoint =
+          'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
+          page.currentUserDetails.email;
+      }
+      bh = this.sd_Fp5fPo6PxNMkgOoy(bh);
+      //appendnew_next_sd_9iETZGjcCefaDHz4
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_9iETZGjcCefaDHz4');
+    }
+  }
+
+  async sd_Fp5fPo6PxNMkgOoy(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.receivedTableData = outputVariables.local.result;
+
+      bh = this.logTable(bh);
+      //appendnew_next_sd_Fp5fPo6PxNMkgOoy
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_Fp5fPo6PxNMkgOoy');
+    }
+  }
+
+  async sd_aLNXjBcLPztCW64j(bh) {
     try {
       const { paramObj: qprm, path: path } =
-        this.sdService.getPathAndQParamsObj('/login');
+        this.sdService.getPathAndQParamsObj('/home/new-request');
       await this.__page_injector__
         .get(Router)
         .navigate([this.sdService.formatPathWithParams(path, undefined)], {
           queryParams: Object.assign(qprm, ''),
         });
-      //appendnew_next_sd_qfMSBbsib142L8rD
+      //appendnew_next_sd_aLNXjBcLPztCW64j
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_qfMSBbsib142L8rD');
+      return await this.errorHandler(bh, e, 'sd_aLNXjBcLPztCW64j');
     }
   }
 
-  sd_RtFhjIqT7gIBAtnL(bh) {
+  sd_mt8Cw5ZGD0NQSUMB(bh) {
     try {
       const page = this.page;
-      page.sideNav = true;
-      //appendnew_next_sd_RtFhjIqT7gIBAtnL
+      bh.data = page.receivedTableData['data'].find(
+        (obj) => bh.input.selectedRowID == obj._id
+      );
+
+      bh = this.sd_ESipJh6js5V3RPHV(bh);
+      //appendnew_next_sd_mt8Cw5ZGD0NQSUMB
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_RtFhjIqT7gIBAtnL');
+      return this.errorHandler(bh, e, 'sd_mt8Cw5ZGD0NQSUMB');
+    }
+  }
+
+  sd_ESipJh6js5V3RPHV(bh) {
+    try {
+      const travelRequestDialogDialog = this.__page_injector__.get(MatDialog);
+      const travelRequestDialogDialogRef = travelRequestDialogDialog.open(
+        travelRequestDialogComponent,
+        {
+          data: bh.data,
+          disableClose: true,
+          maxHeight: '85vh',
+          minHeight: '85vh',
+          minWidth: '85vw',
+          panelClass: this.page.scroll,
+        }
+      );
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ESipJh6js5V3RPHV');
+    }
+  }
+
+  sd_KduSl3fVkcg9AJRL(bh) {
+    try {
+      if (
+        this.sdService.operators['eq'](
+          bh.input.event.value,
+          'My requests',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_64BY1qSbZIWkX8S4(bh);
+      } else if (
+        this.sdService.operators['eq'](
+          bh.input.event.value,
+          'Traveler requests',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_9iETZGjcCefaDHz4(bh);
+      }
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_KduSl3fVkcg9AJRL');
+    }
+  }
+
+  sd_YQGYIR1ExZCECWq7(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.profileDialog);
+
+      //appendnew_next_sd_YQGYIR1ExZCECWq7
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_YQGYIR1ExZCECWq7');
     }
   }
 

@@ -321,7 +321,9 @@
             "value": "2500"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -346,6 +348,13 @@
         "nodeType": "flow",
         "name": "",
         "path": "/",
+        "pathMap": "",
+        "pathparams": "",
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
         "functionName": "sd_L5IHBMJeis0D14Is",
         "category": "Navigation",
         "x": 745,

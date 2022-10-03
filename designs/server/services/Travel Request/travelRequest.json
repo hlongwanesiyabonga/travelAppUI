@@ -50,8 +50,8 @@
         "inputs": 0,
         "outputs": 1,
         "category": "HTTP",
-        "x": 85,
-        "y": 180,
+        "x": 105,
+        "y": 140,
         "wires": [
             [
                 "sd_WHAhn2s1OEVDFFm9"
@@ -108,8 +108,8 @@
         "pipeline": "",
         "functionName": "sd_w6fiomQRP9BnbZA1",
         "category": "Storage",
-        "x": 545,
-        "y": 160,
+        "x": 565,
+        "y": 120,
         "wires": [
             [
                 "sd_vUEpeykQeTS8XKQX"
@@ -185,8 +185,8 @@
         },
         "functionName": "sd_2gHfsCC6KfjU6e9Y",
         "category": "HTTP",
-        "x": 1065,
-        "y": 240,
+        "x": 1085,
+        "y": 200,
         "wires": [],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -203,8 +203,8 @@
         "script": "bh.status = 200;\nconsole.log('////////////////',bh.res);\n\nbh.local.response = {\n    msg: `${Object.keys(bh.input.query).includes('type')  ? 'Draft' : 'Request'} Made Successfully`,\n    cssClass: 'success' \n}",
         "functionName": "sd_4rWzFASf4LQ2Gbs9",
         "category": "Function",
-        "x": 925,
-        "y": 200,
+        "x": 945,
+        "y": 160,
         "wires": [
             [
                 "sd_2gHfsCC6KfjU6e9Y"
@@ -241,8 +241,8 @@
         "outputs": 2,
         "functionName": "checkResult",
         "category": "Function",
-        "x": 645,
-        "y": 180,
+        "x": 665,
+        "y": 140,
         "wires": [
             [
                 "sd_8RUk0jfKwGTLxoiZ"
@@ -265,8 +265,8 @@
         "script": "bh.status = 400;\nbh.local.response = {\n    msg: 'Error Saving Request',\n    cssClass: 'error' \n}",
         "functionName": "sd_S7BJ6mHX1JNpGksc",
         "category": "Function",
-        "x": 805,
-        "y": 320,
+        "x": 825,
+        "y": 280,
         "wires": [
             [
                 "sd_2gHfsCC6KfjU6e9Y"
@@ -286,8 +286,8 @@
         "script": "console.log(bh);\nbh.input.body.status = \"Pending Review By LM\";",
         "functionName": "sd_WHAhn2s1OEVDFFm9",
         "category": "Function",
-        "x": 205,
-        "y": 180,
+        "x": 225,
+        "y": 140,
         "wires": [
             [
                 "sd_TUBT9uWcV8XIqC0M"
@@ -326,7 +326,6 @@
                 }
             }
         },
-        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -336,8 +335,8 @@
         "inputs": 0,
         "outputs": 1,
         "category": "HTTP",
-        "x": 85,
-        "y": 520,
+        "x": 125,
+        "y": 420,
         "wires": [
             [
                 "sd_aAyY7KQ9SkEygAM1"
@@ -389,8 +388,8 @@
         "outputs": 3,
         "functionName": "sd_g6948qmWaZMmvXk3",
         "category": "Function",
-        "x": 285,
-        "y": 520,
+        "x": 325,
+        "y": 420,
         "wires": [
             [
                 "sd_CcCBWAPp3UP0TN1b"
@@ -443,8 +442,8 @@
         "pipeline": "",
         "functionName": "sd_CcCBWAPp3UP0TN1b",
         "category": "Storage",
-        "x": 405,
-        "y": 440,
+        "x": 445,
+        "y": 340,
         "wires": [
             [
                 "sd_SzSwdepqnahs6Ccz"
@@ -519,8 +518,8 @@
         },
         "functionName": "sd_NkVxpv3hImv15mQI",
         "category": "HTTP",
-        "x": 605,
-        "y": 520,
+        "x": 645,
+        "y": 420,
         "wires": [],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -536,8 +535,8 @@
         "script": "bh.status = 200;\nbh.local.response  = {\n    msg: \"Records fetched successfully\",\n    data: bh.local.result\n}",
         "functionName": "sd_SzSwdepqnahs6Ccz",
         "category": "Function",
-        "x": 505,
-        "y": 440,
+        "x": 545,
+        "y": 340,
         "wires": [
             [
                 "sd_NkVxpv3hImv15mQI"
@@ -557,8 +556,8 @@
         "script": "bh.status = 404;\nbh.local.response = {\n    msg: 'Invalid API Endpoint',\n    cssClass: 'error' \n}",
         "functionName": "sd_6SIL3p2yoFnVpHZv",
         "category": "Function",
-        "x": 445,
-        "y": 600,
+        "x": 485,
+        "y": 500,
         "wires": [
             [
                 "sd_NkVxpv3hImv15mQI"
@@ -578,8 +577,8 @@
         "script": "bh.collection = 'travelRequests';\nif(bh.input.query._id){\n    bh.input.query._id =  new require('mongodb').ObjectId(bh.input.query._id)\n}",
         "functionName": "setCollection",
         "category": "Function",
-        "x": 186,
-        "y": 520,
+        "x": 226,
+        "y": 420,
         "wires": [
             [
                 "sd_g6948qmWaZMmvXk3"
@@ -615,8 +614,8 @@
         "outputs": 2,
         "functionName": "sd_TUBT9uWcV8XIqC0M",
         "category": "Function",
-        "x": 305,
-        "y": 180,
+        "x": 325,
+        "y": 140,
         "wires": [
             [
                 "sd_IsLwrjzvfAOSICdd"
@@ -639,8 +638,8 @@
         "script": "bh.collection = 'travelRequestDrafts';",
         "functionName": "sd_IsLwrjzvfAOSICdd",
         "category": "Function",
-        "x": 410,
-        "y": 160.8125,
+        "x": 430,
+        "y": 120.8125,
         "wires": [
             [
                 "sd_w6fiomQRP9BnbZA1"
@@ -660,8 +659,8 @@
         "script": "bh.collection = 'travelRequests';\nbh.local.filter = {};\nif (bh.input.body._id) {\n    bh.local.filter = new require('mongodb').ObjectId(bh.input.body._id);\n}",
         "functionName": "sd_Pluu2muwnqDTjWFj",
         "category": "Function",
-        "x": 415,
-        "y": 260,
+        "x": 435,
+        "y": 220,
         "wires": [
             [
                 "sd_aaG5SMg32j75YGuT"
@@ -708,8 +707,8 @@
         "pipeline": "",
         "functionName": "sd_aaG5SMg32j75YGuT",
         "category": "Storage",
-        "x": 545,
-        "y": 260,
+        "x": 565,
+        "y": 220,
         "wires": [
             [
                 "sd_w6fiomQRP9BnbZA1"
@@ -781,7 +780,6 @@
                 }
             }
         },
-        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -792,7 +790,7 @@
         "outputs": 1,
         "category": "HTTP",
         "x": 85,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "sd_b70XfIUmF8IFJFgQ"
@@ -850,7 +848,7 @@
         "functionName": "sd_jYhopgFenX6f9HJH",
         "category": "HTTP",
         "x": 708,
-        "y": 800,
+        "y": 980,
         "wires": [],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -867,7 +865,7 @@
         "functionName": "sd_RiIhW0d2F09prDjy",
         "category": "Function",
         "x": 265,
-        "y": 720,
+        "y": 900,
         "wires": [
             [
                 "sd_lZPpBY5c80imnVGF"
@@ -888,7 +886,7 @@
         "functionName": "sd_iVJsFUeQO5SkNXMo",
         "category": "Function",
         "x": 265,
-        "y": 880,
+        "y": 1060,
         "wires": [
             [
                 "sd_lZPpBY5c80imnVGF"
@@ -937,7 +935,7 @@
         "functionName": "sd_lZPpBY5c80imnVGF",
         "category": "Storage",
         "x": 365,
-        "y": 800,
+        "y": 980,
         "wires": [
             [
                 "sd_RK12BADKSQebUQuh"
@@ -996,7 +994,7 @@
         "functionName": "sd_aeNJj5JRXAitBQ7S",
         "category": "Function",
         "x": 588,
-        "y": 700,
+        "y": 880,
         "wires": [
             [
                 "sd_jYhopgFenX6f9HJH"
@@ -1033,7 +1031,7 @@
         "functionName": "sd_b70XfIUmF8IFJFgQ",
         "category": "Function",
         "x": 185,
-        "y": 820,
+        "y": 1000,
         "wires": [
             [
                 "sd_RiIhW0d2F09prDjy"
@@ -1070,7 +1068,7 @@
         "functionName": "sd_RK12BADKSQebUQuh",
         "category": "Function",
         "x": 465,
-        "y": 800,
+        "y": 980,
         "wires": [
             [
                 "sd_aeNJj5JRXAitBQ7S"
@@ -1094,7 +1092,7 @@
         "functionName": "sd_O5pvPnrHKnTIxc0g",
         "category": "Function",
         "x": 590,
-        "y": 880,
+        "y": 1060,
         "wires": [
             [
                 "sd_jYhopgFenX6f9HJH"
@@ -1144,7 +1142,7 @@
         "outputs": 1,
         "category": "HTTP",
         "x": 85,
-        "y": 1080,
+        "y": 1260,
         "wires": [
             [
                 "sd_31MJTpFXfiNQacin"
@@ -1202,7 +1200,7 @@
         "functionName": "sd_B7yAu9TQmK4i2UrL",
         "category": "Storage",
         "x": 405,
-        "y": 1080,
+        "y": 1260,
         "wires": [
             [
                 "sd_oKLt8jUnWXN93NEB"
@@ -1288,7 +1286,7 @@
         "functionName": "sd_Fq82hgowQ0YL8ivY",
         "category": "HTTP",
         "x": 565,
-        "y": 1080,
+        "y": 1260,
         "wires": [],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -1305,7 +1303,7 @@
         "functionName": "sd_EpjpjOICvTFoiVza",
         "category": "Function",
         "x": 292,
-        "y": 1000,
+        "y": 1180,
         "wires": [
             [
                 "sd_B7yAu9TQmK4i2UrL"
@@ -1342,7 +1340,7 @@
         "functionName": "sd_31MJTpFXfiNQacin",
         "category": "Function",
         "x": 185,
-        "y": 1080,
+        "y": 1260,
         "wires": [
             [
                 "sd_EpjpjOICvTFoiVza"
@@ -1366,7 +1364,7 @@
         "functionName": "sd_oKLt8jUnWXN93NEB",
         "category": "Function",
         "x": 485,
-        "y": 1080,
+        "y": 1260,
         "wires": [
             [
                 "sd_Fq82hgowQ0YL8ivY"
@@ -1387,7 +1385,7 @@
         "functionName": "sd_cUOv4i8hgdvjqVsD",
         "category": "Function",
         "x": 292,
-        "y": 1140,
+        "y": 1320,
         "wires": [
             [
                 "sd_B7yAu9TQmK4i2UrL"
@@ -1427,8 +1425,8 @@
         "resultMapping": "bh.res",
         "functionName": "sd_3nmGpSpH2D5r5j00",
         "category": "Messaging",
-        "x": 1145,
-        "y": 100,
+        "x": 1165,
+        "y": 60,
         "wires": [
             [
                 "sd_4rWzFASf4LQ2Gbs9"
@@ -1541,8 +1539,8 @@
         "script": "bh.email = {};\nbh.email.to = 'neutrinostravel@gmail.com';\nbh.email.sentfrom = bh.input.body.owner;\nbh.email.cc = bh.input.body.personalDetails.lineManagerEmail;\nbh.email.subject = \"New Travel Request\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi Travel Desk,\n\nPlease note that the following travel request has been raised by ${bh.sender}:\nRequest date: ${bh.input.body.dateCreated.slice(0, 10)}\n${bh.emailData.map(el =>{\nreturn `\nLeg: ${el.leg}\nTrip Type:  ${el.travelDetails.tripType}\nDep date: ${(el.travelDetails.fromDate) ? el.travelDetails.fromDate.slice(0, 10) : '-'}\nDep city: ${el.travelDetails.fromCity}\nDest city: ${el.travelDetails.toCity}\nPreferred dep time: ${el.travelDetails.preferredTime}\nAccomm required?: ${el.travelDetails.needAccommodation}\nCheck in date: ${el.accommodationDetails.checkInDate ? el.accommodationDetails.checkInDate.slice(0, 10) : '-'}\nCheck out date: ${el.accommodationDetails.checkOutDate ? el.accommodationDetails.checkOutDate.slice(0, 10) : '-'}\nCar hire required?: ${el.travelDetails.needVehicle}`\n}).join()}\n\n\nRegards,\nNeutrinos Travel\n`; ",
         "functionName": "sd_jLqeDp6RpRNIrbfj",
         "category": "Function",
-        "x": 1025,
-        "y": 100,
+        "x": 1045,
+        "y": 60,
         "wires": [
             [
                 "sd_3nmGpSpH2D5r5j00"
@@ -1578,8 +1576,8 @@
         "outputs": 2,
         "functionName": "sd_8RUk0jfKwGTLxoiZ",
         "category": "Function",
-        "x": 745,
-        "y": 174,
+        "x": 765,
+        "y": 134,
         "wires": [
             [
                 "sd_fXfoeZGr8h7g2nWp"
@@ -1602,8 +1600,8 @@
         "script": "bh.emailData = []\n\nbh.input.body.requestDetails.forEach((item, index) => bh.emailData.push({\n    accommodationDetails: {\n        checkInDate: item.accommodationDetails.checkInDate ? item.accommodationDetails.checkInDate : '-',\n        checkOutDate: item.accommodationDetails.checkOutDate ? item.accommodationDetails.checkOutDate : '-',\n    },\n    travelDetails: {\n        fromDate: item.travelDetails.fromDate,\n        toDate: item.travelDetails.toDate,\n        fromCity: item.travelDetails.fromCity,\n        toCity: item.travelDetails.toCity,\n        preferredTime: item.travelDetails.preferredTime,\n        needVehicle: item.travelDetails.needvehicle,\n        tripType: item.travelDetails.tripType,\n        needAccommodation: item.travelDetails.needAccommodation,\n    },\n    leg: index + 1\n}));\n\nconsole.log(bh.emailData);",
         "functionName": "sd_fXfoeZGr8h7g2nWp",
         "category": "Function",
-        "x": 865,
-        "y": 100,
+        "x": 885,
+        "y": 60,
         "wires": [
             [
                 "sd_jLqeDp6RpRNIrbfj"
@@ -1651,7 +1649,7 @@
         "functionName": "sd_nDxhfGn3zbDnujOB",
         "category": "HTTP",
         "x": 485,
-        "y": 1340,
+        "y": 1520,
         "wires": [],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -1668,7 +1666,7 @@
         "functionName": "sd_MiM4jDICLBEKv2Uq",
         "category": "Function",
         "x": 385,
-        "y": 1340,
+        "y": 1520,
         "wires": [
             [
                 "sd_nDxhfGn3zbDnujOB"
@@ -1716,7 +1714,7 @@
         "functionName": "sd_zmvm3ABmNmMgt4Vp",
         "category": "Storage",
         "x": 285,
-        "y": 1340,
+        "y": 1520,
         "wires": [
             [
                 "sd_MiM4jDICLBEKv2Uq"
@@ -1765,7 +1763,7 @@
         "functionName": "sd_lfMrO2D97uLlVmwt",
         "category": "Function",
         "x": 166,
-        "y": 1340,
+        "y": 1520,
         "wires": [
             [
                 "sd_zmvm3ABmNmMgt4Vp"
@@ -1815,7 +1813,7 @@
         "outputs": 1,
         "category": "HTTP",
         "x": 65,
-        "y": 1340,
+        "y": 1520,
         "wires": [
             [
                 "sd_lfMrO2D97uLlVmwt"
