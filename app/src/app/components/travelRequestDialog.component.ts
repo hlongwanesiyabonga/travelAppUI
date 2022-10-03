@@ -24,8 +24,8 @@ import {
   FormArray,
 } from '@angular/forms'; //_splitter_
 import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
-import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'; //_splitter_
+import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { DomSanitizer } from '@angular/platform-browser'; //_splitter_
 //append_imports_end
 
@@ -168,20 +168,6 @@ export class travelRequestDialogComponent {
       //appendnew_next_submit_clear_draft
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Cdn3EtXQ3YnIyRL5');
-    }
-  }
-
-  resetForm(form: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { form: form };
-      bh.local = {};
-      bh = this.sd_ZPQldNPmJZGDHZ6x(bh);
-      //appendnew_next_resetForm
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_SvFLNf8WmpCZvAFq');
     }
   }
 
@@ -387,19 +373,6 @@ export class travelRequestDialogComponent {
       //appendnew_next_changeQuoteStatus
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_dvssffiSBQPubuzh');
-    }
-  }
-
-  submitForm(profileForm: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { profileForm: profileForm };
-      bh.local = {};
-      //appendnew_next_submitForm
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_hMoIt95ocELESQJp');
     }
   }
 
@@ -790,52 +763,11 @@ export class travelRequestDialogComponent {
       bh.method = 'post';
       page.currentUserTravelDetails = page.formObj;
 
-      bh = this.sd_7oAC3ZOI3UNHCQSB(bh);
+      bh = this.sd_NXB4LhhwZJ1NvJ1z(bh);
       //appendnew_next_sd_3BSYymrgOaMoS0L7
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_3BSYymrgOaMoS0L7');
-    }
-  }
-
-  sd_7oAC3ZOI3UNHCQSB(bh) {
-    try {
-      if (
-        this.sdService.operators['eq'](
-          bh.input.event,
-          'Submit',
-          undefined,
-          undefined
-        )
-      ) {
-        bh = this.sd_UbsqHRww0BDHT1jL(bh);
-      } else if (
-        this.sdService.operators['eq'](
-          bh.input.event,
-          'Cancel',
-          undefined,
-          undefined
-        )
-      ) {
-        bh = this.sd_5IzxbzpLPOj6jECW(bh);
-      }
-
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_7oAC3ZOI3UNHCQSB');
-    }
-  }
-
-  sd_UbsqHRww0BDHT1jL(bh) {
-    try {
-      const page = this.page;
-      console.log('Submit');
-      console.log('end', bh.endPoint);
-      bh = this.sd_NXB4LhhwZJ1NvJ1z(bh);
-      //appendnew_next_sd_UbsqHRww0BDHT1jL
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_UbsqHRww0BDHT1jL');
     }
   }
 
@@ -847,11 +779,24 @@ export class travelRequestDialogComponent {
         horizontalPosition: 'center',
         verticalPosition: 'bottom',
       });
-      bh = this.sd_TKLDBEVAFwcgxPM5(bh);
+      bh = this.sd_YxHp4AR89CMJ5Z47(bh);
       //appendnew_next_sd_NXB4LhhwZJ1NvJ1z
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_NXB4LhhwZJ1NvJ1z');
+    }
+  }
+
+  sd_YxHp4AR89CMJ5Z47(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.res);
+
+      bh = this.sd_TKLDBEVAFwcgxPM5(bh);
+      //appendnew_next_sd_YxHp4AR89CMJ5Z47
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_YxHp4AR89CMJ5Z47');
     }
   }
 
@@ -867,7 +812,7 @@ export class travelRequestDialogComponent {
       );
       this.page.res = outputVariables.local.result;
 
-      bh = this.sd_YxHp4AR89CMJ5Z47(bh);
+      bh = this.sd_gKvGm16UtX58kUU8(bh);
       //appendnew_next_sd_TKLDBEVAFwcgxPM5
       return bh;
     } catch (e) {
@@ -875,56 +820,14 @@ export class travelRequestDialogComponent {
     }
   }
 
-  sd_YxHp4AR89CMJ5Z47(bh) {
-    try {
-      const _dialogRef = this.__page_injector__.get(MatDialogRef);
-      _dialogRef.close(this.page.res);
-
-      //appendnew_next_sd_YxHp4AR89CMJ5Z47
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_YxHp4AR89CMJ5Z47');
-    }
-  }
-
-  sd_5IzxbzpLPOj6jECW(bh) {
+  sd_gKvGm16UtX58kUU8(bh) {
     try {
       const page = this.page;
-      bh.endPoint = '';
-      bh = this.sd_OaPTiLxts4WNSI7w(bh);
-      //appendnew_next_sd_5IzxbzpLPOj6jECW
+      this.outputVar.emit(page.showDashboard);
+      //appendnew_next_sd_gKvGm16UtX58kUU8
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_5IzxbzpLPOj6jECW');
-    }
-  }
-
-  sd_OaPTiLxts4WNSI7w(bh) {
-    try {
-      this.__page_injector__
-        .get(MatSnackBar)
-        .open('Form is saved as draft', 'OK', {
-          duration: 3000,
-          direction: 'ltr',
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-      bh = this.sd_TKLDBEVAFwcgxPM5(bh);
-      //appendnew_next_sd_OaPTiLxts4WNSI7w
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_OaPTiLxts4WNSI7w');
-    }
-  }
-
-  sd_ZPQldNPmJZGDHZ6x(bh) {
-    try {
-      const page = this.page;
-      bh.input.form.reset();
-      //appendnew_next_sd_ZPQldNPmJZGDHZ6x
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ZPQldNPmJZGDHZ6x');
+      return this.errorHandler(bh, e, 'sd_gKvGm16UtX58kUU8');
     }
   }
 
@@ -1490,10 +1393,6 @@ export class travelRequestDialogComponent {
     try {
       const page = this.page;
       page.quotes = page.quoteFromDB['data'];
-      // .forEach(quote => {
-      //     page.sanitizer.bypassSecurityTrustResourceUrl(quote['quote']);
-      //     page.quotes.push(quote);
-      // })
 
       console.log(page.quotes, ' zzzzz');
       //appendnew_next_sd_Xj5ZPqKMsm5s9mbo

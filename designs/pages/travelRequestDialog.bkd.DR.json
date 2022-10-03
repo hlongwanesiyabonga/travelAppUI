@@ -26090,7 +26090,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner == page?.currentUserDetails?.email) && page.quotes.length > 0 && page?.currentUserDetails?.designation.includes('Manager')",
+                            "_value": "(page?.dialogData?.owner == page?.currentUserDetails?.email) && page?.currentUserDetails?.designation.includes('Manager')",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26288,7 +26288,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner !== page?.currentUserDetails?.email) && page.quotes.length > 0 && page?.currentUserDetails?.designation.includes('Manager')",
+                            "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner !== page?.currentUserDetails?.email) && page?.currentUserDetails?.designation.includes('Manager')",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26484,7 +26484,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved'",
+                            "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner !== page?.currentUserDetails?.email) && page?.currentUserDetails?.designation.includes('Manager')",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26708,7 +26708,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "!(page.currentUserDetails.email == page.requesterDetails.email && page.currentUserDetails.designation.includes('Manager'))",
+                            "_value": "page.currentUserDetails.email == page.requesterDetails.email && page?.dialogData?.managerApproval.approvedRequest == null",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26747,9 +26747,16 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "",
+                                "_value": "closeDialog()",
                                 "_type": "kv",
-                                "_attrDef": "p"
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_ezoaygaWeGwsmasO",
+                                    "functionName": "closeDialog",
+                                    "activeTree": "pages",
+                                    "z": "sd_cL2Dk3ymewl6P3KV",
+                                    "input": []
+                                }
                             },
                             {
                                 "_key": "[disabled]",
