@@ -40,7 +40,6 @@
                 }
             }
         },
-        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -1539,7 +1538,7 @@
         "script": "bh.email = {};\nbh.email.to = 'neutrinostravel@gmail.com';\nbh.email.sentfrom = bh.input.body.owner;\nbh.email.cc = bh.input.body.personalDetails.lineManagerEmail;\nbh.email.subject = \"New Travel Request\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi Travel Desk,\n\nPlease note that the following travel request has been raised by ${bh.sender}:\nRequest date: ${bh.input.body.dateCreated.slice(0, 10)}\n${bh.emailData.map(el =>{\nreturn `\nLeg: ${el.leg}\nTrip Type:  ${el.travelDetails.tripType}\nDep date: ${(el.travelDetails.fromDate) ? el.travelDetails.fromDate.slice(0, 10) : '-'}\nDep city: ${el.travelDetails.fromCity}\nDest city: ${el.travelDetails.toCity}\nPreferred dep time: ${el.travelDetails.preferredTime}\nAccomm required?: ${el.travelDetails.needAccommodation}\nCheck in date: ${el.accommodationDetails.checkInDate ? el.accommodationDetails.checkInDate.slice(0, 10) : '-'}\nCheck out date: ${el.accommodationDetails.checkOutDate ? el.accommodationDetails.checkOutDate.slice(0, 10) : '-'}\nCar hire required?: ${el.travelDetails.needVehicle}`\n}).join()}\n\n\nRegards,\nNeutrinos Travel\n`; ",
         "functionName": "sd_jLqeDp6RpRNIrbfj",
         "category": "Function",
-        "x": 1025,
+        "x": 1005,
         "y": 100,
         "wires": [
             [
