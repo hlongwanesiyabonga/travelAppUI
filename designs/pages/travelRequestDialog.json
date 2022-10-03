@@ -901,10 +901,10 @@
             {
                 "mapVarType": "local",
                 "key": "result",
-                "valueType": "bh",
-                "value": "response",
+                "valueType": "this.page",
+                "value": "res",
                 "mapVarName": "result",
-                "localVar": "bh.response"
+                "localVar": "this.page.res"
             }
         ],
         "serviceImportPath": "app/sd-services/callServerApis",

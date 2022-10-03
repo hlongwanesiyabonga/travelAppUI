@@ -337,7 +337,7 @@ export class draftsComponent {
       page.receivedTableData['data'].forEach((el) => {
         let temp = {};
         temp['_id'] = el['_id'];
-        temp['dateCreated'] = el['dateCreated'].slice(0, 10);
+        temp['dateCreated'] = el['dateCreated'];
         temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
         temp['travelMode'] =
           el['requestDetails'][0]['travelDetails']['travelMode'];

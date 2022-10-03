@@ -670,7 +670,7 @@ export class new_travel_requestComponent {
           comments: '',
         },
         owner: bh.input.personalDetailsForm.email,
-        dateCreated: new Date().toString,
+        dateCreated: new Date(),
         travelRequestType: page.travelRequestType,
       };
       console.log(page.formObj, 'page.formObj');

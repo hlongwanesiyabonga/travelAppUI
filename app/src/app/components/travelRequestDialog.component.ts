@@ -865,7 +865,7 @@ export class travelRequestDialogComponent {
         bh.method,
         this.page.formObj
       );
-      bh.response = outputVariables.local.result;
+      this.page.res = outputVariables.local.result;
 
       bh = this.sd_YxHp4AR89CMJ5Z47(bh);
       //appendnew_next_sd_TKLDBEVAFwcgxPM5

@@ -521,7 +521,7 @@
       <mat-card-actions></mat-card-actions>
     </mat-card>
     <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="1em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="blackButton">Cancel</button><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Clear</button><button mat-raised-button class="redButton" (click)="submit_clear_draft(&apos;Submit&apos;,page.travelForm.value,page.personalDetailsForm.value)" [disabled]="!page.travelForm.valid">Submit</button><button mat-raised-button class="grayBtn" (click)="submit_clear_draft(&apos;Draft&apos;,page.travelForm.value,page.personalDetailsForm.value)">Save As Draft</button><button mat-raised-button (click)="submit_clear_draft(&apos;form&apos;,page.travelForm,page.personalDetailsForm)">Raised Button</button></div>
+      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="1em" fxLayoutAlign="end end" [fxShow]="true"><button mat-raised-button class="blackButton">Cancel</button><button mat-raised-button class="redBorderedButton" (click)="resetForm(page.travelForm)">Clear</button><button mat-raised-button class="redButton" (click)="submit_clear_draft(&apos;Submit&apos;,page.travelForm.value,page.personalDetailsForm.value)" [disabled]="!page.travelForm.valid">Submit</button><button mat-raised-button class="grayBtn" (click)="submit_clear_draft(&apos;Draft&apos;,page.travelForm.value,page.personalDetailsForm.value)">Save As Draft</button></div>
     </div>
   </div>
 </div>

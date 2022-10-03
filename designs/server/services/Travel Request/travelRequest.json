@@ -781,7 +781,6 @@
                 }
             }
         },
-        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -863,14 +862,14 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.collection = 'travelRequestDrafts';\nbh.local.query = {\n    _id: new require('mongodb').ObjectId(bh.input.params.id)\n}\ndelete bh.input.body._id;\nbh.updatedRequest = { $set: bh.input.body };\nbh.options = {};\n",
+        "script": "bh.collection = 'travelRequestDrafts';\nbh.local.query = {\n    _id: new require('mongodb').ObjectId(bh.input.params.id)\n}\ndelete bh.input.body._id;\nbh.updatedRequest = { $set: bh.input.body};\nbh.options = {};\n",
         "functionName": "sd_RiIhW0d2F09prDjy",
         "category": "Function",
-        "x": 265,
+        "x": 225,
         "y": 720,
         "wires": [
             [
-                "sd_lZPpBY5c80imnVGF"
+                "sd_WGm7SiWDq97rFod0"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1076,7 +1075,7 @@
                 "sd_aeNJj5JRXAitBQ7S"
             ],
             [
-                "sd_O5pvPnrHKnTIxc0g"
+                "sd_HneJNsTRxek4RgEq"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1093,7 +1092,7 @@
         "script": "bh.status = 400;\nbh.local.response = {\n    msg: 'Request Update Failed',\n    cssClass: 'error' \n}",
         "functionName": "sd_O5pvPnrHKnTIxc0g",
         "category": "Function",
-        "x": 590,
+        "x": 625,
         "y": 880,
         "wires": [
             [
@@ -1133,7 +1132,6 @@
                 }
             }
         },
-        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -1833,5 +1831,47 @@
         "generateNext": true,
         "serviceName": "travelRequest",
         "functionName": "sd_WJkadmvKf6DaDeht"
+    },
+    {
+        "id": "sd_HneJNsTRxek4RgEq",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"bh\",bh.local)",
+        "functionName": "sd_HneJNsTRxek4RgEq",
+        "category": "Function",
+        "x": 545,
+        "y": 840,
+        "wires": [
+            [
+                "sd_O5pvPnrHKnTIxc0g"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_WGm7SiWDq97rFod0",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"bh\",bh)",
+        "functionName": "sd_WGm7SiWDq97rFod0",
+        "category": "Function",
+        "x": 285,
+        "y": 740,
+        "wires": [
+            [
+                "sd_lZPpBY5c80imnVGF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
     }
 ]
