@@ -14,6 +14,7 @@ import {
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
+import { CommonModule, DatePipe } from '@angular/common'; //_splitter_
 import { MatTableDataSource } from '@angular/material/table'; //_splitter_
 import { MatPaginator } from '@angular/material/paginator'; //_splitter_
 import { MatSort } from '@angular/material/sort'; //_splitter_
@@ -64,7 +65,7 @@ export class draftsComponent {
 
   sd_xZOvn2Peup4WIOTE(bh) {
     try {
-      bh = this.sd_RcU9bg72YARcs8YT(bh);
+      bh = this.sd_lCLzfsJy4i9pbPTQ(bh);
       //appendnew_next_sd_xZOvn2Peup4WIOTE
       return bh;
     } catch (e) {
@@ -129,6 +130,16 @@ export class draftsComponent {
   }
 
   //appendnew_flow_draftsComponent_start
+
+  sd_lCLzfsJy4i9pbPTQ(bh) {
+    try {
+      bh = this.sd_RcU9bg72YARcs8YT(bh);
+      //appendnew_next_sd_lCLzfsJy4i9pbPTQ
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_lCLzfsJy4i9pbPTQ');
+    }
+  }
 
   sd_RcU9bg72YARcs8YT(bh) {
     try {
@@ -195,7 +206,9 @@ export class draftsComponent {
       const page = this.page;
       bh.method = 'get';
       // bh.endPoint = "getTravelRequestDrafts"
-      bh.endPoint = 'travelRequests/getTravelRequest?type=draft';
+      bh.endPoint =
+        'travelRequests/getTravelRequest?owner=' +
+        page.currentUserDetails.owner;
       bh = this.sd_5mJKpAKXc0bTZZyy(bh);
       //appendnew_next_sd_rWCzaLhYT4L3DcxM
       return bh;
@@ -208,27 +221,10 @@ export class draftsComponent {
     try {
       let outputVariables = this.getTravelRequests();
 
-      bh = this.sd_ZAuxPcsfV74FeOsi(bh);
       //appendnew_next_sd_5mJKpAKXc0bTZZyy
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_5mJKpAKXc0bTZZyy');
-    }
-  }
-
-  sd_ZAuxPcsfV74FeOsi(bh) {
-    try {
-      const page = this.page; // page.dashboardCards =[
-      //     {amount: 15, topText: 'Total', icon : 'description', cssClass: 'blueBg'},
-      //     {amount: 6, topText: 'Pending', icon : 'hourglass_full', cssClass: 'orangeBg'},
-      //     {amount: 5, topText: 'Approved', icon : 'thumb_up', cssClass: 'greenBg'},
-      //     {amount: 4, topText: 'Rejected', icon : 'thumb_down', cssClass: 'redBg'},
-      // ];
-      console.log(page.tableData);
-      //appendnew_next_sd_ZAuxPcsfV74FeOsi
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ZAuxPcsfV74FeOsi');
     }
   }
 
@@ -248,8 +244,11 @@ export class draftsComponent {
   sd_lbtlLEQlxqy4C52Q(bh) {
     try {
       const page = this.page;
+      console.log(page.currentUserDetails, 'deatisl');
+
       bh.method = 'get';
-      bh.endPoint = 'getTravelRequestDrafts';
+      bh.endPoint =
+        'getTravelRequestDrafts?owner=' + page.currentUserDetails.email;
       bh = this.sd_5HSvvAAlbVxWMrSM(bh);
       //appendnew_next_sd_lbtlLEQlxqy4C52Q
       return bh;
@@ -330,13 +329,15 @@ export class draftsComponent {
           ],
         },
       };
-      //bh.role = tableSetup.traveler
-      page.tableHeaders = tableSetup['traveler']['tableHeaders'];
-      page.tableCells = tableSetup['traveler']['tableCells'];
+      (bh.role = !userGroups.includes(page.currentUserDetails.designation)
+        ? 'traveler'
+        : 'other'),
+        (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
+      page.tableCells = tableSetup[bh.role]['tableCells'];
       page.receivedTableData['data'].forEach((el) => {
         let temp = {};
         temp['_id'] = el['_id'];
-        temp['dateCreated'] = el['dateCreated'];
+        temp['dateCreated'] = el['dateCreated'].slice(0, 10);
         temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
         temp['travelMode'] =
           el['requestDetails'][0]['travelDetails']['travelMode'];

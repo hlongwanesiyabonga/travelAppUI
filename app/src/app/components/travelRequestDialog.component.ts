@@ -390,6 +390,19 @@ export class travelRequestDialogComponent {
     }
   }
 
+  submitForm(profileForm: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { profileForm: profileForm };
+      bh.local = {};
+      //appendnew_next_submitForm
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_hMoIt95ocELESQJp');
+    }
+  }
+
   //appendnew_flow_travelRequestDialogComponent_start
 
   sd_P2VT6lPYUkxBIGR8(bh) {
@@ -773,10 +786,8 @@ export class travelRequestDialogComponent {
       console.log(page.formObj, 'form');
 
       bh.endPoint =
-        bh.input.event == 'Draft'
-          ? 'addTravelRequest?type=draft'
-          : 'addTravelRequest';
-      bh.method = 'post';
+        'updateTravelRequest/' + page.currentUserDetails._id + '?type=draft';
+      bh.method = 'put';
       page.currentUserTravelDetails = page.formObj;
 
       bh = this.sd_7oAC3ZOI3UNHCQSB(bh);
@@ -1269,7 +1280,7 @@ export class travelRequestDialogComponent {
         );
       });
 
-      console.log(page.dialogData, '_idddddd 333633');
+      console.log(page.dialogData, 'pd');
 
       //appendnew_next_sd_wMYU8X4lRNJtGwOu
       return bh;

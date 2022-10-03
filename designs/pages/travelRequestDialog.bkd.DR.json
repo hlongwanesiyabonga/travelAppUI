@@ -26838,7 +26838,7 @@
                             },
                             {
                                 "_key": "[disabled]",
-                                "_value": "!page.travelForm.valid",
+                                "_value": "",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "_customAttributeFlag": "customInput"
