@@ -73,20 +73,6 @@ export class dashboardComponent {
     }
   }
 
-  getTravelRequests(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_wBen0TdptHyjdKXK(bh);
-      //appendnew_next_getTravelRequests
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_KU603WOMCzJgMHso');
-    }
-  }
-
   goTo(...others) {
     try {
       var bh: any = this.__page_injector__
@@ -122,7 +108,7 @@ export class dashboardComponent {
         .constructFlowObject(this);
       bh.input = { event: event };
       bh.local = {};
-      bh = this.sd_KduSl3fVkcg9AJRL(bh);
+      bh = this.sd_RIhDba0Qns6BqrvX(bh);
       //appendnew_next_travelRequests
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_C6J9HQwkO5SQorTg');
@@ -189,39 +175,11 @@ export class dashboardComponent {
       this.page.email = undefined;
       this.page.select = undefined;
       this.page.counts = {};
-      bh = this.sd_q6OoeIYWQhQzzGjh(bh);
+      bh = this.sd_wBen0TdptHyjdKXK(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ptIeaoCYsPK9hjAj');
-    }
-  }
-
-  sd_q6OoeIYWQhQzzGjh(bh) {
-    try {
-      const page = this.page;
-      bh.method = 'get';
-      bh.endPoint = 'travelRequests/getTravelRequests';
-      page.select = [
-        { viewvalue: 'My requests' },
-        { viewvalue: 'Traveler requests' },
-      ];
-      bh = this.sd_jpxsohmPQY8GE1QJ(bh);
-      //appendnew_next_sd_q6OoeIYWQhQzzGjh
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_q6OoeIYWQhQzzGjh');
-    }
-  }
-
-  sd_jpxsohmPQY8GE1QJ(bh) {
-    try {
-      let outputVariables = this.getTravelRequests();
-
-      //appendnew_next_sd_jpxsohmPQY8GE1QJ
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_jpxsohmPQY8GE1QJ');
     }
   }
 
@@ -230,8 +188,7 @@ export class dashboardComponent {
       this.page.currentUserDetails = JSON.parse(
         sessionStorage.getItem('currentUserDetails')
       );
-      bh = this.sd_64BY1qSbZIWkX8S4(bh);
-      bh = this.sd_9iETZGjcCefaDHz4(bh);
+      bh = this.sd_q6OoeIYWQhQzzGjh(bh);
       //appendnew_next_sd_wBen0TdptHyjdKXK
       return bh;
     } catch (e) {
@@ -239,23 +196,27 @@ export class dashboardComponent {
     }
   }
 
-  sd_64BY1qSbZIWkX8S4(bh) {
+  sd_q6OoeIYWQhQzzGjh(bh) {
     try {
       const page = this.page;
       bh.method = 'get';
       bh.endPoint =
         'travelRequests/getTravelRequests?owner=' +
         page.currentUserDetails.email;
+      page.select = [
+        { viewvalue: 'My requests' },
+        { viewvalue: 'Traveler requests' },
+      ];
 
-      bh = this.sd_yfn2PaT31GlOHAcu(bh);
-      //appendnew_next_sd_64BY1qSbZIWkX8S4
+      bh = this.sd_jpxsohmPQY8GE1QJ(bh);
+      //appendnew_next_sd_q6OoeIYWQhQzzGjh
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_64BY1qSbZIWkX8S4');
+      return this.errorHandler(bh, e, 'sd_q6OoeIYWQhQzzGjh');
     }
   }
 
-  async sd_yfn2PaT31GlOHAcu(bh) {
+  async sd_jpxsohmPQY8GE1QJ(bh) {
     try {
       const callServerApisInstance: callServerApis =
         this.__page_injector__.get(callServerApis);
@@ -267,21 +228,18 @@ export class dashboardComponent {
       );
       this.page.receivedTableData = outputVariables.local.result;
 
-      bh = this.sd_Vu9yUI2dYtvCzbiL(bh);
-      //appendnew_next_sd_yfn2PaT31GlOHAcu
+      bh = this.sd_n1Xt0bMElt0KuQIn(bh);
+      //appendnew_next_sd_jpxsohmPQY8GE1QJ
       return bh;
     } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_yfn2PaT31GlOHAcu');
+      return await this.errorHandler(bh, e, 'sd_jpxsohmPQY8GE1QJ');
     }
   }
 
-  sd_Vu9yUI2dYtvCzbiL(bh) {
+  sd_n1Xt0bMElt0KuQIn(bh) {
     try {
       const page = this.page;
-      bh.method = 'get';
-      bh.endPoint =
-        'travelRequests/getTravelRequests?owner=' +
-        page.currentUserDetails.email;
+
       bh.receivedTableData = page.receivedTableData['data'];
 
       page.counts = {
@@ -328,41 +286,41 @@ export class dashboardComponent {
         },
       ];
 
-      bh = this.logTable(bh);
-      //appendnew_next_sd_Vu9yUI2dYtvCzbiL
+      bh = this.logTable1(bh);
+      //appendnew_next_sd_n1Xt0bMElt0KuQIn
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Vu9yUI2dYtvCzbiL');
+      return this.errorHandler(bh, e, 'sd_n1Xt0bMElt0KuQIn');
     }
   }
 
-  logTable(bh) {
+  logTable1(bh) {
     try {
       const page = this.page;
       console.log(page.receivedTableData);
-      bh = this.table(bh);
-      //appendnew_next_logTable
+      bh = this.table1(bh);
+      //appendnew_next_logTable1
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_jZwPAELogS09DzpJ');
+      return this.errorHandler(bh, e, 'sd_QXrXEUJKwp9n6Tng');
     }
   }
 
-  table(bh) {
+  table1(bh) {
     try {
       bh.pageViews = Object.assign(bh.pageViews || {}, {
         MatSort: this.MatSort,
         MatPaginator: this.MatPaginator,
       });
-      bh = this.setTableTokens(bh);
-      //appendnew_next_table
+      bh = this.setTableTokens1(bh);
+      //appendnew_next_table1
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_UVcRAqphJAHQlCHH');
+      return this.errorHandler(bh, e, 'sd_QnDkX4zxXtB1Nvoq');
     }
   }
 
-  setTableTokens(bh) {
+  setTableTokens1(bh) {
     try {
       const page = this.page;
       let tableData = [];
@@ -439,49 +397,10 @@ export class dashboardComponent {
       // page.tableData = new page.tableDataSource(tableData);
       // page.tableData.paginator = bh.pageViews.MatPaginator;
       // page.tableData.sort = bh.pageViews.MatSort;
-      //appendnew_next_setTableTokens
+      //appendnew_next_setTableTokens1
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_XYkozKw50Fv54KKu');
-    }
-  }
-
-  sd_9iETZGjcCefaDHz4(bh) {
-    try {
-      const page = this.page;
-      bh.method = 'get';
-      if (page.currentUserDetails.designation.includes('Travel')) {
-        bh.endPoint = 'travelRequests/getTravelRequests';
-      } else {
-        bh.endPoint =
-          'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
-          page.currentUserDetails.email;
-      }
-      bh = this.sd_Fp5fPo6PxNMkgOoy(bh);
-      //appendnew_next_sd_9iETZGjcCefaDHz4
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_9iETZGjcCefaDHz4');
-    }
-  }
-
-  async sd_Fp5fPo6PxNMkgOoy(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        undefined
-      );
-      this.page.receivedTableData = outputVariables.local.result;
-
-      bh = this.logTable(bh);
-      //appendnew_next_sd_Fp5fPo6PxNMkgOoy
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_Fp5fPo6PxNMkgOoy');
+      return this.errorHandler(bh, e, 'sd_OGlFkv3n4vjKymyo');
     }
   }
 
@@ -537,6 +456,19 @@ export class dashboardComponent {
     }
   }
 
+  sd_RIhDba0Qns6BqrvX(bh) {
+    try {
+      this.page.currentUserDetails = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.sd_KduSl3fVkcg9AJRL(bh);
+      //appendnew_next_sd_RIhDba0Qns6BqrvX
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_RIhDba0Qns6BqrvX');
+    }
+  }
+
   sd_KduSl3fVkcg9AJRL(bh) {
     try {
       if (
@@ -547,7 +479,7 @@ export class dashboardComponent {
           undefined
         )
       ) {
-        bh = this.sd_64BY1qSbZIWkX8S4(bh);
+        bh = this.sd_Ghb9J59qOpblGVmc(bh);
       } else if (
         this.sdService.operators['eq'](
           bh.input.event.value,
@@ -556,12 +488,86 @@ export class dashboardComponent {
           undefined
         )
       ) {
-        bh = this.sd_9iETZGjcCefaDHz4(bh);
+        bh = this.sd_RV9cSmeHI4E5mrTS(bh);
       }
 
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_KduSl3fVkcg9AJRL');
+    }
+  }
+
+  sd_Ghb9J59qOpblGVmc(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      bh.endPoint =
+        'travelRequests/getTravelRequests?owner=' +
+        page.currentUserDetails.email;
+
+      bh = this.sd_Y31N74EOwPJSwSSi(bh);
+      //appendnew_next_sd_Ghb9J59qOpblGVmc
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Ghb9J59qOpblGVmc');
+    }
+  }
+
+  async sd_Y31N74EOwPJSwSSi(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.receivedTableData = outputVariables.local.result;
+
+      bh = this.logTable1(bh);
+      //appendnew_next_sd_Y31N74EOwPJSwSSi
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_Y31N74EOwPJSwSSi');
+    }
+  }
+
+  sd_RV9cSmeHI4E5mrTS(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      // if (page.currentUserDetails.designation.includes('Travel')) {
+      //     bh.endPoint = "travelRequests/getTravelRequests";
+      // } else {
+      bh.endPoint =
+        'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
+        page.currentUserDetails.lineManagerEmail;
+      bh = this.sd_rXcCYxeJumReEaBA(bh);
+      //appendnew_next_sd_RV9cSmeHI4E5mrTS
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_RV9cSmeHI4E5mrTS');
+    }
+  }
+
+  async sd_rXcCYxeJumReEaBA(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.receivedTableData = outputVariables.local.result;
+
+      bh = this.logTable1(bh);
+      //appendnew_next_sd_rXcCYxeJumReEaBA
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_rXcCYxeJumReEaBA');
     }
   }
 
