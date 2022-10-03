@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -20,6 +22,8 @@ import {
   FormBuilder,
 } from '@angular/forms'; //_splitter_
 import { MatDialogRef } from '@angular/material/dialog'; //_splitter_
+import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
+import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -80,6 +84,20 @@ export class profile_dialogComponent {
       //appendnew_next_closeProfile
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_OapnCf7vzU1kCnPt');
+    }
+  }
+
+  submitForm(profileForm: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { profileForm: profileForm };
+      bh.local = {};
+      bh = this.sd_0tANpZlkTVAFmc9H(bh);
+      //appendnew_next_submitForm
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Tg5dOPkBBtfFck2j');
     }
   }
 
@@ -177,6 +195,120 @@ export class profile_dialogComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_Ne6pC7a1MDk7brU8');
+    }
+  }
+
+  sd_0tANpZlkTVAFmc9H(bh) {
+    try {
+      const page = this.page;
+      (bh.method = 'put'),
+        (bh.endPoint =
+          'genericEdit/updatePersonalDetails/' + page.currentUserDetails._id);
+
+      bh = this.sd_A1YAwYofPoiRj74B(bh);
+      //appendnew_next_sd_0tANpZlkTVAFmc9H
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_0tANpZlkTVAFmc9H');
+    }
+  }
+
+  async sd_A1YAwYofPoiRj74B(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        bh.input.profileForm
+      );
+      this.page.personalDetails = outputVariables.local.result;
+
+      bh = this.sd_3tSF89ov7rqX5dJX(bh);
+      //appendnew_next_sd_A1YAwYofPoiRj74B
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_A1YAwYofPoiRj74B');
+    }
+  }
+
+  sd_3tSF89ov7rqX5dJX(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(this.page.profileDialog);
+
+      bh = this.sd_gt6i7yy3jdcfEc9Z(bh);
+      //appendnew_next_sd_3tSF89ov7rqX5dJX
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_3tSF89ov7rqX5dJX');
+    }
+  }
+
+  async sd_gt6i7yy3jdcfEc9Z(bh) {
+    try {
+      let otherwiseFlag = true;
+      if (
+        this.sdService.operators['null'](
+          this.page.personalDetails,
+          undefined,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_suNd75uL7MNe5YsK(bh);
+        otherwiseFlag = false;
+      }
+      if (
+        this.sdService.operators['else'](
+          otherwiseFlag,
+          undefined,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = await this.sd_MYY3bI1QjoiDm82s(bh);
+        otherwiseFlag = false;
+      }
+
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_gt6i7yy3jdcfEc9Z');
+    }
+  }
+
+  sd_suNd75uL7MNe5YsK(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Failed to update record', 'OK', {
+          duration: 2000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      //appendnew_next_sd_suNd75uL7MNe5YsK
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_suNd75uL7MNe5YsK');
+    }
+  }
+
+  sd_MYY3bI1QjoiDm82s(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Record will be updated on Login', 'OK', {
+          duration: 2000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      //appendnew_next_sd_MYY3bI1QjoiDm82s
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_MYY3bI1QjoiDm82s');
     }
   }
 

@@ -358,6 +358,57 @@ export class travelRequest {
         this.generatedMiddlewares
       )
     );
+
+    if (!this.swaggerDocument['paths']['/travelRequests/{route}']) {
+      this.swaggerDocument['paths']['/travelRequests/{route}'] = {
+        get: {
+          summary: '',
+          description: '',
+          consumes: [],
+          produces: [],
+          parameters: [],
+          responses: {},
+        },
+      };
+    } else {
+      this.swaggerDocument['paths']['/travelRequests/{route}']['get'] = {
+        summary: '',
+        description: '',
+        consumes: [],
+        produces: [],
+        parameters: [],
+        responses: {},
+      };
+    }
+    this.app['get'](
+      `${this.serviceBasePath}/travelRequests/:route`,
+      cookieParser(),
+      this.sdService.getMiddlesWaresBySequenceId(
+        null,
+        'pre',
+        this.generatedMiddlewares
+      ),
+
+      async (req, res, next) => {
+        let bh = {};
+        try {
+          bh = this.sdService.__constructDefault(
+            { local: {}, input: {} },
+            req,
+            res,
+            next
+          );
+          //appendnew_next_sd_v64RKOvtoblXaTPA
+        } catch (e) {
+          return await this.errorHandler(bh, e, 'sd_v64RKOvtoblXaTPA');
+        }
+      },
+      this.sdService.getMiddlesWaresBySequenceId(
+        null,
+        'post',
+        this.generatedMiddlewares
+      )
+    );
     //appendnew_flow_travelRequest_HttpIn
   }
   //   service flows_travelRequest
