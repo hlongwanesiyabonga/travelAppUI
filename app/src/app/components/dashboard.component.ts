@@ -207,6 +207,7 @@ export class dashboardComponent {
         { viewvalue: 'My requests' },
         { viewvalue: 'Traveler requests' },
       ];
+
       bh = this.sd_jpxsohmPQY8GE1QJ(bh);
       //appendnew_next_sd_q6OoeIYWQhQzzGjh
       return bh;
@@ -227,11 +228,69 @@ export class dashboardComponent {
       );
       this.page.receivedTableData = outputVariables.local.result;
 
-      bh = this.logTable1(bh);
+      bh = this.sd_n1Xt0bMElt0KuQIn(bh);
       //appendnew_next_sd_jpxsohmPQY8GE1QJ
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_jpxsohmPQY8GE1QJ');
+    }
+  }
+
+  sd_n1Xt0bMElt0KuQIn(bh) {
+    try {
+      const page = this.page;
+
+      bh.receivedTableData = page.receivedTableData['data'];
+
+      page.counts = {
+        pendingCounts: [],
+        approvedCounts: [],
+        rejectedCounts: [],
+        totalCounts: bh.receivedTableData.length,
+      };
+
+      bh.receivedTableData.forEach((item) => {
+        if (item.status == 'Approved') {
+          page.counts.approvedCounts.push(item);
+        } else if (item.status == 'Rejected') {
+          page.counts.rejectedCounts.push(item);
+        } else {
+          page.counts.pendingCounts.push(item);
+        }
+      });
+
+      page.dashboardCards = [
+        {
+          amount: page?.counts?.totalCounts,
+          topText: 'Total',
+          icon: 'description',
+          cssClass: 'blueBg',
+        },
+        {
+          amount: page?.counts?.pendingCounts?.length,
+          topText: 'Pending',
+          icon: 'hourglass_full',
+          cssClass: 'orangeBg',
+        },
+        {
+          amount: page?.counts?.approvedCounts?.length,
+          topText: 'Approved',
+          icon: 'thumb_up',
+          cssClass: 'greenBg',
+        },
+        {
+          amount: page?.counts?.rejectedCounts?.length,
+          topText: 'Rejected',
+          icon: 'thumb_down',
+          cssClass: 'redBg',
+        },
+      ];
+
+      bh = this.logTable1(bh);
+      //appendnew_next_sd_n1Xt0bMElt0KuQIn
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_n1Xt0bMElt0KuQIn');
     }
   }
 

@@ -101,7 +101,7 @@
         "y": 100,
         "wires": [
             [
-                "sd_QXrXEUJKwp9n6Tng"
+                "sd_n1Xt0bMElt0KuQIn"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -116,7 +116,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]\n\n",
         "functionName": "sd_q6OoeIYWQhQzzGjh",
         "category": "Function",
         "x": 705,
@@ -955,8 +955,8 @@
         "script": "console.log(page.receivedTableData)",
         "functionName": "logTable1",
         "category": "Function",
-        "x": 790,
-        "y": 244.8125,
+        "x": 885,
+        "y": 240,
         "wires": [
             [
                 "sd_QnDkX4zxXtB1Nvoq"
@@ -994,8 +994,8 @@
         ],
         "functionName": "table1",
         "category": "Function",
-        "x": 890,
-        "y": 244.8125,
+        "x": 965,
+        "y": 240,
         "wires": [
             [
                 "sd_OGlFkv3n4vjKymyo"
@@ -1015,8 +1015,8 @@
         "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Owner', 'Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['owner', 'dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'status', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    let temp = {};\n    temp['_id'] = el['_id'];\n    temp['owner'] = el['owner'];\n    temp['status'] = el['status'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\nconsole.log(tableData)\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;\n\n// let tableData = [];\n// let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\n// let tableSetup = {\n//     \"traveler\": {\n//         \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n//         \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n//     }\n// };\n// bh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n//     page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\n// page.tableCells = tableSetup[bh.role]['tableCells'];\n// page.receivedTableData['data'].forEach(el => {\n//     let temp = {};\n//     temp['_id'] = el['_id'];\n//     temp['dateCreated'] = el['dateCreated'];\n//     temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n//     temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n//     temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n//     temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n//     tableData.push(temp);\n// })\n\n// page.tableData = new page.tableDataSource(tableData);\n// page.tableData.paginator = bh.pageViews.MatPaginator;\n// page.tableData.sort = bh.pageViews.MatSort;",
         "functionName": "setTableTokens1",
         "category": "Function",
-        "x": 970,
-        "y": 244.8125,
+        "x": 1025,
+        "y": 240,
         "wires": [
             []
         ],
@@ -1050,6 +1050,27 @@
         "wires": [
             [
                 "sd_KduSl3fVkcg9AJRL"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_n1Xt0bMElt0KuQIn",
+        "type": "Script",
+        "z": "sd_CG2idGFyedSvI3n5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\n\nbh.receivedTableData = page.receivedTableData['data'];\n\npage.counts = {\n    pendingCounts: [],\n    approvedCounts: [],\n    rejectedCounts: [],\n    totalCounts: bh.receivedTableData.length\n\n}\n\nbh.receivedTableData.forEach(item => {\n    if (item.status == 'Approved') {\n        page.counts.approvedCounts.push(item);\n    } else if (item.status == 'Rejected') {\n        page.counts.rejectedCounts.push(item);\n    } else {\n        page.counts.pendingCounts.push(item);\n    }\n})\n\npage.dashboardCards =[\n    {amount: page?.counts?.totalCounts, topText: 'Total', icon : 'description', cssClass: 'blueBg'},\n    {amount: page?.counts?.pendingCounts?.length, topText: 'Pending', icon : 'hourglass_full', cssClass: 'orangeBg'},\n    {amount: page?.counts?.approvedCounts?.length, topText: 'Approved', icon : 'thumb_up', cssClass: 'greenBg'},\n    {amount: page?.counts?.rejectedCounts?.length, topText: 'Rejected', icon : 'thumb_down', cssClass: 'redBg'},\n];\n",
+        "functionName": "sd_n1Xt0bMElt0KuQIn",
+        "category": "Function",
+        "x": 845,
+        "y": 160,
+        "wires": [
+            [
+                "sd_QXrXEUJKwp9n6Tng"
             ]
         ],
         "__n_excludedFromValidation__": {},
