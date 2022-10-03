@@ -19,8 +19,8 @@
         "name": "",
         "functionName": "sd_xZOvn2Peup4WIOTE",
         "category": "Lifecycle Events",
-        "x": 30,
-        "y": 30,
+        "x": 45,
+        "y": 60,
         "wires": [
             [
                 "sd_lCLzfsJy4i9pbPTQ"
@@ -43,7 +43,7 @@
         "globalVariables": [],
         "functionName": "sd_RcU9bg72YARcs8YT",
         "category": "Function",
-        "x": 205,
+        "x": 225,
         "y": 60,
         "wires": [
             [
@@ -83,10 +83,11 @@
         "serviceImportPath": "./drafts",
         "startName": "getTravelRequests",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_5mJKpAKXc0bTZZyy",
         "category": "General",
-        "x": 685,
+        "x": 745,
         "y": 60,
         "wires": [
             []
@@ -106,7 +107,7 @@
         "script": "bh.method = \"get\";\n// bh.endPoint = \"getTravelRequestDrafts\"\nbh.endPoint = \"travelRequests/getTravelRequest?owner=\"+ page.currentUserDetails.owner;",
         "functionName": "sd_rWCzaLhYT4L3DcxM",
         "category": "Function",
-        "x": 605,
+        "x": 665,
         "y": 60,
         "wires": [
             [
@@ -146,7 +147,7 @@
         "serviceDesignerType": "pages",
         "functionName": "tableDataSource",
         "category": "Function",
-        "x": 265,
+        "x": 325,
         "y": 60,
         "wires": [
             [
@@ -185,7 +186,7 @@
         "serviceDesignerType": "pages",
         "functionName": "paginator",
         "category": "Function",
-        "x": 365,
+        "x": 405,
         "y": 60,
         "wires": [
             [
@@ -224,7 +225,7 @@
         "serviceDesignerType": "pages",
         "functionName": "sort",
         "category": "Function",
-        "x": 445,
+        "x": 485,
         "y": 60,
         "wires": [
             [
@@ -298,7 +299,7 @@
         ],
         "functionName": "sd_E9QbOlnVduPNV5MO_1",
         "category": "Function",
-        "x": 525,
+        "x": 565,
         "y": 60,
         "wires": [
             [
@@ -1100,8 +1101,8 @@
         "serviceDesignerType": "pages",
         "functionName": "sd_lCLzfsJy4i9pbPTQ",
         "category": "Function",
-        "x": 105,
-        "y": 40,
+        "x": 125,
+        "y": 60,
         "wires": [
             [
                 "sd_RcU9bg72YARcs8YT"

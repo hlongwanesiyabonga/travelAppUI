@@ -764,6 +764,7 @@ export class travelRequestDialogComponent {
       const page = this.page; //combine the 2 forms
       console.log(page.travelRequestType, 'retype');
       page.formObj = {
+        _id: page.dialogData._id,
         personalDetails: bh.input.personalDetailsForm,
         requestDetails: bh.input.form.requestDetails,
         status: null,
@@ -785,9 +786,8 @@ export class travelRequestDialogComponent {
       page.formObj.requestDetails = tempDetails;
       console.log(page.formObj, 'form');
 
-      bh.endPoint =
-        'updateTravelRequest/' + page.currentUserDetails._id + '?type=draft';
-      bh.method = 'put';
+      bh.endPoint = 'addTravelRequest';
+      bh.method = 'post';
       page.currentUserTravelDetails = page.formObj;
 
       bh = this.sd_7oAC3ZOI3UNHCQSB(bh);
@@ -812,7 +812,7 @@ export class travelRequestDialogComponent {
       } else if (
         this.sdService.operators['eq'](
           bh.input.event,
-          'Draft',
+          'Cancel',
           undefined,
           undefined
         )
@@ -890,8 +890,7 @@ export class travelRequestDialogComponent {
   sd_5IzxbzpLPOj6jECW(bh) {
     try {
       const page = this.page;
-      console.log('draft');
-      console.log('end', bh.endPoint);
+      bh.endPoint = '';
       bh = this.sd_OaPTiLxts4WNSI7w(bh);
       //appendnew_next_sd_5IzxbzpLPOj6jECW
       return bh;

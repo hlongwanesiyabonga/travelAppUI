@@ -26296,7 +26296,6 @@
                     "32e027d5-2105-7a3b-6674-af430f90256f": {
                         "paletteKey": "NG-RaisedButton",
                         "parentEditorKey": "a574f237-5e14-69ff-8549-c11662601c45",
-                        "isCommented": "false",
                         "commentid": null,
                         "designerReference": [
                             {
@@ -26714,7 +26713,7 @@
                             "_attrDef": "c"
                         }
                     ],
-                    "88f882b6-f184-23c3-5aa5-d62c7cf36136": {
+                    "f86ecbd6-4300-d7f0-e028-2d63dfa9a415": {
                         "paletteKey": "NG-RaisedButton",
                         "parentEditorKey": "55de08e8-5b53-4261-2e93-80e59f04850f",
                         "commentid": null,
@@ -26728,14 +26727,14 @@
                             {
                                 "_key": "class",
                                 "_value": [
-                                    "redBorderedButton"
+                                    "blackButton"
                                 ],
                                 "_type": "dav",
                                 "_attrDef": "p"
                             },
                             {
                                 "_key": "buttonname",
-                                "_value": "Clear",
+                                "_value": "Cancel",
                                 "_type": "a",
                                 "_attrDef": "p",
                                 "_useAsLabel": true
@@ -26748,18 +26747,9 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "resetForm(page.travelForm)",
+                                "_value": "",
                                 "_type": "kv",
-                                "_attrDef": "p",
-                                "objValue": {
-                                    "nodeID": "sd_O2HdwEGI8Rs7tJA4",
-                                    "functionName": "resetForm",
-                                    "activeTree": "pages",
-                                    "z": "sd_osEacZsdUBcy4IJg",
-                                    "input": [
-                                        "page.travelForm"
-                                    ]
-                                }
+                                "_attrDef": "p"
                             },
                             {
                                 "_key": "[disabled]",
@@ -26842,81 +26832,6 @@
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "_customAttributeFlag": "customInput"
-                            },
-                            {
-                                "_key": "[disableRipple]",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "type",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "routerLink",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            }
-                        ]
-                    },
-                    "9c0bc023-5f93-e1bf-9efc-f93174ec8209": {
-                        "paletteKey": "NG-RaisedButton",
-                        "parentEditorKey": "55de08e8-5b53-4261-2e93-80e59f04850f",
-                        "commentid": null,
-                        "designerReference": [
-                            {
-                                "_key": "style",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "class",
-                                "_value": [
-                                    "grayBtn"
-                                ],
-                                "_type": "dav",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "buttonname",
-                                "_value": "Save As Draft",
-                                "_type": "a",
-                                "_attrDef": "p",
-                                "_useAsLabel": true
-                            },
-                            {
-                                "_key": "color",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
-                            },
-                            {
-                                "_key": "(click)",
-                                "_value": "submit_clear_draft('Draft',page.travelForm.value,page.personalDetailsForm.value)",
-                                "_type": "kv",
-                                "_attrDef": "p",
-                                "objValue": {
-                                    "nodeID": "sd_Kwd7KJtk5BkZ9WYJ",
-                                    "functionName": "submit_clear_draft",
-                                    "activeTree": "pages",
-                                    "z": "sd_osEacZsdUBcy4IJg",
-                                    "input": [
-                                        "'Draft'",
-                                        "page.travelForm.value",
-                                        "page.personalDetailsForm.value"
-                                    ]
-                                }
-                            },
-                            {
-                                "_key": "[disabled]",
-                                "_value": "",
-                                "_type": "kv",
-                                "_attrDef": "p"
                             },
                             {
                                 "_key": "[disableRipple]",

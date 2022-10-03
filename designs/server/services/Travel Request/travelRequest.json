@@ -252,8 +252,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true,
-        "serviceName": "travelRequest"
+        "generated": true
     },
     {
         "id": "sd_S7BJ6mHX1JNpGksc",
@@ -286,11 +285,11 @@
         "script": "console.log(bh);\nbh.input.body.status = \"Pending Review By LM\";",
         "functionName": "sd_WHAhn2s1OEVDFFm9",
         "category": "Function",
-        "x": 225,
+        "x": 185,
         "y": 140,
         "wires": [
             [
-                "sd_TUBT9uWcV8XIqC0M"
+                "sd_Q3EUYKDK7GFKCRqS"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -505,6 +504,7 @@
             "obj": "bh.local.response",
             "send": "bh.local.response"
         },
+        "cookies": [],
         "inputs": 1,
         "outputs": 0,
         "editableListData": {
@@ -613,7 +613,7 @@
         "outputs": 2,
         "functionName": "sd_TUBT9uWcV8XIqC0M",
         "category": "Function",
-        "x": 325,
+        "x": 345,
         "y": 140,
         "wires": [
             [
@@ -655,7 +655,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.collection = 'travelRequests';\nbh.local.filter = {};\nif (bh.input.body._id) {\n    bh.local.filter = new require('mongodb').ObjectId(bh.input.body._id);\n}",
+        "script": "bh.collection = 'travelRequests';\nbh.local.filter = {};\nif (bh.input.body._id) {\n    bh.local.filter = {\n        _id: new require('mongodb').ObjectId(bh.input.body._id)\n    };\n}\n\nconsole.log('bh.local.filter', bh.local.filter)\ndelete bh.input.body._id;",
         "functionName": "sd_Pluu2muwnqDTjWFj",
         "category": "Function",
         "x": 435,
@@ -679,7 +679,7 @@
         "databaseConfig": "sd_wkl99fcRfvDmQ56X",
         "collection": "\"travelRequestDrafts\"",
         "options": "",
-        "resultMapping": "bh.local.result",
+        "resultMapping": "bh.local.resp",
         "operation": "findOneAndDelete",
         "argumentArray": [
             "filter"
@@ -706,11 +706,11 @@
         "pipeline": "",
         "functionName": "sd_aaG5SMg32j75YGuT",
         "category": "Storage",
-        "x": 565,
-        "y": 220,
+        "x": 585,
+        "y": 260,
         "wires": [
             [
-                "sd_w6fiomQRP9BnbZA1"
+                "sd_PEIr4VwrSe7bV82r"
             ]
         ],
         "__ssdTypeInputs__": {
@@ -727,7 +727,7 @@
             },
             "resultMapping": {
                 "type": "bh.local",
-                "value": "result",
+                "value": "resp",
                 "constant": false
             },
             "query": {
@@ -864,7 +864,7 @@
         "functionName": "sd_RiIhW0d2F09prDjy",
         "category": "Function",
         "x": 225,
-        "y": 720,
+        "y": 820,
         "wires": [
             [
                 "sd_WGm7SiWDq97rFod0"
@@ -992,7 +992,7 @@
         "script": "bh.status = 200;\nbh.local.response = {\n    msg: 'Request Updated Successfully',\n    cssClass: 'success' \n}",
         "functionName": "sd_aeNJj5JRXAitBQ7S",
         "category": "Function",
-        "x": 588,
+        "x": 565,
         "y": 880,
         "wires": [
             [
@@ -1090,8 +1090,8 @@
         "script": "bh.status = 400;\nbh.local.response = {\n    msg: 'Request Update Failed',\n    cssClass: 'error' \n}",
         "functionName": "sd_O5pvPnrHKnTIxc0g",
         "category": "Function",
-        "x": 625,
-        "y": 880,
+        "x": 645,
+        "y": 1040,
         "wires": [
             [
                 "sd_jYhopgFenX6f9HJH"
@@ -1130,6 +1130,7 @@
                 }
             }
         },
+        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -1800,6 +1801,7 @@
                 }
             }
         },
+        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -1837,11 +1839,11 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(\"bh\",bh.local)",
+        "script": "console.log(\"bh\",bh.local.response)",
         "functionName": "sd_HneJNsTRxek4RgEq",
         "category": "Function",
-        "x": 545,
-        "y": 840,
+        "x": 525,
+        "y": 1040,
         "wires": [
             [
                 "sd_O5pvPnrHKnTIxc0g"
@@ -1861,11 +1863,53 @@
         "script": "console.log(\"bh\",bh)",
         "functionName": "sd_WGm7SiWDq97rFod0",
         "category": "Function",
-        "x": 285,
-        "y": 740,
+        "x": 325,
+        "y": 800,
         "wires": [
             [
                 "sd_lZPpBY5c80imnVGF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Q3EUYKDK7GFKCRqS",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"bh\",bh.input)",
+        "functionName": "sd_Q3EUYKDK7GFKCRqS",
+        "category": "Function",
+        "x": 265,
+        "y": 140,
+        "wires": [
+            [
+                "sd_TUBT9uWcV8XIqC0M"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_PEIr4VwrSe7bV82r",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log('xxx', bh.local.resp)",
+        "functionName": "sd_PEIr4VwrSe7bV82r",
+        "category": "Function",
+        "x": 545,
+        "y": 200,
+        "wires": [
+            [
+                "sd_w6fiomQRP9BnbZA1"
             ]
         ],
         "__n_excludedFromValidation__": {},

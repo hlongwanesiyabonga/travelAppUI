@@ -751,7 +751,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "//combine the 2 forms\nconsole.log(page.travelRequestType, 'retype');\npage.formObj = {\n    \"personalDetails\": bh.input.personalDetailsForm,\n    \"requestDetails\": bh.input.form.requestDetails,\n    \"status\": null,\n    \"managerApproval\": {\n        \"approvedRequest\": null,\n        \"comments\": \"\"\n    },\n    \"owner\": bh.input.personalDetailsForm.email,\n    \"dateCreated\": new Date(),\n    \"travelRequestType\": page.travelRequestType\n};\nconsole.log(page.formObj, 'page.formObj');\n    let tempDetails = []\npage.formObj.requestDetails.forEach(detail => {\n    detail['travelDetails']['passportDocument'] = page.passportBase64;\n    detail['travelDetails']['covidCertificate'] = page.covidBase64;\n    tempDetails.push(detail);\n})\npage.formObj.requestDetails = tempDetails;\nconsole.log(page.formObj, 'form');\n\nbh.endPoint ='updateTravelRequest/'+ page.currentUserDetails._id +\"?type=draft\";\nbh.method = \"put\";\npage.currentUserTravelDetails = page.formObj\n",
+        "script": "//combine the 2 forms\nconsole.log(page.travelRequestType, 'retype');\npage.formObj = {\n    \"_id\" :page.dialogData._id,\n    \"personalDetails\": bh.input.personalDetailsForm,\n    \"requestDetails\": bh.input.form.requestDetails,\n    \"status\": null,\n    \"managerApproval\": {\n        \"approvedRequest\": null,\n        \"comments\": \"\"\n    },\n    \"owner\": bh.input.personalDetailsForm.email,\n    \"dateCreated\": new Date(),\n    \"travelRequestType\": page.travelRequestType\n};\nconsole.log(page.formObj, 'page.formObj');\n    let tempDetails = []\npage.formObj.requestDetails.forEach(detail => {\n    detail['travelDetails']['passportDocument'] = page.passportBase64;\n    detail['travelDetails']['covidCertificate'] = page.covidBase64;\n    tempDetails.push(detail);\n})\npage.formObj.requestDetails = tempDetails;\nconsole.log(page.formObj, 'form');\n\nbh.endPoint ='addTravelRequest';\nbh.method = \"post\";\npage.currentUserTravelDetails = page.formObj\n",
         "functionName": "sd_3BSYymrgOaMoS0L7",
         "category": "Function",
         "x": 161,
@@ -785,9 +785,9 @@
             },
             {
                 "t": "eq",
-                "v": "Draft",
+                "v": "Cancel",
                 "vt": "str",
-                "gv": "\"Draft\""
+                "gv": "\"Cancel\""
             }
         ],
         "checkall": "false",
@@ -839,7 +839,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(\"draft\")\nconsole.log(\"end\",bh.endPoint)",
+        "script": "bh.endPoint=''",
         "functionName": "sd_5IzxbzpLPOj6jECW",
         "category": "Function",
         "x": 421,
@@ -1033,8 +1033,8 @@
         "flow_type": "sync",
         "functionName": "resetForm",
         "category": "General",
-        "x": 721,
-        "y": 310,
+        "x": 805,
+        "y": 440,
         "wires": [
             [
                 "sd_ZPQldNPmJZGDHZ6x"
@@ -1054,8 +1054,8 @@
         "script": " bh.input.form.reset();",
         "functionName": "sd_ZPQldNPmJZGDHZ6x",
         "category": "Function",
-        "x": 901,
-        "y": 310,
+        "x": 985,
+        "y": 440,
         "wires": [
             []
         ],
@@ -1197,6 +1197,7 @@
         "serviceImportPath": "./travelRequestDialog",
         "startName": "prepopulateDialogData",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_URlPiFkFJorKKLLm",
         "category": "General",
@@ -1940,7 +1941,7 @@
         "functionName": "sd_YxHp4AR89CMJ5Z47",
         "category": "Dialog",
         "x": 665,
-        "y": 220,
+        "y": 240,
         "wires": [
             []
         ],
@@ -2965,6 +2966,7 @@
         "serviceImportPath": "./travelRequestDialog",
         "startName": "closeDialog",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_R5aauixGFNWisl7U",
         "category": "General",
@@ -3196,6 +3198,24 @@
             [
                 "sd_9kS3Emg7K3pZT3ks"
             ],
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_W64SlmiZG6PFjrsv",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nbh.endPoint ='addTravelRequest';\nbh.method = \"get\";",
+        "functionName": "sd_W64SlmiZG6PFjrsv",
+        "category": "Function",
+        "x": 705,
+        "y": 380,
+        "wires": [
             []
         ],
         "__n_excludedFromValidation__": {},

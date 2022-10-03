@@ -358,57 +358,6 @@ export class travelRequest {
         this.generatedMiddlewares
       )
     );
-
-    if (!this.swaggerDocument['paths']['/travelRequests/{route}']) {
-      this.swaggerDocument['paths']['/travelRequests/{route}'] = {
-        get: {
-          summary: '',
-          description: '',
-          consumes: [],
-          produces: [],
-          parameters: [],
-          responses: {},
-        },
-      };
-    } else {
-      this.swaggerDocument['paths']['/travelRequests/{route}']['get'] = {
-        summary: '',
-        description: '',
-        consumes: [],
-        produces: [],
-        parameters: [],
-        responses: {},
-      };
-    }
-    this.app['get'](
-      `${this.serviceBasePath}/travelRequests/:route`,
-      cookieParser(),
-      this.sdService.getMiddlesWaresBySequenceId(
-        null,
-        'pre',
-        this.generatedMiddlewares
-      ),
-
-      async (req, res, next) => {
-        let bh = {};
-        try {
-          bh = this.sdService.__constructDefault(
-            { local: {}, input: {} },
-            req,
-            res,
-            next
-          );
-          //appendnew_next_sd_v64RKOvtoblXaTPA
-        } catch (e) {
-          return await this.errorHandler(bh, e, 'sd_v64RKOvtoblXaTPA');
-        }
-      },
-      this.sdService.getMiddlesWaresBySequenceId(
-        null,
-        'post',
-        this.generatedMiddlewares
-      )
-    );
     //appendnew_flow_travelRequest_HttpIn
   }
   //   service flows_travelRequest
@@ -419,11 +368,22 @@ export class travelRequest {
     try {
       console.log(bh);
       bh.input.body.status = 'Pending Review By LM';
-      bh = await this.sd_TUBT9uWcV8XIqC0M(bh);
+      bh = await this.sd_Q3EUYKDK7GFKCRqS(bh);
       //appendnew_next_sd_WHAhn2s1OEVDFFm9
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_WHAhn2s1OEVDFFm9');
+    }
+  }
+
+  async sd_Q3EUYKDK7GFKCRqS(bh) {
+    try {
+      console.log('bh', bh.input);
+      bh = await this.sd_TUBT9uWcV8XIqC0M(bh);
+      //appendnew_next_sd_Q3EUYKDK7GFKCRqS
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_Q3EUYKDK7GFKCRqS');
     }
   }
 
@@ -732,8 +692,13 @@ Neutrinos Travel
       bh.collection = 'travelRequests';
       bh.local.filter = {};
       if (bh.input.body._id) {
-        bh.local.filter = new require('mongodb').ObjectId(bh.input.body._id);
+        bh.local.filter = {
+          _id: new require('mongodb').ObjectId(bh.input.body._id),
+        };
       }
+
+      console.log('bh.local.filter', bh.local.filter);
+      delete bh.input.body._id;
       bh = await this.sd_aaG5SMg32j75YGuT(bh);
       //appendnew_next_sd_Pluu2muwnqDTjWFj
       return bh;
@@ -744,17 +709,28 @@ Neutrinos Travel
 
   async sd_aaG5SMg32j75YGuT(bh) {
     try {
-      bh.local.result = await MongoPersistance.getInstance().findOneAndDelete(
+      bh.local.resp = await MongoPersistance.getInstance().findOneAndDelete(
         'sd_wkl99fcRfvDmQ56X',
         'travelRequestDrafts',
         bh.local.filter,
         {}
       );
-      bh = await this.sd_w6fiomQRP9BnbZA1(bh);
+      bh = await this.sd_PEIr4VwrSe7bV82r(bh);
       //appendnew_next_sd_aaG5SMg32j75YGuT
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_aaG5SMg32j75YGuT');
+    }
+  }
+
+  async sd_PEIr4VwrSe7bV82r(bh) {
+    try {
+      console.log('xxx', bh.local.resp);
+      bh = await this.sd_w6fiomQRP9BnbZA1(bh);
+      //appendnew_next_sd_PEIr4VwrSe7bV82r
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_PEIr4VwrSe7bV82r');
     }
   }
 
@@ -1009,7 +985,7 @@ Neutrinos Travel
 
   async sd_HneJNsTRxek4RgEq(bh) {
     try {
-      console.log('bh', bh.local);
+      console.log('bh', bh.local.response);
       bh = await this.sd_O5pvPnrHKnTIxc0g(bh);
       //appendnew_next_sd_HneJNsTRxek4RgEq
       return bh;
