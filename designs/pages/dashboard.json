@@ -172,7 +172,7 @@
         "resultMapping": "",
         "functionName": "sd_aLNXjBcLPztCW64j",
         "category": "Navigation",
-        "x": 300,
+        "x": 425,
         "y": 580,
         "wires": [
             []
@@ -440,7 +440,7 @@
         "flow_type": "sync",
         "functionName": "openViewRequest",
         "category": "General",
-        "x": 145,
+        "x": 165,
         "y": 420,
         "wires": [
             [
@@ -649,7 +649,7 @@
         "flow_type": "sync",
         "functionName": "travelRequests",
         "category": "General",
-        "x": 225,
+        "x": 165,
         "y": 260,
         "wires": [
             [
@@ -716,7 +716,7 @@
         "flow_type": "sync",
         "functionName": "closeProfile",
         "category": "General",
-        "x": 125,
+        "x": 165,
         "y": 500,
         "wires": [
             [
@@ -737,8 +737,8 @@
         "data": "this.page.profileDialog",
         "functionName": "sd_YQGYIR1ExZCECWq7",
         "category": "Dialog",
-        "x": 215.171875,
-        "y": 500.03125,
+        "x": 425,
+        "y": 500,
         "wires": [
             []
         ],
@@ -764,7 +764,7 @@
         "functionName": "sd_RV9cSmeHI4E5mrTS",
         "category": "Function",
         "x": 525,
-        "y": 340,
+        "y": 300,
         "wires": [
             [
                 "sd_rXcCYxeJumReEaBA"
@@ -785,7 +785,7 @@
         "functionName": "sd_Ghb9J59qOpblGVmc",
         "category": "Function",
         "x": 525,
-        "y": 240,
+        "y": 220,
         "wires": [
             [
                 "sd_Y31N74EOwPJSwSSi"
@@ -859,8 +859,8 @@
         "accept_csd": true,
         "functionName": "sd_Y31N74EOwPJSwSSi",
         "category": "General",
-        "x": 643,
-        "y": 245,
+        "x": 605,
+        "y": 220,
         "wires": [
             [
                 "sd_QXrXEUJKwp9n6Tng"
@@ -934,8 +934,8 @@
         "accept_csd": true,
         "functionName": "sd_rXcCYxeJumReEaBA",
         "category": "General",
-        "x": 670,
-        "y": 317.8125,
+        "x": 605,
+        "y": 300,
         "wires": [
             [
                 "sd_QXrXEUJKwp9n6Tng"
@@ -955,8 +955,8 @@
         "script": "console.log(page.receivedTableData)",
         "functionName": "logTable1",
         "category": "Function",
-        "x": 885,
-        "y": 240,
+        "x": 745,
+        "y": 260,
         "wires": [
             [
                 "sd_QnDkX4zxXtB1Nvoq"
@@ -994,8 +994,8 @@
         ],
         "functionName": "table1",
         "category": "Function",
-        "x": 965,
-        "y": 240,
+        "x": 825,
+        "y": 260,
         "wires": [
             [
                 "sd_OGlFkv3n4vjKymyo"
@@ -1015,8 +1015,8 @@
         "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Owner', 'Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['owner', 'dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'status', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    let temp = {};\n    temp['_id'] = el['_id'];\n    temp['owner'] = el['owner'];\n    temp['status'] = el['status'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\nconsole.log(tableData)\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;\n\n// let tableData = [];\n// let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\n// let tableSetup = {\n//     \"traveler\": {\n//         \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n//         \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n//     }\n// };\n// bh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n//     page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\n// page.tableCells = tableSetup[bh.role]['tableCells'];\n// page.receivedTableData['data'].forEach(el => {\n//     let temp = {};\n//     temp['_id'] = el['_id'];\n//     temp['dateCreated'] = el['dateCreated'];\n//     temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n//     temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n//     temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n//     temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n//     tableData.push(temp);\n// })\n\n// page.tableData = new page.tableDataSource(tableData);\n// page.tableData.paginator = bh.pageViews.MatPaginator;\n// page.tableData.sort = bh.pageViews.MatSort;",
         "functionName": "setTableTokens1",
         "category": "Function",
-        "x": 1025,
-        "y": 240,
+        "x": 925,
+        "y": 260,
         "wires": [
             []
         ],
@@ -1063,11 +1063,11 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "\n\nbh.receivedTableData = page.receivedTableData['data'];\n\npage.counts = {\n    pendingCounts: [],\n    approvedCounts: [],\n    rejectedCounts: [],\n    totalCounts: bh.receivedTableData.length\n\n}\n\nbh.receivedTableData.forEach(item => {\n    if (item.status == 'Approved') {\n        page.counts.approvedCounts.push(item);\n    } else if (item.status == 'Rejected') {\n        page.counts.rejectedCounts.push(item);\n    } else {\n        page.counts.pendingCounts.push(item);\n    }\n})\n\npage.dashboardCards =[\n    {amount: page?.counts?.totalCounts, topText: 'Total', icon : 'description', cssClass: 'blueBg'},\n    {amount: page?.counts?.pendingCounts?.length, topText: 'Pending', icon : 'hourglass_full', cssClass: 'orangeBg'},\n    {amount: page?.counts?.approvedCounts?.length, topText: 'Approved', icon : 'thumb_up', cssClass: 'greenBg'},\n    {amount: page?.counts?.rejectedCounts?.length, topText: 'Rejected', icon : 'thumb_down', cssClass: 'redBg'},\n];\n",
+        "script": "\n\nbh.receivedTableData = page.receivedTableData['data'];\n\npage.counts = {\n    pendingCounts: [],\n    approvedCounts: [],\n    rejectedCounts: [],\n    totalCounts: bh.receivedTableData.length\n}\n\nbh.receivedTableData.forEach(item => {\n    if (item.status == 'Approved') {\n        page.counts.approvedCounts.push(item);\n    } else if (item.status == 'Rejected') {\n        page.counts.rejectedCounts.push(item);\n    } else {\n        page.counts.pendingCounts.push(item);\n    }\n})\n\npage.dashboardCards =[\n    {amount: page?.counts?.totalCounts, topText: 'Total', icon : 'description', cssClass: 'blueBg'},\n    {amount: page?.counts?.pendingCounts?.length, topText: 'Pending', icon : 'hourglass_full', cssClass: 'orangeBg'},\n    {amount: page?.counts?.approvedCounts?.length, topText: 'Approved', icon : 'thumb_up', cssClass: 'greenBg'},\n    {amount: page?.counts?.rejectedCounts?.length, topText: 'Rejected', icon : 'thumb_down', cssClass: 'redBg'},\n];\n",
         "functionName": "sd_n1Xt0bMElt0KuQIn",
         "category": "Function",
-        "x": 845,
-        "y": 160,
+        "x": 925,
+        "y": 100,
         "wires": [
             [
                 "sd_QXrXEUJKwp9n6Tng"

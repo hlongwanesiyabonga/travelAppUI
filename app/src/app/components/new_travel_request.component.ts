@@ -23,8 +23,6 @@ import {
   FormBuilder,
   FormArray,
 } from '@angular/forms'; //_splitter_
-import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
-import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -90,6 +88,20 @@ export class new_travel_requestComponent {
     }
   }
 
+  onFileChange(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+      bh = this.sd_L8dj6KHB0MWU3lHf(bh);
+      //appendnew_next_onFileChange
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_dQi0ZDxCALyvvKO5');
+    }
+  }
+
   addNewRequestForm(...others) {
     try {
       var bh: any = this.__page_injector__
@@ -118,169 +130,6 @@ export class new_travel_requestComponent {
     }
   }
 
-  removeNewRequestFormLeg(i = 0, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { i: i };
-      bh.local = {};
-      bh = this.sd_95E59tpBNueqjcTi(bh);
-      //appendnew_next_removeNewRequestFormLeg
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_67aOoRf2YhdTaSXA');
-    }
-  }
-
-  selectChangesFunction(event: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { event: event };
-      bh.local = {};
-      bh = this.sd_KSMim0D7ZZLU1qV0(bh);
-      //appendnew_next_selectChangesFunction
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_hKIdGwv5EY1dYacv');
-    }
-  }
-
-  submit_clear_draft(
-    event: any = undefined,
-    form: any = undefined,
-    personalDetailsForm: any = undefined,
-    ...others
-  ) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {
-        event: event,
-        form: form,
-        personalDetailsForm: personalDetailsForm,
-      };
-      bh.local = {};
-      bh = this.sd_Tyw2L65nU6abERyb(bh);
-      //appendnew_next_submit_clear_draft
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Kwd7KJtk5BkZ9WYJ');
-    }
-  }
-
-  resetForm(form: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { form: form };
-      bh.local = {};
-      bh = this.sd_ZTozXZqj4lBEKTQr(bh);
-      //appendnew_next_resetForm
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_O2HdwEGI8Rs7tJA4');
-    }
-  }
-
-  requstedForHideandShow(element: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { element: element };
-      bh.local = {};
-      bh = this.sd_Xvjb4YiItErwxAGT(bh);
-      //appendnew_next_requstedForHideandShow
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_dqTGtSubVUnQi0az');
-    }
-  }
-
-  onSelectionChange(event: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { event: event };
-      bh.local = {};
-      bh = this.sd_7t1sLpdPvZbg9PtU(bh);
-      //appendnew_next_onSelectionChange
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_JShCDxMGh8jcvoIX');
-    }
-  }
-
-  requstedForFilter(element: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { element: element };
-      bh.local = {};
-      bh = this.sd_27m2bbalKXjHhtVY(bh);
-      //appendnew_next_requstedForFilter
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_LayNzMEnXlF21Fw6');
-    }
-  }
-
-  onFileChangeCovidCertificate(event: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { event: event };
-      bh.local = {};
-      bh = this.sd_A6EdTfWK9ewnKuJT(bh);
-      //appendnew_next_onFileChangeCovidCertificate
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_KpgD821Qkh9Ll0GG');
-    }
-  }
-
-  onFileChangePassport(event: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { event: event };
-      bh.local = {};
-      bh = this.sd_5BqagivLPnIpSaQX(bh);
-      //appendnew_next_onFileChangePassport
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_eebBTEGIzE391LWp');
-    }
-  }
-
-  onFileChangeVISA(event: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { event: event };
-      bh.local = {};
-      bh = this.sd_w2hf3wCdCGd0T8ws(bh);
-      //appendnew_next_onFileChangeVISA
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ohBvQUSct5bb7Wds');
-    }
-  }
-
-  toCityFunction(event: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { event: event };
-      bh.local = {};
-      bh = this.sd_vyhzEWKM6L1xMtBr(bh);
-      //appendnew_next_toCityFunction
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ys4kshg8EN6ckl2v');
-    }
-  }
-
   //appendnew_flow_new_travel_requestComponent_start
 
   sd_MWBuy73tA0Xq4qCD(bh) {
@@ -291,7 +140,7 @@ export class new_travel_requestComponent {
       this.page.futureDate = undefined;
       this.page.userInfo = undefined;
       this.page.showInternaionalTravel = 'false';
-      this.page.showVISA = false;
+      this.page.showVISA = 'false';
       this.page.project = undefined;
       this.page.requestDetails = undefined;
       this.page.requestDetailsForm = undefined;
@@ -312,7 +161,6 @@ export class new_travel_requestComponent {
       this.page.filterPersonalDetail = [];
       this.page.tempArr = undefined;
       this.page.travelRequestType = undefined;
-      this.page.addLeg = false;
       bh = this.sd_3vQvCLGHPR3YmnTB(bh);
       //appendnew_next_sd_MWBuy73tA0Xq4qCD
       return bh;
@@ -385,7 +233,7 @@ export class new_travel_requestComponent {
         { viewvalue: 'hotel' },
         { viewvalue: 'B&B' },
       ];
-      bh = this.personalDetails(bh);
+      bh = this.pDetails(bh);
       //appendnew_next_selectData
       return bh;
     } catch (e) {
@@ -393,13 +241,10 @@ export class new_travel_requestComponent {
     }
   }
 
-  personalDetails(bh) {
+  pDetails(bh) {
     try {
       const page = this.page;
       page.personalDetailsForm = new FormGroup({
-        // requester: new FormControl (''),
-        requestedFor: new FormControl(''),
-        requestType: new FormControl(''),
         firstName: new FormControl('', [
           Validators.minLength(3),
           Validators.required,
@@ -426,7 +271,7 @@ export class new_travel_requestComponent {
       });
 
       bh = this.formControlsCreation(bh);
-      //appendnew_next_personalDetails
+      //appendnew_next_pDetails
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_XoSN8pKbkzY3VXRC');
@@ -439,7 +284,7 @@ export class new_travel_requestComponent {
       page.travelForm = new FormGroup({
         requestDetails: page.Fb.array([]),
       });
-      bh = this.sd_9CcspaWLwsjeh7Li(bh);
+      bh = this.sd_bvYvWg7Xv6GTK5wB(bh);
       //appendnew_next_formControlsCreation
       return bh;
     } catch (e) {
@@ -447,81 +292,31 @@ export class new_travel_requestComponent {
     }
   }
 
-  sd_9CcspaWLwsjeh7Li(bh) {
-    try {
-      this.page.currentUserDetails = JSON.parse(
-        sessionStorage.getItem('currentUserDetails')
-      );
-      bh = this.getPersonalDetails(bh);
-      //appendnew_next_sd_9CcspaWLwsjeh7Li
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_9CcspaWLwsjeh7Li');
-    }
-  }
-
-  getPersonalDetails(bh) {
+  sd_bvYvWg7Xv6GTK5wB(bh) {
     try {
       const page = this.page;
       page.date = new Date();
       page.futureDate =
         page.travelForm?.controls?.requestDetails?.controls[0]?.controls?.accommodationDetails?.controls?.checkOutDate;
-      bh.endPoint =
-        'genericGet/getPersonalDetails?email=' + page.currentUserDetails.email;
+      page.email = 'neutrinostravellm@gmail.com';
+      bh.endPoint = 'genericGet/getPersonalDetails?email=' + page.email;
       bh.method = 'get';
-      bh = this.sd_Kls047KIBkKDp6tK(bh);
-      //appendnew_next_getPersonalDetails
+      bh = this.sd_eYkVAuOfjYx8O61u(bh);
+      //appendnew_next_sd_bvYvWg7Xv6GTK5wB
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_bvYvWg7Xv6GTK5wB');
     }
   }
 
-  sd_Kls047KIBkKDp6tK(bh) {
+  sd_eYkVAuOfjYx8O61u(bh) {
     try {
       let outputVariables = this.addNewRequestForm();
 
-      bh = this.fetchDetails(bh);
-      //appendnew_next_sd_Kls047KIBkKDp6tK
+      //appendnew_next_sd_eYkVAuOfjYx8O61u
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Kls047KIBkKDp6tK');
-    }
-  }
-
-  fetchDetails(bh) {
-    try {
-      const page = this.page;
-      bh.key = 'currentUserDetails';
-      //page.personalDetailsForm.patchValue(page.personalDetails);
-      bh = this.sd_gHPr72vSMvOwupAk(bh);
-      //appendnew_next_fetchDetails
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_7bcT7RLcuOOEXtsv');
-    }
-  }
-
-  sd_gHPr72vSMvOwupAk(bh) {
-    try {
-      this.page.requesterDetails = JSON.parse(sessionStorage.getItem(bh.key));
-      bh = this.sd_ZWhQp9HYeJRrnOhp(bh);
-      //appendnew_next_sd_gHPr72vSMvOwupAk
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_gHPr72vSMvOwupAk');
-    }
-  }
-
-  sd_ZWhQp9HYeJRrnOhp(bh) {
-    try {
-      const page = this.page;
-      page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`;
-      //page.personalDetailsForm?.value?.requester?.patchValue(page.requester)
-      //appendnew_next_sd_ZWhQp9HYeJRrnOhp
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ZWhQp9HYeJRrnOhp');
+      return this.errorHandler(bh, e, 'sd_eYkVAuOfjYx8O61u');
     }
   }
 
@@ -535,6 +330,23 @@ export class new_travel_requestComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_p628PvB6Wft0W8cy');
+    }
+  }
+
+  sd_L8dj6KHB0MWU3lHf(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.target.files.length > 0) {
+        const file = bh.input.event.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {};
+      }
+
+      //appendnew_next_sd_L8dj6KHB0MWU3lHf
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_L8dj6KHB0MWU3lHf');
     }
   }
 
@@ -553,28 +365,28 @@ export class new_travel_requestComponent {
             fromDate: ['', [Validators.required]],
             toDate: ['', [Validators.required]],
             tripType: ['', [Validators.required]],
+            requestedFor: [''],
+            requestType: [''],
             preferredTime: ['', [Validators.required]],
             travelerComments: [''],
             passportDocument: [''],
             visaRequired: ['', []],
-            visa: [''],
-            covidCertificate: [''],
+            covidCertificate: ['', [Validators.required]],
             passport: [''],
             needvehicle: ['', [Validators.required]],
             needAccommodation: ['', [Validators.required]],
           }),
           accommodationDetails: page.Fb.group({
-            accommodationPreference: [''],
-            city: [''],
-            checkInDate: [''],
-            checkOutDate: [''],
-            checkInTime: [''],
-            checkOutTime: [''],
-            employeeComments: [''],
+            accommodationPreference: ['', [Validators.required]],
+            city: ['', [Validators.required]],
+            checkInDate: ['', [Validators.required]],
+            checkOutDate: ['', [Validators.required]],
+            checkInTime: ['', [Validators.required]],
+            checkOutTime: ['', [Validators.required]],
+            employeeComments: ['', [Validators.required]],
           }),
         })
       );
-      //page.travelForm.requestDetails.patchValue();
 
       //appendnew_next_sd_LYJcmnJwoRoJ6qQz
       return bh;
@@ -585,460 +397,13 @@ export class new_travel_requestComponent {
 
   sd_7E0kFOs0S0LoIGyd(bh) {
     try {
-      const page = this.page;
+      const page = this.page; // page.date= new Date()
       page.futureDate = new Date(bh.input.date.value);
-
-      page.travelForm.value.requestDetails[0].travelDetails['fromDate'] =
-        new Date(
-          page.travelForm.value.requestDetails[0].travelDetails.fromDate
-        );
-      page.travelForm.patchValue({
-        checkInDate:
-          page.travelForm.value.requestDetails[0].travelDetails['fromDate'],
-      });
-
-      // if(page.travelForm.controls.requestDetails.controls[0].controls.travelDetails.controls.fromCity.status == 'VALID'){
-      //     page.travelForm.requestDetails.accommodationDetails.patchValue({
-      //         checkInDate : page.travelForm.value.requestDetails[0].travelDetails.fromDate.value
-      //     })
-
-      // }
-      console.log(
-        page.travelForm.value.requestDetails[0].travelDetails['fromDate']
-      );
 
       //appendnew_next_sd_7E0kFOs0S0LoIGyd
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_7E0kFOs0S0LoIGyd');
-    }
-  }
-
-  sd_95E59tpBNueqjcTi(bh) {
-    try {
-      const page = this.page;
-      page.travelForm.get('requestDetails').removeAt(bh.input.i);
-      //appendnew_next_sd_95E59tpBNueqjcTi
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_95E59tpBNueqjcTi');
-    }
-  }
-
-  sd_KSMim0D7ZZLU1qV0(bh) {
-    try {
-      const page = this.page;
-      if (bh.input.event.value == 'International') {
-        page.showVISA = true;
-      } else if (bh.input.event.value == 'Domestic') {
-        page.showVISA = false;
-      } else if (bh.input.event.value == 'one-way') {
-        page.addLeg = true;
-      } else if (bh.input.event.value == 'Return') {
-        page.addLeg = false;
-      } else if (bh.input.event.value == 'On Behalf') {
-        console.log('on behalf');
-        page.requestedFor = true;
-      } else if (bh.input.event.value == 'Self') {
-        page.requestedFor = false;
-
-        bh.endPoint =
-          'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;
-        bh.method = 'get';
-      } else if (bh.input.event.value == 'Other') {
-        page.other = true;
-      }
-
-      //appendnew_next_sd_KSMim0D7ZZLU1qV0
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_KSMim0D7ZZLU1qV0');
-    }
-  }
-
-  sd_Tyw2L65nU6abERyb(bh) {
-    try {
-      const page = this.page; //combine the 2 forms
-      console.log(bh.input.form, 'retype');
-
-      page.formObj = {
-        personalDetails: bh.input.personalDetailsForm,
-        requestDetails: bh.input.form.requestDetails,
-        status: null,
-        managerApproval: {
-          approvedRequest: null,
-          comments: '',
-        },
-        owner: bh.input.personalDetailsForm.email,
-        dateCreated: new Date(),
-        travelRequestType: page.travelRequestType,
-      };
-      console.log(page.formObj, 'page.formObj');
-      let tempDetails = [];
-      page.formObj.requestDetails.forEach((detail) => {
-        detail['travelDetails']['passportDocument'] = page.passportBase64;
-        detail['travelDetails']['covidCertificate'] = page.covidBase64;
-        tempDetails.push(detail);
-      });
-      page.formObj.requestDetails = tempDetails;
-      console.log(page.formObj, 'form');
-
-      bh.endPoint =
-        bh.input.event == 'Draft'
-          ? 'addTravelRequest?type=draft'
-          : 'addTravelRequest';
-      bh.method = 'post';
-      page.currentUserTravelDetails = page.formObj;
-
-      bh = this.sd_hzlAOioSF7sfAnch(bh);
-      //appendnew_next_sd_Tyw2L65nU6abERyb
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Tyw2L65nU6abERyb');
-    }
-  }
-
-  sd_hzlAOioSF7sfAnch(bh) {
-    try {
-      if (
-        this.sdService.operators['eq'](
-          bh.input.event,
-          'Submit',
-          undefined,
-          undefined
-        )
-      ) {
-        bh = this.sd_NtmVgjxzgfE27lTh(bh);
-      } else if (
-        this.sdService.operators['eq'](
-          bh.input.event,
-          'Draft',
-          undefined,
-          undefined
-        )
-      ) {
-        bh = this.sd_lB67lzj3szt8sQDn(bh);
-      }
-
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_hzlAOioSF7sfAnch');
-    }
-  }
-
-  sd_NtmVgjxzgfE27lTh(bh) {
-    try {
-      const page = this.page;
-      console.log('Submit');
-      console.log('end', bh.endPoint);
-      bh = this.sd_7iwpttQpIoNxNQF5(bh);
-      //appendnew_next_sd_NtmVgjxzgfE27lTh
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_NtmVgjxzgfE27lTh');
-    }
-  }
-
-  sd_7iwpttQpIoNxNQF5(bh) {
-    try {
-      this.__page_injector__.get(MatSnackBar).open('Form is submitted', 'Ok', {
-        duration: 3000,
-        direction: 'ltr',
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-      });
-      bh = this.sd_wRxX62BDfvlhRLUP(bh);
-      //appendnew_next_sd_7iwpttQpIoNxNQF5
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_7iwpttQpIoNxNQF5');
-    }
-  }
-
-  async sd_wRxX62BDfvlhRLUP(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        this.page.formObj
-      );
-      bh.response = outputVariables.local.result;
-
-      //appendnew_next_sd_wRxX62BDfvlhRLUP
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_wRxX62BDfvlhRLUP');
-    }
-  }
-
-  sd_lB67lzj3szt8sQDn(bh) {
-    try {
-      const page = this.page;
-      console.log('draft');
-      console.log('end', bh.endPoint);
-      bh = this.sd_wj1AZTaIkbCFLwaM(bh);
-      //appendnew_next_sd_lB67lzj3szt8sQDn
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_lB67lzj3szt8sQDn');
-    }
-  }
-
-  sd_wj1AZTaIkbCFLwaM(bh) {
-    try {
-      this.__page_injector__
-        .get(MatSnackBar)
-        .open('Form is saved as draft', 'OK', {
-          duration: 3000,
-          direction: 'ltr',
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-      bh = this.sd_wRxX62BDfvlhRLUP(bh);
-      //appendnew_next_sd_wj1AZTaIkbCFLwaM
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_wj1AZTaIkbCFLwaM');
-    }
-  }
-
-  sd_ZTozXZqj4lBEKTQr(bh) {
-    try {
-      const page = this.page;
-      bh.input.form.reset();
-      //appendnew_next_sd_ZTozXZqj4lBEKTQr
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ZTozXZqj4lBEKTQr');
-    }
-  }
-
-  sd_Xvjb4YiItErwxAGT(bh) {
-    try {
-      if (
-        this.sdService.operators['eq'](
-          bh.input.element.value,
-          'Self',
-          undefined,
-          undefined
-        )
-      ) {
-        bh = this.sd_Z5Ai9J8jTiXMTgQP(bh);
-      } else if (
-        this.sdService.operators['eq'](
-          bh.input.element.value,
-          'On Behalf',
-          undefined,
-          undefined
-        )
-      ) {
-        bh = this.sd_27m2bbalKXjHhtVY(bh);
-      }
-
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Xvjb4YiItErwxAGT');
-    }
-  }
-
-  sd_Z5Ai9J8jTiXMTgQP(bh) {
-    try {
-      const page = this.page;
-      console.log('self');
-      page.requestedFor = false;
-
-      bh.endPoint =
-        'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;
-      bh.method = 'get';
-      bh = this.sd_SrKlYlChBAf5kKDc(bh);
-      //appendnew_next_sd_Z5Ai9J8jTiXMTgQP
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Z5Ai9J8jTiXMTgQP');
-    }
-  }
-
-  async sd_SrKlYlChBAf5kKDc(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        undefined
-      );
-      bh.local.selfDetails = outputVariables.local.result;
-
-      bh = this.sd_A5D9OXwhReKwLuIU(bh);
-      //appendnew_next_sd_SrKlYlChBAf5kKDc
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_SrKlYlChBAf5kKDc');
-    }
-  }
-
-  sd_A5D9OXwhReKwLuIU(bh) {
-    try {
-      const page = this.page;
-      bh.local.selfDetails['dateOfBirth'] = new Date(
-        bh.local.selfDetails['dateOfBirth']
-      );
-      page.personalDetailsForm.patchValue(bh.local.selfDetails);
-      //appendnew_next_sd_A5D9OXwhReKwLuIU
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_A5D9OXwhReKwLuIU');
-    }
-  }
-
-  sd_27m2bbalKXjHhtVY(bh) {
-    try {
-      const page = this.page;
-      console.log('on behalf');
-      page.requestedFor = true;
-      bh.emitValue = bh.input.element?.target?.value;
-      bh.endPoint = 'genericGet/getPersonalDetails';
-      bh.method = 'get';
-      bh = this.sd_6LA12F1oOjsVUSrq(bh);
-      //appendnew_next_sd_27m2bbalKXjHhtVY
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_27m2bbalKXjHhtVY');
-    }
-  }
-
-  async sd_6LA12F1oOjsVUSrq(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        undefined
-      );
-      this.page.allPersonalDetails = outputVariables.local.result;
-
-      bh = this.sd_BH4NURT71PCehw8v(bh);
-      //appendnew_next_sd_6LA12F1oOjsVUSrq
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_6LA12F1oOjsVUSrq');
-    }
-  }
-
-  sd_BH4NURT71PCehw8v(bh) {
-    try {
-      const page = this.page;
-      page.filterPersonalDetail = page.allPersonalDetails;
-      let tempArr = page.filterPersonalDetail.filter((obj) =>
-        obj.email?.toLowerCase().includes(bh?.emitValue?.toLowerCase())
-      );
-      page.allPersonalDetails = tempArr;
-      //appendnew_next_sd_BH4NURT71PCehw8v
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_BH4NURT71PCehw8v');
-    }
-  }
-
-  sd_7t1sLpdPvZbg9PtU(bh) {
-    try {
-      const page = this.page;
-      let personalDetails = page.allPersonalDetails.find(
-        (el) => bh.input.event.option.value == el.email
-      );
-      if (personalDetails) {
-        personalDetails['dateOfBirth'] = new Date(
-          personalDetails['dateOfBirth']
-        );
-        page.personalDetailsForm.patchValue(personalDetails);
-      }
-      //appendnew_next_sd_7t1sLpdPvZbg9PtU
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_7t1sLpdPvZbg9PtU');
-    }
-  }
-
-  sd_A6EdTfWK9ewnKuJT(bh) {
-    try {
-      const page = this.page;
-      if (bh.input.event.target.files.length > 0) {
-        const file = bh.input.event.target.files[0];
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-          page.covidBase64 = reader.result;
-          console.log(page.covidBase64);
-        };
-        reader.onerror = function (error) {
-          console.log('Error: ', error);
-        };
-      }
-      //appendnew_next_sd_A6EdTfWK9ewnKuJT
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_A6EdTfWK9ewnKuJT');
-    }
-  }
-
-  sd_5BqagivLPnIpSaQX(bh) {
-    try {
-      const page = this.page;
-      if (bh.input.event.target.files.length > 0) {
-        const file = bh.input.event.target.files[0];
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-          page.passportBase64 = reader.result;
-        };
-        reader.onerror = function (error) {
-          console.log('Error: ', error);
-        };
-      }
-      //appendnew_next_sd_5BqagivLPnIpSaQX
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_5BqagivLPnIpSaQX');
-    }
-  }
-
-  sd_w2hf3wCdCGd0T8ws(bh) {
-    try {
-      const page = this.page;
-      if (bh.input.event.target.files.length > 0) {
-        const file = bh.input.event.target.files[0];
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-          page.visa64 = reader.result;
-        };
-        reader.onerror = function (error) {
-          console.log('Error: ', error);
-        };
-      }
-      //appendnew_next_sd_w2hf3wCdCGd0T8ws
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_w2hf3wCdCGd0T8ws');
-    }
-  }
-
-  sd_vyhzEWKM6L1xMtBr(bh) {
-    try {
-      const page = this.page;
-      if (bh.input.event.value == 'Other') {
-        page.otherToCity = true;
-      }
-      //appendnew_next_sd_vyhzEWKM6L1xMtBr
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_vyhzEWKM6L1xMtBr');
     }
   }
 

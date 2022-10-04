@@ -218,7 +218,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "\npage.currentUserDetails.designation = page.currentUserDetails.designation.toString();\npage.profileForm.patchValue(page.currentUserDetails);\nconsole.log(\"hiiii\",page.profileForm)",
+        "script": "\npage.currentUserDetails.designation = page.currentUserDetails.designation.toString();\npage.profileForm.patchValue(page.currentUserDetails);\nconsole.log(\"profileForm1\",page.profileForm)",
         "functionName": "sd_MBz5EGrssnMaWTm5",
         "category": "Function",
         "x": 585,
@@ -502,7 +502,7 @@
         "name": "",
         "message": {
             "type": "str",
-            "value": "Record will be updated on Login"
+            "value": "Record updated successfully"
         },
         "action": {
             "type": "str",
@@ -529,5 +529,79 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_odqjZuBrHXbwKKz9",
+        "type": "Storage",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "setItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {
+            "type": "this.page",
+            "value": "profileForm"
+        },
+        "resultMapping": {},
+        "functionName": "sd_odqjZuBrHXbwKKz9",
+        "category": "Storage",
+        "x": 725,
+        "y": 300,
+        "wires": [
+            [
+                "sd_zF1jsEcssdOQjNhi"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_jnosH9S3MFBymNqy",
+        "type": "Storage",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "clear",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {},
+        "value": {},
+        "resultMapping": {},
+        "functionName": "sd_jnosH9S3MFBymNqy",
+        "category": "Storage",
+        "x": 645,
+        "y": 300,
+        "wires": [
+            [
+                "sd_odqjZuBrHXbwKKz9"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_zF1jsEcssdOQjNhi",
+        "type": "Script",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"profileForm2\",page.profileForm)\nconsole.log(\"currentUserDetails\",page.currentUserDetails)\n",
+        "functionName": "sd_zF1jsEcssdOQjNhi",
+        "category": "Function",
+        "x": 820,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]

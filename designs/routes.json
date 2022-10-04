@@ -6,13 +6,17 @@
             "children": [
                 {
                     "component": "travelRequestDialogComponent",
-                    "path": "travelRequestDialog"
+                    "path": "travelRequestDialog",
+                    "canActivate": ""
                 }
-            ]
+            ],
+            "canDeactivate": "",
+            "canActivate": ""
         },
         {
             "path": "login",
-            "component": "loginComponent"
+            "component": "loginComponent",
+            "canActivate": ""
         },
         {
             "path": "''",

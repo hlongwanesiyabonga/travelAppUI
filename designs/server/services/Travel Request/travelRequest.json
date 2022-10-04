@@ -1802,7 +1802,6 @@
                 }
             }
         },
-        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -1834,13 +1833,13 @@
         "functionName": "sd_WJkadmvKf6DaDeht"
     },
     {
-        "id": "sd_v64RKOvtoblXaTPA",
+        "id": "sd_PpU6n71U1YpZQmE1",
         "type": "HttpIn",
         "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
         "viewType": "server",
         "nodeType": "start",
         "name": "",
-        "path": "/travelRequests/:route",
+        "path": "/dashboardCards/:owner",
         "uploadpath": "",
         "summary": "",
         "description": "",
@@ -1851,7 +1850,7 @@
         "filetype": "path",
         "acceptFileUpload": false,
         "httpOptions": {
-            "/travelRequests/:route": {
+            "/dashboardCards/:owner": {
                 "get": {
                     "summary": "",
                     "description": "",
@@ -1871,10 +1870,12 @@
         "inputs": 0,
         "outputs": 1,
         "category": "HTTP",
-        "x": 125,
-        "y": 600,
+        "x": 180,
+        "y": 640,
         "wires": [
-            []
+            [
+                "sd_dUvqJO6ml5uG3g4p"
+            ]
         ],
         "__ssdTypeInputs__": {
             "uploadpath": {
@@ -1888,101 +1889,31 @@
         "__n_excludedFromValidation__": {},
         "generateNext": true,
         "serviceName": "travelRequest",
-        "functionName": "sd_v64RKOvtoblXaTPA"
+        "functionName": "sd_PpU6n71U1YpZQmE1"
     },
     {
-        "id": "sd_YV7FzQKinWXlqUQh",
+        "id": "sd_dUvqJO6ml5uG3g4p",
         "type": "Script",
         "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.collection = 'travelRequests';",
-        "functionName": "sd_YV7FzQKinWXlqUQh",
+        "script": "bh.collection = 'travelRequests';\nconsole.log()",
+        "functionName": "sd_dUvqJO6ml5uG3g4p",
         "category": "Function",
-        "x": 240,
-        "y": 600,
+        "x": 305,
+        "y": 640,
         "wires": [
-            []
+            [
+                "sd_skbR1c8ZRgsOMIy4"
+            ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": false,
+        "generated": true
     },
     {
-        "id": "sd_oO6UzRMlO7R2ojvr",
-        "type": "HttpOut",
-        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
-        "viewType": "server",
-        "nodeType": "flow",
-        "name": "",
-        "headers": {},
-        "responseBody": {
-            "type": "bh.local",
-            "value": "response",
-            "ssd_typedInputField": true
-        },
-        "httpcode": {
-            "type": "bh",
-            "value": "status",
-            "ssd_typedInputField": true
-        },
-        "responseType": "obj",
-        "responseMapping": {
-            "status": {
-                "type": "bh",
-                "value": "status",
-                "ssd_typedInputField": true
-            },
-            "obj": {
-                "type": "bh.local",
-                "value": "response",
-                "ssd_typedInputField": true
-            },
-            "send": {
-                "type": "bh.local",
-                "value": "response",
-                "ssd_typedInputField": true
-            }
-        },
-        "cookies": [],
-        "inputs": 1,
-        "outputs": 0,
-        "editableListData": {
-            "headers": []
-        },
-        "cookiesList": {},
-        "switchStates": {
-            "headers": "Map",
-            "cookies": "Map"
-        },
-        "functionName": "sd_oO6UzRMlO7R2ojvr",
-        "category": "HTTP",
-        "x": 525,
-        "y": 600,
-        "wires": [],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true
-    },
-    {
-        "id": "sd_kVOCqiHs5ExKoDLm",
-        "type": "Script",
-        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "bh.status = 200;\nbh.local.response  = {\n    msg: \"Records fetched successfully\",\n    data: bh.local.result\n}",
-        "functionName": "sd_kVOCqiHs5ExKoDLm",
-        "category": "Function",
-        "x": 425,
-        "y": 600,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true
-    },
-    {
-        "id": "sd_J6qrNgG4acjgfNen",
+        "id": "sd_skbR1c8ZRgsOMIy4",
         "type": "Mongodb",
         "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
         "viewType": "server",
@@ -2016,12 +1947,14 @@
         "filePath": "",
         "fileName": "",
         "pipeline": "",
-        "functionName": "sd_J6qrNgG4acjgfNen",
+        "functionName": "sd_skbR1c8ZRgsOMIy4",
         "category": "Storage",
-        "x": 345,
-        "y": 600,
+        "x": 405,
+        "y": 640,
         "wires": [
-            []
+            [
+                "sd_vAWtPyyFZIul9RmT"
+            ]
         ],
         "__ssdTypeInputs__": {
             "collection": {
@@ -2052,6 +1985,71 @@
             }
         },
         "__n_excludedFromValidation__": {},
-        "generateNext": true
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_A6ox9VUFNRKvZsmr",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "response",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh",
+            "value": "status",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "responseMapping": {
+            "status": "bh.status",
+            "obj": "bh.local.response",
+            "send": "bh.local.response"
+        },
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_A6ox9VUFNRKvZsmr",
+        "category": "HTTP",
+        "x": 565,
+        "y": 640,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_vAWtPyyFZIul9RmT",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.status = 200;\nbh.local.response  = {\n    msg: \"Cards data fetched\",\n    data: bh.local.result\n}",
+        "functionName": "sd_vAWtPyyFZIul9RmT",
+        "category": "Function",
+        "x": 485,
+        "y": 640,
+        "wires": [
+            [
+                "sd_A6ox9VUFNRKvZsmr"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
     }
 ]

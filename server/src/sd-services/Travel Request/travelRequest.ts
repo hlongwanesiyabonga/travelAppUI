@@ -359,8 +359,8 @@ export class travelRequest {
       )
     );
 
-    if (!this.swaggerDocument['paths']['/travelRequests/{route}']) {
-      this.swaggerDocument['paths']['/travelRequests/{route}'] = {
+    if (!this.swaggerDocument['paths']['/dashboardCards/{owner}']) {
+      this.swaggerDocument['paths']['/dashboardCards/{owner}'] = {
         get: {
           summary: '',
           description: '',
@@ -371,7 +371,7 @@ export class travelRequest {
         },
       };
     } else {
-      this.swaggerDocument['paths']['/travelRequests/{route}']['get'] = {
+      this.swaggerDocument['paths']['/dashboardCards/{owner}']['get'] = {
         summary: '',
         description: '',
         consumes: [],
@@ -381,7 +381,7 @@ export class travelRequest {
       };
     }
     this.app['get'](
-      `${this.serviceBasePath}/travelRequests/:route`,
+      `${this.serviceBasePath}/dashboardCards/:owner`,
       cookieParser(),
       this.sdService.getMiddlesWaresBySequenceId(
         null,
@@ -398,9 +398,10 @@ export class travelRequest {
             res,
             next
           );
-          //appendnew_next_sd_v64RKOvtoblXaTPA
+          bh = await this.sd_dUvqJO6ml5uG3g4p(bh);
+          //appendnew_next_sd_PpU6n71U1YpZQmE1
         } catch (e) {
-          return await this.errorHandler(bh, e, 'sd_v64RKOvtoblXaTPA');
+          return await this.errorHandler(bh, e, 'sd_PpU6n71U1YpZQmE1');
         }
       },
       this.sdService.getMiddlesWaresBySequenceId(
@@ -1181,6 +1182,59 @@ Neutrinos Travel
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_nDxhfGn3zbDnujOB');
+    }
+  }
+
+  async sd_dUvqJO6ml5uG3g4p(bh) {
+    try {
+      bh.collection = 'travelRequests';
+      console.log();
+      bh = await this.sd_skbR1c8ZRgsOMIy4(bh);
+      //appendnew_next_sd_dUvqJO6ml5uG3g4p
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_dUvqJO6ml5uG3g4p');
+    }
+  }
+
+  async sd_skbR1c8ZRgsOMIy4(bh) {
+    try {
+      bh.local.result = await MongoPersistance.getInstance().find(
+        'sd_wkl99fcRfvDmQ56X',
+        bh.collection,
+        bh.input.query,
+        {}
+      );
+      bh = await this.sd_vAWtPyyFZIul9RmT(bh);
+      //appendnew_next_sd_skbR1c8ZRgsOMIy4
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_skbR1c8ZRgsOMIy4');
+    }
+  }
+
+  async sd_vAWtPyyFZIul9RmT(bh) {
+    try {
+      bh.status = 200;
+      bh.local.response = {
+        msg: 'Cards data fetched',
+        data: bh.local.result,
+      };
+      await this.sd_A6ox9VUFNRKvZsmr(bh);
+      //appendnew_next_sd_vAWtPyyFZIul9RmT
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_vAWtPyyFZIul9RmT');
+    }
+  }
+
+  async sd_A6ox9VUFNRKvZsmr(bh) {
+    try {
+      bh.web.res.status(bh.status).send(bh.local.response);
+
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_A6ox9VUFNRKvZsmr');
     }
   }
 

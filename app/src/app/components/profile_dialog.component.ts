@@ -178,7 +178,7 @@ export class profile_dialogComponent {
       page.currentUserDetails.designation =
         page.currentUserDetails.designation.toString();
       page.profileForm.patchValue(page.currentUserDetails);
-      console.log('hiiii', page.profileForm);
+      console.log('profileForm1', page.profileForm);
       //appendnew_next_sd_MBz5EGrssnMaWTm5
       return bh;
     } catch (e) {
@@ -299,7 +299,7 @@ export class profile_dialogComponent {
     try {
       this.__page_injector__
         .get(MatSnackBar)
-        .open('Record will be updated on Login', 'OK', {
+        .open('Record updated successfully', 'OK', {
           duration: 2000,
           direction: 'ltr',
           horizontalPosition: 'center',
