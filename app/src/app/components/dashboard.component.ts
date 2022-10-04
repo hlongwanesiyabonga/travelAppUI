@@ -537,12 +537,19 @@ export class dashboardComponent {
     try {
       const page = this.page;
       bh.method = 'get';
-      // if (page.currentUserDetails.designation.includes('Travel')) {
-      //     bh.endPoint = "travelRequests/getTravelRequests";
-      // } else {
-      bh.endPoint =
-        'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
-        page.currentUserDetails.lineManagerEmail;
+      if (page.currentUserDetails.designation.includes('Travel')) {
+        bh.endPoint = 'travelRequests/getTravelRequests';
+      } else if (page.currentUserDetails.designation[0].includes('Manager')) {
+        bh.endPoint =
+          'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
+          page.currentUserDetails.owner;
+      } else {
+        bh.endPoint =
+          'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
+          page.currentUserDetails.lineManagerEmail;
+      }
+
+      console.log(bh.endPoint);
       bh = this.sd_rXcCYxeJumReEaBA(bh);
       //appendnew_next_sd_RV9cSmeHI4E5mrTS
       return bh;

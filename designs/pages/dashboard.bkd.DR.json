@@ -1608,7 +1608,7 @@
                                 },
                                 {
                                     "_key": "*ngIf",
-                                    "_value": "page?.currentUserDetails?.designation.includes('Manager')",
+                                    "_value": " page?.currentUserDetails?.designation.includes('Manager') || page?.currentUserDetails?.designation[0].includes('Manager')",
                                     "_type": "kv",
                                     "_attrDef": "c"
                                 }

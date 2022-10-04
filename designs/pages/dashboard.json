@@ -760,7 +760,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"get\";\n// if (page.currentUserDetails.designation.includes('Travel')) {\n//     bh.endPoint = \"travelRequests/getTravelRequests\";\n// } else {\n    bh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.currentUserDetails.lineManagerEmail;",
+        "script": "bh.method = \"get\";\nif (page.currentUserDetails.designation.includes('Travel')) {\n    bh.endPoint = \"travelRequests/getTravelRequests\";\n} \nelse if(page.currentUserDetails.designation[0].includes('Manager')) {\n    bh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.currentUserDetails.owner;\n    }\nelse {\n    bh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.currentUserDetails.lineManagerEmail;\n    }\n\n    console.log(bh.endPoint)",
         "functionName": "sd_RV9cSmeHI4E5mrTS",
         "category": "Function",
         "x": 525,
