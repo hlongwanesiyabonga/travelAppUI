@@ -3400,7 +3400,7 @@
                                             },
                                             {
                                                 "_key": "html",
-                                                "_value": "<mat-form-field appearance=\"outline\">\r\n    <!-- <mat-label>Requested </mat-label> -->\r\n    <input type=\"text\"\r\n    id= \"search\"\r\n    formControlName=\"requestedFor\"\r\n    (input)=\"requstedForHideandShow($event)\"\r\n           placeholder=\"Requested For\"\r\n           matInput\r\n           [matAutocomplete]=\"auto\">\r\n    <mat-autocomplete #auto=\"matAutocomplete\"  (optionSelected)=\"onSelectionChange($event)\">\r\n      <mat-option *ngFor=\"let option of page?.personaldetails\" [value]=\"option.email\">\r\n        {{option.email}}\r\n      </mat-option>\r\n    </mat-autocomplete>\r\n  </mat-form-field>",
+                                                "_value": "<mat-form-field appearance=\"outline\">\r\n    <!-- <mat-label>Requested </mat-label> -->\r\n    <input type=\"text\"\r\n    id= \"search\"\r\n    (input)=\"requstedForFilter($event)\"\r\n    formControlName =\"requestedFor\"\r\n           placeholder=\"Requested For\"\r\n           matInput\r\n           [matAutocomplete]=\"auto\">\r\n    <mat-autocomplete #auto=\"matAutocomplete\"  (optionSelected)=\"onSelectionChange($event)\">\r\n      <mat-option *ngFor=\"let option of page?.allPersonalDetails\" [value]=\"option.email\">\r\n        {{option.email}}\r\n      </mat-option>\r\n    </mat-autocomplete>\r\n  </mat-form-field>",
                                                 "_type": "a",
                                                 "_attrDef": "p"
                                             }
@@ -12435,10 +12435,10 @@
                                                                 "_attrDef": "p",
                                                                 "_customAttributeFlag": "flowpicker",
                                                                 "objValue": {
-                                                                    "nodeID": "sd_hKIdGwv5EY1dYacv",
+                                                                    "nodeID": "sd_TGuWYOJrciJo3Dgz",
                                                                     "functionName": "selectChangesFunction",
                                                                     "activeTree": "pages",
-                                                                    "z": "sd_osEacZsdUBcy4IJg",
+                                                                    "z": "sd_cL2Dk3ymewl6P3KV",
                                                                     "input": [
                                                                         "$event"
                                                                     ]
@@ -12993,15 +12993,15 @@
                                                                 },
                                                                 {
                                                                     "_key": "(selectionChange)",
-                                                                    "_value": "select($event)",
+                                                                    "_value": "toCityFunction($event)",
                                                                     "_type": "kv",
                                                                     "_attrDef": "p",
                                                                     "_customAttributeFlag": "flowpicker",
                                                                     "objValue": {
-                                                                        "nodeID": "sd_mxbCz9XxUSQZRtV6",
-                                                                        "functionName": "select",
+                                                                        "nodeID": "sd_tB7Z8H9N0Avikteq",
+                                                                        "functionName": "toCityFunction",
                                                                         "activeTree": "pages",
-                                                                        "z": "sd_osEacZsdUBcy4IJg",
+                                                                        "z": "sd_cL2Dk3ymewl6P3KV",
                                                                         "input": [
                                                                             "$event"
                                                                         ]
@@ -13800,15 +13800,15 @@
                                                                 },
                                                                 {
                                                                     "_key": "(selectionChange)",
-                                                                    "_value": "toCitySelect($event)",
+                                                                    "_value": "selectChangesFunction($event)",
                                                                     "_type": "kv",
                                                                     "_attrDef": "p",
                                                                     "_customAttributeFlag": "flowpicker",
                                                                     "objValue": {
-                                                                        "nodeID": "sd_ESLTSjDTnZmavh2m",
-                                                                        "functionName": "toCitySelect",
+                                                                        "nodeID": "sd_TGuWYOJrciJo3Dgz",
+                                                                        "functionName": "selectChangesFunction",
                                                                         "activeTree": "pages",
-                                                                        "z": "sd_osEacZsdUBcy4IJg",
+                                                                        "z": "sd_cL2Dk3ymewl6P3KV",
                                                                         "input": [
                                                                             "$event"
                                                                         ]
@@ -25848,7 +25848,7 @@
                                                 },
                                                 {
                                                     "_key": "[disabled]",
-                                                    "_value": "!page.travelForm.valid",
+                                                    "_value": "",
                                                     "_type": "kv",
                                                     "_attrDef": "p",
                                                     "_customAttributeFlag": "customInput"
@@ -26028,6 +26028,149 @@
                         "_attrDef": "p"
                     }
                 ],
+                "968a405b-0ca0-d04d-95ca-2a6233814aaf": {
+                    "paletteKey": "FlexLayoutRow",
+                    "parentEditorKey": "8ab58d9f-0265-048e-8e5c-ecd4ca56776d",
+                    "commentid": null,
+                    "designerReference": [
+                        {
+                            "_key": "componentLabel",
+                            "_value": "Row",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_useAsLabel": true
+                        },
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "dav",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxFlex",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxLayoutGap",
+                            "_value": "1em",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "wrap",
+                            "_value": "wrap",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "layoutAlign",
+                            "_value": "start",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "pLayoutAlign",
+                            "_value": "stretch",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[fxShow]",
+                            "_value": "true",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "!page.dialogData.isDraft",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        }
+                    ],
+                    "0484a59f-6289-89a5-fecc-730d70161290": {
+                        "paletteKey": "NG-RaisedButton",
+                        "parentEditorKey": "968a405b-0ca0-d04d-95ca-2a6233814aaf",
+                        "isCommented": "false",
+                        "commentid": null,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": [
+                                    "redButton"
+                                ],
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "buttonname",
+                                "_value": "Update",
+                                "_type": "a",
+                                "_attrDef": "p",
+                                "_useAsLabel": true
+                            },
+                            {
+                                "_key": "color",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "(click)",
+                                "_value": "updateForm(page.travelForm.value,page.personalDetailsForm)",
+                                "_type": "kv",
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_CZesLa44rIG0sO7y",
+                                    "functionName": "updateForm",
+                                    "activeTree": "pages",
+                                    "z": "sd_cL2Dk3ymewl6P3KV",
+                                    "input": [
+                                        "page.travelForm.value",
+                                        "page.personalDetailsForm"
+                                    ]
+                                }
+                            },
+                            {
+                                "_key": "[disabled]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[disableRipple]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "type",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "routerLink",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    }
+                },
                 "b547ea15-75a5-0f9c-93a1-01c91b209fe7": {
                     "paletteKey": "FlexLayoutRow",
                     "parentEditorKey": "8ab58d9f-0265-048e-8e5c-ecd4ca56776d",
@@ -26090,7 +26233,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "(page?.dialogData?.owner == page?.currentUserDetails?.email) && page?.currentUserDetails?.designation.includes('Manager')",
+                            "_value": "!(page?.dialogData?.owner == page?.currentUserDetails?.email) && page?.currentUserDetails?.designation.includes('Manager')",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26098,6 +26241,7 @@
                     "8c3b2b10-86f3-dc42-4352-030f1160057d": {
                         "paletteKey": "NG-RaisedButton",
                         "parentEditorKey": "b547ea15-75a5-0f9c-93a1-01c91b209fe7",
+                        "isCommented": "false",
                         "commentid": null,
                         "designerReference": [
                             {
@@ -26129,10 +26273,20 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "changeRequestStatus(page.personalDetailsForm.value ,page.travelForm.value, 'Rejected')",
+                                "_value": "requestStatusTraveller('Rejected',page.travelForm.value,page.personalDetailsForm.value)",
                                 "_type": "kv",
                                 "_attrDef": "p",
-                                "_customAttributeFlag": "customInput"
+                                "objValue": {
+                                    "nodeID": "sd_Tq9oU9hcZpfFVv47",
+                                    "functionName": "requestStatusTraveller",
+                                    "activeTree": "pages",
+                                    "z": "sd_cL2Dk3ymewl6P3KV",
+                                    "input": [
+                                        "'Rejected'",
+                                        "page.travelForm.value",
+                                        "page.personalDetailsForm.value"
+                                    ]
+                                }
                             },
                             {
                                 "_key": "[disabled]",
@@ -26194,10 +26348,20 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "changeRequestStatus(page.personalDetailsForm.value ,page.travelForm.value, 'Approved')",
+                                "_value": "requestStatusTraveller('Awaiting LM Quote Approval',page.travelForm.value,page.personalDetailsForm.value)",
                                 "_type": "kv",
                                 "_attrDef": "p",
-                                "_customAttributeFlag": "customInput"
+                                "objValue": {
+                                    "nodeID": "sd_Tq9oU9hcZpfFVv47",
+                                    "functionName": "requestStatusTraveller",
+                                    "activeTree": "pages",
+                                    "z": "sd_cL2Dk3ymewl6P3KV",
+                                    "input": [
+                                        "'Awaiting LM Quote Approval'",
+                                        "page.travelForm.value",
+                                        "page.personalDetailsForm.value"
+                                    ]
+                                }
                             },
                             {
                                 "_key": "[disabled]",
@@ -26523,15 +26687,17 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "changeQuoteStatus('Rejected')",
+                                "_value": "changeRequestStatus(page.personalDetailsForm.value,page.travelForm.value,'Rejected')",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "objValue": {
-                                    "nodeID": "sd_dvssffiSBQPubuzh",
-                                    "functionName": "changeQuoteStatus",
+                                    "nodeID": "sd_EFqi8sYgMWZKikYj",
+                                    "functionName": "changeRequestStatus",
                                     "activeTree": "pages",
                                     "z": "sd_cL2Dk3ymewl6P3KV",
                                     "input": [
+                                        "page.personalDetailsForm.value",
+                                        "page.travelForm.value",
                                         "'Rejected'"
                                     ]
                                 }
@@ -26596,16 +26762,18 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "changeQuoteStatus('Approved')",
+                                "_value": "changeRequestStatus(page.personalDetailsForm.value,page.TravelForm.value,'Accepted')",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "objValue": {
-                                    "nodeID": "sd_dvssffiSBQPubuzh",
-                                    "functionName": "changeQuoteStatus",
+                                    "nodeID": "sd_EFqi8sYgMWZKikYj",
+                                    "functionName": "changeRequestStatus",
                                     "activeTree": "pages",
                                     "z": "sd_cL2Dk3ymewl6P3KV",
                                     "input": [
-                                        "'Approved'"
+                                        "page.personalDetailsForm.value",
+                                        "page.TravelForm.value",
+                                        "'Accepted'"
                                     ]
                                 }
                             },
@@ -26708,7 +26876,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "page.currentUserDetails.email == page.requesterDetails.email && page?.dialogData?.managerApproval.approvedRequest == null",
+                            "_value": "page.dialogData.isDraft && page.currentUserDetails.email == page.requesterDetails.email && page?.dialogData?.managerApproval.approvedRequest == null",
                             "_type": "kv",
                             "_attrDef": "c"
                         }

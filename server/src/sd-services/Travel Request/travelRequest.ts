@@ -203,8 +203,8 @@ export class travelRequest {
       )
     );
 
-    if (!this.swaggerDocument['paths']['/updateTravelRequest/{id}']) {
-      this.swaggerDocument['paths']['/updateTravelRequest/{id}'] = {
+    if (!this.swaggerDocument['paths']['/updateTravelRequest/{_id}']) {
+      this.swaggerDocument['paths']['/updateTravelRequest/{_id}'] = {
         put: {
           summary: '',
           description: '',
@@ -215,7 +215,7 @@ export class travelRequest {
         },
       };
     } else {
-      this.swaggerDocument['paths']['/updateTravelRequest/{id}']['put'] = {
+      this.swaggerDocument['paths']['/updateTravelRequest/{_id}']['put'] = {
         summary: '',
         description: '',
         consumes: [],
@@ -225,7 +225,7 @@ export class travelRequest {
       };
     }
     this.app['put'](
-      `${this.serviceBasePath}/updateTravelRequest/:id`,
+      `${this.serviceBasePath}/updateTravelRequest/:_id`,
       cookieParser(),
       this.sdService.getMiddlesWaresBySequenceId(
         null,

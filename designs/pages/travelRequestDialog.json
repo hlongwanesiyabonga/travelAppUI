@@ -943,7 +943,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`\n//page.personalDetailsForm?.value?.requester?.patchValue(page.requester)",
+        "script": "page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`\n//page.personalDetailsForm?.value?.requester?.patchValue(page.requester)\n\n\n",
         "functionName": "sd_tSte3OpGPIhzRDnX",
         "category": "Function",
         "x": 1205,
@@ -1017,14 +1017,15 @@
         "serviceImportPath": "./travelRequestDialog",
         "startName": "prepopulateDialogData",
         "inputParams": [],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_URlPiFkFJorKKLLm",
         "category": "General",
         "x": 1285,
         "y": 60,
         "wires": [
-            []
+            [
+                "sd_OTQGYEVaD9R5IRGe"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -1640,7 +1641,7 @@
         "functionName": "sd_ekAUZaEpB7sWNNPr",
         "category": "Dialog",
         "x": 205,
-        "y": 640,
+        "y": 620,
         "wires": [
             []
         ],
@@ -1720,7 +1721,9 @@
         "x": 605,
         "y": 520,
         "wires": [
-            []
+            [
+                "sd_Ag5fy3KWe9Rew5iv"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -1810,16 +1813,16 @@
         "isValidNode": true,
         "noerr": 0,
         "service": {
-            "id": "sd_hkAMxxfqyGUP7RIf",
+            "id": "sd_RlbkgAJauuYtTx07",
             "type": "tab",
-            "createdDate": "2022-06-28T19:32:02.953Z",
+            "createdDate": "2022-09-29T08:41:02.628Z",
             "label": "callServerApis",
             "disabled": false,
             "info": "",
             "functionSeq": 0
         },
         "flow": {
-            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
             "flowName": "dynamic"
         },
         "inputVariables": [
@@ -1846,10 +1849,10 @@
             {
                 "mapVarType": "local",
                 "key": "result",
-                "valueType": "bh",
+                "valueType": "bh.local",
                 "value": "result",
                 "mapVarName": "result",
-                "localVar": "bh.result"
+                "localVar": "bh.local.result"
             }
         ],
         "serviceImportPath": "app/sd-services/callServerApis",
@@ -1867,7 +1870,7 @@
         "y": 800,
         "wires": [
             [
-                "sd_R5aauixGFNWisl7U"
+                "sd_OtssZMzdCWndEOlS"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -1922,58 +1925,6 @@
         "__n_excludedFromValidation__": {},
         "generateNext": true,
         "serviceName": "travelRequestDialogComponent"
-    },
-    {
-        "id": "sd_NRqiL4Drp9FgOW4w",
-        "type": "PageStart",
-        "z": "sd_cL2Dk3ymewl6P3KV",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "uploadQuote",
-        "outputs": 1,
-        "inputVariables": [
-            {
-                "key": "event",
-                "defaultValue": {
-                    "type": "any",
-                    "value": ""
-                },
-                "output": false
-            }
-        ],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "uploadQuote",
-        "category": "General",
-        "x": 145,
-        "y": 1060,
-        "wires": [
-            [
-                "sd_298aMzFjLJThnjmH"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "travelRequestDialogComponent"
-    },
-    {
-        "id": "sd_298aMzFjLJThnjmH",
-        "type": "Script",
-        "z": "sd_cL2Dk3ymewl6P3KV",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "if (bh.input.event.target.files.length > 0) {\n  const file = bh.input.event.target.files[0];\n  var reader = new FileReader();\n  reader.readAsDataURL(file);\n  reader.onload = function () {\n    page.quoteForm.quote = reader.result;\n  \n  };\n  reader.onerror = function (error) {\n    console.log('Error: ', error);\n  };\n}\n\n",
-        "functionName": "sd_298aMzFjLJThnjmH",
-        "category": "Function",
-        "x": 285,
-        "y": 1060,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
     },
     {
         "id": "sd_SqiOu03c1MIgMpeg",
@@ -2040,16 +1991,16 @@
         "isValidNode": true,
         "noerr": 0,
         "service": {
-            "id": "sd_hkAMxxfqyGUP7RIf",
+            "id": "sd_RlbkgAJauuYtTx07",
             "type": "tab",
-            "createdDate": "2022-06-28T19:32:02.953Z",
+            "createdDate": "2022-09-29T08:41:02.628Z",
             "label": "callServerApis",
             "disabled": false,
             "info": "",
             "functionSeq": 0
         },
         "flow": {
-            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
             "flowName": "dynamic"
         },
         "inputVariables": [
@@ -2096,187 +2047,7 @@
         "x": 505,
         "y": 960,
         "wires": [
-            [
-                "sd_R5aauixGFNWisl7U"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_JPnQHEVuJWD5ID0h",
-        "type": "PageStart",
-        "z": "sd_cL2Dk3ymewl6P3KV",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "getQuote",
-        "outputs": 1,
-        "inputVariables": [],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "getQuote",
-        "category": "General",
-        "x": 145,
-        "y": 1180,
-        "wires": [
-            [
-                "sd_iIRQFVYLleVfwNsZ"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "travelRequestDialogComponent"
-    },
-    {
-        "id": "sd_iIRQFVYLleVfwNsZ",
-        "type": "Script",
-        "z": "sd_cL2Dk3ymewl6P3KV",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "bh.method =\"get\";\nbh.endPoint=\"getQuote?owner=\" + page.dialogData._id\n\n\n",
-        "functionName": "sd_iIRQFVYLleVfwNsZ",
-        "category": "Function",
-        "x": 225,
-        "y": 1180,
-        "wires": [
-            [
-                "sd_RzFkzUHyAN9NZQSy"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_RzFkzUHyAN9NZQSy",
-        "type": "PageCallService",
-        "z": "sd_cL2Dk3ymewl6P3KV",
-        "viewType": "pages",
-        "nodeType": "flow",
-        "name": "",
-        "outputs": 1,
-        "isValidNode": true,
-        "noerr": 0,
-        "service": {
-            "id": "sd_hkAMxxfqyGUP7RIf",
-            "type": "tab",
-            "createdDate": "2022-06-28T19:32:02.953Z",
-            "label": "callServerApis",
-            "disabled": false,
-            "info": "",
-            "functionSeq": 0
-        },
-        "flow": {
-            "flowId": "sd_alQ4JDGbxbp70Zlt",
-            "flowName": "dynamic"
-        },
-        "inputVariables": [
-            {
-                "key": "endPoint",
-                "map": true,
-                "valueType": "bh",
-                "value": "endPoint"
-            },
-            {
-                "key": "method",
-                "map": true,
-                "valueType": "bh",
-                "value": "method"
-            },
-            {
-                "key": "body",
-                "map": true,
-                "valueType": "this.page",
-                "value": ""
-            }
-        ],
-        "outputMapping": [
-            {
-                "mapVarType": "local",
-                "key": "result",
-                "valueType": "this.page",
-                "value": "quoteFromDB",
-                "mapVarName": "result",
-                "localVar": "this.page.quoteFromDB"
-            }
-        ],
-        "serviceImportPath": "app/sd-services/callServerApis",
-        "startName": "dynamic",
-        "inputParams": [
-            "bh.endPoint",
-            "bh.method",
-            null
-        ],
-        "accept_bh": false,
-        "accept_csd": true,
-        "functionName": "sd_RzFkzUHyAN9NZQSy",
-        "category": "General",
-        "x": 345,
-        "y": 1180,
-        "wires": [
-            [
-                "sd_Jc8YWSCZVxNjVecu"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_Xj5ZPqKMsm5s9mbo",
-        "type": "Script",
-        "z": "sd_cL2Dk3ymewl6P3KV",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "page.quotes = page.quoteFromDB['data'];\n\nconsole.log(page.quotes,' zzzzz');",
-        "functionName": "sd_Xj5ZPqKMsm5s9mbo",
-        "category": "Function",
-        "x": 565,
-        "y": 1180,
-        "wires": [
             []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_Jc8YWSCZVxNjVecu",
-        "type": "UseDependency",
-        "z": "sd_cL2Dk3ymewl6P3KV",
-        "viewType": "client-pages",
-        "nodeType": "flow",
-        "name": "",
-        "inputs": 1,
-        "outputs": 1,
-        "property": "",
-        "propertyType": "bh",
-        "propertyGv": "bh.",
-        "alias": "",
-        "modules": [
-            {
-                "textIp": "DomSanitizer",
-                "typedIpValue": {
-                    "type": "this.page",
-                    "value": "sanitizer"
-                },
-                "injectable": true
-            }
-        ],
-        "import_all": false,
-        "library": "@angular/platform-browser",
-        "serviceDesignerType": "pages",
-        "functionName": "sd_Jc8YWSCZVxNjVecu",
-        "category": "Function",
-        "x": 460,
-        "y": 1180,
-        "wires": [
-            [
-                "sd_Xj5ZPqKMsm5s9mbo"
-            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -2293,7 +2064,7 @@
         "functionName": "sd_mtwXryArY7EL8Q3c",
         "category": "Dialog",
         "x": 565,
-        "y": 1340,
+        "y": 1060,
         "wires": [
             [
                 "sd_C8KiWwUgpBWklLzB"
@@ -2321,10 +2092,11 @@
         "functionName": "sd_8uLa6zbDYq5f2Hu6",
         "category": "Function",
         "x": 245,
-        "y": 1340,
+        "y": 1060,
         "wires": [
             [
-                "sd_ZMCWukq9Nat0FeZW"
+                "sd_ZMCWukq9Nat0FeZW",
+                "sd_MFl57GZUZpvQZPwK"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -2342,16 +2114,16 @@
         "isValidNode": true,
         "noerr": 0,
         "service": {
-            "id": "sd_hkAMxxfqyGUP7RIf",
+            "id": "sd_RlbkgAJauuYtTx07",
             "type": "tab",
-            "createdDate": "2022-06-28T19:32:02.953Z",
+            "createdDate": "2022-09-29T08:41:02.628Z",
             "label": "callServerApis",
             "disabled": false,
             "info": "",
             "functionSeq": 0
         },
         "flow": {
-            "flowId": "sd_alQ4JDGbxbp70Zlt",
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
             "flowName": "dynamic"
         },
         "inputVariables": [
@@ -2396,7 +2168,7 @@
         "functionName": "sd_ZMCWukq9Nat0FeZW",
         "category": "General",
         "x": 345,
-        "y": 1340,
+        "y": 1060,
         "wires": [
             [
                 "sd_ZngVljrbmTSgDzVA"
@@ -2417,7 +2189,7 @@
         "functionName": "sd_ZngVljrbmTSgDzVA",
         "category": "Function",
         "x": 445,
-        "y": 1340,
+        "y": 1060,
         "wires": [
             [
                 "sd_mtwXryArY7EL8Q3c"
@@ -2450,7 +2222,7 @@
         "functionName": "changeQuoteStatus",
         "category": "General",
         "x": 125,
-        "y": 1340,
+        "y": 1060,
         "wires": [
             [
                 "sd_8uLa6zbDYq5f2Hu6"
@@ -2491,7 +2263,7 @@
         "functionName": "sd_C8KiWwUgpBWklLzB",
         "category": "General",
         "x": 680,
-        "y": 1340,
+        "y": 1060,
         "wires": [
             []
         ],
@@ -2574,49 +2346,9 @@
         "y": 960,
         "wires": [
             [
-                "sd_mhsxhNaNNWIp4Xpv"
+                "sd_mhsxhNaNNWIp4Xpv",
+                "sd_OtssZMzdCWndEOlS"
             ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_R5aauixGFNWisl7U",
-        "type": "PageCallService",
-        "z": "sd_cL2Dk3ymewl6P3KV",
-        "viewType": "pages",
-        "nodeType": "flow",
-        "name": "",
-        "outputs": 1,
-        "isValidNode": true,
-        "noerr": 0,
-        "service": {
-            "id": "sd_cL2Dk3ymewl6P3KV",
-            "type": "tab",
-            "createdDate": "2022-09-24T19:30:59.140Z",
-            "label": "travelRequestDialog",
-            "disabled": false,
-            "info": "",
-            "functionSeq": 0
-        },
-        "flow": {
-            "flowId": "sd_ezoaygaWeGwsmasO",
-            "flowName": "closeDialog"
-        },
-        "inputVariables": [],
-        "outputMapping": [],
-        "serviceImportPath": "./travelRequestDialog",
-        "startName": "closeDialog",
-        "inputParams": [],
-        "accept_bh": false,
-        "accept_csd": false,
-        "functionName": "sd_R5aauixGFNWisl7U",
-        "category": "General",
-        "x": 640,
-        "y": 860,
-        "wires": [
-            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -2640,5 +2372,364 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_MFl57GZUZpvQZPwK",
+        "type": "CloseDialog",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "bh.local.res",
+        "functionName": "sd_MFl57GZUZpvQZPwK",
+        "category": "Dialog",
+        "x": 345,
+        "y": 1140,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "res",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_OtssZMzdCWndEOlS",
+        "type": "CloseDialog",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "bh.local.result",
+        "functionName": "sd_OtssZMzdCWndEOlS",
+        "category": "Dialog",
+        "x": 481,
+        "y": 907.8125,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "result",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_yxxuCIhwWFxcjJmq",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(bh.input.status, 'ssss');\npage.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\": bh.input.status,\n    \"managerApproval\" : {\n        \"approvedRequest\": null,\n        \"comments\" : \"\"\n    },\n    \"owner\": page.personalDetailsForm.value.email,\n    \"dateCreated\": page.dialogData.dateCreated\n    };\n\n    console.log(page.formObj, 'formmmmm')\nbh.method = 'put';\nbh.endPoint = \"updateRequestStatus/\" + page.dialogData._id;",
+        "functionName": "sd_yxxuCIhwWFxcjJmq",
+        "category": "Function",
+        "x": 345,
+        "y": 700,
+        "wires": [
+            [
+                "sd_Sm2obKZqcdW8Yidf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Tq9oU9hcZpfFVv47",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "RequestStatusTraveller",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "status",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "personalDetailsForm",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "requestStatusTraveller",
+        "category": "General",
+        "x": 225,
+        "y": 700,
+        "wires": [
+            [
+                "sd_yxxuCIhwWFxcjJmq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_Ag5fy3KWe9Rew5iv",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(page.dialogData,\"showDrafts\")\n",
+        "functionName": "sd_Ag5fy3KWe9Rew5iv",
+        "category": "Function",
+        "x": 712,
+        "y": 518.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_OTQGYEVaD9R5IRGe",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(page.showDrafts,\"showDrafts\")\n\n",
+        "functionName": "sd_OTQGYEVaD9R5IRGe",
+        "category": "Function",
+        "x": 1368,
+        "y": 56.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_CZesLa44rIG0sO7y",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "updateForm",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "personalDetailsForm",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "updateForm",
+        "category": "General",
+        "x": 385,
+        "y": 620,
+        "wires": [
+            [
+                "sd_W3spsxyROsNc9uRj"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_W3spsxyROsNc9uRj",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.formObj = {\n   \"personalDetails\" : bh.input.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n  \"status\" : page.dialogData.status,\n  \"managerApproval\" : {\n      \"approvedRequest\" : page.dialogData.managerApproval.approvedRequest,\n      \"comments\" : page.dialogData.managerApproval.comments,\n   },\n  \"owner\" :  page.personalDetailsForm.value.email,\n  \"dateCreated\" : page.dialogData.dateCreated\n}\n\n\nconsole.log(\"page.formObj\",page.formObj)\nbh.method = 'put';\nbh.endPoint = \"updateTravelRequest/\" + page.dialogData._id;",
+        "functionName": "sd_W3spsxyROsNc9uRj",
+        "category": "Function",
+        "x": 545,
+        "y": 620,
+        "wires": [
+            [
+                "sd_0o99E73yxJviz1Me"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_0o99E73yxJviz1Me",
+        "type": "PageCallService",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "this.page",
+                "value": "formObj"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh.local",
+                "value": "result",
+                "mapVarName": "result",
+                "localVar": "bh.local.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            "this.page.formObj"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_0o99E73yxJviz1Me",
+        "category": "General",
+        "x": 645,
+        "y": 640,
+        "wires": [
+            [
+                "sd_IXOssdlObdvDGDDh"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_IXOssdlObdvDGDDh",
+        "type": "CloseDialog",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.res",
+        "functionName": "sd_IXOssdlObdvDGDDh",
+        "category": "Dialog",
+        "x": 745,
+        "y": 680,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "res",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_X57X06SUAD6WyGtg",
+        "type": "SnackBar",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Request successfully updated"
+        },
+        "action": {
+            "type": "str",
+            "value": "Close"
+        },
+        "duration": {
+            "type": "num",
+            "value": "2000"
+        },
+        "horizontalPosition": "center",
+        "verticalPosition": "bottom",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_X57X06SUAD6WyGtg",
+        "category": "General",
+        "x": 833,
+        "y": 669.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]

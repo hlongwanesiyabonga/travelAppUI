@@ -613,10 +613,10 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.data = page.receivedTableData['data'].find(obj => bh.input.selectedRowID == obj._id);\n\n",
+        "script": "bh.data = page.receivedTableData['data'].find(obj => bh.input.selectedRowID == obj._id);\nbh.data.isDraft = false",
         "functionName": "sd_mt8Cw5ZGD0NQSUMB",
         "category": "Function",
-        "x": 325,
+        "x": 305,
         "y": 420,
         "wires": [
             [

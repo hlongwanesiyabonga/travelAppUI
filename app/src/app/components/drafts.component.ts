@@ -362,6 +362,7 @@ export class draftsComponent {
       bh.data = page.receivedTableData['data'].find(
         (obj) => bh.input.selectedRowID == obj._id
       );
+      bh.data.isDraft = true;
 
       bh = this.sd_TaDCMBsR0KXkD63u(bh);
       //appendnew_next_sd_jL3NCJrsQ1UzdJuZ

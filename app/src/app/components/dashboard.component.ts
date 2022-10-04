@@ -426,7 +426,7 @@ export class dashboardComponent {
       bh.data = page.receivedTableData['data'].find(
         (obj) => bh.input.selectedRowID == obj._id
       );
-
+      bh.data.isDraft = false;
       bh = this.sd_ESipJh6js5V3RPHV(bh);
       //appendnew_next_sd_mt8Cw5ZGD0NQSUMB
       return bh;

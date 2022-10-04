@@ -40,6 +40,7 @@
                 }
             }
         },
+        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -325,6 +326,7 @@
                 }
             }
         },
+        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -757,7 +759,7 @@
         "viewType": "server",
         "nodeType": "start",
         "name": "",
-        "path": "/updateTravelRequest/:id",
+        "path": "/updateTravelRequest/:_id",
         "uploadpath": "",
         "summary": "",
         "description": "",
@@ -768,7 +770,7 @@
         "filetype": "path",
         "acceptFileUpload": false,
         "httpOptions": {
-            "/updateTravelRequest/:id": {
+            "/updateTravelRequest/:_id": {
                 "put": {
                     "summary": "",
                     "description": "",
