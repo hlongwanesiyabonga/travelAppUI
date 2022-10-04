@@ -18,7 +18,6 @@ import { MatTableDataSource } from '@angular/material/table'; //_splitter_
 import { MatPaginator } from '@angular/material/paginator'; //_splitter_
 import { MatSort } from '@angular/material/sort'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
-import { Router } from '@angular/router'; //_splitter_
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'; //_splitter_
 import { travelRequestDialogComponent } from './travelRequestDialog.component'; //_splitter_
 //append_imports_end
@@ -70,20 +69,6 @@ export class dashboardComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_DEpURkbQd1yC7evr');
-    }
-  }
-
-  goTo(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_aLNXjBcLPztCW64j(bh);
-      //appendnew_next_goTo
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_mrXvkf0duurSdFDY');
     }
   }
 
@@ -404,22 +389,6 @@ export class dashboardComponent {
     }
   }
 
-  async sd_aLNXjBcLPztCW64j(bh) {
-    try {
-      const { paramObj: qprm, path: path } =
-        this.sdService.getPathAndQParamsObj('/home/new-request');
-      await this.__page_injector__
-        .get(Router)
-        .navigate([this.sdService.formatPathWithParams(path, undefined)], {
-          queryParams: Object.assign(qprm, ''),
-        });
-      //appendnew_next_sd_aLNXjBcLPztCW64j
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_aLNXjBcLPztCW64j');
-    }
-  }
-
   sd_mt8Cw5ZGD0NQSUMB(bh) {
     try {
       const page = this.page;
@@ -542,7 +511,7 @@ export class dashboardComponent {
       } else if (page.currentUserDetails.designation[0].includes('Manager')) {
         bh.endPoint =
           'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
-          page.currentUserDetails.owner;
+          page.currentUserDetails.email;
       } else {
         bh.endPoint =
           'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +

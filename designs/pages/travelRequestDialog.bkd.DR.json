@@ -26090,7 +26090,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "!page.dialogData.isDraft",
+                            "_value": "!page.dialogData.isDraft && ( !(page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') || page?.currentUserDetails?.designation.includes('Manager') ))",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26233,7 +26233,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "!(page?.dialogData?.owner == page?.currentUserDetails?.email) && page?.currentUserDetails?.designation.includes('Manager')",
+                            "_value": "!page.dialogData.isDraft &&(page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') || page?.currentUserDetails?.designation.includes('Manager'))",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26273,18 +26273,18 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "requestStatusTraveller('Rejected',page.travelForm.value,page.personalDetailsForm.value)",
+                                "_value": "changeRequestStatus(page.personalDetailsForm.value,page.travelForm.value,'Rejected')",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "objValue": {
-                                    "nodeID": "sd_Tq9oU9hcZpfFVv47",
-                                    "functionName": "requestStatusTraveller",
+                                    "nodeID": "sd_EFqi8sYgMWZKikYj",
+                                    "functionName": "changeRequestStatus",
                                     "activeTree": "pages",
                                     "z": "sd_cL2Dk3ymewl6P3KV",
                                     "input": [
-                                        "'Rejected'",
+                                        "page.personalDetailsForm.value",
                                         "page.travelForm.value",
-                                        "page.personalDetailsForm.value"
+                                        "'Rejected'"
                                     ]
                                 }
                             },
@@ -26348,24 +26348,24 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "requestStatusTraveller('Awaiting LM Quote Approval',page.travelForm.value,page.personalDetailsForm.value)",
+                                "_value": "changeRequestStatus(page.personalDetailsForm.value,page.travelForm.value,'Approved')",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "objValue": {
-                                    "nodeID": "sd_Tq9oU9hcZpfFVv47",
-                                    "functionName": "requestStatusTraveller",
+                                    "nodeID": "sd_EFqi8sYgMWZKikYj",
+                                    "functionName": "changeRequestStatus",
                                     "activeTree": "pages",
                                     "z": "sd_cL2Dk3ymewl6P3KV",
                                     "input": [
-                                        "'Awaiting LM Quote Approval'",
+                                        "page.personalDetailsForm.value",
                                         "page.travelForm.value",
-                                        "page.personalDetailsForm.value"
+                                        "'Approved'"
                                     ]
                                 }
                             },
                             {
                                 "_key": "[disabled]",
-                                "_value": "",
+                                "_value": "false",
                                 "_type": "kv",
                                 "_attrDef": "p"
                             },

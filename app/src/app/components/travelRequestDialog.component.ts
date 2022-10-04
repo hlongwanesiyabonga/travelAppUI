@@ -347,29 +347,6 @@ export class travelRequestDialogComponent {
     }
   }
 
-  requestStatusTraveller(
-    status: any = undefined,
-    form: any = undefined,
-    personalDetailsForm: any = undefined,
-    ...others
-  ) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {
-        status: status,
-        form: form,
-        personalDetailsForm: personalDetailsForm,
-      };
-      bh.local = {};
-      bh = this.sd_yxxuCIhwWFxcjJmq(bh);
-      //appendnew_next_requestStatusTraveller
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Tq9oU9hcZpfFVv47');
-    }
-  }
-
   updateForm(
     form: any = undefined,
     personalDetailsForm: any = undefined,
@@ -1208,9 +1185,6 @@ export class travelRequestDialogComponent {
         );
       });
 
-      console.log(page.dialogData, 'pd');
-
-      bh = this.sd_Ag5fy3KWe9Rew5iv(bh);
       //appendnew_next_sd_wMYU8X4lRNJtGwOu
       return bh;
     } catch (e) {
@@ -1218,35 +1192,20 @@ export class travelRequestDialogComponent {
     }
   }
 
-  sd_Ag5fy3KWe9Rew5iv(bh) {
-    try {
-      const page = this.page;
-      console.log(page.dialogData, 'showDrafts');
-
-      //appendnew_next_sd_Ag5fy3KWe9Rew5iv
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_Ag5fy3KWe9Rew5iv');
-    }
-  }
-
   sd_y9vlZQis7lSv62t7(bh) {
     try {
       const page = this.page;
-      console.log(bh.input.status, 'ssss');
       page.formObj = {
-        personalDetails: page.personalDetailsForm.value,
+        personalDetails: bh.input.personalDetailsForm,
         requestDetails: bh.input.form.requestDetails,
         status: page.dialogData.status,
         managerApproval: {
           approvedRequest: bh.input.status,
           comments: '',
         },
-        owner: page.personalDetailsForm.value.email,
+        owner: bh.input.personalDetailsForm.email,
         dateCreated: page.dialogData.dateCreated,
       };
-
-      console.log(page.formObj, 'formmmmm');
       bh.method = 'put';
       bh.endPoint = 'updateRequestStatus/' + page.dialogData._id;
       bh = this.sd_ZSXmvr6fjl6MgmV1(bh);
@@ -1462,33 +1421,6 @@ export class travelRequestDialogComponent {
     }
   }
 
-  sd_yxxuCIhwWFxcjJmq(bh) {
-    try {
-      const page = this.page;
-      console.log(bh.input.status, 'ssss');
-      page.formObj = {
-        personalDetails: page.personalDetailsForm.value,
-        requestDetails: bh.input.form.requestDetails,
-        status: bh.input.status,
-        managerApproval: {
-          approvedRequest: null,
-          comments: '',
-        },
-        owner: page.personalDetailsForm.value.email,
-        dateCreated: page.dialogData.dateCreated,
-      };
-
-      console.log(page.formObj, 'formmmmm');
-      bh.method = 'put';
-      bh.endPoint = 'updateRequestStatus/' + page.dialogData._id;
-      bh = this.sd_Sm2obKZqcdW8Yidf(bh);
-      //appendnew_next_sd_yxxuCIhwWFxcjJmq
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_yxxuCIhwWFxcjJmq');
-    }
-  }
-
   sd_W3spsxyROsNc9uRj(bh) {
     try {
       const page = this.page;
@@ -1504,14 +1436,31 @@ export class travelRequestDialogComponent {
         dateCreated: page.dialogData.dateCreated,
       };
 
-      console.log('page.formObj', page.formObj);
       bh.method = 'put';
       bh.endPoint = 'updateTravelRequest/' + page.dialogData._id;
-      bh = this.sd_0o99E73yxJviz1Me(bh);
+      bh = this.sd_X57X06SUAD6WyGtg(bh);
       //appendnew_next_sd_W3spsxyROsNc9uRj
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_W3spsxyROsNc9uRj');
+    }
+  }
+
+  sd_X57X06SUAD6WyGtg(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Request successfully updated', 'Close', {
+          duration: 2000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      bh = this.sd_0o99E73yxJviz1Me(bh);
+      //appendnew_next_sd_X57X06SUAD6WyGtg
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_X57X06SUAD6WyGtg');
     }
   }
 
