@@ -1,8 +1,8 @@
 [
     {
-        "id": "sd_mhzPq7DxG6rc0cMC",
+        "id": "sd_Dk9bv9lCwFvu4FwY",
         "type": "tab",
-        "createdDate": "2022-10-04T13:40:03.166Z",
+        "createdDate": "2022-10-03T11:41:22.769Z",
         "label": "quotes",
         "disabled": false,
         "info": "",
@@ -11,19 +11,19 @@
         "serviceName": "quotesComponent"
     },
     {
-        "id": "sd_jrqtC7jWKIgXD5Oi",
+        "id": "sd_znKUEplcwIANlqCI",
         "type": "OnInit",
-        "z": "sd_mhzPq7DxG6rc0cMC",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
         "viewType": "common",
         "nodeType": "start",
         "name": "",
-        "functionName": "sd_jrqtC7jWKIgXD5Oi",
+        "functionName": "sd_znKUEplcwIANlqCI",
         "category": "Lifecycle Events",
-        "x": 30,
-        "y": 30,
+        "x": 85,
+        "y": 80,
         "wires": [
             [
-                "sd_tKSvaxJSWUNG5312"
+                "sd_cgjvGNRGsSbI6NNp"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -31,20 +31,656 @@
         "serviceName": "quotesComponent"
     },
     {
-        "id": "sd_tKSvaxJSWUNG5312",
+        "id": "sd_cgjvGNRGsSbI6NNp",
         "type": "PageVariables",
-        "z": "sd_mhzPq7DxG6rc0cMC",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
         "viewType": "pages",
         "nodeType": "flow",
         "name": "",
         "inputs": 1,
         "outputs": 1,
         "operation": "set",
-        "globalVariables": [],
-        "functionName": "sd_tKSvaxJSWUNG5312",
+        "globalVariables": [
+            {
+                "textIp": "quotesForm",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "futureDate1",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "date1",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "newDate1",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "futureDate2",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "futureDate3",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "newDate2",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "newDate3",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_cgjvGNRGsSbI6NNp",
         "category": "Function",
-        "x": 180,
-        "y": 30,
+        "x": 185,
+        "y": 80,
+        "wires": [
+            [
+                "sd_RZCp6cZJCptTlpe8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_RZCp6cZJCptTlpe8",
+        "type": "UseDependency",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ReactiveFormsModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FG"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_RZCp6cZJCptTlpe8",
+        "category": "Function",
+        "x": 285,
+        "y": 80,
+        "wires": [
+            [
+                "sd_hQUY9Gozmxxhhaeu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_hQUY9Gozmxxhhaeu",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.quotesForm = new FormGroup({\n  // quote 1 \n    selectedQuote: new FormControl('', [Validators.required]),\n    q1dep1: new FormControl('', [Validators.required]),\n    q1arrival1: new FormControl('', [Validators.required]),\n    q1dep2: new FormControl('', [Validators.required]),\n    q1arrival2: new FormControl('', [Validators.required]),\n    q1airline: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    q1cost: new FormControl('',[Validators.required, Validators.pattern('[0-9]{3}-[0-9]{3}-[0-9]{4}')]),\n      // quote 2 \n    q2dep1: new FormControl('', [Validators.required]),\n    q2arrival1: new FormControl('', [Validators.required]),\n    q2dep2: new FormControl('', [Validators.required]),\n    q2arrival2: new FormControl('', [Validators.required]),\n    q2airline: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    q2cost: new FormControl('',[Validators.required, Validators.pattern('[0-9]{3}-[0-9]{3}-[0-9]{4}')]),\n      // quote 3 \n    q3dep1: new FormControl('', [Validators.required]),\n    q3arrival1: new FormControl('', [Validators.required]),\n    q3dep2: new FormControl('', [Validators.required]),\n    q3arrival2: new FormControl('', [Validators.required]),\n    q3airline: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    q3cost: new FormControl('',[Validators.required, Validators.pattern('[0-9]{3}-[0-9]{3}-[0-9]{4}')]),\n  });",
+        "functionName": "sd_hQUY9Gozmxxhhaeu",
+        "category": "Function",
+        "x": 365,
+        "y": 80,
+        "wires": [
+            [
+                "sd_8oV5f7Ww7v98j4WX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_8oV5f7Ww7v98j4WX",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.date1= new Date();\n\npage.date2= new Date();\n\npage.date3= new Date();\n\npage.date4= new Date();\n\npage.date5= new Date();\n\npage.date6= new Date();\n\n",
+        "functionName": "sd_8oV5f7Ww7v98j4WX",
+        "category": "Function",
+        "x": 460,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_M4z77KZBYJr81d8c",
+        "type": "PageStart",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "dateChange1",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "dateChange1",
+        "category": "General",
+        "x": 105,
+        "y": 180,
+        "wires": [
+            [
+                "sd_aRSO3a6ORoprJ0Af"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_aRSO3a6ORoprJ0Af",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate1 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_aRSO3a6ORoprJ0Af",
+        "category": "Function",
+        "x": 230,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_qIydbBgUiwP3EQV1",
+        "type": "PageStart",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "thirdDateChange1",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "thirdDateChange1",
+        "category": "General",
+        "x": 525,
+        "y": 180,
+        "wires": [
+            [
+                "sd_kxqGIMoACrK2FA1S"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_kxqGIMoACrK2FA1S",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate2 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_kxqGIMoACrK2FA1S",
+        "category": "Function",
+        "x": 650,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_3naZp0dGr22104xP",
+        "type": "PageStart",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "secondDateChange1",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "secondDateChange1",
+        "category": "General",
+        "x": 305,
+        "y": 180,
+        "wires": [
+            [
+                "sd_Zo685J7qBTu3uaD1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_Zo685J7qBTu3uaD1",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.newDate1 = new Date(bh.input.date.value);",
+        "functionName": "sd_Zo685J7qBTu3uaD1",
+        "category": "Function",
+        "x": 430,
+        "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_C3xYsL7WwwnH5JAN",
+        "type": "PageStart",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "dateChange2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "dateChange2",
+        "category": "General",
+        "x": 105,
+        "y": 260,
+        "wires": [
+            [
+                "sd_WcPxXuFnYI3m9cxU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_WcPxXuFnYI3m9cxU",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate3 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_WcPxXuFnYI3m9cxU",
+        "category": "Function",
+        "x": 230,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_7d0uk5aVu9AGiTPm",
+        "type": "PageStart",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "thirdDateChange2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "thirdDateChange2",
+        "category": "General",
+        "x": 525,
+        "y": 260,
+        "wires": [
+            [
+                "sd_YTh9jdoatzc4Vdcc"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_YTh9jdoatzc4Vdcc",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate4 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_YTh9jdoatzc4Vdcc",
+        "category": "Function",
+        "x": 650,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_bvpemSKHD4Iaip7m",
+        "type": "PageStart",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "secondDateChange2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "secondDateChange2",
+        "category": "General",
+        "x": 305,
+        "y": 260,
+        "wires": [
+            [
+                "sd_RNARpxo2amO3cxua"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_RNARpxo2amO3cxua",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.newDate2 = new Date(bh.input.date.value);",
+        "functionName": "sd_RNARpxo2amO3cxua",
+        "category": "Function",
+        "x": 430,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ENdv4pgePETHPRNk",
+        "type": "PageStart",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "dateChange3",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "dateChange3",
+        "category": "General",
+        "x": 105,
+        "y": 340,
+        "wires": [
+            [
+                "sd_Xw7YixLTIG1YKpf6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_Xw7YixLTIG1YKpf6",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate5 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_Xw7YixLTIG1YKpf6",
+        "category": "Function",
+        "x": 230,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_NgYmWOTEPoQfCesS",
+        "type": "PageStart",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "thirdDateChange3",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "thirdDateChange3",
+        "category": "General",
+        "x": 525,
+        "y": 340,
+        "wires": [
+            [
+                "sd_Ee4jp4033oj3qoWS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_Ee4jp4033oj3qoWS",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate6 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_Ee4jp4033oj3qoWS",
+        "category": "Function",
+        "x": 650,
+        "y": 340,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_N8OzVyFQjSXQ1cF9",
+        "type": "PageStart",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "secondDateChange3",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "secondDateChange3",
+        "category": "General",
+        "x": 305,
+        "y": 340,
+        "wires": [
+            [
+                "sd_ntPprf1GkMrZOlB6"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "quotesComponent"
+    },
+    {
+        "id": "sd_ntPprf1GkMrZOlB6",
+        "type": "Script",
+        "z": "sd_Dk9bv9lCwFvu4FwY",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.newDate3 = new Date(bh.input.date.value);",
+        "functionName": "sd_ntPprf1GkMrZOlB6",
+        "category": "Function",
+        "x": 430,
+        "y": 340,
         "wires": [
             []
         ],
