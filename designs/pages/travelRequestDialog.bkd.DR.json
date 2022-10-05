@@ -26028,6 +26028,138 @@
                         "_attrDef": "p"
                     }
                 ],
+                "95726eb5-3436-99b4-9650-3c6fcc261f33": {
+                    "paletteKey": "FlexLayoutRow",
+                    "parentEditorKey": "8ab58d9f-0265-048e-8e5c-ecd4ca56776d",
+                    "commentid": null,
+                    "designerReference": [
+                        {
+                            "_key": "componentLabel",
+                            "_value": "Row",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_useAsLabel": true
+                        },
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": "",
+                            "_type": "dav",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxFlex",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxLayoutGap",
+                            "_value": "1em",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "wrap",
+                            "_value": "wrap",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "layoutAlign",
+                            "_value": "start",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "pLayoutAlign",
+                            "_value": "stretch",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[fxShow]",
+                            "_value": "true",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation.includes('ravel'))",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        }
+                    ],
+                    "6076591d-1f05-d18b-bc04-411bf0fde130": {
+                        "paletteKey": "NG-RaisedButton",
+                        "parentEditorKey": "95726eb5-3436-99b4-9650-3c6fcc261f33",
+                        "commentid": null,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": [
+                                    "greenButton"
+                                ],
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "buttonname",
+                                "_value": "Send Quote",
+                                "_type": "a",
+                                "_attrDef": "p",
+                                "_useAsLabel": true
+                            },
+                            {
+                                "_key": "color",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "(click)",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[disabled]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[disableRipple]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "type",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "routerLink",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    }
+                },
                 "968a405b-0ca0-d04d-95ca-2a6233814aaf": {
                     "paletteKey": "FlexLayoutRow",
                     "parentEditorKey": "8ab58d9f-0265-048e-8e5c-ecd4ca56776d",
@@ -26098,7 +26230,6 @@
                     "0484a59f-6289-89a5-fecc-730d70161290": {
                         "paletteKey": "NG-RaisedButton",
                         "parentEditorKey": "968a405b-0ca0-d04d-95ca-2a6233814aaf",
-                        "isCommented": "false",
                         "commentid": null,
                         "designerReference": [
                             {
@@ -26241,7 +26372,6 @@
                     "8c3b2b10-86f3-dc42-4352-030f1160057d": {
                         "paletteKey": "NG-RaisedButton",
                         "parentEditorKey": "b547ea15-75a5-0f9c-93a1-01c91b209fe7",
-                        "isCommented": "false",
                         "commentid": null,
                         "designerReference": [
                             {
@@ -26452,7 +26582,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner == page?.currentUserDetails?.email)",
+                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.quoteApproved == 'Approved' && (page?.dialogData?.owner == page?.currentUserDetails?.email)",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26648,7 +26778,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') || page?.currentUserDetails?.designation.includes('Manager'))",
+                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') || page?.currentUserDetails?.designation.includes('Travel'))",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
