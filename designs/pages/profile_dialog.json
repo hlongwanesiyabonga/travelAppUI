@@ -1,0 +1,533 @@
+[
+    {
+        "id": "sd_A1xam8VNTMz4CCzQ",
+        "type": "tab",
+        "createdDate": "2022-09-24T21:12:04.626Z",
+        "label": "profile_dialog",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_jsZ0xku4AjeU8rcC",
+        "type": "OnInit",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_jsZ0xku4AjeU8rcC",
+        "category": "Lifecycle Events",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_lnMk19gZOi0bJZ48"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_lnMk19gZOi0bJZ48",
+        "type": "PageVariables",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "profileDialog",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "personalDetails",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "email",
+                "typedIpValue": {
+                    "type": "str",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_lnMk19gZOi0bJZ48",
+        "category": "Function",
+        "x": 145,
+        "y": 60,
+        "wires": [
+            [
+                "sd_xx62tjFUW7n15Ifp"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_xx62tjFUW7n15Ifp",
+        "type": "UseDependency",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ReactiveFormsModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FormGroup"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_xx62tjFUW7n15Ifp",
+        "category": "Function",
+        "x": 245,
+        "y": 60,
+        "wires": [
+            [
+                "sd_ARtraoWN58k86m3h"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ARtraoWN58k86m3h",
+        "type": "Script",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.profileForm = new FormGroup({\n    firstName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    lastName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),\n    dateOfBirth: new FormControl('', [Validators.required]),\n    gender: new FormControl('', [Validators.required]),\n    email: new FormControl('', [Validators.required, Validators.email]),\n    designation: new FormControl('', [Validators.required]),\n    idNumber: new FormControl(''),\n    panNumber: new FormControl(''),\n    passportNumber: new FormControl('', [Validators.required]),\n    nationality: new FormControl('', [Validators.required]),\n    station: new FormControl('', [Validators.required]),\n    lineManager: new FormControl('', [Validators.required]),\n    lineManagerEmail: new FormControl('',[Validators.required]),\n  });",
+        "functionName": "sd_ARtraoWN58k86m3h",
+        "category": "Function",
+        "x": 345,
+        "y": 60,
+        "wires": [
+            [
+                "sd_Yh22CstwbVP0U8AN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_OapnCf7vzU1kCnPt",
+        "type": "PageStart",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "closeProfile",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "closeProfile",
+        "category": "General",
+        "x": 65,
+        "y": 140,
+        "wires": [
+            [
+                "sd_Ne6pC7a1MDk7brU8"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_Ne6pC7a1MDk7brU8",
+        "type": "CloseDialog",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.profileDialog",
+        "functionName": "sd_Ne6pC7a1MDk7brU8",
+        "category": "Dialog",
+        "x": 155.171875,
+        "y": 140.03125,
+        "wires": [
+            []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "profileDialog",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_MBz5EGrssnMaWTm5",
+        "type": "Script",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\npage.currentUserDetails.designation = page.currentUserDetails.designation.toString();\npage.profileForm.patchValue(page.currentUserDetails);\nconsole.log(\"hiiii\",page.profileForm)",
+        "functionName": "sd_MBz5EGrssnMaWTm5",
+        "category": "Function",
+        "x": 585,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Yh22CstwbVP0U8AN",
+        "type": "Storage",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "currentUserDetails"
+        },
+        "functionName": "sd_Yh22CstwbVP0U8AN",
+        "category": "Storage",
+        "x": 460,
+        "y": 60,
+        "wires": [
+            [
+                "sd_MBz5EGrssnMaWTm5"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Tg5dOPkBBtfFck2j",
+        "type": "PageStart",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "submit form",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "profileForm",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submitForm",
+        "category": "General",
+        "x": 65,
+        "y": 260,
+        "wires": [
+            [
+                "sd_0tANpZlkTVAFmc9H"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "profile_dialogComponent"
+    },
+    {
+        "id": "sd_A1YAwYofPoiRj74B",
+        "type": "PageCallService",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh.input",
+                "value": "profileForm"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "personalDetails",
+                "mapVarName": "result",
+                "localVar": "this.page.personalDetails"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            "bh.input.profileForm"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_A1YAwYofPoiRj74B",
+        "category": "General",
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "sd_3tSF89ov7rqX5dJX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_0tANpZlkTVAFmc9H",
+        "type": "Script",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = \"put\",\nbh.endPoint = \"genericEdit/updatePersonalDetails/\" + page.currentUserDetails._id;\n",
+        "functionName": "sd_0tANpZlkTVAFmc9H",
+        "category": "Function",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "sd_A1YAwYofPoiRj74B"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_3tSF89ov7rqX5dJX",
+        "type": "CloseDialog",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "this.page.profileDialog",
+        "functionName": "sd_3tSF89ov7rqX5dJX",
+        "category": "Dialog",
+        "x": 365,
+        "y": 260,
+        "wires": [
+            [
+                "sd_gt6i7yy3jdcfEc9Z"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "this.page",
+                "value": "profileDialog",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_suNd75uL7MNe5YsK",
+        "type": "SnackBar",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Failed to update record"
+        },
+        "action": {
+            "type": "str",
+            "value": "OK"
+        },
+        "duration": {
+            "type": "num",
+            "value": "2000"
+        },
+        "horizontalPosition": "center",
+        "verticalPosition": "bottom",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_suNd75uL7MNe5YsK",
+        "category": "General",
+        "x": 565,
+        "y": 220,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gt6i7yy3jdcfEc9Z",
+        "type": "PageSwitch",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "personalDetails",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.personalDetails",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_gt6i7yy3jdcfEc9Z",
+        "category": "Function",
+        "x": 460,
+        "y": 260,
+        "wires": [
+            [
+                "sd_suNd75uL7MNe5YsK"
+            ],
+            [
+                "sd_MYY3bI1QjoiDm82s"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_MYY3bI1QjoiDm82s",
+        "type": "SnackBar",
+        "z": "sd_A1xam8VNTMz4CCzQ",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "message": {
+            "type": "str",
+            "value": "Record will be updated on Login"
+        },
+        "action": {
+            "type": "str",
+            "value": "OK"
+        },
+        "duration": {
+            "type": "num",
+            "value": "2000"
+        },
+        "horizontalPosition": "center",
+        "verticalPosition": "bottom",
+        "panelClass": {
+            "type": "str",
+            "value": ""
+        },
+        "direction": "ltr",
+        "functionName": "sd_MYY3bI1QjoiDm82s",
+        "category": "General",
+        "x": 565,
+        "y": 300,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

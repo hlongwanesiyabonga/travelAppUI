@@ -1,0 +1,1771 @@
+[
+    {
+        "id": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "type": "tab",
+        "createdDate": "2022-09-29T09:19:36.076Z",
+        "label": "manageQuoteStatus",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "manageQuoteStatus",
+        "relativeParentPath": "Manage Quote Status"
+    },
+    {
+        "id": "sd_X2OIQkuKGHUJe9B4",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "/updateQuoteStatus/:id",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "put",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "/updateQuoteStatus/:id": {
+                "put": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "x": 145,
+        "y": 180,
+        "wires": [
+            [
+                "sd_jnCpuSaeQeHAzAFL"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "manageQuoteStatus",
+        "functionName": "sd_X2OIQkuKGHUJe9B4"
+    },
+    {
+        "id": "sd_kcoQx3hiXCPj3OE1",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "managerQuoteApproval",
+        "propertyType": "bh",
+        "propertyGv": "bh.managerQuoteApproval",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Approved",
+                "vt": "str",
+                "gv": "\"Approved\""
+            },
+            {
+                "t": "eq",
+                "v": "Rejected",
+                "vt": "str",
+                "gv": "\"Rejected\""
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_kcoQx3hiXCPj3OE1",
+        "category": "Function",
+        "x": 341,
+        "y": 180,
+        "wires": [
+            [
+                "sd_7Cz4wDVymup08Q0E"
+            ],
+            [
+                "sd_RSBZUbLwVMhjQhRK"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "manageQuoteStatus"
+    },
+    {
+        "id": "sd_7Cz4wDVymup08Q0E",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.body.status = \"Awaiting Traveler Quote Approval\";\nbh.input.body.travelerApproval = {};\nbh.input.body.travelerApproval.quoteApproved = null;\nbh.input.body.travelerApproval.quoteComments = '';\nbh.input.body.travelerApproval.correctDetails = null;\nbh.updatedRequest = { $set: bh.input.body };\nbh.options = {};",
+        "functionName": "sd_7Cz4wDVymup08Q0E",
+        "category": "Function",
+        "x": 461,
+        "y": 120,
+        "wires": [
+            [
+                "sd_hjRoakWxt1lkNAqO"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_RSBZUbLwVMhjQhRK",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.body.status = \"Quote Rejected By LM\";\nbh.updatedRequest = { $set: bh.input.body };\nbh.options = {};",
+        "functionName": "sd_RSBZUbLwVMhjQhRK",
+        "category": "Function",
+        "x": 465,
+        "y": 220,
+        "wires": [
+            [
+                "sd_hjRoakWxt1lkNAqO"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_5HJmWmS67PR1JWIr",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.email = {};\nbh.email.to = bh.input.body.owner; // Travel Desk Email Here\nbh.email.sentfrom = 'neutrinostravel@gmail.com'; // System Email Here\nbh.email.cc = '';\nbh.email.subject = \"Your Travel Request Status\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi ${bh.sender}. \nYour request status has been updated to \"${bh.input.body.status}\" by your Line Manager(${bh.input.body.personalDetails.lineManager}), please login for more details.\n\nRegards,\nNeutrinos Travel\n`;",
+        "functionName": "sd_5HJmWmS67PR1JWIr",
+        "category": "Function",
+        "x": 765,
+        "y": 100,
+        "wires": [
+            [
+                "sd_yKX6iXQNHInJzUKe"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_yKX6iXQNHInJzUKe",
+        "type": "EmailOut",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "emailoutconfig": "sd_c6EmaZC0gRnAzT26",
+        "from": "bh.email.sentfrom",
+        "to": "bh.email.to",
+        "cc": "bh.email.cc",
+        "bcc": "undefined",
+        "subject": "bh.email.subject",
+        "body": "bh.email.body",
+        "html": "undefined",
+        "attachment": [],
+        "attachmentList": {},
+        "switchStates": {
+            "attachment": "Map"
+        },
+        "editableListData": {},
+        "routingoptions": "undefined",
+        "iCal": "undefined",
+        "contentoptions": "undefined",
+        "headeroptions": "undefined",
+        "securityoptions": "undefined",
+        "outputs": 1,
+        "resultMapping": "bh.res",
+        "functionName": "sd_yKX6iXQNHInJzUKe",
+        "category": "Messaging",
+        "x": 865,
+        "y": 100,
+        "wires": [
+            [
+                "sd_1lDX5auhyX5WTLLN"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "from": {
+                "type": "bh",
+                "value": "email.sentfrom",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "to": {
+                "type": "bh",
+                "value": "email.to",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "cc": {
+                "type": "bh",
+                "value": "email.cc",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "bcc": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "subject": {
+                "type": "bh",
+                "value": "email.subject",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "body": {
+                "type": "bh",
+                "value": "email.body",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "html": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "routingoptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "iCal": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "contentoptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "headeroptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "securityoptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh",
+                "value": "res",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_hjRoakWxt1lkNAqO",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_bQU5lSH9jhybSAjc",
+        "collection": "bh.collection",
+        "options": "bh.options",
+        "resultMapping": "bh.local.response",
+        "operation": "findOneAndUpdate",
+        "argumentArray": [
+            "filter",
+            "update"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.input.query",
+        "fieldOrSpec": "",
+        "filter": "bh.local.query",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "",
+        "update": "bh.updatedRequest",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "",
+        "docs": "",
+        "document": "bh.input.body",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_hjRoakWxt1lkNAqO",
+        "category": "Storage",
+        "x": 565,
+        "y": 180,
+        "wires": [
+            [
+                "sd_pO1JFmoH1CUfe4pJ"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "bh",
+                "value": "collection",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "options",
+                "nullable": "true",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "response",
+                "constant": false
+            },
+            "query": {
+                "type": "bh.input",
+                "value": "query",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "body",
+                "constant": false
+            },
+            "filter": {
+                "type": "bh.local",
+                "value": "query",
+                "constant": false
+            },
+            "update": {
+                "type": "bh",
+                "value": "updatedRequest",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_pO1JFmoH1CUfe4pJ",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "response.value",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.response.value",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_pO1JFmoH1CUfe4pJ",
+        "category": "Function",
+        "x": 665,
+        "y": 180,
+        "wires": [
+            [
+                "sd_5HJmWmS67PR1JWIr"
+            ],
+            [
+                "sd_RshU6PiN16ZaKARs"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_1lDX5auhyX5WTLLN",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.status = 200;\nbh.local.response = {\n    msg: 'Quote Status Updated Successfully',\n    cssClass: 'success' \n}",
+        "functionName": "sd_1lDX5auhyX5WTLLN",
+        "category": "Function",
+        "x": 965,
+        "y": 100,
+        "wires": [
+            [
+                "sd_UP03aONgqPP8vbNk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_UP03aONgqPP8vbNk",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "response",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh",
+            "value": "status",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "responseMapping": {
+            "status": "bh.status",
+            "obj": "bh.local.response",
+            "send": "bh.local.response"
+        },
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_UP03aONgqPP8vbNk",
+        "category": "HTTP",
+        "x": 1065,
+        "y": 180,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_RshU6PiN16ZaKARs",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.status = 400;\nbh.local.response = {\n    msg: 'Quote Update Failed',\n    cssClass: 'error' \n}",
+        "functionName": "sd_RshU6PiN16ZaKARs",
+        "category": "Function",
+        "x": 865,
+        "y": 220,
+        "wires": [
+            [
+                "sd_UP03aONgqPP8vbNk"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jnCpuSaeQeHAzAFL",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.collection = 'travelRequests';\nbh.managerQuoteApproval = bh.input.body.managerApproval.quoteApproved;\nbh.local.query = {\n    _id: new require('mongodb').ObjectId(bh.input.params.id)\n}\nconsole.log(bh)",
+        "functionName": "sd_jnCpuSaeQeHAzAFL",
+        "category": "Function",
+        "x": 245,
+        "y": 180,
+        "wires": [
+            [
+                "sd_kcoQx3hiXCPj3OE1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_4kpoQ0zJngQRRVJ1",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "/updateTravelerQuoteStatus/:id",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "put",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "/updateTravelerQuoteStatus/:id": {
+                "put": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "uploadFileOptions": {},
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "x": 145,
+        "y": 420,
+        "wires": [
+            [
+                "sd_zry4zqQESwKSUw7R"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "manageQuoteStatus",
+        "functionName": "sd_4kpoQ0zJngQRRVJ1"
+    },
+    {
+        "id": "sd_zry4zqQESwKSUw7R",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.collection = 'travelRequests';\nconsole.log(bh.input.body.travelerApproval.quoteApproved)\n\nbh.travelerQuoteApproval = bh.input.body.travelerApproval.quoteApproved;\nconsole.log(bh.travelerQuoteApproval)\n\nbh.local.query = {\n    _id: new require('mongodb').ObjectId(bh.input.params.id)\n}",
+        "functionName": "sd_zry4zqQESwKSUw7R",
+        "category": "Function",
+        "x": 245,
+        "y": 420,
+        "wires": [
+            [
+                "sd_AhJ43mwE9PzuNlTv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_AhJ43mwE9PzuNlTv",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "travelerQuoteApproval",
+        "propertyType": "bh",
+        "propertyGv": "bh.travelerQuoteApproval",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Approved",
+                "vt": "str",
+                "gv": "\"Approved\""
+            },
+            {
+                "t": "eq",
+                "v": "Rejected",
+                "vt": "str",
+                "gv": "\"Rejected\""
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_AhJ43mwE9PzuNlTv",
+        "category": "Function",
+        "x": 341,
+        "y": 420,
+        "wires": [
+            [
+                "sd_wjz9s1YABwDY9OYZ"
+            ],
+            [
+                "sd_u12K7RxvWqiwpbCR"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_wjz9s1YABwDY9OYZ",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.body.status = \"Awaiting Finance Quote Approval\";\nbh.input.body.financeApproval = {};\nbh.input.body.financeApproval.quoteApproved = null;\nbh.input.body.financeApproval.quoteComments = '';\nbh.input.body.costs = {\n    travel: 0,\n    accomodation: 0,\n    perdiem: 0\n};\nbh.updatedRequest = { $set: bh.input.body };\nbh.options = {};",
+        "functionName": "sd_wjz9s1YABwDY9OYZ",
+        "category": "Function",
+        "x": 461,
+        "y": 360,
+        "wires": [
+            [
+                "sd_g5KnEKrbi0V9WqxW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_u12K7RxvWqiwpbCR",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.body.status = \"Quote Rejected Traveler\";\nbh.updatedRequest = { $set: bh.input.body };\nbh.options = {};",
+        "functionName": "sd_u12K7RxvWqiwpbCR",
+        "category": "Function",
+        "x": 465,
+        "y": 460,
+        "wires": [
+            [
+                "sd_g5KnEKrbi0V9WqxW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_g5KnEKrbi0V9WqxW",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_bQU5lSH9jhybSAjc",
+        "collection": "bh.collection",
+        "options": "bh.options",
+        "resultMapping": "bh.local.response",
+        "operation": "findOneAndUpdate",
+        "argumentArray": [
+            "filter",
+            "update"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.input.query",
+        "fieldOrSpec": "",
+        "filter": "bh.local.query",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "",
+        "update": "bh.updatedRequest",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "",
+        "docs": "",
+        "document": "bh.input.body",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_g5KnEKrbi0V9WqxW",
+        "category": "Storage",
+        "x": 565,
+        "y": 420,
+        "wires": [
+            [
+                "sd_NTQZkP0q2ygLZGeN"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "bh",
+                "value": "collection",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "options",
+                "nullable": "true",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "response",
+                "constant": false
+            },
+            "query": {
+                "type": "bh.input",
+                "value": "query",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "body",
+                "constant": false
+            },
+            "filter": {
+                "type": "bh.local",
+                "value": "query",
+                "constant": false
+            },
+            "update": {
+                "type": "bh",
+                "value": "updatedRequest",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_UH9vxbDJITrTKmpH",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "response.value",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.response.value",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_UH9vxbDJITrTKmpH",
+        "category": "Function",
+        "x": 745,
+        "y": 420,
+        "wires": [
+            [
+                "sd_DgoGbHdjoN6Fwhrt"
+            ],
+            [
+                "sd_n9egjWIo5of5f8an"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_sTXtuccydwA7vk5N",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.email.to = 'siyabonga.hlongwane@neutrinos.co' //send to TD only\nbh.email.body = `Hi Travel Desk,\n\nPlease note that this travel request quote has been rejected by ${bh.sender}.\n\nKindly login for further details.\n\nRegards,\nNeutrinos Travel\n`;",
+        "functionName": "sd_sTXtuccydwA7vk5N",
+        "category": "Function",
+        "x": 945,
+        "y": 400,
+        "wires": [
+            [
+                "sd_RMfhV1z22JgMafJy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_n9egjWIo5of5f8an",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.status = 400;\nbh.local.response = {\n    msg: 'Quote Status Update Failed',\n    cssClass: 'error' \n}",
+        "functionName": "sd_n9egjWIo5of5f8an",
+        "category": "Function",
+        "x": 985,
+        "y": 480,
+        "wires": [
+            [
+                "sd_jfz0zbcvEgXsbE1T"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_RMfhV1z22JgMafJy",
+        "type": "EmailOut",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "emailoutconfig": "sd_c6EmaZC0gRnAzT26",
+        "from": "bh.email.sentfrom",
+        "to": "bh.email.to",
+        "cc": "bh.email.cc",
+        "bcc": "undefined",
+        "subject": "bh.email.subject",
+        "body": "bh.email.body",
+        "html": "undefined",
+        "attachment": [],
+        "attachmentList": {},
+        "switchStates": {
+            "attachment": "Map"
+        },
+        "editableListData": {},
+        "routingoptions": "undefined",
+        "iCal": "undefined",
+        "contentoptions": "undefined",
+        "headeroptions": "undefined",
+        "securityoptions": "undefined",
+        "outputs": 1,
+        "resultMapping": "bh.res",
+        "functionName": "sd_RMfhV1z22JgMafJy",
+        "category": "Messaging",
+        "x": 1045,
+        "y": 320,
+        "wires": [
+            [
+                "sd_TXcyb9mq67bSkC5W"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "from": {
+                "type": "bh",
+                "value": "email.sentfrom",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "to": {
+                "type": "bh",
+                "value": "email.to",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "cc": {
+                "type": "bh",
+                "value": "email.cc",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "bcc": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "subject": {
+                "type": "bh",
+                "value": "email.subject",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "body": {
+                "type": "bh",
+                "value": "email.body",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "html": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "routingoptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "iCal": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "contentoptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "headeroptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "securityoptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh",
+                "value": "res",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jfz0zbcvEgXsbE1T",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "response",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh",
+            "value": "status",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "responseMapping": {
+            "status": "bh.status",
+            "obj": "bh.local.response",
+            "send": "bh.local.response"
+        },
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_jfz0zbcvEgXsbE1T",
+        "category": "HTTP",
+        "x": 1185,
+        "y": 440,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_TXcyb9mq67bSkC5W",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.status = 200;\nbh.local.response = {\n    msg: 'Quote Status Updated Successfully',\n    cssClass: 'success' \n}",
+        "functionName": "sd_TXcyb9mq67bSkC5W",
+        "category": "Function",
+        "x": 1145,
+        "y": 320,
+        "wires": [
+            [
+                "sd_jfz0zbcvEgXsbE1T"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_NTQZkP0q2ygLZGeN",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.email = {};\nbh.email.to = 'siyabonga.hlongwane@neutrinos.co'; // Travel Desk Email Here, Finance\nbh.email.sentfrom = bh.input.body.owner; // System Email Here\nbh.email.cc = bh.input.body.personalDetails.lineManagerEmail; \nbh.email.subject = \"Travel Request Quote\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`;",
+        "functionName": "sd_NTQZkP0q2ygLZGeN",
+        "category": "Function",
+        "x": 645,
+        "y": 420,
+        "wires": [
+            [
+                "sd_UH9vxbDJITrTKmpH"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_DgoGbHdjoN6Fwhrt",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "body.status",
+        "propertyType": "bh.input",
+        "propertyGv": "bh.input.body.status",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Awaiting Finance Quote Approval",
+                "vt": "str",
+                "gv": "\"Awaiting Finance Quote Approval\""
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_DgoGbHdjoN6Fwhrt",
+        "category": "Function",
+        "x": 785,
+        "y": 340,
+        "wires": [
+            [
+                "sd_DbVk3noN0DK0D1mM"
+            ],
+            [
+                "sd_sTXtuccydwA7vk5N"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_DbVk3noN0DK0D1mM",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\n// bh.onBehalf = bh.input.body.requestDetails[0]['travelDetails']['requestType'] == 'On behalf' ? \n// on behalf of\nbh.email.body = `Hi Finance,\n\nPlease note that the following travel request has been approved by ${bh.input.body.personalDetails.lineManager}:\nRequest date: ${new Date()}\nLeg: ${bh.input.body.requestDetails.length};\nReturn: \nDep date:\nDep city:\nDest date:\nDest city:\nPreferred dep time:\nAccomm required?:\nCheck in date:\nCheck out date:\nCar hire required?:\nTransfers required?:\n\nKindly login for further details.\n\nRegards,\nNeutrinos Travel\n`;",
+        "functionName": "sd_DbVk3noN0DK0D1mM",
+        "category": "Function",
+        "x": 945,
+        "y": 320,
+        "wires": [
+            [
+                "sd_RMfhV1z22JgMafJy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_oddurvC9tpXPuamH",
+        "type": "HttpIn",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "start",
+        "name": "",
+        "path": "/updateQuoteStatusByFinance/:id",
+        "uploadpath": "",
+        "summary": "",
+        "description": "",
+        "method": "put",
+        "sequenceId": "",
+        "consumes": "",
+        "produces": "",
+        "filetype": "path",
+        "acceptFileUpload": false,
+        "httpOptions": {
+            "/updateQuoteStatusByFinance/:id": {
+                "put": {
+                    "summary": "",
+                    "description": "",
+                    "consumes": [],
+                    "produces": [],
+                    "parameters": [],
+                    "responses": {}
+                }
+            }
+        },
+        "uploadFileOptions": {},
+        "editableListData": {
+            "responses": [],
+            "params": [],
+            "produces": [],
+            "consumes": []
+        },
+        "inputs": 0,
+        "outputs": 1,
+        "category": "HTTP",
+        "x": 145,
+        "y": 680,
+        "wires": [
+            [
+                "sd_snao3SGFy83oscEI"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "uploadpath": {
+                "type": "str",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "manageQuoteStatus",
+        "functionName": "sd_oddurvC9tpXPuamH"
+    },
+    {
+        "id": "sd_snao3SGFy83oscEI",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.collection = 'travelRequests';\nbh.financeQuoteApproval = bh.input.body.financeApproval.quoteApproved;\n\nbh.local.query = {\n    _id: new require('mongodb').ObjectId(bh.input.params.id)\n}",
+        "functionName": "sd_snao3SGFy83oscEI",
+        "category": "Function",
+        "x": 245,
+        "y": 680,
+        "wires": [
+            [
+                "sd_nY8IR0dWGmuV4Jyq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nY8IR0dWGmuV4Jyq",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "bh.financeQuoteApproval",
+        "propertyType": "bh",
+        "propertyGv": "bh.bh.financeQuoteApproval",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Approved",
+                "vt": "str",
+                "gv": "\"Approved\""
+            },
+            {
+                "t": "eq",
+                "v": "Rejected",
+                "vt": "str",
+                "gv": "\"Rejected\""
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_nY8IR0dWGmuV4Jyq",
+        "category": "Function",
+        "x": 341,
+        "y": 680,
+        "wires": [
+            [
+                "sd_G0gqvzwxllMIKaIx"
+            ],
+            [
+                "sd_ieQhBoh4eKomJ1wi"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_G0gqvzwxllMIKaIx",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.body.status = \"Quote Approved By Finance\";\nbh.updatedRequest = { $set: bh.input.body };\nbh.options = {};",
+        "functionName": "sd_G0gqvzwxllMIKaIx",
+        "category": "Function",
+        "x": 461,
+        "y": 620,
+        "wires": [
+            [
+                "sd_6SBKPsCdFIsRNmXy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ieQhBoh4eKomJ1wi",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.body.status = \"Quote Rejected Finance\";\nbh.updatedRequest = { $set: bh.input.body };\nbh.options = {};",
+        "functionName": "sd_ieQhBoh4eKomJ1wi",
+        "category": "Function",
+        "x": 465,
+        "y": 720,
+        "wires": [
+            [
+                "sd_6SBKPsCdFIsRNmXy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_6SBKPsCdFIsRNmXy",
+        "type": "Mongodb",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "databaseConfig": "sd_bQU5lSH9jhybSAjc",
+        "collection": "bh.collection",
+        "options": "bh.options",
+        "resultMapping": "bh.local.response",
+        "operation": "findOneAndUpdate",
+        "argumentArray": [
+            "filter",
+            "update"
+        ],
+        "aggregate": "",
+        "operations": "",
+        "query": "bh.input.query",
+        "fieldOrSpec": "",
+        "filter": "bh.local.query",
+        "key": "",
+        "docId": "",
+        "indexName": "",
+        "replacement": "",
+        "update": "bh.updatedRequest",
+        "xAxis": "",
+        "yAxis": "",
+        "indexes": "",
+        "docs": "",
+        "document": "bh.input.body",
+        "newName": "",
+        "doc": "",
+        "filePath": "",
+        "fileName": "",
+        "pipeline": "",
+        "functionName": "sd_6SBKPsCdFIsRNmXy",
+        "category": "Storage",
+        "x": 565,
+        "y": 680,
+        "wires": [
+            [
+                "sd_gPNGUXzOGR0MqZVu"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "collection": {
+                "type": "bh",
+                "value": "collection",
+                "constant": false
+            },
+            "options": {
+                "type": "bh",
+                "value": "options",
+                "nullable": "true",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh.local",
+                "value": "response",
+                "constant": false
+            },
+            "query": {
+                "type": "bh.input",
+                "value": "query",
+                "constant": false
+            },
+            "document": {
+                "type": "bh.input",
+                "value": "body",
+                "constant": false
+            },
+            "filter": {
+                "type": "bh.local",
+                "value": "query",
+                "constant": false
+            },
+            "update": {
+                "type": "bh",
+                "value": "updatedRequest",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_gPNGUXzOGR0MqZVu",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.email = {};\nbh.email.to = 'siyabonga.hlongwane@neutrinos.co'; // Travel Desk Email Here, Finance\nbh.email.sentfrom = bh.input.body.owner; // System Email Here\nbh.email.cc = bh.input.body.personalDetails.lineManagerEmail; \nbh.email.subject = \"Travel Request Quote\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`;",
+        "functionName": "sd_gPNGUXzOGR0MqZVu",
+        "category": "Function",
+        "x": 645,
+        "y": 680,
+        "wires": [
+            [
+                "sd_51hjWQjROPKpoWk7"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_51hjWQjROPKpoWk7",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "response.value",
+        "propertyType": "bh.local",
+        "propertyGv": "bh.local.response.value",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_51hjWQjROPKpoWk7",
+        "category": "Function",
+        "x": 745,
+        "y": 680,
+        "wires": [
+            [
+                "sd_0H0C5l03kEaddHJa"
+            ],
+            [
+                "sd_tMoJEy43ySto5AT1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_tMoJEy43ySto5AT1",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.status = 400;\nbh.local.response = {\n    msg: 'Quote Status Update Failed',\n    cssClass: 'error' \n}",
+        "functionName": "sd_tMoJEy43ySto5AT1",
+        "category": "Function",
+        "x": 985,
+        "y": 740,
+        "wires": [
+            [
+                "sd_9dyIglYXrnHqoSSJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_0H0C5l03kEaddHJa",
+        "type": "Switch",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "body.status",
+        "propertyType": "bh.input",
+        "propertyGv": "bh.input.body.status",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Quote Approved By Finance",
+                "vt": "str",
+                "gv": "\"Quote Approved By Finance\""
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_0H0C5l03kEaddHJa",
+        "category": "Function",
+        "x": 785,
+        "y": 600,
+        "wires": [
+            [
+                "sd_1r98kImHwHRz5QXp"
+            ],
+            [
+                "sd_UkV3N6xRVeKhYa0d"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_9dyIglYXrnHqoSSJ",
+        "type": "HttpOut",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "headers": {},
+        "responseBody": {
+            "type": "bh.local",
+            "value": "response",
+            "ssd_typedInputField": true
+        },
+        "httpcode": {
+            "type": "bh",
+            "value": "status",
+            "ssd_typedInputField": true
+        },
+        "responseType": "obj",
+        "responseMapping": {
+            "status": "bh.status",
+            "obj": "bh.local.response",
+            "send": "bh.local.response"
+        },
+        "cookies": [],
+        "inputs": 1,
+        "outputs": 0,
+        "editableListData": {
+            "headers": []
+        },
+        "cookiesList": {},
+        "switchStates": {
+            "headers": "Map",
+            "cookies": "Map"
+        },
+        "functionName": "sd_9dyIglYXrnHqoSSJ",
+        "category": "HTTP",
+        "x": 1185,
+        "y": 700,
+        "wires": [],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_1r98kImHwHRz5QXp",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\n// bh.onBehalf = bh.input.body.requestDetails[0]['travelDetails']['requestType'] == 'On behalf' ? \n// on behalf of\nbh.email.body = `Hi all,\n\nPlease note that the following travel request has been approved by Finance:\nRequest date: ${new Date()}\nLeg: ${bh.input.body.requestDetails.length};\nReturn: \nDep date:\nDep city:\nDest date:\nDest city:\nPreferred dep time:\nAccomm required?:\nCheck in date:\nCheck out date:\nCar hire required?:\nTransfers required?:\n\nKindly login for further details.\n\nRegards,\nNeutrinos Travel\n`;",
+        "functionName": "sd_1r98kImHwHRz5QXp",
+        "category": "Function",
+        "x": 945,
+        "y": 580,
+        "wires": [
+            [
+                "sd_lyJSjRulzkEENSBS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_UkV3N6xRVeKhYa0d",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.email.to = 'siyabonga.hlongwane@neutrinos.co' //send to TR, TD and LM only\nbh.email.body = `Hi all,\n\nPlease note that this travel request quote has been rejected by Finance}.\n\nKindly login for further details.\n\nRegards,\nNeutrinos Travel\n`;",
+        "functionName": "sd_UkV3N6xRVeKhYa0d",
+        "category": "Function",
+        "x": 945,
+        "y": 660,
+        "wires": [
+            [
+                "sd_lyJSjRulzkEENSBS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_hwuxWlC5pH8P4QQa",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.status = 200;\nbh.local.response = {\n    msg: 'Quote Status Updated Successfully',\n    cssClass: 'success' \n}",
+        "functionName": "sd_hwuxWlC5pH8P4QQa",
+        "category": "Function",
+        "x": 1145,
+        "y": 580,
+        "wires": [
+            [
+                "sd_9dyIglYXrnHqoSSJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_lyJSjRulzkEENSBS",
+        "type": "EmailOut",
+        "z": "SSD_SERVICE_ID_sd_W6APPvv600nRN0t8",
+        "viewType": "server",
+        "nodeType": "flow",
+        "name": "",
+        "emailoutconfig": "sd_c6EmaZC0gRnAzT26",
+        "from": "bh.email.sentfrom",
+        "to": "bh.email.to",
+        "cc": "bh.email.cc",
+        "bcc": "undefined",
+        "subject": "bh.email.subject",
+        "body": "bh.email.body",
+        "html": "undefined",
+        "attachment": [],
+        "attachmentList": {},
+        "switchStates": {
+            "attachment": "Map"
+        },
+        "editableListData": {},
+        "routingoptions": "undefined",
+        "iCal": "undefined",
+        "contentoptions": "undefined",
+        "headeroptions": "undefined",
+        "securityoptions": "undefined",
+        "outputs": 1,
+        "resultMapping": "bh.res",
+        "functionName": "sd_lyJSjRulzkEENSBS",
+        "category": "Messaging",
+        "x": 1045,
+        "y": 580,
+        "wires": [
+            [
+                "sd_hwuxWlC5pH8P4QQa"
+            ]
+        ],
+        "__ssdTypeInputs__": {
+            "from": {
+                "type": "bh",
+                "value": "email.sentfrom",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "to": {
+                "type": "bh",
+                "value": "email.to",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "cc": {
+                "type": "bh",
+                "value": "email.cc",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "bcc": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "subject": {
+                "type": "bh",
+                "value": "email.subject",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "body": {
+                "type": "bh",
+                "value": "email.body",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "html": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "routingoptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "iCal": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "contentoptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "headeroptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "securityoptions": {
+                "type": "bh",
+                "value": "",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            },
+            "resultMapping": {
+                "type": "bh",
+                "value": "res",
+                "nullable": "true",
+                "nullableValue": "undefined",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

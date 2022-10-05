@@ -1,0 +1,305 @@
+[
+    {
+        "id": "sd_RlbkgAJauuYtTx07",
+        "type": "tab",
+        "createdDate": "2022-09-29T08:41:02.628Z",
+        "label": "callServerApis",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "callServerApis",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_dE4GdWM4FRmapn3w",
+        "type": "Script",
+        "z": "sd_RlbkgAJauuYtTx07",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.apiUrl = \"http://localhost:8081/api/\"+ bh.input.endPoint;\nconsole.log(bh.input)",
+        "functionName": "sd_dE4GdWM4FRmapn3w",
+        "category": "Function",
+        "x": 285,
+        "y": 200,
+        "wires": [
+            [
+                "sd_qPFG6hUqIEWEDu4a"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "callServerApis"
+    },
+    {
+        "id": "sd_nCumUxwkMp8Q3Kjk",
+        "type": "Start",
+        "z": "sd_RlbkgAJauuYtTx07",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "Dynamic",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "method",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "body",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "dynamic",
+        "category": "General",
+        "x": 105,
+        "y": 200,
+        "wires": [
+            [
+                "sd_dE4GdWM4FRmapn3w"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "callServerApis"
+    },
+    {
+        "id": "sd_AeUPNol8F2uYCfwD",
+        "type": "Environment",
+        "z": "sd_RlbkgAJauuYtTx07",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "bh.input",
+                    "value": "ssdUrl"
+                },
+                "envProperty": "ssdURL"
+            }
+        ],
+        "functionName": "sd_AeUPNol8F2uYCfwD",
+        "category": "General",
+        "x": 225,
+        "y": 100,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_qPFG6hUqIEWEDu4a",
+        "type": "HttpRequest",
+        "z": "sd_RlbkgAJauuYtTx07",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "methodMapping": "bh.input.method",
+        "methodMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "method"
+        },
+        "urlMapping": "bh.apiUrl",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "apiUrl"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.input.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_qPFG6hUqIEWEDu4a",
+        "category": "HTTP",
+        "x": 485,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_H1HRJOfPiTCQOdx4",
+        "type": "Start",
+        "z": "sd_RlbkgAJauuYtTx07",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "storePersonalDetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "data",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "key",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "storePersonalDetails",
+        "category": "General",
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "sd_cpfqAXUI8mpg10vu"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "callServerApis"
+    },
+    {
+        "id": "sd_cpfqAXUI8mpg10vu",
+        "type": "Storage",
+        "z": "sd_RlbkgAJauuYtTx07",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "setItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "bh.input",
+            "value": "key"
+        },
+        "value": {
+            "type": "bh.input",
+            "value": "data"
+        },
+        "resultMapping": {},
+        "functionName": "sd_cpfqAXUI8mpg10vu",
+        "category": "Storage",
+        "x": 240,
+        "y": 360,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_KBSaykl043duXTHo",
+        "type": "Start",
+        "z": "sd_RlbkgAJauuYtTx07",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "getPersonalDetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "key",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "getPersonalDetails",
+        "category": "General",
+        "x": 105,
+        "y": 460,
+        "wires": [
+            [
+                "sd_tl2FJAjSl7kCsqBg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "callServerApis"
+    },
+    {
+        "id": "sd_tl2FJAjSl7kCsqBg",
+        "type": "Storage",
+        "z": "sd_RlbkgAJauuYtTx07",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "bh.input",
+            "value": "key"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "bh.local",
+            "value": "requesterDetails"
+        },
+        "functionName": "sd_tl2FJAjSl7kCsqBg",
+        "category": "Storage",
+        "x": 245,
+        "y": 460,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]
