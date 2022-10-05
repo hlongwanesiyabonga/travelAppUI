@@ -781,6 +781,7 @@
                 }
             }
         },
+        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -1411,7 +1412,6 @@
         "subject": "bh.email.subject",
         "body": "bh.email.body",
         "html": "undefined",
-        "attachment": [],
         "attachmentList": {},
         "switchStates": {
             "attachment": "Map"
@@ -1537,11 +1537,11 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.email = {};\nbh.email.to = 'neutrinostravel@gmail.com';\nbh.email.sentfrom = bh.input.body.owner;\nbh.email.cc = bh.input.body.personalDetails.lineManagerEmail;\nbh.email.subject = \"New Travel Request\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi Travel Desk,\n\nPlease note that the following travel request has been raised by ${bh.sender}:\nRequest date: ${bh.input.body.dateCreated.slice(0, 10)}\n${bh.emailData.map(el =>{\nreturn `\nLeg: ${el.leg}\nTrip Type:  ${el.travelDetails.tripType}\nDep date: ${(el.travelDetails.fromDate) ? el.travelDetails.fromDate.slice(0, 10) : '-'}\nDep city: ${el.travelDetails.fromCity}\nDest city: ${el.travelDetails.toCity}\nPreferred dep time: ${el.travelDetails.preferredTime}\nAccomm required?: ${el.travelDetails.needAccommodation}\nCheck in date: ${el.accommodationDetails.checkInDate ? el.accommodationDetails.checkInDate.slice(0, 10) : '-'}\nCheck out date: ${el.accommodationDetails.checkOutDate ? el.accommodationDetails.checkOutDate.slice(0, 10) : '-'}\nCar hire required?: ${el.travelDetails.needVehicle}`\n}).join()}\n\n\nRegards,\nNeutrinos Travel\n`; ",
+        "script": "bh.email = {};\nbh.email.to = 'neo.thobela@neutrinos.co';\nbh.email.sentfrom = bh.input.body.owner;\nbh.email.cc = bh.input.body.personalDetails.lineManagerEmail;\nbh.email.subject = \"New Travel Request\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi Line Manager,\n\nPlease note that the following travel request has been raised by ${bh.sender}:\nRequest date: ${bh.input.body.dateCreated.slice(0, 10)}\n${bh.emailData.map(el =>{\nreturn `\nLeg: ${el.leg}\nTrip Type:  ${el.travelDetails.tripType}\nDep date: ${(el.travelDetails.fromDate) ? el.travelDetails.fromDate.slice(0, 10) : '-'}\nDep city: ${el.travelDetails.fromCity}\nDest city: ${el.travelDetails.toCity}\nPreferred dep time: ${el.travelDetails.preferredTime}\nAccomm required?: ${el.travelDetails.needAccommodation}\nCheck in date: ${el.accommodationDetails.checkInDate ? el.accommodationDetails.checkInDate.slice(0, 10) : '-'}\nCheck out date: ${el.accommodationDetails.checkOutDate ? el.accommodationDetails.checkOutDate.slice(0, 10) : '-'}\nCar hire required?: ${el.travelDetails.needVehicle}`\n}).join()}\n\n\nRegards,\nNeutrinos Travel\n`; ",
         "functionName": "sd_jLqeDp6RpRNIrbfj",
         "category": "Function",
         "x": 1005,
-        "y": 100,
+        "y": 40,
         "wires": [
             [
                 "sd_3nmGpSpH2D5r5j00"
@@ -1917,5 +1917,23 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_XM42i5JcpDC23qFS",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_JojHeX6KCVNkCDt5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.email = {};\nbh.email.to = 'neo.thobela@neutrinos.co';\nbh.email.sentfrom = bh.input.body.owner;\nbh.email.cc = bh.input.body.personalDetails.lineManagerEmail;\nbh.email.subject = \"New Travel Request\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi Travel Desk,\n\nPlease note that the following travel request has been raised by ${bh.sender}:\nRequest date: ${bh.input.body.dateCreated.slice(0, 10)}\n${bh.emailData.map(el =>{\nreturn `\nLeg: ${el.leg}\nTrip Type:  ${el.travelDetails.tripType}\nDep date: ${(el.travelDetails.fromDate) ? el.travelDetails.fromDate.slice(0, 10) : '-'}\nDep city: ${el.travelDetails.fromCity}\nDest city: ${el.travelDetails.toCity}\nPreferred dep time: ${el.travelDetails.preferredTime}\nAccomm required?: ${el.travelDetails.needAccommodation}\nCheck in date: ${el.accommodationDetails.checkInDate ? el.accommodationDetails.checkInDate.slice(0, 10) : '-'}\nCheck out date: ${el.accommodationDetails.checkOutDate ? el.accommodationDetails.checkOutDate.slice(0, 10) : '-'}\nCar hire required?: ${el.travelDetails.needVehicle}`\n}).join()}\n\n\nRegards,\nNeutrinos Travel\n`; ",
+        "functionName": "sd_XM42i5JcpDC23qFS",
+        "category": "Function",
+        "x": 1194,
+        "y": 175.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]

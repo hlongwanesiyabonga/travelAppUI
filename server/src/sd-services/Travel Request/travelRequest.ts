@@ -550,12 +550,12 @@ export class travelRequest {
   async sd_jLqeDp6RpRNIrbfj(bh) {
     try {
       bh.email = {};
-      bh.email.to = 'neutrinostravel@gmail.com';
+      bh.email.to = 'neo.thobela@neutrinos.co';
       bh.email.sentfrom = bh.input.body.owner;
       bh.email.cc = bh.input.body.personalDetails.lineManagerEmail;
       bh.email.subject = 'New Travel Request';
       bh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`;
-      bh.email.body = `Hi Travel Desk,
+      bh.email.body = `Hi Line Manager,
 
 Please note that the following travel request has been raised by ${bh.sender}:
 Request date: ${bh.input.body.dateCreated.slice(0, 10)}
@@ -632,7 +632,7 @@ Neutrinos Travel
           contentOptions: undefined,
           securityOptions: undefined,
           headerOptions: undefined,
-          attachments: [],
+          attachments: undefined,
         }
       );
       bh = await this.sd_4rWzFASf4LQ2Gbs9(bh);

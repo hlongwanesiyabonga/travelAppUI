@@ -2021,17 +2021,17 @@
                                                                     },
                                                                     {
                                                                         "_key": "(change)",
-                                                                        "_value": "requstedForHideandShow($event)",
+                                                                        "_value": "requstedForHideandShow('Self')",
                                                                         "_type": "kv",
                                                                         "_attrDef": "p",
                                                                         "_customAttributeFlag": "flowpicker",
                                                                         "objValue": {
-                                                                            "nodeID": "sd_dqTGtSubVUnQi0az",
+                                                                            "nodeID": "sd_mlhXh4dnquQkKec9",
                                                                             "functionName": "requstedForHideandShow",
                                                                             "activeTree": "pages",
-                                                                            "z": "sd_osEacZsdUBcy4IJg",
+                                                                            "z": "sd_cL2Dk3ymewl6P3KV",
                                                                             "input": [
-                                                                                "$event"
+                                                                                "'Self'"
                                                                             ]
                                                                         }
                                                                     },
@@ -26090,7 +26090,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "!page.dialogData.isDraft && ( !(page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') || page?.currentUserDetails?.designation.includes('Manager') ))",
+                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == null && ( !(page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') || page?.currentUserDetails?.designation.includes('Manager') ))",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26233,7 +26233,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "!page.dialogData.isDraft &&(page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') || page?.currentUserDetails?.designation.includes('Manager'))",
+                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == null &&(page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') || page?.currentUserDetails?.designation.includes('Manager'))",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26452,7 +26452,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner !== page?.currentUserDetails?.email) && page?.currentUserDetails?.designation.includes('Manager')",
+                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner == page?.currentUserDetails?.email)",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26648,7 +26648,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner !== page?.currentUserDetails?.email) && page?.currentUserDetails?.designation.includes('Manager')",
+                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') || page?.currentUserDetails?.designation.includes('Manager'))",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -26687,18 +26687,18 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "changeRequestStatus(page.personalDetailsForm.value,page.travelForm.value,'Rejected')",
+                                "_value": "changeQuoteStatus('Rejected',page.travelForm.value,page.personalDetailsForm.value)",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "objValue": {
-                                    "nodeID": "sd_EFqi8sYgMWZKikYj",
-                                    "functionName": "changeRequestStatus",
+                                    "nodeID": "sd_dvssffiSBQPubuzh",
+                                    "functionName": "changeQuoteStatus",
                                     "activeTree": "pages",
                                     "z": "sd_cL2Dk3ymewl6P3KV",
                                     "input": [
-                                        "page.personalDetailsForm.value",
+                                        "'Rejected'",
                                         "page.travelForm.value",
-                                        "'Rejected'"
+                                        "page.personalDetailsForm.value"
                                     ]
                                 }
                             },
@@ -26762,18 +26762,18 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "changeRequestStatus(page.personalDetailsForm.value,page.TravelForm.value,'Accepted')",
+                                "_value": "changeQuoteStatus('Approved',page.travelForm.value,page.personalDetailsForm.value)",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "objValue": {
-                                    "nodeID": "sd_EFqi8sYgMWZKikYj",
-                                    "functionName": "changeRequestStatus",
+                                    "nodeID": "sd_dvssffiSBQPubuzh",
+                                    "functionName": "changeQuoteStatus",
                                     "activeTree": "pages",
                                     "z": "sd_cL2Dk3ymewl6P3KV",
                                     "input": [
-                                        "page.personalDetailsForm.value",
-                                        "page.TravelForm.value",
-                                        "'Accepted'"
+                                        "'Approved'",
+                                        "page.travelForm.value",
+                                        "page.personalDetailsForm.value"
                                     ]
                                 }
                             },

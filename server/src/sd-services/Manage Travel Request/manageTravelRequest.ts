@@ -384,12 +384,12 @@ export class manageTravelRequest {
     try {
       bh.email = {};
       bh.email.to = bh.input.body.owner;
-      bh.email.sentfrom = 'neutrinostravel@gmail.com'; //TD email
+      bh.email.sentfrom = 'neo.thobela@neutrinos.co'; //TD email
       bh.email.cc = '';
       bh.email.subject = 'Your Travel Request Status';
       bh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`;
-      bh.email.body = `Hi ${bh.sender}. 
-Your travel request status has been updated to "${bh.input.body.status}" by your Line Manager(${bh.input.body.personalDetails.lineManager}), please login for more details.
+      bh.email.body = `Hi Finance. 
+${bh.sender} sent a travel request and the status has been updated to "${bh.input.body.status}"  by (${bh.input.body.personalDetails.lineManager}).
 
 Regards,
 Neutrinos Travel
@@ -437,7 +437,7 @@ Neutrinos Travel
           contentOptions: undefined,
           securityOptions: undefined,
           headerOptions: undefined,
-          attachments: [],
+          attachments: undefined,
         }
       );
       bh = await this.sd_rfQf1Q3cWdk4C6lr(bh);
@@ -513,7 +513,7 @@ Neutrinos Travel
   async sd_XunVYISNS5bORcCn(bh) {
     try {
       bh.email = {};
-      bh.email.to = 'neutrinostravel@gmail.com';
+      bh.email.to = 'neo.thobela@neutrinos.co';
       bh.email.sentfrom = bh.input.body.owner;
       bh.email.cc = bh.input.body.personalDetails.lineManagerEmail;
       bh.email.subject = 'New Travel Request';
@@ -656,7 +656,7 @@ Neutrinos Travel
     try {
       bh.email = {};
       bh.email.to = bh.tempObj.owner;
-      bh.email.sentfrom = 'neutraveldeskta@gmail.com';
+      bh.email.sentfrom = 'neo.thobela@neutrinos.co';
       bh.email.cc = bh.tempObj.personalDetails.lineManagerEmail;
       bh.email.subject = 'New Travel Quote';
       bh.sender = `${bh.tempObj.personalDetails.firstName} ${bh.tempObj.personalDetails.lastName}`;

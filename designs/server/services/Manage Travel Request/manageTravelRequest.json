@@ -40,7 +40,6 @@
                 }
             }
         },
-        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -366,7 +365,6 @@
         "subject": "bh.email.subject",
         "body": "bh.email.body",
         "html": "undefined",
-        "attachment": [],
         "attachmentList": {},
         "switchStates": {
             "attachment": "Map"
@@ -530,7 +528,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.email = {};\nbh.email.to = bh.input.body.owner;\nbh.email.sentfrom = 'neutrinostravel@gmail.com'; //TD email\nbh.email.cc = '';\nbh.email.subject = \"Your Travel Request Status\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi ${bh.sender}. \nYour travel request status has been updated to \"${bh.input.body.status}\" by your Line Manager(${bh.input.body.personalDetails.lineManager}), please login for more details.\n\nRegards,\nNeutrinos Travel\n`;",
+        "script": "bh.email = {};\nbh.email.to = bh.input.body.owner;\nbh.email.sentfrom = 'neo.thobela@neutrinos.co'; //TD email\nbh.email.cc = '';\nbh.email.subject = \"Your Travel Request Status\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi Finance. \n${bh.sender} sent a travel request and the status has been updated to \"${bh.input.body.status}\"  by (${bh.input.body.personalDetails.lineManager}).\n\nRegards,\nNeutrinos Travel\n`;",
         "functionName": "sd_oHGD5Rx3dpppKvu6",
         "category": "Function",
         "x": 985,
@@ -551,7 +549,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.email = {};\nbh.email.to = 'neutrinostravel@gmail.com';\nbh.email.sentfrom = bh.input.body.owner;\nbh.email.cc = bh.input.body.personalDetails.lineManagerEmail;\nbh.email.subject = \"New Travel Request\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi Travel Desk,\n\nPlease note that the following travel request has been raised by ${bh.sender}:\nRequest date: ${bh.input.body.dateCreated.slice(0, 10)}\n${bh.emailData.map(el =>{\nreturn `\nLeg: ${el.leg}\nTrip Type:  ${el.travelDetails.tripType}\nDep date: ${(el.travelDetails.fromDate) ? el.travelDetails.fromDate.slice(0, 10) : '-'}\nDep city: ${el.travelDetails.fromCity}\nDest city: ${el.travelDetails.toCity}\nPreferred dep time: ${el.travelDetails.preferredTime}\nAccomm required?: ${el.travelDetails.needAccommodation}\nCheck in date: ${el.accommodationDetails.checkInDate ? el.accommodationDetails.checkInDate.slice(0, 10) : '-'}\nCheck out date: ${el.accommodationDetails.checkOutDate ? el.accommodationDetails.checkOutDate.slice(0, 10) : '-'}\nCar hire required?: ${el.travelDetails.needVehicle}`\n}).join()}\n\n\nRegards,\nNeutrinos Travel\n`; ",
+        "script": "bh.email = {};\nbh.email.to = 'neo.thobela@neutrinos.co';\nbh.email.sentfrom = bh.input.body.owner;\nbh.email.cc = bh.input.body.personalDetails.lineManagerEmail;\nbh.email.subject = \"New Travel Request\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi Travel Desk,\n\nPlease note that the following travel request has been raised by ${bh.sender}:\nRequest date: ${bh.input.body.dateCreated.slice(0, 10)}\n${bh.emailData.map(el =>{\nreturn `\nLeg: ${el.leg}\nTrip Type:  ${el.travelDetails.tripType}\nDep date: ${(el.travelDetails.fromDate) ? el.travelDetails.fromDate.slice(0, 10) : '-'}\nDep city: ${el.travelDetails.fromCity}\nDest city: ${el.travelDetails.toCity}\nPreferred dep time: ${el.travelDetails.preferredTime}\nAccomm required?: ${el.travelDetails.needAccommodation}\nCheck in date: ${el.accommodationDetails.checkInDate ? el.accommodationDetails.checkInDate.slice(0, 10) : '-'}\nCheck out date: ${el.accommodationDetails.checkOutDate ? el.accommodationDetails.checkOutDate.slice(0, 10) : '-'}\nCar hire required?: ${el.travelDetails.needVehicle}`\n}).join()}\n\n\nRegards,\nNeutrinos Travel\n`; ",
         "functionName": "sd_XunVYISNS5bORcCn",
         "category": "Function",
         "x": 1065,
@@ -1041,7 +1039,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.email = {};\nbh.email.to = bh.tempObj.owner;\nbh.email.sentfrom = 'neutraveldeskta@gmail.com';\nbh.email.cc = bh.tempObj.personalDetails.lineManagerEmail;\nbh.email.subject = \"New Travel Quote\";\nbh.sender = `${bh.tempObj.personalDetails.firstName} ${bh.tempObj.personalDetails.lastName}`\nbh.email.body = `Hi ${bh.tempObj.personalDetails.lineManager}. \nThere is a new travel quote from Travel Desk for ${bh.sender}, please login for more details.\n\nRegards,\nNeutrinos Travel\n`;\nconsole.log(bh.input.body)",
+        "script": "bh.email = {};\nbh.email.to = bh.tempObj.owner;\nbh.email.sentfrom = 'neo.thobela@neutrinos.co';\nbh.email.cc = bh.tempObj.personalDetails.lineManagerEmail;\nbh.email.subject = \"New Travel Quote\";\nbh.sender = `${bh.tempObj.personalDetails.firstName} ${bh.tempObj.personalDetails.lastName}`\nbh.email.body = `Hi ${bh.tempObj.personalDetails.lineManager}. \nThere is a new travel quote from Travel Desk for ${bh.sender}, please login for more details.\n\nRegards,\nNeutrinos Travel\n`;\nconsole.log(bh.input.body)",
         "functionName": "sd_0qTJP0tvOI9f0tsD",
         "category": "Function",
         "x": 705,
@@ -1344,5 +1342,41 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_jHfCrussiR9Nlcof",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_0DH74NLncovZabEo",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.email = {};\nbh.email.to = bh.input.body.owner;\nbh.email.sentfrom = 'neo.thobela@neutrinos.co'; //TD email\nbh.email.cc = '';\nbh.email.subject = \"Your Travel Request Status\";\nbh.sender = `${bh.input.body.personalDetails.firstName} ${bh.input.body.personalDetails.lastName}`\nbh.email.body = `Hi ${bh.sender}. \nYour travel request status has been updated to \"${bh.input.body.status}\" by your Line Manager(${bh.input.body.personalDetails.lineManager}), please login for more details.\n\nRegards,\nNeutrinos Travel\n`;",
+        "functionName": "sd_jHfCrussiR9Nlcof",
+        "category": "Function",
+        "x": 1431,
+        "y": 117.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_It1BqusFczQisENI",
+        "type": "Script",
+        "z": "SSD_SERVICE_ID_sd_0DH74NLncovZabEo",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.email = {};\nbh.email.to = bh.tempObj.owner;\nbh.email.sentfrom = 'neutraveldeskta@gmail.com';\nbh.email.cc = bh.tempObj.personalDetails.lineManagerEmail;\nbh.email.subject = \"New Travel Quote\";\nbh.sender = `${bh.tempObj.personalDetails.firstName} ${bh.tempObj.personalDetails.lastName}`\nbh.email.body = `Hi ${bh.tempObj.personalDetails.lineManager}. \nThere is a new travel quote from Travel Desk for ${bh.sender}, please login for more details.\n\nRegards,\nNeutrinos Travel\n`;\nconsole.log(bh.input.body)",
+        "functionName": "sd_It1BqusFczQisENI",
+        "category": "Function",
+        "x": 1142,
+        "y": 483.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
     }
 ]

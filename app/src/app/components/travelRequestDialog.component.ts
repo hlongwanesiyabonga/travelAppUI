@@ -333,12 +333,21 @@ export class travelRequestDialogComponent {
     }
   }
 
-  changeQuoteStatus(quoteStatus: any = undefined, ...others) {
+  changeQuoteStatus(
+    quoteStatus: any = undefined,
+    form: any = undefined,
+    personalDetailsForm: any = undefined,
+    ...others
+  ) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = { quoteStatus: quoteStatus };
+      bh.input = {
+        quoteStatus: quoteStatus,
+        form: form,
+        personalDetailsForm: personalDetailsForm,
+      };
       bh.local = {};
       bh = this.sd_8uLa6zbDYq5f2Hu6(bh);
       //appendnew_next_changeQuoteStatus
@@ -865,9 +874,7 @@ export class travelRequestDialogComponent {
   sd_zshWVVTuup9rE1Cl(bh) {
     try {
       const page = this.page;
-      console.log('self');
       page.requestedFor = false;
-
       bh.endPoint =
         'genericGet/getPersonalDetails?email=' + page.requesterDetails.email;
       bh.method = 'get';
@@ -1135,8 +1142,6 @@ export class travelRequestDialogComponent {
                 requestDetail.travelDetails.tripType,
                 [Validators.required],
               ],
-              // requestedFor: [requestDetail.travelDetails.requestedFor],
-              //requestType: [requestDetail.travelDetails.requestType],
               preferredTime: [
                 requestDetail.travelDetails.preferredTime,
                 [Validators.required],
@@ -1324,26 +1329,41 @@ export class travelRequestDialogComponent {
   sd_8uLa6zbDYq5f2Hu6(bh) {
     try {
       const page = this.page;
-      console.log(bh.input.quoteStatus, 'ssss');
+      console.log(bh.input.quoteStatus, 'ssssooooo');
       bh.body = {
+        personalDetails: bh.input.personalDetailsForm,
+        requestDetails: bh.input.form.requestDetails,
+        status: page.dialogData.status,
         managerApproval: {
           approvedRequest: page.dialogData.managerApproval.approvedRequest,
           comments: '',
           quoteApproved: bh.input.quoteStatus,
           quoteComments: '',
         },
-        personalDetails: page.dialogData,
-        owner: page.dialogData.email,
-        status: bh.input.quoteStatus,
+        owner: bh.input.personalDetailsForm.email,
+        dateCreated: page.dialogData.dateCreated,
       };
+      console.log(bh.body, 'ssss');
       bh.method = 'put';
       bh.endPoint = 'updateQuoteStatus/' + page.dialogData._id;
-      bh = this.sd_ZMCWukq9Nat0FeZW(bh);
       bh = this.sd_MFl57GZUZpvQZPwK(bh);
+      bh = this.sd_ZMCWukq9Nat0FeZW(bh);
       //appendnew_next_sd_8uLa6zbDYq5f2Hu6
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_8uLa6zbDYq5f2Hu6');
+    }
+  }
+
+  sd_MFl57GZUZpvQZPwK(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(bh.local.res);
+
+      //appendnew_next_sd_MFl57GZUZpvQZPwK
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_MFl57GZUZpvQZPwK');
     }
   }
 
@@ -1406,18 +1426,6 @@ export class travelRequestDialogComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_C8KiWwUgpBWklLzB');
-    }
-  }
-
-  sd_MFl57GZUZpvQZPwK(bh) {
-    try {
-      const _dialogRef = this.__page_injector__.get(MatDialogRef);
-      _dialogRef.close(bh.local.res);
-
-      //appendnew_next_sd_MFl57GZUZpvQZPwK
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_MFl57GZUZpvQZPwK');
     }
   }
 
