@@ -34,6 +34,16 @@
 
             </mat-form-field>
           </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+              <mat-select placeholder="Filter by status" [required]="false" (selectionChange)="filterTableData($event)">
+                <ng-template ngFor let-option [ngForOf]="page.filterValue" let-i="index">
+                  <mat-option [value]="option.viewvalue">{{option.viewvalue}}</mat-option>
+                </ng-template>
+              </mat-select>
+
+            </mat-form-field>
+          </div>
         </div>
       </div>
     </div>

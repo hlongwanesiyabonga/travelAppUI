@@ -574,7 +574,6 @@ export class new_travel_requestComponent {
           }),
         })
       );
-      //page.travelForm.requestDetails.patchValue();
 
       //appendnew_next_sd_LYJcmnJwoRoJ6qQz
       return bh;
@@ -588,23 +587,28 @@ export class new_travel_requestComponent {
       const page = this.page;
       page.futureDate = new Date(bh.input.date.value);
 
-      page.travelForm.value.requestDetails[0].travelDetails['fromDate'] =
-        new Date(
-          page.travelForm.value.requestDetails[0].travelDetails.fromDate
-        );
-      page.travelForm.patchValue({
-        checkInDate:
-          page.travelForm.value.requestDetails[0].travelDetails['fromDate'],
-      });
+      // page.travelForm.value.requestDetails[0].travelDetails['fromDate'] = new Date(page.travelForm.value.requestDetails[0].travelDetails.fromDate)
+      // page.travelForm.value.requestDetails[0].accommodationDetails.patchValue({
+      //     checkInDate :page.travelForm.value.requestDetails[0].travelDetails['fromDate'] });
 
+      // this.form.get(<formControlName>).setValue(<newValue>);
       // if(page.travelForm.controls.requestDetails.controls[0].controls.travelDetails.controls.fromCity.status == 'VALID'){
       //     page.travelForm.requestDetails.accommodationDetails.patchValue({
       //         checkInDate : page.travelForm.value.requestDetails[0].travelDetails.fromDate.value
       //     })
 
-      // }
+      // // }
+      // console.log(page.travelForm.value.requestDetails[0].travelDetails['fromDate'])
+      // page.travelForm.requestDetails[0].accommodationDetails['checkInDate']= page.travelForm.value.requestDetails[0].travelDetails['fromDate']
+      page.travelForm.controls.requestDetails.controls[0].controls.accommodationDetails.controls.checkInDate.value =
+        page.travelForm.value.requestDetails[0].travelDetails['fromDate'];
+      page.travelForm.controls.requestDetails.controls[0].controls.accommodationDetails.controls.checkOutDate.value =
+        page.travelForm.value.requestDetails[0].travelDetails['toDate'];
+
       console.log(
-        page.travelForm.value.requestDetails[0].travelDetails['fromDate']
+        page.travelForm.controls.requestDetails.controls[0].controls
+          .accommodationDetails.controls.checkInDate.value,
+        'dattteee'
       );
 
       //appendnew_next_sd_7E0kFOs0S0LoIGyd

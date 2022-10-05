@@ -114,6 +114,20 @@ export class dashboardComponent {
     }
   }
 
+  filterTableData(status: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { status: status };
+      bh.local = {};
+      bh = this.setTableTokens1(bh);
+      //appendnew_next_filterTableData
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_br5b55qV39v0xJW9');
+    }
+  }
+
   //appendnew_flow_dashboardComponent_start
 
   tableDataSource(bh) {
@@ -191,6 +205,15 @@ export class dashboardComponent {
       page.select = [
         { viewvalue: 'My requests' },
         { viewvalue: 'Traveler requests' },
+      ];
+      page.filterValue = [
+        { viewvalue: 'Pending Review By LM' },
+        { viewvalue: 'Awaiting Traveler Quote Approval' },
+        { viewvalue: 'Rejected' },
+        { viewvalue: 'Awaiting Quote From Travel Desk' },
+        { viewvalue: 'Awaiting LM Quote Approval' },
+        { viewvalue: 'Awaiting Traveler Quote Approval' },
+        { viewvalue: 'Approved' },
       ];
 
       bh = this.sd_jpxsohmPQY8GE1QJ(bh);
@@ -308,6 +331,8 @@ export class dashboardComponent {
   setTableTokens1(bh) {
     try {
       const page = this.page;
+      let FilterValue = bh.input?.status?.value || false;
+
       let tableData = [];
       let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
       let tableSetup = {
@@ -341,47 +366,40 @@ export class dashboardComponent {
       page.tableCells = tableSetup[bh.role]['tableCells'];
       page.receivedTableData['data'].forEach((el) => {
         let temp = {};
-        temp['_id'] = el['_id'];
-        temp['owner'] = el['owner'];
-        temp['status'] = el['status'];
-        temp['dateCreated'] = el['dateCreated'];
-        temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
-        temp['travelMode'] =
-          el['requestDetails'][0]['travelDetails']['travelMode'];
-        temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];
-        temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
-        tableData.push(temp);
+        if (el['status'] == FilterValue) {
+          temp['_id'] = el['_id'];
+          temp['owner'] = el['owner'];
+          temp['status'] = el['status'];
+          temp['dateCreated'] = el['dateCreated'];
+          temp['tripType'] =
+            el['requestDetails'][0]['travelDetails']['tripType'];
+          temp['travelMode'] =
+            el['requestDetails'][0]['travelDetails']['travelMode'];
+          temp['fromCity'] =
+            el['requestDetails'][0]['travelDetails']['fromCity'];
+          temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
+          tableData.push(temp);
+        } else if (!FilterValue) {
+          console.log(temp, 'data');
+          temp['_id'] = el['_id'];
+          temp['owner'] = el['owner'];
+          temp['status'] = el['status'];
+          temp['dateCreated'] = el['dateCreated'];
+          temp['tripType'] =
+            el['requestDetails'][0]['travelDetails']['tripType'];
+          temp['travelMode'] =
+            el['requestDetails'][0]['travelDetails']['travelMode'];
+          temp['fromCity'] =
+            el['requestDetails'][0]['travelDetails']['fromCity'];
+          temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
+          tableData.push(temp);
+        }
       });
-      console.log(tableData);
+
       page.tableData = new page.tableDataSource(tableData);
-      page.tableData.paginator = bh.pageViews.MatPaginator;
-      page.tableData.sort = bh.pageViews.MatSort;
+      page.tableData.paginator = bh?.pageViews?.MatPaginator;
+      page.tableData.sort = bh?.pageViews?.MatSort;
 
-      // let tableData = [];
-      // let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];
-      // let tableSetup = {
-      //     "traveler": {
-      //         "tableHeaders": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],
-      //         "tableCells": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']
-      //     }
-      // };
-      // bh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',
-      //     page.tableHeaders = tableSetup[bh.role]['tableHeaders'];
-      // page.tableCells = tableSetup[bh.role]['tableCells'];
-      // page.receivedTableData['data'].forEach(el => {
-      //     let temp = {};
-      //     temp['_id'] = el['_id'];
-      //     temp['dateCreated'] = el['dateCreated'];
-      //     temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];
-      //     temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];
-      //     temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];
-      //     temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
-      //     tableData.push(temp);
-      // })
-
-      // page.tableData = new page.tableDataSource(tableData);
-      // page.tableData.paginator = bh.pageViews.MatPaginator;
-      // page.tableData.sort = bh.pageViews.MatSort;
       //appendnew_next_setTableTokens1
       return bh;
     } catch (e) {

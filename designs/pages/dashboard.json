@@ -116,7 +116,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]\n\n",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]\npage.filterValue=[{viewvalue:\"Pending Review By LM\"},{viewvalue:\"Awaiting Traveler Quote Approval\"},{viewvalue:\"Rejected\"},{viewvalue:\"Awaiting Quote From Travel Desk\"},{viewvalue:\"Awaiting LM Quote Approval\"},{viewvalue:\"Awaiting Traveler Quote Approval\"},{viewvalue:\"Approved\"}]\n\n",
         "functionName": "sd_q6OoeIYWQhQzzGjh",
         "category": "Function",
         "x": 705,
@@ -161,7 +161,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "dashboardComponent"
     },
     {
         "id": "sd_NHOLdr2QCcwKZOXC",
@@ -962,7 +963,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "setTableTokens1",
-        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Owner', 'Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['owner', 'dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'status', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    let temp = {};\n    temp['_id'] = el['_id'];\n    temp['owner'] = el['owner'];\n    temp['status'] = el['status'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n})\nconsole.log(tableData)\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;\n\n// let tableData = [];\n// let userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\n// let tableSetup = {\n//     \"traveler\": {\n//         \"tableHeaders\": ['Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n//         \"tableCells\": ['dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'action']\n//     }\n// };\n// bh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n//     page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\n// page.tableCells = tableSetup[bh.role]['tableCells'];\n// page.receivedTableData['data'].forEach(el => {\n//     let temp = {};\n//     temp['_id'] = el['_id'];\n//     temp['dateCreated'] = el['dateCreated'];\n//     temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n//     temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n//     temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n//     temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n//     tableData.push(temp);\n// })\n\n// page.tableData = new page.tableDataSource(tableData);\n// page.tableData.paginator = bh.pageViews.MatPaginator;\n// page.tableData.sort = bh.pageViews.MatSort;",
+        "script": "let FilterValue = bh.input?.status?.value || false;\n\nlet tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n    \"traveler\": {\n        \"tableHeaders\": ['Owner', 'Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['owner', 'dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'status', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    let temp = {};\n    if (el['status'] == FilterValue) {\n        temp['_id'] = el['_id'];\n        temp['owner'] = el['owner'];\n        temp['status'] = el['status'];\n        temp['dateCreated'] = el['dateCreated'];\n        temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n        temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n        temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n        temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n        tableData.push(temp);\n    } else if(!FilterValue){\n        console.log(temp,\"data\")\n        temp['_id'] = el['_id'];\n        temp['owner'] = el['owner'];\n        temp['status'] = el['status'];\n        temp['dateCreated'] = el['dateCreated'];\n        temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n        temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n        temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n        temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n        tableData.push(temp);\n\n    }\n})\n\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh?.pageViews?.MatPaginator;\npage.tableData.sort = bh?.pageViews?.MatSort;\n\n",
         "functionName": "setTableTokens1",
         "category": "Function",
         "x": 1105,
@@ -1026,5 +1027,38 @@
         "__n_excludedFromValidation__": {},
         "generateNext": false,
         "generated": true
+    },
+    {
+        "id": "sd_br5b55qV39v0xJW9",
+        "type": "PageStart",
+        "z": "sd_CG2idGFyedSvI3n5",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "filterTableData",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "status",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "filterTableData",
+        "category": "General",
+        "x": 1020,
+        "y": 360,
+        "wires": [
+            [
+                "sd_OGlFkv3n4vjKymyo"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dashboardComponent"
     }
 ]
