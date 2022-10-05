@@ -1,4 +1,6 @@
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-Quotes-SSD_SERVICE_ID_sd_HkNIjeMxilJLja1M
+import { Quotes as SSD_SERVICE_ID_sd_HkNIjeMxilJLja1M } from './sd-services/Quotes/Quotes';
 //CORE_REFERENCE_IMPORT-test-SSD_SERVICE_ID_sd_0XWQoU7mrWGPgOEF
 import { test as SSD_SERVICE_ID_sd_0XWQoU7mrWGPgOEF } from './sd-services/test';
 //CORE_REFERENCE_IMPORT-personalDetails-SSD_SERVICE_ID_sd_83mTtgZ1dN7Rzsz1
@@ -14,6 +16,8 @@ import { manageQuoteStatus as SSD_SERVICE_ID_sd_W6APPvv600nRN0t8 } from './sd-se
 
 export const UserRoutes = [
     //CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY
+//CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY-Quotes-SSD_SERVICE_ID_sd_HkNIjeMxilJLja1M
+SSD_SERVICE_ID_sd_HkNIjeMxilJLja1M,
 //CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY-test-SSD_SERVICE_ID_sd_0XWQoU7mrWGPgOEF
 SSD_SERVICE_ID_sd_0XWQoU7mrWGPgOEF,
 //CORE_REFERENCE_PUSH_TO_ROUTE_ARRAY-personalDetails-SSD_SERVICE_ID_sd_83mTtgZ1dN7Rzsz1

@@ -94,6 +94,7 @@
             "obj": "bh.local.response",
             "send": "bh.local.response"
         },
+        "cookies": [],
         "inputs": 1,
         "outputs": 0,
         "editableListData": {
@@ -328,6 +329,7 @@
                 }
             }
         },
+        "uploadFileOptions": {},
         "editableListData": {
             "responses": [],
             "params": [],
@@ -382,6 +384,7 @@
             "obj": "bh.testResonse",
             "send": "bh.testResonse"
         },
+        "cookies": [],
         "inputs": 1,
         "outputs": 0,
         "editableListData": {

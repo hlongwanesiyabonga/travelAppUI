@@ -120,7 +120,7 @@
             </div>
             <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
               <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                <input matInput placeholder="Enter Airline" [required]="false" formControlName="q1airline">
+                <input matInput placeholder="Enter Airline" [required]="false" formControlName="q2airline">
 
               </mat-form-field>
             </div>
@@ -140,7 +140,7 @@
               </div>
               <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
                 <mat-form-field [appearance]="&apos;outline&apos;" (click)="q2arrival2.open()">
-                  <input matInput placeholder="To Date" [matDatepicker]="q2arrival2" formControlName="q1arrival2" [min]="page.futureDate4" [required]="false" [disabled]="false" readonly="true">
+                  <input matInput placeholder="To Date" [matDatepicker]="q2arrival2" formControlName="q2arrival2" [min]="page.futureDate4" [required]="false" [disabled]="false" readonly="true">
                   <mat-datepicker-toggle matSuffix [for]="q2arrival2" disabled="false"></mat-datepicker-toggle>
                   <mat-datepicker #q2arrival2 [disabled]="false"></mat-datepicker>
 
@@ -152,7 +152,7 @@
             </div>
             <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
               <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                <input matInput placeholder="Enter Total Costs" [required]="false" formControlName="q1cost">
+                <input matInput placeholder="Enter Total Costs" [required]="false" formControlName="q2cost">
 
               </mat-form-field>
             </div>
@@ -165,7 +165,7 @@
           </div>
           <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
             <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
-              <mat-radio-button [value]="&apos;Quote 1&apos;" [required]="false"></mat-radio-button><label>
+              <mat-radio-button [value]="&apos;Quote 3&apos;" [required]="false"></mat-radio-button><label>
                 Select</label>
             </div>
           </div>
@@ -198,7 +198,7 @@
             </div>
             <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
               <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                <input matInput placeholder="Enter Airline" [required]="false" formControlName="q1airline">
+                <input matInput placeholder="Enter Airline" [required]="false" formControlName="q3airline">
 
               </mat-form-field>
             </div>
@@ -230,12 +230,15 @@
             </div>
             <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
               <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                <input matInput placeholder="Enter Total Costs" [required]="false" formControlName="q1cost">
+                <input matInput placeholder="Enter Total Costs" [required]="false" formControlName="q3cost">
 
               </mat-form-field>
             </div>
           </div>
         </div>
+        <div fxLayout="row wrap" class="marginRight20" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="redButton" (click)="submit()" [disabled]="false">Submit</button></div>
+        <div fxLayout="row wrap" class="marginRight20" fxLayoutGap="10px" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="redButton">Reject Quote</button><button mat-button class="greenButton">Approve Quote</button></div>
+        <div fxLayout="row wrap" class="marginRight20" fxLayoutGap="10px" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="redBorderedButton">Reject Quote</button><button mat-button class="greenBorderButton">Accept Quote</button></div>
       </div>
     </mat-radio-group>
   </form>
