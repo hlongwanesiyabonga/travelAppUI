@@ -236,6 +236,9 @@
             </div>
           </div>
         </div>
+        <div fxLayout="row wrap" class="marginRight20" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="redButton" [disabled]="page.quotesForm.invalid">Submit</button></div>
+        <div fxLayout="row wrap" class="marginRight20" fxLayoutGap="10px" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="redButton">Reject Quote</button><button mat-button class="greenButton">Approve Quote</button></div>
+        <div fxLayout="row wrap" class="marginRight20" fxLayoutGap="10px" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="redBorderedButton">Reject Quote</button><button mat-button class="greenBorderButton">Accept Quote</button></div>
       </div>
     </mat-radio-group>
   </form>
