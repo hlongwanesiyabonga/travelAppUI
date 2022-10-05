@@ -8,6 +8,8 @@ import {
   Input,
   Output,
   EventEmitter,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -1094,6 +1096,20 @@ export class travelRequestDialogComponent {
       const page = this.page;
       page.dialogData['dateOfBirth'] = new Date(page.dialogData['dateOfBirth']);
       page.personalDetailsForm.patchValue(page.dialogData.personalDetails);
+      page.personalDetailsForm.patchValue(
+        page.personalDetailsForm.controls.requestType.value
+      );
+      //console.log(page.personalDetailsForm.controls.requestType.value)
+      //page.personalDetailsForm.controls.requestType.value= page.personalDetailsForm.requestType
+      //page.travelForm.controls.requestDetails.controls[0].controls.accommodationDetails.controls.checkInDate.value = page.travelForm.value.requestDetails[0].travelDetails['fromDate']
+
+      //console.log(page.dialogData.personalDetails.requestType.value,"page.personalDetailsForm.requestType")
+
+      // page.dialogData.personalDetailsForm.forEach(personalDetailsForm => {
+      //    page.personalDetailsForm =new FormGroup({
+      //        requestType : (personalDetailsForm.requestType)
+      //     })
+      // })
 
       page.travelForm.patchValue(
         page.dialogData.requestDetails[0].travelDetails

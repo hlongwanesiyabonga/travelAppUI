@@ -439,8 +439,8 @@
         "flow_type": "sync",
         "functionName": "date",
         "category": "General",
-        "x": 441,
-        "y": 150,
+        "x": 385,
+        "y": 160,
         "wires": [
             [
                 "sd_xHwnWGVuzjtXDqcG"
@@ -482,8 +482,8 @@
         "script": "page.date = new Date();\npage.futureDate = new Date(bh.input.currentDate - 1);\n",
         "functionName": "sd_xHwnWGVuzjtXDqcG",
         "category": "Function",
-        "x": 601,
-        "y": 150,
+        "x": 585,
+        "y": 160,
         "wires": [
             []
         ],
@@ -632,7 +632,7 @@
         "script": "page.travelForm.get('requestDetails').removeAt(bh.input.i);",
         "functionName": "sd_9Y5mWui7juXMovzf",
         "category": "Function",
-        "x": 325,
+        "x": 285,
         "y": 160,
         "wires": [
             []
@@ -945,8 +945,8 @@
         "script": "page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`\n//page.personalDetailsForm?.value?.requester?.patchValue(page.requester)\n\n\n",
         "functionName": "sd_tSte3OpGPIhzRDnX",
         "category": "Function",
-        "x": 1205,
-        "y": 60,
+        "x": 1225,
+        "y": 40,
         "wires": [
             [
                 "sd_URlPiFkFJorKKLLm"
@@ -1016,11 +1016,12 @@
         "serviceImportPath": "./travelRequestDialog",
         "startName": "prepopulateDialogData",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_URlPiFkFJorKKLLm",
         "category": "General",
-        "x": 1285,
-        "y": 60,
+        "x": 1325,
+        "y": 40,
         "wires": [
             [
                 "sd_OTQGYEVaD9R5IRGe"
@@ -1714,7 +1715,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.dialogData['dateOfBirth'] = new Date(page.dialogData['dateOfBirth'])\npage.personalDetailsForm.patchValue(page.dialogData.personalDetails);\n\npage.travelForm.patchValue(page.dialogData.requestDetails[0].travelDetails);\npage.travelRequestType = page.dialogData['travelRequestType']\npage.dialogData.requestDetails.forEach(requestDetail => {\n    page.travelForm.get('requestDetails').push(new FormGroup({\n        travelDetails: page.Fb.group({\n            travelMode: [requestDetail.travelDetails.travelMode, [Validators.required]],\n            travelType: [requestDetail.travelDetails.travelType, [Validators.required]],\n            travelRequestType: [false, [Validators.required]],\n            travelPurpose: [requestDetail.travelDetails.travelPurpose, [Validators.required]],\n            projectID: [requestDetail.travelDetails.projectID, [Validators.required]],\n            fromCity: [requestDetail.travelDetails.fromCity, [Validators.required]],\n            toCity: [requestDetail.travelDetails.toCity, [Validators.required]],\n            fromDate: [requestDetail.travelDetails.fromDate, [Validators.required]],\n            toDate: [requestDetail.travelDetails.toDate, [Validators.required]],\n            tripType: [requestDetail.travelDetails.tripType, [Validators.required]],\n            preferredTime: [requestDetail.travelDetails.preferredTime, [Validators.required]],\n            travelerComments: [requestDetail.travelDetails.travelerComments],\n            passportDocument: [requestDetail.travelDetails.passportDocument],\n            visaRequired: [requestDetail.travelDetails.visaRequired, [Validators.required]],\n            covidCertificate: [requestDetail.travelDetails.covidCertificate, page.showVisa ? [Validators.required] : []],\n            passport: [requestDetail.travelDetails.passport],\n            needvehicle: [requestDetail.travelDetails.needvehicle, [Validators.required]],\n            needAccommodation: [requestDetail.travelDetails.needAccommodation, [Validators.required]]\n        }),\n        accommodationDetails: page.Fb.group({\n            accommodationPreference: [requestDetail.accommodationDetails.accommodationPreference, [Validators.required]],\n            city: [requestDetail.accommodationDetails.city, [Validators.required]],\n            checkInDate: [requestDetail.accommodationDetails.checkInDate],\n            checkOutDate: [requestDetail.accommodationDetails.checkOutDate],\n            checkInTime: [requestDetail.accommodationDetails.checkInTime, [Validators.required]],\n            checkOutTime: [requestDetail.accommodationDetails.checkOutTime],\n            employeeComments: [requestDetail.accommodationDetails.employeeComments]\n        })\n    }));\n})\n\n",
+        "script": "page.dialogData['dateOfBirth'] = new Date(page.dialogData['dateOfBirth'])\npage.personalDetailsForm.patchValue(page.dialogData.personalDetails);\npage.personalDetailsForm.patchValue(page.personalDetailsForm.controls.requestType.value)\n//console.log(page.personalDetailsForm.controls.requestType.value)\n//page.personalDetailsForm.controls.requestType.value= page.personalDetailsForm.requestType\n//page.travelForm.controls.requestDetails.controls[0].controls.accommodationDetails.controls.checkInDate.value = page.travelForm.value.requestDetails[0].travelDetails['fromDate']\n\n//console.log(page.dialogData.personalDetails.requestType.value,\"page.personalDetailsForm.requestType\")\n\n// page.dialogData.personalDetailsForm.forEach(personalDetailsForm => {\n//    page.personalDetailsForm =new FormGroup({\n//        requestType : (personalDetailsForm.requestType)\n//     })\n// })\n\npage.travelForm.patchValue(page.dialogData.requestDetails[0].travelDetails);\npage.travelRequestType = page.dialogData['travelRequestType']\npage.dialogData.requestDetails.forEach(requestDetail => {\n    page.travelForm.get('requestDetails').push(new FormGroup({\n        travelDetails: page.Fb.group({\n            travelMode: [requestDetail.travelDetails.travelMode, [Validators.required]],\n            travelType: [requestDetail.travelDetails.travelType, [Validators.required]],\n            travelRequestType: [false, [Validators.required]],\n            travelPurpose: [requestDetail.travelDetails.travelPurpose, [Validators.required]],\n            projectID: [requestDetail.travelDetails.projectID, [Validators.required]],\n            fromCity: [requestDetail.travelDetails.fromCity, [Validators.required]],\n            toCity: [requestDetail.travelDetails.toCity, [Validators.required]],\n            fromDate: [requestDetail.travelDetails.fromDate, [Validators.required]],\n            toDate: [requestDetail.travelDetails.toDate, [Validators.required]],\n            tripType: [requestDetail.travelDetails.tripType, [Validators.required]],\n            preferredTime: [requestDetail.travelDetails.preferredTime, [Validators.required]],\n            travelerComments: [requestDetail.travelDetails.travelerComments],\n            passportDocument: [requestDetail.travelDetails.passportDocument],\n            visaRequired: [requestDetail.travelDetails.visaRequired, [Validators.required]],\n            covidCertificate: [requestDetail.travelDetails.covidCertificate, page.showVisa ? [Validators.required] : []],\n            passport: [requestDetail.travelDetails.passport],\n            needvehicle: [requestDetail.travelDetails.needvehicle, [Validators.required]],\n            needAccommodation: [requestDetail.travelDetails.needAccommodation, [Validators.required]]\n        }),\n        accommodationDetails: page.Fb.group({\n            accommodationPreference: [requestDetail.accommodationDetails.accommodationPreference, [Validators.required]],\n            city: [requestDetail.accommodationDetails.city, [Validators.required]],\n            checkInDate: [requestDetail.accommodationDetails.checkInDate],\n            checkOutDate: [requestDetail.accommodationDetails.checkOutDate],\n            checkInTime: [requestDetail.accommodationDetails.checkInTime, [Validators.required]],\n            checkOutTime: [requestDetail.accommodationDetails.checkOutTime],\n            employeeComments: [requestDetail.accommodationDetails.employeeComments]\n        })\n    }));\n})\n\n",
         "functionName": "sd_wMYU8X4lRNJtGwOu",
         "category": "Function",
         "x": 605,
@@ -2448,8 +2449,8 @@
         "script": "console.log(page.showDrafts,\"showDrafts\")\n\n",
         "functionName": "sd_OTQGYEVaD9R5IRGe",
         "category": "Function",
-        "x": 1368,
-        "y": 56.8125,
+        "x": 1425,
+        "y": 40,
         "wires": [
             []
         ],
@@ -2640,7 +2641,9 @@
             "value": "2000"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
