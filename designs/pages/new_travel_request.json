@@ -1083,6 +1083,7 @@
         "serviceImportPath": "./new_travel_request",
         "startName": "addNewRequestForm",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_Kls047KIBkKDp6tK",
         "category": "General",
