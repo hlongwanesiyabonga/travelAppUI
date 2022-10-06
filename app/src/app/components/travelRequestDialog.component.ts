@@ -70,6 +70,7 @@ export class travelRequestDialogComponent {
   sd_6WYmtVhU7l8X4POJ(bh) {
     try {
       bh = this.sd_P2VT6lPYUkxBIGR8(bh);
+      bh = this.sd_zUUrrWDKMO6WwhWr(bh);
       //appendnew_next_sd_6WYmtVhU7l8X4POJ
       return bh;
     } catch (e) {
@@ -374,6 +375,146 @@ export class travelRequestDialogComponent {
     }
   }
 
+  dateChange1(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_ohmXMoJSG2wRYglN(bh);
+      //appendnew_next_dateChange1
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_JJlJ6IHn8MNb1vkd');
+    }
+  }
+
+  thirdDateChange1(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_Mp2VDAfCoDR7UAXv(bh);
+      //appendnew_next_thirdDateChange1
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_pJSgF6xjYrApLtQI');
+    }
+  }
+
+  secondDateChange1(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_wEQ2PpQScEAtPmli(bh);
+      //appendnew_next_secondDateChange1
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_KUwcYNDYw09rdwa9');
+    }
+  }
+
+  dateChange2(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_HuYFiHdAa0lAglLh(bh);
+      //appendnew_next_dateChange2
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_6VduCKqZXhCBei7J');
+    }
+  }
+
+  thirdDateChange2(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_DqzNxfW85GWSvPZM(bh);
+      //appendnew_next_thirdDateChange2
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_GWWuZtrjGKK5VhXd');
+    }
+  }
+
+  secondDateChange2(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_RKran5ubUBFo5YKU(bh);
+      //appendnew_next_secondDateChange2
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_VmvGLvJmY3WxyacD');
+    }
+  }
+
+  dateChange3(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_vB5zDgxnXKQd23bo(bh);
+      //appendnew_next_dateChange3
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_e3n2bA5e9ZA2abVd');
+    }
+  }
+
+  thirdDateChange3(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_ZdOshFv2zotgm2EX(bh);
+      //appendnew_next_thirdDateChange3
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_5KNIzroaN3vGkf6d');
+    }
+  }
+
+  secondDateChange3(date: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { date: date };
+      bh.local = {};
+      bh = this.sd_fh9PfqBcF4hv3zZM(bh);
+      //appendnew_next_secondDateChange3
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_pgBCuUwQo8AQG1rz');
+    }
+  }
+
+  submit(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_3zqRYOIPZOGRBtYQ(bh);
+      //appendnew_next_submit
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_18AEsXYvOeqDmzBW');
+    }
+  }
+
   //appendnew_flow_travelRequestDialogComponent_start
 
   sd_P2VT6lPYUkxBIGR8(bh) {
@@ -629,6 +770,101 @@ export class travelRequestDialogComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_OTQGYEVaD9R5IRGe');
+    }
+  }
+
+  sd_zUUrrWDKMO6WwhWr(bh) {
+    try {
+      this.page.quotesForm = undefined;
+      this.page.futureDate1 = undefined;
+      this.page.date1 = undefined;
+      this.page.newDate1 = undefined;
+      this.page.futureDate2 = undefined;
+      this.page.futureDate3 = undefined;
+      this.page.newDate2 = undefined;
+      this.page.newDate3 = undefined;
+      bh = this.sd_ixJugdOteEKNcu7J(bh);
+      //appendnew_next_sd_zUUrrWDKMO6WwhWr
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_zUUrrWDKMO6WwhWr');
+    }
+  }
+
+  sd_ixJugdOteEKNcu7J(bh) {
+    try {
+      this.page.FG = FormGroup;
+      bh = this.quotesForm(bh);
+      //appendnew_next_sd_ixJugdOteEKNcu7J
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ixJugdOteEKNcu7J');
+    }
+  }
+
+  quotesForm(bh) {
+    try {
+      const page = this.page;
+      page.quotesForm = new FormGroup({
+        // quote 1
+        selectedQuote: new FormControl(''),
+        q1dep1: new FormControl('', [Validators.required]),
+        q1arrival1: new FormControl('', [Validators.required]),
+        q1dep2: new FormControl('', [Validators.required]),
+        q1arrival2: new FormControl('', [Validators.required]),
+        q1airline: new FormControl('', [Validators.required]),
+        q1cost: new FormControl('', [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+        ]),
+        // quote 2
+        q2dep1: new FormControl('', [Validators.required]),
+        q2arrival1: new FormControl('', [Validators.required]),
+        q2dep2: new FormControl('', [Validators.required]),
+        q2arrival2: new FormControl('', [Validators.required]),
+        q2airline: new FormControl('', [Validators.required]),
+        q2cost: new FormControl('', [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+        ]),
+        // quote 3
+        q3dep1: new FormControl('', [Validators.required]),
+        q3arrival1: new FormControl('', [Validators.required]),
+        q3dep2: new FormControl('', [Validators.required]),
+        q3arrival2: new FormControl('', [Validators.required]),
+        q3airline: new FormControl('', [Validators.required]),
+        q3cost: new FormControl('', [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+        ]),
+      });
+      bh = this.newDate(bh);
+      //appendnew_next_quotesForm
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_oCajCwVK0zpC1Egq');
+    }
+  }
+
+  newDate(bh) {
+    try {
+      const page = this.page;
+      page.date1 = new Date();
+
+      page.date2 = new Date();
+
+      page.date3 = new Date();
+
+      page.date4 = new Date();
+
+      page.date5 = new Date();
+
+      page.date6 = new Date();
+
+      //appendnew_next_newDate
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_jXyTktRziRrXjB24');
     }
   }
 
@@ -1515,6 +1751,146 @@ export class travelRequestDialogComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_IXOssdlObdvDGDDh');
+    }
+  }
+
+  sd_ohmXMoJSG2wRYglN(bh) {
+    try {
+      const page = this.page;
+      page.futureDate1 = new Date(bh.input.date.value);
+
+      //appendnew_next_sd_ohmXMoJSG2wRYglN
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ohmXMoJSG2wRYglN');
+    }
+  }
+
+  sd_Mp2VDAfCoDR7UAXv(bh) {
+    try {
+      const page = this.page;
+      page.futureDate2 = new Date(bh.input.date.value);
+
+      //appendnew_next_sd_Mp2VDAfCoDR7UAXv
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Mp2VDAfCoDR7UAXv');
+    }
+  }
+
+  sd_wEQ2PpQScEAtPmli(bh) {
+    try {
+      const page = this.page;
+      page.newDate1 = new Date(bh.input.date.value);
+      //appendnew_next_sd_wEQ2PpQScEAtPmli
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_wEQ2PpQScEAtPmli');
+    }
+  }
+
+  sd_HuYFiHdAa0lAglLh(bh) {
+    try {
+      const page = this.page;
+      page.futureDate3 = new Date(bh.input.date.value);
+
+      //appendnew_next_sd_HuYFiHdAa0lAglLh
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_HuYFiHdAa0lAglLh');
+    }
+  }
+
+  sd_DqzNxfW85GWSvPZM(bh) {
+    try {
+      const page = this.page;
+      page.futureDate4 = new Date(bh.input.date.value);
+
+      //appendnew_next_sd_DqzNxfW85GWSvPZM
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_DqzNxfW85GWSvPZM');
+    }
+  }
+
+  sd_RKran5ubUBFo5YKU(bh) {
+    try {
+      const page = this.page;
+      page.newDate2 = new Date(bh.input.date.value);
+      //appendnew_next_sd_RKran5ubUBFo5YKU
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_RKran5ubUBFo5YKU');
+    }
+  }
+
+  sd_vB5zDgxnXKQd23bo(bh) {
+    try {
+      const page = this.page;
+      page.futureDate5 = new Date(bh.input.date.value);
+
+      //appendnew_next_sd_vB5zDgxnXKQd23bo
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_vB5zDgxnXKQd23bo');
+    }
+  }
+
+  sd_ZdOshFv2zotgm2EX(bh) {
+    try {
+      const page = this.page;
+      page.futureDate6 = new Date(bh.input.date.value);
+
+      //appendnew_next_sd_ZdOshFv2zotgm2EX
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ZdOshFv2zotgm2EX');
+    }
+  }
+
+  sd_fh9PfqBcF4hv3zZM(bh) {
+    try {
+      const page = this.page;
+      page.newDate3 = new Date(bh.input.date.value);
+      //appendnew_next_sd_fh9PfqBcF4hv3zZM
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_fh9PfqBcF4hv3zZM');
+    }
+  }
+
+  sd_3zqRYOIPZOGRBtYQ(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'post';
+      bh.endPoint = `quotes`;
+      console.log('data form:', page.quotesForm);
+      bh.body = page.quotesForm.value;
+
+      bh = this.sd_2oarjCaiGCrLhVMF(bh);
+      //appendnew_next_sd_3zqRYOIPZOGRBtYQ
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_3zqRYOIPZOGRBtYQ');
+    }
+  }
+
+  async sd_2oarjCaiGCrLhVMF(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        bh.body
+      );
+      bh.local.result = outputVariables.local.result;
+
+      //appendnew_next_sd_2oarjCaiGCrLhVMF
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_2oarjCaiGCrLhVMF');
     }
   }
 

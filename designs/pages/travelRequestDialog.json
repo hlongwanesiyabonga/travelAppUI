@@ -34,7 +34,8 @@
         "y": 50,
         "wires": [
             [
-                "sd_P2VT6lPYUkxBIGR8"
+                "sd_P2VT6lPYUkxBIGR8",
+                "sd_zUUrrWDKMO6WwhWr"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -440,7 +441,7 @@
         "functionName": "date",
         "category": "General",
         "x": 385,
-        "y": 160,
+        "y": 240,
         "wires": [
             [
                 "sd_xHwnWGVuzjtXDqcG"
@@ -483,7 +484,7 @@
         "functionName": "sd_xHwnWGVuzjtXDqcG",
         "category": "Function",
         "x": 585,
-        "y": 160,
+        "y": 240,
         "wires": [
             []
         ],
@@ -506,7 +507,7 @@
         "functionName": "addNewRequestForm",
         "category": "General",
         "x": 681,
-        "y": 150,
+        "y": 230,
         "wires": [
             [
                 "sd_hScwS1juTjWPuqEC"
@@ -527,7 +528,7 @@
         "functionName": "sd_hScwS1juTjWPuqEC",
         "category": "Function",
         "x": 821,
-        "y": 150,
+        "y": 230,
         "wires": [
             []
         ],
@@ -559,7 +560,7 @@
         "functionName": "dateChange",
         "category": "General",
         "x": 901,
-        "y": 150,
+        "y": 230,
         "wires": [
             [
                 "sd_Tc5hFe7RoVqPR5t3"
@@ -580,7 +581,7 @@
         "functionName": "sd_Tc5hFe7RoVqPR5t3",
         "category": "Function",
         "x": 1001,
-        "y": 150,
+        "y": 230,
         "wires": [
             []
         ],
@@ -612,7 +613,7 @@
         "functionName": "removeNewRequestFormLeg",
         "category": "General",
         "x": 105,
-        "y": 160,
+        "y": 240,
         "wires": [
             [
                 "sd_9Y5mWui7juXMovzf"
@@ -633,7 +634,7 @@
         "functionName": "sd_9Y5mWui7juXMovzf",
         "category": "Function",
         "x": 285,
-        "y": 160,
+        "y": 240,
         "wires": [
             []
         ],
@@ -665,7 +666,7 @@
         "functionName": "selectChangesFunction",
         "category": "General",
         "x": 1121,
-        "y": 150,
+        "y": 230,
         "wires": [
             [
                 "sd_PXvWVGAeFdz006cx"
@@ -686,7 +687,7 @@
         "functionName": "sd_PXvWVGAeFdz006cx",
         "category": "Function",
         "x": 1241,
-        "y": 150,
+        "y": 230,
         "wires": [
             []
         ],
@@ -734,7 +735,7 @@
         "functionName": "submit_clear_draft",
         "category": "General",
         "x": 65,
-        "y": 300,
+        "y": 380,
         "wires": [
             [
                 "sd_3BSYymrgOaMoS0L7"
@@ -755,7 +756,7 @@
         "functionName": "sd_3BSYymrgOaMoS0L7",
         "category": "Function",
         "x": 165,
-        "y": 300,
+        "y": 380,
         "wires": [
             [
                 "sd_NXB4LhhwZJ1NvJ1z"
@@ -831,7 +832,7 @@
         "functionName": "sd_TKLDBEVAFwcgxPM5",
         "category": "General",
         "x": 425,
-        "y": 300,
+        "y": 380,
         "wires": [
             [
                 "sd_gKvGm16UtX58kUU8"
@@ -839,7 +840,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_NXB4LhhwZJ1NvJ1z",
@@ -872,7 +874,7 @@
         "functionName": "sd_NXB4LhhwZJ1NvJ1z",
         "category": "General",
         "x": 245,
-        "y": 300,
+        "y": 380,
         "wires": [
             [
                 "sd_YxHp4AR89CMJ5Z47"
@@ -880,7 +882,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_AbtojIch8izcS2He",
@@ -901,7 +904,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_F45A77cIGanDczTn",
@@ -933,7 +937,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_tSte3OpGPIhzRDnX",
@@ -954,7 +959,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_uBhaJPDfMPLkFt3H",
@@ -986,7 +992,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_URlPiFkFJorKKLLm",
@@ -1029,7 +1036,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_mlhXh4dnquQkKec9",
@@ -1054,7 +1062,7 @@
         "functionName": "requstedForHideandShow",
         "category": "General",
         "x": 645,
-        "y": 320,
+        "y": 400,
         "wires": [
             [
                 "sd_CqJFOYokZlzXnhSZ"
@@ -1094,7 +1102,7 @@
         "functionName": "sd_CqJFOYokZlzXnhSZ",
         "category": "Function",
         "x": 750,
-        "y": 320,
+        "y": 400,
         "wires": [
             [
                 "sd_zshWVVTuup9rE1Cl"
@@ -1105,7 +1113,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_zshWVVTuup9rE1Cl",
@@ -1118,7 +1127,7 @@
         "functionName": "sd_zshWVVTuup9rE1Cl",
         "category": "Function",
         "x": 870,
-        "y": 260,
+        "y": 340,
         "wires": [
             [
                 "sd_Y1NuKdDpFbhlqd7l"
@@ -1126,7 +1135,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_xvacI53RCqKmdIgZ",
@@ -1139,7 +1149,7 @@
         "functionName": "sd_xvacI53RCqKmdIgZ",
         "category": "Function",
         "x": 870,
-        "y": 380,
+        "y": 460,
         "wires": [
             [
                 "sd_V8MdJQRFEcAJSGhf"
@@ -1214,7 +1224,7 @@
         "functionName": "sd_Y1NuKdDpFbhlqd7l",
         "category": "General",
         "x": 970,
-        "y": 260,
+        "y": 340,
         "wires": [
             [
                 "sd_OVHPZK7w2svoRY64"
@@ -1235,7 +1245,7 @@
         "functionName": "sd_OVHPZK7w2svoRY64",
         "category": "Function",
         "x": 1110,
-        "y": 260,
+        "y": 340,
         "wires": [
             []
         ],
@@ -1308,7 +1318,7 @@
         "functionName": "sd_V8MdJQRFEcAJSGhf",
         "category": "General",
         "x": 970,
-        "y": 380,
+        "y": 460,
         "wires": [
             [
                 "sd_OlzTqwUY2HWVsU27"
@@ -1329,7 +1339,7 @@
         "functionName": "sd_OlzTqwUY2HWVsU27",
         "category": "Function",
         "x": 1070,
-        "y": 380,
+        "y": 460,
         "wires": [
             []
         ],
@@ -1360,7 +1370,7 @@
         "functionName": "onSelectionChange",
         "category": "General",
         "x": 1421,
-        "y": 130,
+        "y": 210,
         "wires": [
             [
                 "sd_WJgvwj5HOKqEGRwF"
@@ -1381,7 +1391,7 @@
         "functionName": "sd_WJgvwj5HOKqEGRwF",
         "category": "Function",
         "x": 1561,
-        "y": 130,
+        "y": 210,
         "wires": [
             []
         ],
@@ -1412,7 +1422,7 @@
         "functionName": "requstedForFilter",
         "category": "General",
         "x": 750,
-        "y": 440,
+        "y": 520,
         "wires": [
             [
                 "sd_xvacI53RCqKmdIgZ"
@@ -1445,7 +1455,7 @@
         "functionName": "onFileChangeCovidCertificate",
         "category": "General",
         "x": 85,
-        "y": 540,
+        "y": 620,
         "wires": [
             [
                 "sd_gdbVfeNm2A4NOU7n"
@@ -1466,7 +1476,7 @@
         "functionName": "sd_gdbVfeNm2A4NOU7n",
         "category": "Function",
         "x": 205,
-        "y": 540,
+        "y": 620,
         "wires": [
             []
         ],
@@ -1497,7 +1507,7 @@
         "functionName": "onFileChangePassport",
         "category": "General",
         "x": 61,
-        "y": 430,
+        "y": 510,
         "wires": [
             [
                 "sd_eSdPlGjxGZR6ryaK"
@@ -1518,7 +1528,7 @@
         "functionName": "sd_eSdPlGjxGZR6ryaK",
         "category": "Function",
         "x": 181,
-        "y": 430,
+        "y": 510,
         "wires": [
             []
         ],
@@ -1549,7 +1559,7 @@
         "functionName": "onFileChangeVISA",
         "category": "General",
         "x": 385,
-        "y": 420,
+        "y": 500,
         "wires": [
             [
                 "sd_NJDEhlDtAQH2soW2"
@@ -1570,7 +1580,7 @@
         "functionName": "sd_NJDEhlDtAQH2soW2",
         "category": "Function",
         "x": 505,
-        "y": 420,
+        "y": 500,
         "wires": [
             []
         ],
@@ -1641,7 +1651,7 @@
         "functionName": "sd_ekAUZaEpB7sWNNPr",
         "category": "Dialog",
         "x": 225,
-        "y": 640,
+        "y": 720,
         "wires": [
             []
         ],
@@ -1670,7 +1680,7 @@
         "functionName": "closeDialog",
         "category": "General",
         "x": 70,
-        "y": 640,
+        "y": 720,
         "wires": [
             [
                 "sd_ekAUZaEpB7sWNNPr"
@@ -1691,7 +1701,7 @@
         "functionName": "sd_Yd93VALldmBZL9nt",
         "category": "Dialog",
         "x": 485,
-        "y": 520,
+        "y": 600,
         "wires": [
             [
                 "sd_wMYU8X4lRNJtGwOu"
@@ -1719,7 +1729,7 @@
         "functionName": "sd_wMYU8X4lRNJtGwOu",
         "category": "Function",
         "x": 605,
-        "y": 520,
+        "y": 600,
         "wires": [
             []
         ],
@@ -1741,7 +1751,7 @@
         "functionName": "prepopulateDialogData",
         "category": "General",
         "x": 365,
-        "y": 520,
+        "y": 600,
         "wires": [
             [
                 "sd_Yd93VALldmBZL9nt"
@@ -1762,7 +1772,7 @@
         "functionName": "sd_YxHp4AR89CMJ5Z47",
         "category": "Dialog",
         "x": 325,
-        "y": 300,
+        "y": 380,
         "wires": [
             [
                 "sd_TKLDBEVAFwcgxPM5"
@@ -2379,7 +2389,7 @@
         "functionName": "sd_gKvGm16UtX58kUU8",
         "category": "Function",
         "x": 545,
-        "y": 300,
+        "y": 380,
         "wires": [
             []
         ],
@@ -2489,7 +2499,7 @@
         "functionName": "updateForm",
         "category": "General",
         "x": 385,
-        "y": 620,
+        "y": 700,
         "wires": [
             [
                 "sd_W3spsxyROsNc9uRj"
@@ -2510,7 +2520,7 @@
         "functionName": "sd_W3spsxyROsNc9uRj",
         "category": "Function",
         "x": 485,
-        "y": 620,
+        "y": 700,
         "wires": [
             [
                 "sd_X57X06SUAD6WyGtg"
@@ -2585,7 +2595,7 @@
         "functionName": "sd_0o99E73yxJviz1Me",
         "category": "General",
         "x": 685,
-        "y": 620,
+        "y": 700,
         "wires": [
             [
                 "sd_IXOssdlObdvDGDDh"
@@ -2606,7 +2616,7 @@
         "functionName": "sd_IXOssdlObdvDGDDh",
         "category": "Dialog",
         "x": 805,
-        "y": 620,
+        "y": 700,
         "wires": [
             []
         ],
@@ -2652,11 +2662,781 @@
         "functionName": "sd_X57X06SUAD6WyGtg",
         "category": "General",
         "x": 585,
-        "y": 620,
+        "y": 700,
         "wires": [
             [
                 "sd_0o99E73yxJviz1Me"
             ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_zUUrrWDKMO6WwhWr",
+        "type": "PageVariables",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "quotesForm",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "futureDate1",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "date1",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "newDate1",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "futureDate2",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "futureDate3",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "newDate2",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "newDate3",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_zUUrrWDKMO6WwhWr",
+        "category": "Function",
+        "x": 125,
+        "y": 140,
+        "wires": [
+            [
+                "sd_ixJugdOteEKNcu7J"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ixJugdOteEKNcu7J",
+        "type": "UseDependency",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ReactiveFormsModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FG"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_ixJugdOteEKNcu7J",
+        "category": "Function",
+        "x": 225,
+        "y": 140,
+        "wires": [
+            [
+                "sd_oCajCwVK0zpC1Egq"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_oCajCwVK0zpC1Egq",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "quotesForm",
+        "script": "page.quotesForm = new FormGroup({\n  // quote 1 \n    selectedQuote: new FormControl(''),\n    q1dep1: new FormControl('', [Validators.required]),\n    q1arrival1: new FormControl('', [Validators.required]),\n    q1dep2: new FormControl('', [Validators.required]),\n    q1arrival2: new FormControl('', [Validators.required]),\n    q1airline: new FormControl('', [Validators.required]),\n    q1cost: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")]),\n      // quote 2 \n    q2dep1: new FormControl('', [Validators.required]),\n    q2arrival1: new FormControl('', [Validators.required]),\n    q2dep2: new FormControl('', [Validators.required]),\n    q2arrival2: new FormControl('', [Validators.required]),\n    q2airline: new FormControl('', [Validators.required]),\n    q2cost: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")]),\n      // quote 3 \n    q3dep1: new FormControl('', [Validators.required]),\n    q3arrival1: new FormControl('', [Validators.required]),\n    q3dep2: new FormControl('', [Validators.required]),\n    q3arrival2: new FormControl('', [Validators.required]),\n    q3airline: new FormControl('', [Validators.required]),\n    q3cost: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")]),\n  });",
+        "functionName": "quotesForm",
+        "category": "Function",
+        "x": 305,
+        "y": 140,
+        "wires": [
+            [
+                "sd_jXyTktRziRrXjB24"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jXyTktRziRrXjB24",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "new date",
+        "script": "page.date1= new Date();\n\npage.date2= new Date();\n\npage.date3= new Date();\n\npage.date4= new Date();\n\npage.date5= new Date();\n\npage.date6= new Date();\n\n",
+        "functionName": "newDate",
+        "category": "Function",
+        "x": 400,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_JJlJ6IHn8MNb1vkd",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "dateChange1",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "dateChange1",
+        "category": "General",
+        "x": 1425,
+        "y": 560,
+        "wires": [
+            [
+                "sd_ohmXMoJSG2wRYglN"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_ohmXMoJSG2wRYglN",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate1 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_ohmXMoJSG2wRYglN",
+        "category": "Function",
+        "x": 1550,
+        "y": 560,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_pJSgF6xjYrApLtQI",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "thirdDateChange1",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "thirdDateChange1",
+        "category": "General",
+        "x": 1845,
+        "y": 560,
+        "wires": [
+            [
+                "sd_Mp2VDAfCoDR7UAXv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_Mp2VDAfCoDR7UAXv",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate2 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_Mp2VDAfCoDR7UAXv",
+        "category": "Function",
+        "x": 1970,
+        "y": 560,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_KUwcYNDYw09rdwa9",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "secondDateChange1",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "secondDateChange1",
+        "category": "General",
+        "x": 1625,
+        "y": 560,
+        "wires": [
+            [
+                "sd_wEQ2PpQScEAtPmli"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_wEQ2PpQScEAtPmli",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.newDate1 = new Date(bh.input.date.value);",
+        "functionName": "sd_wEQ2PpQScEAtPmli",
+        "category": "Function",
+        "x": 1750,
+        "y": 560,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_6VduCKqZXhCBei7J",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "dateChange2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "dateChange2",
+        "category": "General",
+        "x": 1425,
+        "y": 640,
+        "wires": [
+            [
+                "sd_HuYFiHdAa0lAglLh"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_HuYFiHdAa0lAglLh",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate3 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_HuYFiHdAa0lAglLh",
+        "category": "Function",
+        "x": 1550,
+        "y": 640,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_GWWuZtrjGKK5VhXd",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "thirdDateChange2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "thirdDateChange2",
+        "category": "General",
+        "x": 1845,
+        "y": 640,
+        "wires": [
+            [
+                "sd_DqzNxfW85GWSvPZM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_DqzNxfW85GWSvPZM",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate4 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_DqzNxfW85GWSvPZM",
+        "category": "Function",
+        "x": 1970,
+        "y": 640,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_VmvGLvJmY3WxyacD",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "secondDateChange2",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "secondDateChange2",
+        "category": "General",
+        "x": 1625,
+        "y": 640,
+        "wires": [
+            [
+                "sd_RKran5ubUBFo5YKU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_RKran5ubUBFo5YKU",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.newDate2 = new Date(bh.input.date.value);",
+        "functionName": "sd_RKran5ubUBFo5YKU",
+        "category": "Function",
+        "x": 1750,
+        "y": 640,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_e3n2bA5e9ZA2abVd",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "dateChange3",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "dateChange3",
+        "category": "General",
+        "x": 1425,
+        "y": 720,
+        "wires": [
+            [
+                "sd_vB5zDgxnXKQd23bo"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_vB5zDgxnXKQd23bo",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate5 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_vB5zDgxnXKQd23bo",
+        "category": "Function",
+        "x": 1550,
+        "y": 720,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_5KNIzroaN3vGkf6d",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "thirdDateChange3",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "thirdDateChange3",
+        "category": "General",
+        "x": 1845,
+        "y": 720,
+        "wires": [
+            [
+                "sd_ZdOshFv2zotgm2EX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_ZdOshFv2zotgm2EX",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.futureDate6 = new Date(bh.input.date.value);\n",
+        "functionName": "sd_ZdOshFv2zotgm2EX",
+        "category": "Function",
+        "x": 1970,
+        "y": 720,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_pgBCuUwQo8AQG1rz",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "secondDateChange3",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "date",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "secondDateChange3",
+        "category": "General",
+        "x": 1625,
+        "y": 720,
+        "wires": [
+            [
+                "sd_fh9PfqBcF4hv3zZM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_fh9PfqBcF4hv3zZM",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.newDate3 = new Date(bh.input.date.value);",
+        "functionName": "sd_fh9PfqBcF4hv3zZM",
+        "category": "Function",
+        "x": 1750,
+        "y": 720,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_18AEsXYvOeqDmzBW",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "submit",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submit",
+        "category": "General",
+        "x": 1425,
+        "y": 900,
+        "wires": [
+            [
+                "sd_3zqRYOIPZOGRBtYQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_3zqRYOIPZOGRBtYQ",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = 'post';\nbh.endPoint = `quotes`\nconsole.log('data form:',page.quotesForm)\nbh.body=page.quotesForm.value;\n",
+        "functionName": "sd_3zqRYOIPZOGRBtYQ",
+        "category": "Function",
+        "x": 1525,
+        "y": 900,
+        "wires": [
+            [
+                "sd_2oarjCaiGCrLhVMF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_2oarjCaiGCrLhVMF",
+        "type": "PageCallService",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": "body"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh.local",
+                "value": "result",
+                "mapVarName": "result",
+                "localVar": "bh.local.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            "bh.body"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_2oarjCaiGCrLhVMF",
+        "category": "General",
+        "x": 1625,
+        "y": 900,
+        "wires": [
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

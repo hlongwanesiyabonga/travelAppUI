@@ -234,7 +234,7 @@ export class quotesComponent {
   sd_RZCp6cZJCptTlpe8(bh) {
     try {
       this.page.FG = FormGroup;
-      bh = this.sd_hQUY9Gozmxxhhaeu(bh);
+      bh = this.quotesForm(bh);
       //appendnew_next_sd_RZCp6cZJCptTlpe8
       return bh;
     } catch (e) {
@@ -242,7 +242,7 @@ export class quotesComponent {
     }
   }
 
-  sd_hQUY9Gozmxxhhaeu(bh) {
+  quotesForm(bh) {
     try {
       const page = this.page;
       page.quotesForm = new FormGroup({
@@ -278,15 +278,15 @@ export class quotesComponent {
           Validators.pattern('^[0-9]*$'),
         ]),
       });
-      bh = this.sd_8oV5f7Ww7v98j4WX(bh);
-      //appendnew_next_sd_hQUY9Gozmxxhhaeu
+      bh = this.newDate(bh);
+      //appendnew_next_quotesForm
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_hQUY9Gozmxxhhaeu');
     }
   }
 
-  sd_8oV5f7Ww7v98j4WX(bh) {
+  newDate(bh) {
     try {
       const page = this.page;
       page.date1 = new Date();
@@ -301,7 +301,7 @@ export class quotesComponent {
 
       page.date6 = new Date();
 
-      //appendnew_next_sd_8oV5f7Ww7v98j4WX
+      //appendnew_next_newDate
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_8oV5f7Ww7v98j4WX');
