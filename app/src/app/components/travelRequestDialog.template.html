@@ -511,14 +511,7 @@
         </div>
       </div>
     </form>
-    <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == null &amp;&amp; ( !(page?.dialogData?.owner != page?.currentUserDetails?.email &amp;&amp; page?.currentUserDetails?.designation[0].includes(&apos;Manager&apos;) || page?.currentUserDetails?.designation.includes(&apos;Manager&apos;) ))"><button mat-raised-button class="redButton" (click)="updateForm(page.travelForm.value,page.personalDetailsForm)">Update</button></div>
-      <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == null &amp;&amp;(page?.dialogData?.owner != page?.currentUserDetails?.email &amp;&amp; page?.currentUserDetails?.designation[0].includes(&apos;Manager&apos;) || page?.currentUserDetails?.designation.includes(&apos;Manager&apos;))"><button mat-raised-button class="redButton" (click)="changeRequestStatus(page.personalDetailsForm.value,page.travelForm.value,&apos;Rejected&apos;)">Reject</button><button mat-raised-button class="greenButton" (click)="changeRequestStatus(page.personalDetailsForm.value,page.travelForm.value,&apos;Approved&apos;)" [disabled]="false">Approve</button></div>
-      <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == &apos;Approved&apos; &amp;&amp; (page?.dialogData?.owner == page?.currentUserDetails?.email)"><button mat-raised-button class="redButton">Reject Quote</button><button mat-raised-button class="greenButton">Approve Quote</button></div>
-      <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == &apos;Approved&apos; &amp;&amp; (page?.dialogData?.owner != page?.currentUserDetails?.email &amp;&amp; page?.currentUserDetails?.designation[0].includes(&apos;Manager&apos;) || page?.currentUserDetails?.designation.includes(&apos;Manager&apos;))"><button mat-raised-button class="redBorderedButton" (click)="changeQuoteStatus(&apos;Rejected&apos;,page.travelForm.value,page.personalDetailsForm.value)">Reject Quote LM</button><button mat-raised-button class="greenBorderButton" (click)="changeQuoteStatus(&apos;Approved&apos;,page.travelForm.value,page.personalDetailsForm.value)">Approve Quote LM</button></div>
-      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="1em" fxLayoutAlign="end end" [fxShow]="true" *ngIf="page.dialogData.isDraft &amp;&amp; page.currentUserDetails.email == page.requesterDetails.email &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == null"><button mat-raised-button class="blackButton" (click)="closeDialog()">Cancel</button><button mat-raised-button class="redButton" (click)="submit_clear_draft(&apos;Submit&apos;,page.travelForm.value,page.personalDetailsForm.value)">Submit</button></div>
-    </div>
-    <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page?.dialogData?.managerApproval.approvedRequest == &apos;Approved&apos; &amp;&amp;!page.dialogData.isDraft &amp;&amp; page.currentUserDetails.designation.includes(&apos;Travel&apos;) || (page.currentUserDetails.email == page.dialogData.owner &amp;&amp; page.quotesForm.value.q1airline !=&apos;&apos;) ">
       <form [formGroup]="page.quotesForm" class="fullWidth">
         <mat-radio-group formControlName="selectedQuote" [required]="false">
           <div fxLayout="column wrap" class="marginTop20" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
@@ -527,7 +520,7 @@
                 <h2>
                   Quote 1</h2>
               </div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.currentUserDetails.email == page.dialogData.email">
                 <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
                   <mat-radio-button [value]="&apos;Quote 1&apos;" [required]="false"></mat-radio-button><label>
                     Select</label>
@@ -605,7 +598,7 @@
                 <h2>
                   Quote 2</h2>
               </div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.currentUserDetails.email == page.dialogData.email">
                 <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
                   <mat-radio-button [value]="&apos;Quote 2&apos;" [required]="false"></mat-radio-button><label>
                     Select</label>
@@ -683,7 +676,7 @@
                 <h2>
                   Quote 3</h2>
               </div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.currentUserDetails.email == page.dialogData.email">
                 <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
                   <mat-radio-button [value]="&apos;Quote 3&apos;" [required]="false"></mat-radio-button><label>
                     Select</label>
@@ -756,12 +749,17 @@
                 </div>
               </div>
             </div>
-            <div fxLayout="row wrap" class="marginRight20" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="redButton" (click)="submit()" [disabled]="false">Submit</button></div>
-            <div fxLayout="row wrap" class="marginRight20" fxLayoutGap="10px" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="redButton">Reject Quote</button><button mat-button class="greenButton">Approve Quote</button></div>
-            <div fxLayout="row wrap" class="marginRight20" fxLayoutGap="10px" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="redBorderedButton">Reject Quote</button><button mat-button class="greenBorderButton">Accept Quote</button></div>
+            <div fxLayout="row wrap" class="marginRight20" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-button class="redButton" (click)="submitQuote()" [disabled]="false">Submit</button></div>
           </div>
         </mat-radio-group>
       </form>
+    </div>
+    <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
+      <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == null &amp;&amp; ( !(page?.dialogData?.owner != page?.currentUserDetails?.email &amp;&amp; page?.currentUserDetails?.designation[0].includes(&apos;Manager&apos;) || page?.currentUserDetails?.designation.includes(&apos;Manager&apos;) ))"><button mat-raised-button class="redButton" (click)="updateForm(page.travelForm.value,page.personalDetailsForm)">Update</button></div>
+      <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == null &amp;&amp;(page?.dialogData?.owner != page?.currentUserDetails?.email &amp;&amp; page?.currentUserDetails?.designation[0].includes(&apos;Manager&apos;) || page?.currentUserDetails?.designation.includes(&apos;Manager&apos;))"><button mat-raised-button class="redButton" (click)="changeRequestStatus(page.personalDetailsForm.value,page.travelForm.value,&apos;Rejected&apos;)">Reject</button><button mat-raised-button class="greenButton" (click)="changeRequestStatus(page.personalDetailsForm.value,page.travelForm.value,&apos;Approved&apos;)" [disabled]="false">Approve</button></div>
+      <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == &apos;Approved&apos; &amp;&amp; (page?.dialogData?.owner == page?.currentUserDetails?.email)"><button mat-raised-button class="redButton">Reject Quote</button><button mat-raised-button class="greenButton">Approve Quote</button></div>
+      <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == &apos;Approved&apos; &amp;&amp; (page?.dialogData?.owner != page?.currentUserDetails?.email &amp;&amp; page?.currentUserDetails?.designation[0].includes(&apos;Manager&apos;) || page?.currentUserDetails?.designation.includes(&apos;Manager&apos;))"><button mat-raised-button class="redBorderedButton" (click)="changeQuoteStatus(&apos;Rejected&apos;,page.travelForm.value,page.personalDetailsForm.value)">Reject Quote LM</button><button mat-raised-button class="greenBorderButton" (click)="changeQuoteStatus(&apos;Approved&apos;,page.travelForm.value,page.personalDetailsForm.value)">Approve Quote LM</button></div>
+      <div fxLayout="row wrap" class="marginRight20 marginBottom1em marinTop1em" fxLayoutGap="1em" fxLayoutAlign="end end" [fxShow]="true" *ngIf="page.dialogData.isDraft &amp;&amp; page.currentUserDetails.email == page.requesterDetails.email &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == null"><button mat-raised-button class="blackButton" (click)="closeDialog()">Cancel</button><button mat-raised-button class="redButton" (click)="submit_clear_draft(&apos;Submit&apos;,page.travelForm.value,page.personalDetailsForm.value)">Submit</button></div>
     </div>
   </div>
 </div>

@@ -1135,8 +1135,7 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true,
-        "serviceName": "travelRequestDialogComponent"
+        "generated": true
     },
     {
         "id": "sd_xvacI53RCqKmdIgZ",
@@ -1935,39 +1934,6 @@
         "serviceName": "travelRequestDialogComponent"
     },
     {
-        "id": "sd_SqiOu03c1MIgMpeg",
-        "type": "PageStart",
-        "z": "sd_cL2Dk3ymewl6P3KV",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "submitQuote",
-        "outputs": 1,
-        "inputVariables": [
-            {
-                "key": "form",
-                "defaultValue": {
-                    "type": "any",
-                    "value": ""
-                },
-                "output": false
-            }
-        ],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "submitQuote",
-        "category": "General",
-        "x": 145,
-        "y": 960,
-        "wires": [
-            [
-                "sd_6rpztMIMTheUCgHP"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "travelRequestDialogComponent"
-    },
-    {
         "id": "sd_6rpztMIMTheUCgHP",
         "type": "Script",
         "z": "sd_cL2Dk3ymewl6P3KV",
@@ -1985,8 +1951,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_mhsxhNaNNWIp4Xpv",
@@ -2058,8 +2023,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_mtwXryArY7EL8Q3c",
@@ -2370,13 +2334,11 @@
         "y": 960,
         "wires": [
             [
-                "sd_mhsxhNaNNWIp4Xpv",
-                "sd_OtssZMzdCWndEOlS"
+                "sd_mhsxhNaNNWIp4Xpv"
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_gKvGm16UtX58kUU8",
@@ -3330,12 +3292,12 @@
         "z": "sd_cL2Dk3ymewl6P3KV",
         "viewType": "pages",
         "nodeType": "start",
-        "name": "submit",
+        "name": "submitQuote",
         "outputs": 1,
         "inputVariables": [],
         "localVariables": [],
         "flow_type": "sync",
-        "functionName": "submit",
+        "functionName": "submitQuote",
         "category": "General",
         "x": 1425,
         "y": 900,
@@ -3355,7 +3317,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = 'post';\nbh.endPoint = `quotes`\nconsole.log('data form:',page.quotesForm)\nbh.body=page.quotesForm.value;\n",
+        "script": "bh.method = 'post';\nbh.endPoint = 'addQuote';\nbh.body=page.quotesForm.value;\nbh.body.owner = page.dialogData._id;\nconsole.log(page.quotesForm)\n",
         "functionName": "sd_3zqRYOIPZOGRBtYQ",
         "category": "Function",
         "x": 1525,

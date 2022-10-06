@@ -8,8 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -320,20 +318,6 @@ export class travelRequestDialogComponent {
     }
   }
 
-  submitQuote(form: any = undefined, ...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = { form: form };
-      bh.local = {};
-      bh = this.sd_6rpztMIMTheUCgHP(bh);
-      //appendnew_next_submitQuote
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_SqiOu03c1MIgMpeg');
-    }
-  }
-
   changeQuoteStatus(
     quoteStatus: any = undefined,
     form: any = undefined,
@@ -501,7 +485,7 @@ export class travelRequestDialogComponent {
     }
   }
 
-  submit(...others) {
+  submitQuote(...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
@@ -509,7 +493,7 @@ export class travelRequestDialogComponent {
       bh.input = {};
       bh.local = {};
       bh = this.sd_3zqRYOIPZOGRBtYQ(bh);
-      //appendnew_next_submit
+      //appendnew_next_submitQuote
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_18AEsXYvOeqDmzBW');
     }
@@ -1521,61 +1505,6 @@ export class travelRequestDialogComponent {
     }
   }
 
-  sd_6rpztMIMTheUCgHP(bh) {
-    try {
-      const page = this.page;
-      page.quoteForm.owner = page.dialogData._id;
-      page.quoteForm.tempObj = page.dialogData;
-      console.log('page.quoteForm', page.quoteForm);
-      bh.method = 'put';
-      bh.endPoint = 'uploadQuote';
-
-      bh = this.sd_WKuJdhSg92YSliE9(bh);
-      //appendnew_next_sd_6rpztMIMTheUCgHP
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_6rpztMIMTheUCgHP');
-    }
-  }
-
-  sd_WKuJdhSg92YSliE9(bh) {
-    try {
-      this.__page_injector__
-        .get(MatSnackBar)
-        .open('Quote status successfully changed', 'Close', {
-          duration: 2000,
-          direction: 'ltr',
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-      bh = this.sd_mhsxhNaNNWIp4Xpv(bh);
-      bh = this.sd_OtssZMzdCWndEOlS(bh);
-      //appendnew_next_sd_WKuJdhSg92YSliE9
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_WKuJdhSg92YSliE9');
-    }
-  }
-
-  async sd_mhsxhNaNNWIp4Xpv(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        this.page.quoteForm
-      );
-      bh.result = outputVariables.local.result;
-
-      //appendnew_next_sd_mhsxhNaNNWIp4Xpv
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_mhsxhNaNNWIp4Xpv');
-    }
-  }
-
   sd_8uLa6zbDYq5f2Hu6(bh) {
     try {
       const page = this.page;
@@ -1863,9 +1792,10 @@ export class travelRequestDialogComponent {
     try {
       const page = this.page;
       bh.method = 'post';
-      bh.endPoint = `quotes`;
-      console.log('data form:', page.quotesForm);
+      bh.endPoint = 'addQuote';
       bh.body = page.quotesForm.value;
+      bh.body.owner = page.dialogData._id;
+      console.log(page.quotesForm);
 
       bh = this.sd_2oarjCaiGCrLhVMF(bh);
       //appendnew_next_sd_3zqRYOIPZOGRBtYQ
