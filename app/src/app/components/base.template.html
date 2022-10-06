@@ -1,0 +1,126 @@
+<mat-sidenav-container style="width: 100%; Height: 100vh; ">
+  <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="sideNav-md" fxFlex="20" fxLayoutAlign="start center" [fxShow]="true" fxHide.xs="true">
+        <div fxLayout="row wrap" fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="/Web/Icons/favicon.ico.png" class="pointer marginBottom50 marginTop20"></div>
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="sideNavButton pointer" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showDashboard}" (click)="showDashboard()">
+            <div>
+              <p>Dashboard</p>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showNewRequests}" (click)="showNewRequests()">
+            <div>
+              <p>New Request</p>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showDrafts}" (click)="showDrafts()">
+            <div>
+              <p>Drafts</p>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showReports}" (click)="showReports()">
+            <div>
+              <p>Reports</p>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showLogout}" (click)="showLogout()">
+            <div>
+              <p>Logout</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="column wrap" fxFlex="80" fxLayoutAlign="start center" [fxShow]="true" fxFlex.xs="100">
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="start center" [fxShow]="true">
+            <div fxLayout="row wrap" class="marginTop20 navBar" fxLayoutAlign="space-between center" [fxShow]="true">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true">
+                  <mat-icon class="pointer menuButton" fxHide="true" fxHide.xs="false" (click)="sideNav.open()">menu</mat-icon>
+                </div>
+              </div>
+              <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true">
+                <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true"><img imgSrc="/Web/Icons/favicon.ico" style="    margin-right: -30px;" fxHide.xs="false" fxHide="true"></div>
+              </div>
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                  <div fxLayout="column wrap" class="topNavUserNameButton" fxLayoutAlign="center center" [fxShow]="true" fxHide.xs="true">
+                    <div class="userInitials">
+                      <p>{{page?.personalDetails?.firstName[0] + page?.personalDetails?.lastName[0]}}</p>
+                    </div>
+                  </div>
+                  <div fxLayout="column wrap" class="topNavUserNameButton" fxLayoutAlign="center center" [fxShow]="true" fxHide.xs="true">
+                    <div>
+                      <p>{{page?.personalDetails?.firstName + &apos; &apos; + page?.personalDetails?.lastName}}</p>
+                    </div>
+                  </div>
+                  <div fxLayout="column wrap" class="topNavProfileButton pointer" fxLayoutAlign="center center" [fxShow]="true" (click)="openProfile()">
+                    <div>
+                      <p style="border-bottom: 6px solid #ec1c24;">Profile</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row wrap" class="routerBody" fxLayoutAlign="center stretch" [fxShow]="true">
+          <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
+            <bh-quotes></bh-quotes>
+            <bh-dashboard *ngIf="page.showDashboard"></bh-dashboard>
+            <bh-new_travel_request *ngIf="page.showNewRequests"></bh-new_travel_request>
+            <bh-drafts *ngIf="page.showDrafts"></bh-drafts>
+            <bh-reports *ngIf="page.showReports"></bh-reports>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-sidenav #sidenav #sideNav style="width: 65%; " [mode]="&apos;over&apos;" [position] [opened]="false">
+    <div fxLayout="row wrap" fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="/Web/Icons/favicon.ico.png" class="pointer marginBottom50 marginTop20"></div>
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="sideNavButton pointer" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showDashboard}" (click)="showDashboard()">
+        <div>
+          <p>Dashboard</p>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showNewRequests}" (click)="showNewRequests()">
+        <div>
+          <p>New Request</p>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showDrafts}" (click)="showDrafts()">
+        <div>
+          <p>Drafts</p>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showReports}" (click)="showReports()">
+        <div>
+          <p>Reports</p>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true" (click)="showLogout()">
+      <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showLogout}">
+        <div>
+          <p>Logout</p>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav>
+</mat-sidenav-container>

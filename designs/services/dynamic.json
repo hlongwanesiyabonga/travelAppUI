@@ -1,0 +1,283 @@
+[
+    {
+        "id": "sd_ybQfnjlxLcctmUOT",
+        "type": "tab",
+        "createdDate": "2022-10-06T08:47:12.746Z",
+        "label": "dynamic",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "dynamic",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_zzAQYvFAqQ03DveM",
+        "type": "Script",
+        "z": "sd_ybQfnjlxLcctmUOT",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.apiUrl = \"http://localhost:8081/api/\"+ bh.input.endPoint;\nconsole.log(bh.input)",
+        "functionName": "sd_zzAQYvFAqQ03DveM",
+        "category": "Function",
+        "x": 365,
+        "y": 160,
+        "wires": [
+            [
+                "sd_3MJloy91cBaJmDUb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true,
+        "serviceName": "dynamic"
+    },
+    {
+        "id": "sd_Tc5hB3p7fbBUNTjY",
+        "type": "Start",
+        "z": "sd_ybQfnjlxLcctmUOT",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "Dynamic",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "method",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "body",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [
+            {
+                "key": "result",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "accept_bh": false,
+        "functionName": "dynamic",
+        "category": "General",
+        "x": 185,
+        "y": 160,
+        "wires": [
+            [
+                "sd_zzAQYvFAqQ03DveM"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dynamic"
+    },
+    {
+        "id": "sd_3MJloy91cBaJmDUb",
+        "type": "HttpRequest",
+        "z": "sd_ybQfnjlxLcctmUOT",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "",
+        "methodMapping": "bh.input.method",
+        "methodMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "method"
+        },
+        "urlMapping": "bh.apiUrl",
+        "urlMappingObj": {
+            "mapVarType": "bh",
+            "mapVarValue": "apiUrl"
+        },
+        "ret": "json",
+        "retMapping": "",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMapping": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBody": "bh.input.body",
+        "reqBodyObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "body"
+        },
+        "resultMapping": "bh.local.result",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "result"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMapping": "",
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMapping": "",
+        "paramMappingObj": {},
+        "functionName": "sd_3MJloy91cBaJmDUb",
+        "category": "HTTP",
+        "x": 565,
+        "y": 160,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_NkL9gZwk8hwJHnva",
+        "type": "Start",
+        "z": "sd_ybQfnjlxLcctmUOT",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "storePersonalDetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "data",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "key",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "storePersonalDetails",
+        "category": "General",
+        "x": 180,
+        "y": 320,
+        "wires": [
+            [
+                "sd_n3KcTtaWPaV0Pr82"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dynamic"
+    },
+    {
+        "id": "sd_n3KcTtaWPaV0Pr82",
+        "type": "Storage",
+        "z": "sd_ybQfnjlxLcctmUOT",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "setItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "bh.input",
+            "value": "key"
+        },
+        "value": {
+            "type": "bh.input",
+            "value": "data"
+        },
+        "resultMapping": {},
+        "functionName": "sd_n3KcTtaWPaV0Pr82",
+        "category": "Storage",
+        "x": 320,
+        "y": 320,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_v7aLGZtlGBeUJVVY",
+        "type": "Start",
+        "z": "sd_ybQfnjlxLcctmUOT",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "getPersonalDetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "key",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "getPersonalDetails",
+        "category": "General",
+        "x": 185,
+        "y": 420,
+        "wires": [
+            [
+                "sd_ZB4ZfQR7R1ZlX9YU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "dynamic"
+    },
+    {
+        "id": "sd_ZB4ZfQR7R1ZlX9YU",
+        "type": "Storage",
+        "z": "sd_ybQfnjlxLcctmUOT",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "bh.input",
+            "value": "key"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "bh.local",
+            "value": "requesterDetails"
+        },
+        "functionName": "sd_ZB4ZfQR7R1ZlX9YU",
+        "category": "Storage",
+        "x": 325,
+        "y": 420,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

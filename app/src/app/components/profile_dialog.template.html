@@ -1,0 +1,148 @@
+<div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="row wrap" class="marginBottom10 fullWidth" fxLayoutAlign="space-between stretch" [fxShow]="true">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <h1 class="marginBottom0pt3em">
+        <mat-icon>person</mat-icon>Profile
+      </h1>
+    </div>
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="row wrap" class="pointer profileCloseButton" fxLayoutAlign="start stretch" [fxShow]="true">
+        <mat-icon (click)="closeProfile()">close</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row wrap" class="profileDialogBody fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
+    <form [formGroup]="page.profileForm" class="fullWidth">
+      <div fxLayout="column wrap" class="marginTop20" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>First Name</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="First Name" [required]="false" formControlName="firstName">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>Last Name</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Last Name" [required]="false" formControlName="lastName">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>Date of Birth</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Date of Birth" [required]="false" formControlName="dateOfBirth">
+
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>Gender</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Gender" [required]="false" formControlName="gender">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>Email</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Email" [required]="false" formControlName="email">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>Designation</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Designation" [required]="false" formControlName="designation">
+
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>PAN Number</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="PAN Number" [required]="false" formControlName="panNumber">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>ID Number</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="ID Number" [required]="false" formControlName="idNumber">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>Passport Number</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Passport Number" [required]="false" formControlName="passportNumber" readonly="true">
+
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>Nationality</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Nationality" [required]="false" formControlName="nationality" readonly="true">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>Station</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Station" [required]="false" formControlName="station" readonly="true">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>Line manager</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Line manager" [required]="false" formControlName="lineManager" readonly="true">
+
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row wrap" fxLayoutAlign="space-between start" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="32" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+            <div>
+              <p>Line Manager Email</p>
+            </div>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput placeholder="Line Manager Email" [required]="false" formControlName="lineManagerEmail" readonly="true" [disabled]="true">
+
+            </mat-form-field>
+          </div>
+          <div fxLayout="column wrap" style="    margin-top: 120px;" class="marginRight20" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-button class="redButton" (click)="submitForm(page.profileForm.value)">Update</button></div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
