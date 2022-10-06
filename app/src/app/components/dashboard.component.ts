@@ -93,7 +93,7 @@ export class dashboardComponent {
         .constructFlowObject(this);
       bh.input = { event: event };
       bh.local = {};
-      bh = this.sd_RIhDba0Qns6BqrvX(bh);
+      bh = this.sd_6XXkqOm4ysJncyPz(bh);
       //appendnew_next_travelRequests
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_C6J9HQwkO5SQorTg');
@@ -174,6 +174,7 @@ export class dashboardComponent {
       this.page.email = undefined;
       this.page.select = undefined;
       this.page.counts = {};
+      this.page.requestType = undefined;
       bh = this.sd_wBen0TdptHyjdKXK(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
@@ -202,6 +203,8 @@ export class dashboardComponent {
       bh.endPoint =
         'travelRequests/getTravelRequests?owner=' +
         page.currentUserDetails.email;
+      console.log('call');
+
       page.select = [
         { viewvalue: 'My requests' },
         { viewvalue: 'Traveler requests' },
@@ -436,10 +439,162 @@ export class dashboardComponent {
           panelClass: this.page.scroll,
         }
       );
+      travelRequestDialogDialogRef.afterClosed().subscribe((event) => {
+        bh.x = event;
+        this.sd_e7Gd50l0foxqswt0(bh);
+
+        //appendnew_next_sd_ESipJh6js5V3RPHV;
+      });
 
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ESipJh6js5V3RPHV');
+    }
+  }
+
+  sd_e7Gd50l0foxqswt0(bh) {
+    try {
+      const page = this.page;
+      console.log('xxx', bh.x);
+      bh = this.sd_w5kS2QClCzQ11JVP(bh);
+      //appendnew_next_sd_e7Gd50l0foxqswt0
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_e7Gd50l0foxqswt0');
+    }
+  }
+
+  sd_w5kS2QClCzQ11JVP(bh) {
+    try {
+      const page = this.page;
+      console.log('profileDialog', page.profileDialog);
+      console.log('response', page.requestType);
+      bh = this.sd_wudGnpNZPHp7Z77x(bh);
+      //appendnew_next_sd_w5kS2QClCzQ11JVP
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_w5kS2QClCzQ11JVP');
+    }
+  }
+
+  sd_wudGnpNZPHp7Z77x(bh) {
+    try {
+      if (
+        this.sdService.operators['eq'](
+          this.page.requestType,
+          'My requests',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_pTDbxafVFJhXuRKv(bh);
+      } else if (
+        this.sdService.operators['eq'](
+          this.page.requestType,
+          'Traveler requests',
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_R2F3wentYftNfAqT(bh);
+      }
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_wudGnpNZPHp7Z77x');
+    }
+  }
+
+  sd_pTDbxafVFJhXuRKv(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      bh.endPoint =
+        'travelRequests/getTravelRequests?owner=' +
+        page.currentUserDetails.email;
+
+      bh = this.sd_nu0TQ6wCvSWvuQGb(bh);
+      //appendnew_next_sd_pTDbxafVFJhXuRKv
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_pTDbxafVFJhXuRKv');
+    }
+  }
+
+  async sd_nu0TQ6wCvSWvuQGb(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.receivedTableData = outputVariables.local.result;
+
+      bh = this.logTable1(bh);
+      //appendnew_next_sd_nu0TQ6wCvSWvuQGb
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_nu0TQ6wCvSWvuQGb');
+    }
+  }
+
+  sd_R2F3wentYftNfAqT(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'get';
+      if (page.currentUserDetails.designation.includes('Travel')) {
+        bh.endPoint = 'travelRequests/getTravelRequests';
+      } else if (page.currentUserDetails.designation[0].includes('Manager')) {
+        bh.endPoint =
+          'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
+          page.currentUserDetails.email;
+      } else {
+        bh.endPoint =
+          'travelRequests/getTravelRequests?personalDetails.lineManagerEmail=' +
+          page.currentUserDetails.lineManagerEmail;
+      }
+
+      console.log(bh.endPoint);
+      bh = this.sd_TgJvyg5pOJ76NyYJ(bh);
+      //appendnew_next_sd_R2F3wentYftNfAqT
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_R2F3wentYftNfAqT');
+    }
+  }
+
+  async sd_TgJvyg5pOJ76NyYJ(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.receivedTableData = outputVariables.local.result;
+
+      bh = this.logTable1(bh);
+      //appendnew_next_sd_TgJvyg5pOJ76NyYJ
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_TgJvyg5pOJ76NyYJ');
+    }
+  }
+
+  sd_6XXkqOm4ysJncyPz(bh) {
+    try {
+      const page = this.page;
+      page.requestType = bh.input.event.value;
+      bh = this.sd_RIhDba0Qns6BqrvX(bh);
+      //appendnew_next_sd_6XXkqOm4ysJncyPz
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_6XXkqOm4ysJncyPz');
     }
   }
 

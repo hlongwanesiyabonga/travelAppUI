@@ -116,7 +116,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]\npage.filterValue=[{viewvalue:\"Pending Review By LM\"},{viewvalue:\"Awaiting Traveler Quote Approval\"},{viewvalue:\"Rejected\"},{viewvalue:\"Awaiting Quote From Travel Desk\"},{viewvalue:\"Awaiting LM Quote Approval\"},{viewvalue:\"Awaiting Traveler Quote Approval\"},{viewvalue:\"Approved\"}]\n\n",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\nconsole.log(\"call\")\n\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]\npage.filterValue=[{viewvalue:\"Pending Review By LM\"},{viewvalue:\"Awaiting Traveler Quote Approval\"},{viewvalue:\"Rejected\"},{viewvalue:\"Awaiting Quote From Travel Desk\"},{viewvalue:\"Awaiting LM Quote Approval\"},{viewvalue:\"Awaiting Traveler Quote Approval\"},{viewvalue:\"Approved\"}]\n\n",
         "functionName": "sd_q6OoeIYWQhQzzGjh",
         "category": "Function",
         "x": 705,
@@ -354,6 +354,13 @@
                     "type": "literal",
                     "value": "{}"
                 }
+            },
+            {
+                "textIp": "requestType",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_E9QbOlnVduPNV5MO_1",
@@ -391,7 +398,7 @@
         "flow_type": "sync",
         "functionName": "openViewRequest",
         "category": "General",
-        "x": 105,
+        "x": 145,
         "y": 340,
         "wires": [
             [
@@ -438,11 +445,13 @@
         "resultMapping": "bh.x",
         "functionName": "sd_ESipJh6js5V3RPHV",
         "category": "Dialog",
-        "x": 385,
+        "x": 365,
         "y": 340,
         "wires": [
             [],
-            [],
+            [
+                "sd_e7Gd50l0foxqswt0"
+            ],
             [],
             []
         ],
@@ -604,7 +613,7 @@
         "y": 220,
         "wires": [
             [
-                "sd_RIhDba0Qns6BqrvX"
+                "sd_6XXkqOm4ysJncyPz"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -688,7 +697,7 @@
         "data": "this.page.profileDialog",
         "functionName": "sd_YQGYIR1ExZCECWq7",
         "category": "Dialog",
-        "x": 345,
+        "x": 265,
         "y": 440,
         "wires": [
             []
@@ -1060,5 +1069,303 @@
         "__n_excludedFromValidation__": {},
         "generateNext": true,
         "serviceName": "dashboardComponent"
+    },
+    {
+        "id": "sd_6XXkqOm4ysJncyPz",
+        "type": "Script",
+        "z": "sd_CG2idGFyedSvI3n5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.requestType = bh.input.event.value;",
+        "functionName": "sd_6XXkqOm4ysJncyPz",
+        "category": "Function",
+        "x": 185,
+        "y": 220,
+        "wires": [
+            [
+                "sd_RIhDba0Qns6BqrvX"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_wudGnpNZPHp7Z77x",
+        "type": "PageSwitch",
+        "z": "sd_CG2idGFyedSvI3n5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "property": "requestType",
+        "propertyType": "this.page",
+        "propertyGv": "this.page.requestType",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "My requests",
+                "vt": "str",
+                "gv": "\"My requests\""
+            },
+            {
+                "t": "eq",
+                "v": "Traveler requests",
+                "vt": "str",
+                "gv": "\"Traveler requests\""
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "functionName": "sd_wudGnpNZPHp7Z77x",
+        "category": "Function",
+        "x": 445,
+        "y": 440,
+        "wires": [
+            [
+                "sd_pTDbxafVFJhXuRKv"
+            ],
+            [
+                "sd_R2F3wentYftNfAqT"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_R2F3wentYftNfAqT",
+        "type": "Script",
+        "z": "sd_CG2idGFyedSvI3n5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = \"get\";\nif (page.currentUserDetails.designation.includes('Travel')) {\n    bh.endPoint = \"travelRequests/getTravelRequests\";\n} \nelse if(page.currentUserDetails.designation[0].includes('Manager')) {\n    bh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.currentUserDetails.email;\n    }\nelse {\n    bh.endPoint = \"travelRequests/getTravelRequests?personalDetails.lineManagerEmail=\" + page.currentUserDetails.lineManagerEmail;\n    }\n\n    console.log(bh.endPoint)",
+        "functionName": "sd_R2F3wentYftNfAqT",
+        "category": "Function",
+        "x": 545,
+        "y": 520,
+        "wires": [
+            [
+                "sd_TgJvyg5pOJ76NyYJ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_pTDbxafVFJhXuRKv",
+        "type": "Script",
+        "z": "sd_CG2idGFyedSvI3n5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\n\n\n",
+        "functionName": "sd_pTDbxafVFJhXuRKv",
+        "category": "Function",
+        "x": 545,
+        "y": 420,
+        "wires": [
+            [
+                "sd_nu0TQ6wCvSWvuQGb"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_nu0TQ6wCvSWvuQGb",
+        "type": "PageCallService",
+        "z": "sd_CG2idGFyedSvI3n5",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "receivedTableData",
+                "mapVarName": "result",
+                "localVar": "this.page.receivedTableData"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_nu0TQ6wCvSWvuQGb",
+        "category": "General",
+        "x": 663,
+        "y": 425,
+        "wires": [
+            [
+                "sd_QXrXEUJKwp9n6Tng"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_TgJvyg5pOJ76NyYJ",
+        "type": "PageCallService",
+        "z": "sd_CG2idGFyedSvI3n5",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "receivedTableData",
+                "mapVarName": "result",
+                "localVar": "this.page.receivedTableData"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_TgJvyg5pOJ76NyYJ",
+        "category": "General",
+        "x": 685,
+        "y": 500,
+        "wires": [
+            [
+                "sd_QXrXEUJKwp9n6Tng"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_w5kS2QClCzQ11JVP",
+        "type": "Script",
+        "z": "sd_CG2idGFyedSvI3n5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"profileDialog\",page.profileDialog);\nconsole.log(\"response\",page.requestType)",
+        "functionName": "sd_w5kS2QClCzQ11JVP",
+        "category": "Function",
+        "x": 365,
+        "y": 440,
+        "wires": [
+            [
+                "sd_wudGnpNZPHp7Z77x"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_e7Gd50l0foxqswt0",
+        "type": "Script",
+        "z": "sd_CG2idGFyedSvI3n5",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"xxx\",bh.x)",
+        "functionName": "sd_e7Gd50l0foxqswt0",
+        "category": "Function",
+        "x": 465,
+        "y": 360,
+        "wires": [
+            [
+                "sd_w5kS2QClCzQ11JVP"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
     }
 ]
