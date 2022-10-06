@@ -75,6 +75,7 @@
         </div>
         <div fxLayout="row wrap" class="routerBody" fxLayoutAlign="center stretch" [fxShow]="true">
           <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
+            <bh-finance></bh-finance>
             <bh-dashboard *ngIf="page.showDashboard"></bh-dashboard>
             <bh-new_travel_request *ngIf="page.showNewRequests"></bh-new_travel_request>
             <bh-drafts *ngIf="page.showDrafts"></bh-drafts>
