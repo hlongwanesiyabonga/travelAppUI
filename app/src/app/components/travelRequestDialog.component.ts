@@ -1879,34 +1879,10 @@ export class travelRequestDialogComponent {
       );
       this.page.qoutesvalue = outputVariables.local.result;
 
-      bh = this.sd_6QAaJjvQEQYIIvdm(bh);
       //appendnew_next_sd_QTzKbzXNOWjs5zFf
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_QTzKbzXNOWjs5zFf');
-    }
-  }
-
-  sd_6QAaJjvQEQYIIvdm(bh) {
-    try {
-      const page = this.page;
-      console.log(page.qoutesvalue?.data[0].q1dep1, 'qoutesvalue');
-      page.qoutesvalue.data['q1dep1'] = new Date(
-        page.qoutesvalue?.data['q1dep1']
-      );
-
-      console.log(
-        page.quotesForm.patchValue(new Date(page.qoutesvalue?.data[0].q1dep1))
-      );
-      //    this.loginForm = this.formBuilder.group({
-      //       requestdate: ['']
-      //     })
-      //     this.loginForm.get('requestdate').patchValue(this.formatDate(new Date()));
-
-      //appendnew_next_sd_6QAaJjvQEQYIIvdm
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_6QAaJjvQEQYIIvdm');
     }
   }
 
