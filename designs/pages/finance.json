@@ -1,0 +1,265 @@
+[
+    {
+        "id": "sd_33GIisy3gTUOYqeK",
+        "type": "tab",
+        "createdDate": "2022-10-06T19:07:53.912Z",
+        "label": "finance",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "financeComponent"
+    },
+    {
+        "id": "sd_583glaJ9DYui2R7a",
+        "type": "OnInit",
+        "z": "sd_33GIisy3gTUOYqeK",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_583glaJ9DYui2R7a",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 80,
+        "wires": [
+            [
+                "sd_bz2xyY0fc17QvaIC"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "financeComponent"
+    },
+    {
+        "id": "sd_bz2xyY0fc17QvaIC",
+        "type": "PageVariables",
+        "z": "sd_33GIisy3gTUOYqeK",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "financeForm",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_bz2xyY0fc17QvaIC",
+        "category": "Function",
+        "x": 185,
+        "y": 80,
+        "wires": [
+            [
+                "sd_EsIBhXY6HRkaMDwY"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_EsIBhXY6HRkaMDwY",
+        "type": "UseDependency",
+        "z": "sd_33GIisy3gTUOYqeK",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "property": "",
+        "propertyType": "bh",
+        "propertyGv": "bh.",
+        "alias": "",
+        "modules": [
+            {
+                "textIp": "FormControl",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "ReactiveFormsModule",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "FormGroup",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": "FormGroup"
+                },
+                "injectable": false
+            },
+            {
+                "textIp": "Validators",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                },
+                "injectable": false
+            }
+        ],
+        "import_all": false,
+        "library": "@angular/forms",
+        "serviceDesignerType": "pages",
+        "functionName": "sd_EsIBhXY6HRkaMDwY",
+        "category": "Function",
+        "x": 285,
+        "y": 80,
+        "wires": [
+            [
+                "sd_RdHIXBTDMA9lZ6Lz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_RdHIXBTDMA9lZ6Lz",
+        "type": "Script",
+        "z": "sd_33GIisy3gTUOYqeK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.financeForm = new FormGroup({\n    perdium: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")]),\n    stipend: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")]),\n    totalCost: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")])\n  });",
+        "functionName": "sd_RdHIXBTDMA9lZ6Lz",
+        "category": "Function",
+        "x": 385,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ee2xMseMQszPMkdf",
+        "type": "PageStart",
+        "z": "sd_33GIisy3gTUOYqeK",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "submit",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "submit",
+        "category": "General",
+        "x": 85,
+        "y": 200,
+        "wires": [
+            [
+                "sd_HgBUVhszeck7wdKz"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "financeComponent"
+    },
+    {
+        "id": "sd_HgBUVhszeck7wdKz",
+        "type": "Script",
+        "z": "sd_33GIisy3gTUOYqeK",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = 'post';\nbh.endPoint = 'addFinancePage';\nbh.body = page.financeForm.value;\nconsole.log('finance',bh.body)",
+        "functionName": "sd_HgBUVhszeck7wdKz",
+        "category": "Function",
+        "x": 185,
+        "y": 200,
+        "wires": [
+            [
+                "sd_a7Ma7YjYnYYVF2Da"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_a7Ma7YjYnYYVF2Da",
+        "type": "PageCallService",
+        "z": "sd_33GIisy3gTUOYqeK",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": "body"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh",
+                "value": "result",
+                "mapVarName": "result",
+                "localVar": "bh.result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            "bh.body"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_a7Ma7YjYnYYVF2Da",
+        "category": "General",
+        "x": 285,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    }
+]

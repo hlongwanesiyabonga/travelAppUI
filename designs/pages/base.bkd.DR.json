@@ -3939,6 +3939,32 @@
                                     "_attrDef": "p"
                                 }
                             ],
+                            "a83e5381-5417-d078-b840-aa3d6744fad3": {
+                                "paletteKey": "NEUTRINOS_VIEW_finance",
+                                "parentEditorKey": "e7039a84-0260-4bed-0f8f-1339de7e89c4",
+                                "commentid": null,
+                                "designerReference": [
+                                    {
+                                        "_key": "componentLabel",
+                                        "_value": "finance",
+                                        "_type": "kv",
+                                        "_attrDef": "p",
+                                        "_useAsLabel": true
+                                    },
+                                    {
+                                        "_key": "style",
+                                        "_value": "",
+                                        "_type": "kv",
+                                        "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "class",
+                                        "_value": "",
+                                        "_type": "dav",
+                                        "_attrDef": "p"
+                                    }
+                                ]
+                            },
                             "6022013c-52c8-0c15-5d59-04745437c667": {
                                 "paletteKey": "NEUTRINOS_VIEW_dashboard",
                                 "parentEditorKey": "e7039a84-0260-4bed-0f8f-1339de7e89c4",
