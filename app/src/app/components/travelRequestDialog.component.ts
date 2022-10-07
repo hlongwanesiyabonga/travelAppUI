@@ -1787,11 +1787,24 @@ export class travelRequestDialogComponent {
       );
       bh.local.result = outputVariables.local.result;
 
-      bh = this.sd_COqINmYm48JNCN24(bh);
+      bh = this.sd_hrRR4OefVtIk4X1U(bh);
       //appendnew_next_sd_2oarjCaiGCrLhVMF
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_2oarjCaiGCrLhVMF');
+    }
+  }
+
+  sd_hrRR4OefVtIk4X1U(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.local.result);
+
+      bh = this.sd_COqINmYm48JNCN24(bh);
+      //appendnew_next_sd_hrRR4OefVtIk4X1U
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_hrRR4OefVtIk4X1U');
     }
   }
 
@@ -1877,8 +1890,18 @@ export class travelRequestDialogComponent {
   sd_6QAaJjvQEQYIIvdm(bh) {
     try {
       const page = this.page;
-      console.log(page.qoutesvalue, 'qoutesvalue');
-      page.quotesForm.patchValue({ q1dep1: page.quotesForm.value.q1cost });
+      console.log(page.qoutesvalue?.data[0].q1dep1, 'qoutesvalue');
+      page.qoutesvalue.data['q1dep1'] = new Date(
+        page.qoutesvalue?.data['q1dep1']
+      );
+
+      console.log(
+        page.quotesForm.patchValue(new Date(page.qoutesvalue?.data[0].q1dep1))
+      );
+      //    this.loginForm = this.formBuilder.group({
+      //       requestdate: ['']
+      //     })
+      //     this.loginForm.get('requestdate').patchValue(this.formatDate(new Date()));
 
       //appendnew_next_sd_6QAaJjvQEQYIIvdm
       return bh;

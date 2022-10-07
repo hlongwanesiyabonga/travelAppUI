@@ -3377,7 +3377,7 @@
         "y": 900,
         "wires": [
             [
-                "sd_COqINmYm48JNCN24"
+                "sd_hrRR4OefVtIk4X1U"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -3649,7 +3649,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "console.log(page.qoutesvalue,\"qoutesvalue\")\npage.quotesForm.patchValue({\"q1dep1\" :page.quotesForm.value.q1cost});\n\n\n\n\n",
+        "script": "console.log(page.qoutesvalue?.data[0].q1dep1,\"qoutesvalue\")\npage.qoutesvalue.data['q1dep1'] = new Date(page.qoutesvalue?.data['q1dep1'] )\n\n\nconsole.log(page.quotesForm.patchValue(new Date(page.qoutesvalue?.data[0].q1dep1 )));\n//    this.loginForm = this.formBuilder.group({\n//       requestdate: ['']\n//     })\n//     this.loginForm.get('requestdate').patchValue(this.formatDate(new Date()));\n\n\n\n",
         "functionName": "sd_6QAaJjvQEQYIIvdm",
         "category": "Function",
         "x": 535,
@@ -3696,6 +3696,27 @@
         "y": 140,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_hrRR4OefVtIk4X1U",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nconsole.log(bh.local.result)\n",
+        "functionName": "sd_hrRR4OefVtIk4X1U",
+        "category": "Function",
+        "x": 1685,
+        "y": 900,
+        "wires": [
+            [
+                "sd_COqINmYm48JNCN24"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
