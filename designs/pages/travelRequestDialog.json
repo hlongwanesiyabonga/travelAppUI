@@ -248,6 +248,13 @@
                     "type": "literal",
                     "value": "false"
                 }
+            },
+            {
+                "textIp": "qoutesvalue",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_P2VT6lPYUkxBIGR8",
@@ -1135,7 +1142,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_xvacI53RCqKmdIgZ",
@@ -1609,8 +1617,8 @@
         "flow_type": "sync",
         "functionName": "toCityFunction",
         "category": "General",
-        "x": 1545,
-        "y": 40,
+        "x": 1365,
+        "y": 340,
         "wires": [
             [
                 "sd_8wTh1q6GCcKXFE27"
@@ -1630,8 +1638,8 @@
         "script": "if(bh.input.event.value == \"Other\"){\npage.otherToCity = true;\n} ",
         "functionName": "sd_8wTh1q6GCcKXFE27",
         "category": "Function",
-        "x": 1625,
-        "y": 40,
+        "x": 1445,
+        "y": 340,
         "wires": [
             []
         ],
@@ -1795,7 +1803,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.formObj = {\n   \"personalDetails\" : bh.input.personalDetailsForm,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\": page.dialogData.status,\n    \"managerApproval\" : {\n        \"approvedRequest\": bh.input.status,\n        \"comments\" : \"\"\n    },\n    \"owner\": bh.input.personalDetailsForm.email,\n    \"dateCreated\": page.dialogData.dateCreated\n    };\nbh.method = 'put';\nbh.endPoint = \"updateRequestStatus/\" + page.dialogData._id;",
+        "script": "page.formObj = {\n   \"personalDetails\" : bh.input.personalDetailsForm,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":page.dialogData.status,\n    \"managerApproval\" : {\n        \"approvedRequest\":bh.input.status,\n        \"comments\" : \"\",\n    },\n    \"owner\": bh.input.personalDetailsForm.email,\n    \"dateCreated\": page.dialogData.dateCreated\n    };\nbh.method = 'put';\nbh.endPoint = \"updateRequestStatus/\" + page.dialogData._id;\n\nconsole.log(page.formObj,\"formObj\")",
         "functionName": "sd_y9vlZQis7lSv62t7",
         "category": "Function",
         "x": 305,
@@ -1873,7 +1881,7 @@
         "accept_csd": true,
         "functionName": "sd_Sm2obKZqcdW8Yidf",
         "category": "General",
-        "x": 485,
+        "x": 505,
         "y": 800,
         "wires": [
             [
@@ -2050,8 +2058,7 @@
             }
         },
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_8uLa6zbDYq5f2Hu6",
@@ -2067,8 +2074,7 @@
         "y": 1060,
         "wires": [
             [
-                "sd_MFl57GZUZpvQZPwK",
-                "sd_ZMCWukq9Nat0FeZW"
+                "sd_VbHQZsX6rs1dJnV7"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -2122,10 +2128,10 @@
             {
                 "mapVarType": "local",
                 "key": "result",
-                "valueType": "bh",
-                "value": "result",
+                "valueType": "bh.local",
+                "value": "res",
                 "mapVarName": "result",
-                "localVar": "bh.result"
+                "localVar": "bh.local.res"
             }
         ],
         "serviceImportPath": "app/sd-services/callServerApis",
@@ -2139,7 +2145,7 @@
         "accept_csd": true,
         "functionName": "sd_ZMCWukq9Nat0FeZW",
         "category": "General",
-        "x": 345,
+        "x": 385,
         "y": 1060,
         "wires": [
             [
@@ -2147,8 +2153,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_ZngVljrbmTSgDzVA",
@@ -2157,7 +2162,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "\nconsole.log(bh.result,\"status\")",
+        "script": "\nconsole.log(bh.local.result,\"status\")",
         "functionName": "sd_ZngVljrbmTSgDzVA",
         "category": "Function",
         "x": 445,
@@ -2168,8 +2173,7 @@
             ]
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_dvssffiSBQPubuzh",
@@ -2256,8 +2260,7 @@
             []
         ],
         "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
+        "generateNext": true
     },
     {
         "id": "sd_ZSXmvr6fjl6MgmV1",
@@ -2279,9 +2282,7 @@
             "value": "2000"
         },
         "horizontalPosition": "center",
-        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
-        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -2289,7 +2290,7 @@
         "direction": "ltr",
         "functionName": "sd_ZSXmvr6fjl6MgmV1",
         "category": "General",
-        "x": 385,
+        "x": 405,
         "y": 800,
         "wires": [
             [
@@ -2360,32 +2361,6 @@
         "generated": true
     },
     {
-        "id": "sd_MFl57GZUZpvQZPwK",
-        "type": "CloseDialog",
-        "z": "sd_cL2Dk3ymewl6P3KV",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "data": "bh.local.res",
-        "functionName": "sd_MFl57GZUZpvQZPwK",
-        "category": "Dialog",
-        "x": 345,
-        "y": 1140,
-        "wires": [
-            []
-        ],
-        "__ssdTypeInputs__": {
-            "data": {
-                "type": "bh.local",
-                "value": "res",
-                "constant": false
-            }
-        },
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
         "id": "sd_OtssZMzdCWndEOlS",
         "type": "CloseDialog",
         "z": "sd_cL2Dk3ymewl6P3KV",
@@ -2395,8 +2370,8 @@
         "data": "bh.local.result",
         "functionName": "sd_OtssZMzdCWndEOlS",
         "category": "Dialog",
-        "x": 625,
-        "y": 840,
+        "x": 605,
+        "y": 800,
         "wires": [
             []
         ],
@@ -2704,7 +2679,7 @@
         ],
         "functionName": "sd_zUUrrWDKMO6WwhWr",
         "category": "Function",
-        "x": 125,
+        "x": 105,
         "y": 140,
         "wires": [
             [
@@ -2812,7 +2787,9 @@
         "x": 400,
         "y": 140,
         "wires": [
-            []
+            [
+                "sd_sV4KxNRDaHpbreQl"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -3303,7 +3280,8 @@
         "y": 900,
         "wires": [
             [
-                "sd_3zqRYOIPZOGRBtYQ"
+                "sd_3zqRYOIPZOGRBtYQ",
+                "sd_XAtNIcqoDVYBgePG"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -3317,7 +3295,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = 'post';\nbh.endPoint = 'addQuote';\nbh.body=page.quotesForm.value;\nbh.body.owner = page.dialogData._id;\nconsole.log(page.quotesForm)\n",
+        "script": "bh.method = 'post';\nbh.endPoint = 'addQuote';\nbh.body=page.quotesForm.value;\nconsole.log('')\npage.dialogData.status= 'Awating For LM Quote Approval'\nbh.body.owner = page.dialogData._id;\nconsole.log(page.quotesForm)\n",
         "functionName": "sd_3zqRYOIPZOGRBtYQ",
         "category": "Function",
         "x": 1525,
@@ -3395,10 +3373,347 @@
         "accept_csd": true,
         "functionName": "sd_2oarjCaiGCrLhVMF",
         "category": "General",
-        "x": 1625,
+        "x": 1605,
+        "y": 900,
+        "wires": [
+            [
+                "sd_hrRR4OefVtIk4X1U"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_VbHQZsX6rs1dJnV7",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nconsole.log(bh.local.result,\"status\")",
+        "functionName": "sd_VbHQZsX6rs1dJnV7",
+        "category": "Function",
+        "x": 320,
+        "y": 1054.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_COqINmYm48JNCN24",
+        "type": "CloseDialog",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "data": "bh.local.res",
+        "functionName": "sd_COqINmYm48JNCN24",
+        "category": "Dialog",
+        "x": 1745,
         "y": 900,
         "wires": [
             []
+        ],
+        "__ssdTypeInputs__": {
+            "data": {
+                "type": "bh.local",
+                "value": "res",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_XAtNIcqoDVYBgePG",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.method = 'put';\nbh.endPoint = 'updateStatus/' + page.dialogData._id;\npage.dialogData.status= 'Awating For LM Quote Approval'\nbh.body = page.dialogData.status;\n\n",
+        "functionName": "sd_XAtNIcqoDVYBgePG",
+        "category": "Function",
+        "x": 1578,
+        "y": 1024.8125,
+        "wires": [
+            [
+                "sd_HtpAPthaRPtdFhKv"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_HtpAPthaRPtdFhKv",
+        "type": "PageCallService",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": "body"
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "bh",
+                "value": "",
+                "mapVarName": "result"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            "bh.body"
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_HtpAPthaRPtdFhKv",
+        "category": "General",
+        "x": 1665,
+        "y": 1020,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_ueQ6KzOvaObmtcw0",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "prepopulateqoutes",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "prepopulateqoutes",
+        "category": "General",
+        "x": 140,
+        "y": 1180,
+        "wires": [
+            [
+                "sd_VIF9MfKuQDGJD8fB"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_VIF9MfKuQDGJD8fB",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.endPoint = \"getQuote/\" + page.dialogData._id;\nbh.method = \"get\"",
+        "functionName": "sd_VIF9MfKuQDGJD8fB",
+        "category": "Function",
+        "x": 225,
+        "y": 1180,
+        "wires": [
+            [
+                "sd_QTzKbzXNOWjs5zFf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_QTzKbzXNOWjs5zFf",
+        "type": "PageCallService",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_RlbkgAJauuYtTx07",
+            "type": "tab",
+            "createdDate": "2022-09-29T08:41:02.628Z",
+            "label": "callServerApis",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_nCumUxwkMp8Q3Kjk",
+            "flowName": "dynamic"
+        },
+        "inputVariables": [
+            {
+                "key": "endPoint",
+                "map": true,
+                "valueType": "bh",
+                "value": "endPoint"
+            },
+            {
+                "key": "method",
+                "map": true,
+                "valueType": "bh",
+                "value": "method"
+            },
+            {
+                "key": "body",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "local",
+                "key": "result",
+                "valueType": "this.page",
+                "value": "qoutesvalue",
+                "mapVarName": "result",
+                "localVar": "this.page.qoutesvalue"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/callServerApis",
+        "startName": "dynamic",
+        "inputParams": [
+            "bh.endPoint",
+            "bh.method",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "sd_QTzKbzXNOWjs5zFf",
+        "category": "General",
+        "x": 365,
+        "y": 1180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_6QAaJjvQEQYIIvdm",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(page.qoutesvalue?.data[0].q1dep1,\"qoutesvalue\")\npage.qoutesvalue.data['q1dep1'] = new Date(page.qoutesvalue?.data['q1dep1'] )\n\n\nconsole.log(page.quotesForm.patchValue(new Date(page.qoutesvalue?.data[0].q1dep1 )));\n//    this.loginForm = this.formBuilder.group({\n//       requestdate: ['']\n//     })\n//     this.loginForm.get('requestdate').patchValue(this.formatDate(new Date()));\n\n\n\n",
+        "functionName": "sd_6QAaJjvQEQYIIvdm",
+        "category": "Function",
+        "x": 535,
+        "y": 1188.8125,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true
+    },
+    {
+        "id": "sd_sV4KxNRDaHpbreQl",
+        "type": "PageCallService",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_cL2Dk3ymewl6P3KV",
+            "type": "tab",
+            "createdDate": "2022-09-24T19:30:59.140Z",
+            "label": "travelRequestDialog",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0
+        },
+        "flow": {
+            "flowId": "sd_ueQ6KzOvaObmtcw0",
+            "flowName": "prepopulateqoutes"
+        },
+        "inputVariables": [],
+        "outputMapping": [],
+        "serviceImportPath": "./travelRequestDialog",
+        "startName": "prepopulateqoutes",
+        "inputParams": [],
+        "accept_csd": false,
+        "functionName": "sd_sV4KxNRDaHpbreQl",
+        "category": "General",
+        "x": 485,
+        "y": 140,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_hrRR4OefVtIk4X1U",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "\nconsole.log(bh.local.result)\n",
+        "functionName": "sd_hrRR4OefVtIk4X1U",
+        "category": "Function",
+        "x": 1685,
+        "y": 900,
+        "wires": [
+            [
+                "sd_COqINmYm48JNCN24"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

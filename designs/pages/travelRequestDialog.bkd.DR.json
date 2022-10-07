@@ -26027,7 +26027,7 @@
                     },
                     {
                         "_key": "*ngIf",
-                        "_value": "page?.dialogData?.managerApproval.approvedRequest == 'Approved' &&!page.dialogData.isDraft && page.currentUserDetails.designation.includes('Travel') || (page.currentUserDetails.email == page.dialogData.owner && page.quotesForm.value.q1airline !='') ",
+                        "_value": "(!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved'  && page.currentUserDetails.designation.includes('Travel')) || (page.currentUserDetails.email == page.dialogData.owner && page.dialogData.status == 'Awating For LM Quote Approval') ",
                         "_type": "kv",
                         "_attrDef": "c"
                     }
@@ -37482,6 +37482,12 @@
                                         "_value": "true",
                                         "_type": "kv",
                                         "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "*ngIf",
+                                        "_value": "page.currentUserDetails.email != page.dialogData.owner",
+                                        "_type": "kv",
+                                        "_attrDef": "c"
                                     }
                                 ],
                                 "f2515e40-429e-5067-9bc6-c6c7d73dcb16": {
@@ -38435,7 +38441,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner == page?.currentUserDetails?.email)",
+                            "_value": "!page.dialogData.isDraft && page?.dialogData?.status == 'Approved' && (page?.dialogData?.owner == page?.currentUserDetails?.email)",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -38631,7 +38637,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') || page?.currentUserDetails?.designation.includes('Manager'))",
+                            "_value": "(!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') )) || !(page.quotesForm.INVALID || page?.currentUserDetails?.designation.includes('Manager') )",
                             "_type": "kv",
                             "_attrDef": "c"
                         }

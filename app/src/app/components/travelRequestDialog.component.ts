@@ -495,9 +495,24 @@ export class travelRequestDialogComponent {
       bh.input = {};
       bh.local = {};
       bh = this.sd_3zqRYOIPZOGRBtYQ(bh);
+      bh = this.sd_XAtNIcqoDVYBgePG(bh);
       //appendnew_next_submitQuote
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_18AEsXYvOeqDmzBW');
+    }
+  }
+
+  prepopulateqoutes(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_VIF9MfKuQDGJD8fB(bh);
+      //appendnew_next_prepopulateqoutes
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ueQ6KzOvaObmtcw0');
     }
   }
 
@@ -533,6 +548,7 @@ export class travelRequestDialogComponent {
       this.page.tempArr = undefined;
       this.page.travelRequestType = undefined;
       this.page.addLeg = false;
+      this.page.qoutesvalue = undefined;
       bh = this.sd_53I9agaPXi6pjczn(bh);
       //appendnew_next_sd_P2VT6lPYUkxBIGR8
       return bh;
@@ -847,10 +863,22 @@ export class travelRequestDialogComponent {
 
       page.date6 = new Date();
 
+      bh = this.sd_sV4KxNRDaHpbreQl(bh);
       //appendnew_next_newDate
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_jXyTktRziRrXjB24');
+    }
+  }
+
+  sd_sV4KxNRDaHpbreQl(bh) {
+    try {
+      let outputVariables = this.prepopulateqoutes();
+
+      //appendnew_next_sd_sV4KxNRDaHpbreQl
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_sV4KxNRDaHpbreQl');
     }
   }
 
@@ -1449,6 +1477,8 @@ export class travelRequestDialogComponent {
       };
       bh.method = 'put';
       bh.endPoint = 'updateRequestStatus/' + page.dialogData._id;
+
+      console.log(page.formObj, 'formObj');
       bh = this.sd_ZSXmvr6fjl6MgmV1(bh);
       //appendnew_next_sd_y9vlZQis7lSv62t7
       return bh;
@@ -1527,8 +1557,7 @@ export class travelRequestDialogComponent {
       console.log(bh.body, 'ssss');
       bh.method = 'put';
       bh.endPoint = 'updateQuoteStatus/' + page.dialogData._id;
-      bh = this.sd_MFl57GZUZpvQZPwK(bh);
-      bh = this.sd_ZMCWukq9Nat0FeZW(bh);
+      bh = this.sd_VbHQZsX6rs1dJnV7(bh);
       //appendnew_next_sd_8uLa6zbDYq5f2Hu6
       return bh;
     } catch (e) {
@@ -1536,77 +1565,14 @@ export class travelRequestDialogComponent {
     }
   }
 
-  sd_MFl57GZUZpvQZPwK(bh) {
-    try {
-      const _dialogRef = this.__page_injector__.get(MatDialogRef);
-      _dialogRef.close(bh.local.res);
-
-      //appendnew_next_sd_MFl57GZUZpvQZPwK
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_MFl57GZUZpvQZPwK');
-    }
-  }
-
-  async sd_ZMCWukq9Nat0FeZW(bh) {
-    try {
-      const callServerApisInstance: callServerApis =
-        this.__page_injector__.get(callServerApis);
-
-      let outputVariables = await callServerApisInstance.dynamic(
-        bh.endPoint,
-        bh.method,
-        bh.body
-      );
-      bh.result = outputVariables.local.result;
-
-      bh = this.sd_ZngVljrbmTSgDzVA(bh);
-      //appendnew_next_sd_ZMCWukq9Nat0FeZW
-      return bh;
-    } catch (e) {
-      return await this.errorHandler(bh, e, 'sd_ZMCWukq9Nat0FeZW');
-    }
-  }
-
-  sd_ZngVljrbmTSgDzVA(bh) {
+  sd_VbHQZsX6rs1dJnV7(bh) {
     try {
       const page = this.page;
-      console.log(bh.result, 'status');
-      bh = this.sd_mtwXryArY7EL8Q3c(bh);
-      //appendnew_next_sd_ZngVljrbmTSgDzVA
+      console.log(bh.local.result, 'status');
+      //appendnew_next_sd_VbHQZsX6rs1dJnV7
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_ZngVljrbmTSgDzVA');
-    }
-  }
-
-  sd_mtwXryArY7EL8Q3c(bh) {
-    try {
-      const _dialogRef = this.__page_injector__.get(MatDialogRef);
-      _dialogRef.close(bh.local.res);
-
-      bh = this.sd_C8KiWwUgpBWklLzB(bh);
-      //appendnew_next_sd_mtwXryArY7EL8Q3c
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_mtwXryArY7EL8Q3c');
-    }
-  }
-
-  sd_C8KiWwUgpBWklLzB(bh) {
-    try {
-      this.__page_injector__
-        .get(MatSnackBar)
-        .open('Quote status successfully changed', 'Close', {
-          duration: 2000,
-          direction: 'ltr',
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-        });
-      //appendnew_next_sd_C8KiWwUgpBWklLzB
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_C8KiWwUgpBWklLzB');
+      return this.errorHandler(bh, e, 'sd_VbHQZsX6rs1dJnV7');
     }
   }
 
@@ -1796,6 +1762,8 @@ export class travelRequestDialogComponent {
       bh.method = 'post';
       bh.endPoint = 'addQuote';
       bh.body = page.quotesForm.value;
+      console.log('');
+      page.dialogData.status = 'Awating For LM Quote Approval';
       bh.body.owner = page.dialogData._id;
       console.log(page.quotesForm);
 
@@ -1819,10 +1787,102 @@ export class travelRequestDialogComponent {
       );
       bh.local.result = outputVariables.local.result;
 
+      bh = this.sd_hrRR4OefVtIk4X1U(bh);
       //appendnew_next_sd_2oarjCaiGCrLhVMF
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_2oarjCaiGCrLhVMF');
+    }
+  }
+
+  sd_hrRR4OefVtIk4X1U(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.local.result);
+
+      bh = this.sd_COqINmYm48JNCN24(bh);
+      //appendnew_next_sd_hrRR4OefVtIk4X1U
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_hrRR4OefVtIk4X1U');
+    }
+  }
+
+  sd_COqINmYm48JNCN24(bh) {
+    try {
+      const _dialogRef = this.__page_injector__.get(MatDialogRef);
+      _dialogRef.close(bh.local.res);
+
+      //appendnew_next_sd_COqINmYm48JNCN24
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_COqINmYm48JNCN24');
+    }
+  }
+
+  sd_XAtNIcqoDVYBgePG(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'put';
+      bh.endPoint = 'updateStatus/' + page.dialogData._id;
+      page.dialogData.status = 'Awating For LM Quote Approval';
+      bh.body = page.dialogData.status;
+
+      bh = this.sd_HtpAPthaRPtdFhKv(bh);
+      //appendnew_next_sd_XAtNIcqoDVYBgePG
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_XAtNIcqoDVYBgePG');
+    }
+  }
+
+  async sd_HtpAPthaRPtdFhKv(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        bh.body
+      );
+
+      //appendnew_next_sd_HtpAPthaRPtdFhKv
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_HtpAPthaRPtdFhKv');
+    }
+  }
+
+  sd_VIF9MfKuQDGJD8fB(bh) {
+    try {
+      const page = this.page;
+      bh.endPoint = 'getQuote/' + page.dialogData._id;
+      bh.method = 'get';
+      bh = this.sd_QTzKbzXNOWjs5zFf(bh);
+      //appendnew_next_sd_VIF9MfKuQDGJD8fB
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_VIF9MfKuQDGJD8fB');
+    }
+  }
+
+  async sd_QTzKbzXNOWjs5zFf(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        undefined
+      );
+      this.page.qoutesvalue = outputVariables.local.result;
+
+      //appendnew_next_sd_QTzKbzXNOWjs5zFf
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_QTzKbzXNOWjs5zFf');
     }
   }
 
