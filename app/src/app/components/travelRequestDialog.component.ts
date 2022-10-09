@@ -810,30 +810,30 @@ export class travelRequestDialogComponent {
       page.quotesForm = new FormGroup({
         // quote 1
         selectedQuote: new FormControl(''),
-        q1dep1: new FormControl('', [Validators.required]),
-        q1arrival1: new FormControl('', [Validators.required]),
-        q1dep2: new FormControl('', [Validators.required]),
-        q1arrival2: new FormControl('', [Validators.required]),
+        q1dep1: new FormControl(''),
+        q1arrival1: new FormControl(''),
+        q1dep2: new FormControl(''),
+        q1arrival2: new FormControl(''),
         q1airline: new FormControl('', [Validators.required]),
         q1cost: new FormControl('', [
           Validators.required,
           Validators.pattern('^[0-9]*$'),
         ]),
         // quote 2
-        q2dep1: new FormControl('', [Validators.required]),
-        q2arrival1: new FormControl('', [Validators.required]),
-        q2dep2: new FormControl('', [Validators.required]),
-        q2arrival2: new FormControl('', [Validators.required]),
+        q2dep1: new FormControl(''),
+        q2arrival1: new FormControl(''),
+        q2dep2: new FormControl(''),
+        q2arrival2: new FormControl(''),
         q2airline: new FormControl('', [Validators.required]),
         q2cost: new FormControl('', [
           Validators.required,
           Validators.pattern('^[0-9]*$'),
         ]),
         // quote 3
-        q3dep1: new FormControl('', [Validators.required]),
-        q3arrival1: new FormControl('', [Validators.required]),
-        q3dep2: new FormControl('', [Validators.required]),
-        q3arrival2: new FormControl('', [Validators.required]),
+        q3dep1: new FormControl(''),
+        q3arrival1: new FormControl(''),
+        q3dep2: new FormControl(''),
+        q3arrival2: new FormControl(''),
         q3airline: new FormControl('', [Validators.required]),
         q3cost: new FormControl('', [
           Validators.required,
@@ -1879,10 +1879,24 @@ export class travelRequestDialogComponent {
       );
       this.page.qoutesvalue = outputVariables.local.result;
 
+      bh = this.sd_7Q1LurtE9bgSq2Gg(bh);
       //appendnew_next_sd_QTzKbzXNOWjs5zFf
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_QTzKbzXNOWjs5zFf');
+    }
+  }
+
+  sd_7Q1LurtE9bgSq2Gg(bh) {
+    try {
+      const page = this.page;
+      page.quotesForm.patchValue(page.qoutesvalue.data[0]);
+      console.log('form on DB', page.quotesForm);
+      console.log('res', page.qoutesvalue);
+      //appendnew_next_sd_7Q1LurtE9bgSq2Gg
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_7Q1LurtE9bgSq2Gg');
     }
   }
 
