@@ -15,6 +15,8 @@ window['neutrinos'] = {
 };
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-statusService
+import { statusService } from '../services/status/status.service';
 //CORE_REFERENCE_IMPORT-financeComponent
 import { financeComponent } from '../components/finance.component';
 //CORE_REFERENCE_IMPORT-quotesComponent
@@ -108,6 +110,8 @@ export const appProviders = [
   },
   NAuthGuardService,
   //CORE_REFERENCE_PUSH_TO_PRO_ARRAY
+//CORE_REFERENCE_PUSH_TO_PRO_ARRAY-statusService
+statusService,
 ];
 
 /**

@@ -71,6 +71,7 @@ export class travelRequestDialogComponent {
     try {
       bh = this.sd_P2VT6lPYUkxBIGR8(bh);
       bh = this.sd_zUUrrWDKMO6WwhWr(bh);
+      bh = this.sd_nwKw8scKETek9KPh(bh);
       //appendnew_next_sd_6WYmtVhU7l8X4POJ
       return bh;
     } catch (e) {
@@ -562,6 +563,20 @@ export class travelRequestDialogComponent {
     }
   }
 
+  submitFinance(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_wPDw6hD5LiZPKUTg(bh);
+      //appendnew_next_submitFinance
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_f1vBac4j8xSmi7G6');
+    }
+  }
+
   //appendnew_flow_travelRequestDialogComponent_start
 
   sd_P2VT6lPYUkxBIGR8(bh) {
@@ -925,6 +940,52 @@ export class travelRequestDialogComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_sV4KxNRDaHpbreQl');
+    }
+  }
+
+  sd_nwKw8scKETek9KPh(bh) {
+    try {
+      this.page.financeForm = undefined;
+      bh = this.sd_2FxIS9SnH33TjMFf(bh);
+      //appendnew_next_sd_nwKw8scKETek9KPh
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_nwKw8scKETek9KPh');
+    }
+  }
+
+  sd_2FxIS9SnH33TjMFf(bh) {
+    try {
+      this.page.FormGroup = FormGroup;
+      bh = this.financeForm(bh);
+      //appendnew_next_sd_2FxIS9SnH33TjMFf
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_2FxIS9SnH33TjMFf');
+    }
+  }
+
+  financeForm(bh) {
+    try {
+      const page = this.page;
+      page.financeForm = new FormGroup({
+        perdium: new FormControl('', [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+        ]),
+        stipend: new FormControl('', [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+        ]),
+        totalCost: new FormControl('', [
+          Validators.required,
+          Validators.pattern('^[0-9]*$'),
+        ]),
+      });
+      //appendnew_next_financeForm
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_92oApCZugZtjuzdA');
     }
   }
 
@@ -1872,7 +1933,7 @@ export class travelRequestDialogComponent {
       bh.endPoint = 'addQuote';
       bh.body = page.quotesForm.value;
       console.log('');
-      page.dialogData.status = 'Awating For LM Quote Approval';
+      page.dialogData.status = 'Awating For Traveler Quote Approval';
       bh.body.owner = page.dialogData._id;
       console.log(page.quotesForm);
 
@@ -1934,7 +1995,7 @@ export class travelRequestDialogComponent {
       const page = this.page;
       bh.method = 'put';
       bh.endPoint = 'updateStatus/' + page.dialogData._id;
-      page.dialogData.status = 'Awating For LM Quote Approval';
+      page.dialogData.status = 'Awating For Traveler Quote Approval';
       bh.body = page.dialogData.status;
 
       bh = this.sd_HtpAPthaRPtdFhKv(bh);
@@ -2174,6 +2235,40 @@ export class travelRequestDialogComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_WZwVFa74oo2jMdI3');
+    }
+  }
+
+  sd_wPDw6hD5LiZPKUTg(bh) {
+    try {
+      const page = this.page;
+      bh.method = 'post';
+      bh.endPoint = 'addFinancePage';
+      bh.body = page.financeForm.value;
+      console.log('finance', bh.body);
+      bh = this.sd_OCNrWxbhvNANXqFv(bh);
+      //appendnew_next_sd_wPDw6hD5LiZPKUTg
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_wPDw6hD5LiZPKUTg');
+    }
+  }
+
+  async sd_OCNrWxbhvNANXqFv(bh) {
+    try {
+      const callServerApisInstance: callServerApis =
+        this.__page_injector__.get(callServerApis);
+
+      let outputVariables = await callServerApisInstance.dynamic(
+        bh.endPoint,
+        bh.method,
+        bh.body
+      );
+      bh.result = outputVariables.local.result;
+
+      //appendnew_next_sd_OCNrWxbhvNANXqFv
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_OCNrWxbhvNANXqFv');
     }
   }
 
