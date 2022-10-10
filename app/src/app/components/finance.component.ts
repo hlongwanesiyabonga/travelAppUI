@@ -71,7 +71,7 @@ export class financeComponent {
     }
   }
 
-  submit(...others) {
+  submitFinance(...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
@@ -79,7 +79,7 @@ export class financeComponent {
       bh.input = {};
       bh.local = {};
       bh = this.sd_HgBUVhszeck7wdKz(bh);
-      //appendnew_next_submit
+      //appendnew_next_submitFinance
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ee2xMseMQszPMkdf');
     }
@@ -101,7 +101,7 @@ export class financeComponent {
   sd_EsIBhXY6HRkaMDwY(bh) {
     try {
       this.page.FormGroup = FormGroup;
-      bh = this.sd_RdHIXBTDMA9lZ6Lz(bh);
+      bh = this.financeForm(bh);
       //appendnew_next_sd_EsIBhXY6HRkaMDwY
       return bh;
     } catch (e) {
@@ -109,7 +109,7 @@ export class financeComponent {
     }
   }
 
-  sd_RdHIXBTDMA9lZ6Lz(bh) {
+  financeForm(bh) {
     try {
       const page = this.page;
       page.financeForm = new FormGroup({
@@ -126,7 +126,7 @@ export class financeComponent {
           Validators.pattern('^[0-9]*$'),
         ]),
       });
-      //appendnew_next_sd_RdHIXBTDMA9lZ6Lz
+      //appendnew_next_financeForm
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_RdHIXBTDMA9lZ6Lz');

@@ -116,7 +116,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\nconsole.log(\"call\")\n\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]\npage.filterValue=[{viewvalue:\"Pending Review By LM\"},{viewvalue:\"Awaiting Traveler Quote Approval\"},{viewvalue:\"Rejected\"},{viewvalue:\"Awaiting Quote From Travel Desk\"},{viewvalue:\"Awaiting LM Quote Approval\"},{viewvalue:\"Awaiting Traveler Quote Approval\"},{viewvalue:\"Approved\"}]\n\n",
+        "script": "bh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests?owner=\" + page.currentUserDetails.email;\nconsole.log(\"call\")\n\npage.select =[{viewvalue:\"My requests\"},{viewvalue:\"Traveler requests\"}]\npage.filterValue=[{viewvalue:\"Pending Review By LM\"},{viewvalue:\"Awaiting For Travel Desk To Enter Quote\"},{viewvalue:\"Awaiting Traveler Quote Approval\"},{viewvalue:\"Rejected\"},{viewvalue:\"Awaiting Quote From Travel Desk\"},{viewvalue:\"Awaiting LM Quote Approval\"},{viewvalue:\"Awaiting Traveler Quote Approval\"},{viewvalue:\"Approved\"}]\n\n",
         "functionName": "sd_q6OoeIYWQhQzzGjh",
         "category": "Function",
         "x": 705,

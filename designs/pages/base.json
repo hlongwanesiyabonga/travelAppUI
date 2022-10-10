@@ -124,6 +124,20 @@
                     "type": "literal",
                     "value": "{}"
                 }
+            },
+            {
+                "textIp": "navItems",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "selectedNavItem",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "0"
+                }
             }
         ],
         "functionName": "sd_qkPRetutvSxANjfB",
@@ -132,7 +146,7 @@
         "y": 80,
         "wires": [
             [
-                "sd_RnOYjIQ1cmPEuhLI"
+                "sd_315d71shKnZyQHbI"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -317,180 +331,6 @@
         },
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true,
-        "serviceName": "baseComponent"
-    },
-    {
-        "id": "sd_DReuiw3ZTOg2SZwi",
-        "type": "PageStart",
-        "z": "sd_JTAA8osGAbN1doPe",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "showDashboard",
-        "outputs": 1,
-        "inputVariables": [],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "showDashboard",
-        "category": "General",
-        "x": 85,
-        "y": 360,
-        "wires": [
-            [
-                "sd_OMPn9ue3g8Gtd3my"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "baseComponent"
-    },
-    {
-        "id": "sd_OMPn9ue3g8Gtd3my",
-        "type": "Script",
-        "z": "sd_JTAA8osGAbN1doPe",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "page.showDashboard = true;\npage.showReports = false;\npage.showDrafts = false;\npage.showNewRequests = false;\npage.showLogout = false;\n",
-        "functionName": "sd_OMPn9ue3g8Gtd3my",
-        "category": "Function",
-        "x": 180,
-        "y": 360,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true,
-        "serviceName": "baseComponent"
-    },
-    {
-        "id": "sd_s5mglsscJoCQ6NIJ",
-        "type": "PageStart",
-        "z": "sd_JTAA8osGAbN1doPe",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "showNewRequests",
-        "outputs": 1,
-        "inputVariables": [],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "showNewRequests",
-        "category": "General",
-        "x": 85,
-        "y": 440,
-        "wires": [
-            [
-                "sd_TtxNqag23ApR1jbJ"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "baseComponent"
-    },
-    {
-        "id": "sd_TtxNqag23ApR1jbJ",
-        "type": "Script",
-        "z": "sd_JTAA8osGAbN1doPe",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "page.showNewRequests = true;\npage.showReports = false;\npage.showDrafts = false;\npage.showDashboard = false;\npage.showLogout = false;",
-        "functionName": "sd_TtxNqag23ApR1jbJ",
-        "category": "Function",
-        "x": 185,
-        "y": 440,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_4dItFICpizQM3t9d",
-        "type": "PageStart",
-        "z": "sd_JTAA8osGAbN1doPe",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "showDrafts",
-        "outputs": 1,
-        "inputVariables": [],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "showDrafts",
-        "category": "General",
-        "x": 85,
-        "y": 520,
-        "wires": [
-            [
-                "sd_S086vNBfsH7Chcho"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "baseComponent"
-    },
-    {
-        "id": "sd_S086vNBfsH7Chcho",
-        "type": "Script",
-        "z": "sd_JTAA8osGAbN1doPe",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "page.showDrafts = true;\npage.showReports = false;\npage.showNewRequests = false;\npage.showDashboard = false;\npage.showLogout = false;",
-        "functionName": "sd_S086vNBfsH7Chcho",
-        "category": "Function",
-        "x": 180,
-        "y": 520,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
-        "generated": true
-    },
-    {
-        "id": "sd_2kxG6r4rjAGFI6S6",
-        "type": "PageStart",
-        "z": "sd_JTAA8osGAbN1doPe",
-        "viewType": "pages",
-        "nodeType": "start",
-        "name": "showReports",
-        "outputs": 1,
-        "inputVariables": [],
-        "localVariables": [],
-        "flow_type": "sync",
-        "functionName": "showReports",
-        "category": "General",
-        "x": 85,
-        "y": 600,
-        "wires": [
-            [
-                "sd_CS8WVzwh41E069Jl"
-            ]
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": true,
-        "serviceName": "baseComponent"
-    },
-    {
-        "id": "sd_CS8WVzwh41E069Jl",
-        "type": "Script",
-        "z": "sd_JTAA8osGAbN1doPe",
-        "viewType": "common",
-        "nodeType": "flow",
-        "name": "",
-        "script": "page.showReports = true;\npage.showNewRequests = false;\npage.showDrafts = false;\npage.showDashboard = false;\npage.showLogout = false;",
-        "functionName": "sd_CS8WVzwh41E069Jl",
-        "category": "Function",
-        "x": 180,
-        "y": 600,
-        "wires": [
-            []
-        ],
-        "__n_excludedFromValidation__": {},
-        "generateNext": false,
         "generated": true
     },
     {
@@ -607,10 +447,31 @@
         },
         "functionName": "sd_RnOYjIQ1cmPEuhLI",
         "category": "Storage",
-        "x": 265,
+        "x": 425,
         "y": 80,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_315d71shKnZyQHbI",
+        "type": "Script",
+        "z": "sd_JTAA8osGAbN1doPe",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.navItems = ['Dashboard', 'New Request', 'Drafts','Reports']",
+        "functionName": "sd_315d71shKnZyQHbI",
+        "category": "Function",
+        "x": 285,
+        "y": 80,
+        "wires": [
+            [
+                "sd_RnOYjIQ1cmPEuhLI"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
