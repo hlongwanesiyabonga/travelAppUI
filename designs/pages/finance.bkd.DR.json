@@ -5,7 +5,7 @@
         "designerReference": [
             {
                 "_key": "componentLabel",
-                "_value": "body",
+                "_value": "finance",
                 "_type": "kv",
                 "_attrDef": "p",
                 "_useAsLabel": true
@@ -1736,12 +1736,12 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "submit()",
+                                "_value": "submitFinance()",
                                 "_type": "kv",
                                 "_attrDef": "p",
                                 "objValue": {
                                     "nodeID": "sd_ee2xMseMQszPMkdf",
-                                    "functionName": "submit",
+                                    "functionName": "submitFinance",
                                     "activeTree": "pages",
                                     "z": "sd_33GIisy3gTUOYqeK",
                                     "input": []

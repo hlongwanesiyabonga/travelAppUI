@@ -131,9 +131,9 @@
         "z": "sd_33GIisy3gTUOYqeK",
         "viewType": "common",
         "nodeType": "flow",
-        "name": "",
+        "name": "financeForm",
         "script": "page.financeForm = new FormGroup({\n    perdium: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")]),\n    stipend: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")]),\n    totalCost: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")])\n  });",
-        "functionName": "sd_RdHIXBTDMA9lZ6Lz",
+        "functionName": "financeForm",
         "category": "Function",
         "x": 385,
         "y": 80,
@@ -150,15 +150,15 @@
         "z": "sd_33GIisy3gTUOYqeK",
         "viewType": "pages",
         "nodeType": "start",
-        "name": "submit",
+        "name": "submitFinance",
         "outputs": 1,
         "inputVariables": [],
         "localVariables": [],
         "flow_type": "sync",
-        "functionName": "submit",
+        "functionName": "submitFinance",
         "category": "General",
-        "x": 85,
-        "y": 200,
+        "x": 465,
+        "y": 80,
         "wires": [
             [
                 "sd_HgBUVhszeck7wdKz"
@@ -178,8 +178,8 @@
         "script": "bh.method = 'post';\nbh.endPoint = 'addFinancePage';\nbh.body = page.financeForm.value;\nconsole.log('finance',bh.body)",
         "functionName": "sd_HgBUVhszeck7wdKz",
         "category": "Function",
-        "x": 185,
-        "y": 200,
+        "x": 565,
+        "y": 80,
         "wires": [
             [
                 "sd_a7Ma7YjYnYYVF2Da"
@@ -253,8 +253,8 @@
         "accept_csd": true,
         "functionName": "sd_a7Ma7YjYnYYVF2Da",
         "category": "General",
-        "x": 285,
-        "y": 200,
+        "x": 665,
+        "y": 80,
         "wires": [
             []
         ],
