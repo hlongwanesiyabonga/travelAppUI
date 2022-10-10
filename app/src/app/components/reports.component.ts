@@ -21,6 +21,7 @@ import { MatSort } from '@angular/material/sort'; //_splitter_
 import { callServerApis } from 'app/sd-services/callServerApis'; //_splitter_
 import { MatDialog, MatDialogRef } from '@angular/material/dialog'; //_splitter_
 import { travelRequestDialogComponent } from './travelRequestDialog.component'; //_splitter_
+import { FormControl, Validators, FormBuilder } from '@angular/forms'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -43,6 +44,7 @@ export class reportsComponent {
   ) {
     this.__page_injector__.get(SDPageCommonService).addPageDefaults(this.page);
     this.registerListeners();
+    this.page.dep.FormBuilder = this.__page_injector__.get(FormBuilder); //FormBuilder
     //appendnew_element_inject
   }
 
@@ -130,6 +132,34 @@ export class reportsComponent {
     }
   }
 
+  filterMethod(filterValue: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { filterValue: filterValue };
+      bh.local = {};
+      bh = this.sd_FinTz18ACLPA798z(bh);
+      //appendnew_next_filterMethod
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_wzqldP9SkF7V5w5h');
+    }
+  }
+
+  selectFilter(filterValue: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { filterValue: filterValue };
+      bh.local = {};
+      bh = this.sd_FinTz18ACLPA798z(bh);
+      //appendnew_next_selectFilter
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_acOumuX3RFYOdjZi');
+    }
+  }
+
   //appendnew_flow_reportsComponent_start
 
   sd_mwKkao0Y1FGTikw6(bh) {
@@ -194,6 +224,8 @@ export class reportsComponent {
       this.page.tableCells = [];
       this.page.receivedTableData = [];
       this.page.drafts = undefined;
+      this.page.status = [];
+      this.page.statusArr = [];
       bh = this.sd_OTZFXvpvhZcIAwik(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
@@ -364,8 +396,12 @@ export class reportsComponent {
         : 'other'),
         (page.tableHeaders = tableSetup[bh.role]['tableHeaders']);
       page.tableCells = tableSetup[bh.role]['tableCells'];
-      page.receivedTableData['data'].forEach((el) => {
-        if (el.status == 'Approved') {
+      page.receivedTableData['data'].forEach(
+        (el) => {
+          // if(el.status == 'Approved'){
+          page.status.includes(el['status'])
+            ? ''
+            : page.status.push(el['status']);
           let temp = {};
           temp['_id'] = el['_id'];
           temp['status'] = el['status'];
@@ -379,15 +415,69 @@ export class reportsComponent {
           temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
           tableData.push(temp);
         }
-      });
+
+        // }
+      );
 
       page.tableData = new page.tableDataSource(tableData);
       page.tableData.paginator = bh.pageViews.MatPaginator;
       page.tableData.sort = bh.pageViews.MatSort;
+      bh = this.sd_hYKwZk9NkjY710mr(bh);
       //appendnew_next_setTableTokens
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_ppOXKs41qw7ZEgHb');
+    }
+  }
+
+  sd_hYKwZk9NkjY710mr(bh) {
+    try {
+      const page = this.page;
+      let dataSet = [];
+      page.status.forEach((item) => {
+        page.receivedTableData['data'].forEach((obj) => {
+          if (obj.status == item) {
+            page.statusArr.push(item);
+          }
+        });
+      });
+
+      const count_substr = (str, searchValue) => {
+        let count = 0,
+          i = 0;
+        while (true) {
+          const r = str.indexOf(searchValue, i);
+          if (r !== -1) [count, i] = [count + 1, r + 1];
+          else return count;
+        }
+      };
+      page.status.forEach((item) => {
+        let currentCount = count_substr(page.statusArr, item);
+        dataSet.push(currentCount);
+      });
+      console.log(page.statusArr);
+
+      page.pieChartData = [
+        {
+          data: dataSet,
+        },
+      ];
+
+      page.pieChartLabels = page.status;
+
+      page.pieChartOptions = {
+        responsive: true,
+      };
+      page.travelAppColors = [
+        {
+          // all colors in order
+          backgroundColor: ['', '#ec1c24'],
+        },
+      ];
+      //appendnew_next_sd_hYKwZk9NkjY710mr
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_hYKwZk9NkjY710mr');
     }
   }
 
@@ -450,6 +540,23 @@ export class reportsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_O9ZIQdJ8BXVWkzID');
+    }
+  }
+
+  sd_FinTz18ACLPA798z(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.filterValue?.value) {
+        page.tableData.filter = bh.input.filterValue.value.trim().toLowerCase();
+      } else if (bh.input.filterValue.target.value) {
+        page.tableData.filter = bh.input.filterValue.target.value
+          .trim()
+          .toLowerCase();
+      }
+      //appendnew_next_sd_FinTz18ACLPA798z
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_FinTz18ACLPA798z');
     }
   }
 

@@ -157,7 +157,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "reportsComponent"
     },
     {
         "id": "sd_8mejlNDxl4ZYkpXW",
@@ -196,7 +197,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "reportsComponent"
     },
     {
         "id": "sd_SY5RXwhqAOJ5sKnJ",
@@ -296,6 +298,20 @@
                     "type": "literal",
                     "value": ""
                 }
+            },
+            {
+                "textIp": "status",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
+            },
+            {
+                "textIp": "statusArr",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": "[]"
+                }
             }
         ],
         "functionName": "sd_E9QbOlnVduPNV5MO_1",
@@ -324,8 +340,8 @@
         "flow_type": "sync",
         "functionName": "getTravelRequests",
         "category": "General",
-        "x": 139,
-        "y": 321.8125,
+        "x": 125,
+        "y": 480,
         "wires": [
             [
                 "sd_UHTJacxbargWdqTY"
@@ -345,8 +361,8 @@
         "script": "console.log(page.currentUserDetails,\"deatisl\")\n\nbh.method = \"get\";\nbh.endPoint = \"travelRequests/getTravelRequests\"",
         "functionName": "sd_mobGlhGVbgNDWZqD",
         "category": "Function",
-        "x": 339,
-        "y": 321.8125,
+        "x": 325,
+        "y": 480,
         "wires": [
             [
                 "sd_gHDMnUQ9Hx5K71XR"
@@ -420,8 +436,8 @@
         "accept_csd": true,
         "functionName": "sd_gHDMnUQ9Hx5K71XR",
         "category": "General",
-        "x": 439,
-        "y": 321.8125,
+        "x": 425,
+        "y": 480,
         "wires": [
             [
                 "sd_ZyBdAdnflV6Y2vlU"
@@ -441,8 +457,8 @@
         "script": "console.log(\"this table\",page.receivedTableData)",
         "functionName": "logTable",
         "category": "Function",
-        "x": 539,
-        "y": 321.8125,
+        "x": 525,
+        "y": 480,
         "wires": [
             [
                 "sd_gUxdZKc9lVIHucJA"
@@ -480,8 +496,8 @@
         ],
         "functionName": "table",
         "category": "Function",
-        "x": 639,
-        "y": 321.8125,
+        "x": 625,
+        "y": 480,
         "wires": [
             [
                 "sd_ppOXKs41qw7ZEgHb"
@@ -512,8 +528,8 @@
         },
         "functionName": "sd_UHTJacxbargWdqTY",
         "category": "Storage",
-        "x": 239,
-        "y": 321.8125,
+        "x": 225,
+        "y": 480,
         "wires": [
             [
                 "sd_mobGlhGVbgNDWZqD"
@@ -530,13 +546,15 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "setTableTokens",
-        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n  \"traveler\": {\n        \"tableHeaders\": ['Owner', 'Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['owner', 'dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'status', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    if(el.status == 'Approved'){\n          let temp = {};\n    temp['_id'] = el['_id'];\n    temp['status'] = el['status'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n    } \n  \n})\n\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;",
+        "script": "let tableData = [];\nlet userGroups = ['Executive', 'Manager', 'HR', 'Finance'];\nlet tableSetup = {\n  \"traveler\": {\n        \"tableHeaders\": ['Owner', 'Date Created', 'Trip Type', 'Travel Mode', 'From City', 'To City', 'Status', 'Action'],\n        \"tableCells\": ['owner', 'dateCreated', `tripType`, 'travelMode', 'fromCity', 'toCity', 'status', 'action']\n    }\n};\nbh.role = (!userGroups.includes(page.currentUserDetails.designation)) ? 'traveler' : 'other',\n    page.tableHeaders = tableSetup[bh.role]['tableHeaders'];\npage.tableCells = tableSetup[bh.role]['tableCells'];\npage.receivedTableData['data'].forEach(el => {\n    // if(el.status == 'Approved'){\n        page.status.includes(el['status']) ?'' : page.status.push(el['status'])\n          let temp = {};\n    temp['_id'] = el['_id'];\n    temp['status'] = el['status'];\n    temp['dateCreated'] = el['dateCreated'];\n    temp['tripType'] = el['requestDetails'][0]['travelDetails']['tripType'];\n    temp['travelMode'] = el['requestDetails'][0]['travelDetails']['travelMode'];\n    temp['fromCity'] = el['requestDetails'][0]['travelDetails']['fromCity'];\n    temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];\n    tableData.push(temp);\n    } \n  \n// }\n)\n\npage.tableData = new page.tableDataSource(tableData);\npage.tableData.paginator = bh.pageViews.MatPaginator;\npage.tableData.sort = bh.pageViews.MatSort;",
         "functionName": "setTableTokens",
         "category": "Function",
-        "x": 739,
-        "y": 321.8125,
+        "x": 725,
+        "y": 480,
         "wires": [
-            []
+            [
+                "sd_hYKwZk9NkjY710mr"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
@@ -764,8 +782,8 @@
         "flow_type": "sync",
         "functionName": "closeProfile",
         "category": "General",
-        "x": 239,
-        "y": 421.8125,
+        "x": 225,
+        "y": 580,
         "wires": [
             [
                 "sd_9Cotv2PI80qwbnz4"
@@ -785,8 +803,8 @@
         "data": "this.page.profileDialog",
         "functionName": "sd_9Cotv2PI80qwbnz4",
         "category": "Dialog",
-        "x": 329.171875,
-        "y": 421.84375,
+        "x": 315.171875,
+        "y": 580.03125,
         "wires": [
             []
         ],
@@ -823,8 +841,8 @@
         "flow_type": "sync",
         "functionName": "submitForm",
         "category": "General",
-        "x": 239,
-        "y": 561.8125,
+        "x": 225,
+        "y": 720,
         "wires": [
             [
                 "sd_O9ZIQdJ8BXVWkzID"
@@ -898,8 +916,8 @@
         "accept_csd": true,
         "functionName": "sd_UjfJBCuNM1yHYzfS",
         "category": "General",
-        "x": 444,
-        "y": 561.8125,
+        "x": 430,
+        "y": 720,
         "wires": [
             [
                 "sd_6yaVLiGX5Gr7UPj6"
@@ -918,8 +936,8 @@
         "script": "bh.method = \"put\",\nbh.endPoint = \"/updateTravelRequest/draft\" + page.personalDetails._id;\n",
         "functionName": "sd_O9ZIQdJ8BXVWkzID",
         "category": "Function",
-        "x": 344,
-        "y": 561.8125,
+        "x": 330,
+        "y": 720,
         "wires": [
             []
         ],
@@ -937,8 +955,8 @@
         "data": "this.page.profileDialog",
         "functionName": "sd_6yaVLiGX5Gr7UPj6",
         "category": "Dialog",
-        "x": 559,
-        "y": 561.8125,
+        "x": 545,
+        "y": 720,
         "wires": [
             [
                 "sd_pwz6ztEn9q8XldcW"
@@ -984,8 +1002,8 @@
         "direction": "ltr",
         "functionName": "sd_4hkGZPxKkegzDQDg",
         "category": "General",
-        "x": 859,
-        "y": 521.8125,
+        "x": 845,
+        "y": 680,
         "wires": [
             []
         ],
@@ -1015,8 +1033,8 @@
         "outputs": 2,
         "functionName": "sd_pwz6ztEn9q8XldcW",
         "category": "Function",
-        "x": 639,
-        "y": 561.8125,
+        "x": 625,
+        "y": 720,
         "wires": [
             [
                 "sd_4hkGZPxKkegzDQDg"
@@ -1058,8 +1076,8 @@
         "direction": "ltr",
         "functionName": "sd_yTbtOv4AtQXykO5D",
         "category": "General",
-        "x": 848,
-        "y": 619.625,
+        "x": 834,
+        "y": 777.8125,
         "wires": [
             []
         ],
@@ -1125,6 +1143,110 @@
         "category": "Function",
         "x": 120,
         "y": 180,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_wzqldP9SkF7V5w5h",
+        "type": "PageStart",
+        "z": "sd_jRDDrDywmOoNUrME",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "filterMethod",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "filterValue",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "filterMethod",
+        "category": "General",
+        "x": 505,
+        "y": 640,
+        "wires": [
+            [
+                "sd_FinTz18ACLPA798z"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "reportsComponent"
+    },
+    {
+        "id": "sd_FinTz18ACLPA798z",
+        "type": "Script",
+        "z": "sd_jRDDrDywmOoNUrME",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "if(bh.input.filterValue?.value){\npage.tableData.filter = (bh.input.filterValue.value).trim().toLowerCase();\n}else if(bh.input.filterValue.target.value){\n    page.tableData.filter = (bh.input.filterValue.target.value).trim().toLowerCase();\n}",
+        "functionName": "sd_FinTz18ACLPA798z",
+        "category": "Function",
+        "x": 665,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_acOumuX3RFYOdjZi",
+        "type": "PageStart",
+        "z": "sd_jRDDrDywmOoNUrME",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "selectFilter",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "filterValue",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "selectFilter",
+        "category": "General",
+        "x": 505,
+        "y": 560,
+        "wires": [
+            [
+                "sd_FinTz18ACLPA798z"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "reportsComponent"
+    },
+    {
+        "id": "sd_hYKwZk9NkjY710mr",
+        "type": "Script",
+        "z": "sd_jRDDrDywmOoNUrME",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let dataSet =[];\npage.status.forEach(item =>{\n  page.receivedTableData['data'].forEach((obj)=>{\n    if(obj.status == item ){\n      page.statusArr.push(item)\n    }\n})\n  })\n\n  const count_substr = (str, searchValue) => {\n  let count = 0,\n    i = 0;\n  while (true) {\n    const r = str.indexOf(searchValue, i);\n    if (r !== -1) [count, i] = [count + 1, r + 1];\n    else return count;\n  }\n};\npage.status.forEach(item =>{\n  let currentCount =count_substr(page.statusArr,item)\n  dataSet.push(currentCount)\n  })\n  console.log(page.statusArr)\n\npage.pieChartData = [{\n    data: dataSet\n}\n];\n\npage.pieChartLabels = page.status;\n\npage.pieChartOptions = {\n    responsive: true\n}\npage.travelAppColors = [\n  { // all colors in order\n    backgroundColor: [\n      '', '#ec1c24'\n]\n  }\n]",
+        "functionName": "sd_hYKwZk9NkjY710mr",
+        "category": "Function",
+        "x": 885,
+        "y": 480,
         "wires": [
             []
         ],
