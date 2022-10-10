@@ -428,8 +428,8 @@
         "name": "",
         "comments": "<p>endpoint&nbsp;consists&nbsp;of&nbsp;</p><p>login(name&nbsp;of&nbsp;api&nbsp;on&nbsp;SSD)&nbsp;-&nbsp;('?'&nbsp;checks&nbsp;if&nbsp;its&nbsp;true),&nbsp;(check&nbsp;SSD-&nbsp;it&nbsp;goes&nbsp;into&nbsp;the&nbsp;'users'&nbsp;collection)&nbsp;going&nbsp;into&nbsp;the&nbsp;'username'&nbsp;section&nbsp;and&nbsp;using&nbsp;the&nbsp;'=$',&nbsp;queries&nbsp;by&nbsp;{page.userCreds.username}&nbsp;and(&amp;)&nbsp;does&nbsp;the&nbsp;same&nbsp;for&nbsp;password</p><p>&nbsp;</p><p>method(set in script node)(in this case, is a GET)</p>",
         "category": "General",
-        "x": 285,
-        "y": 180,
+        "x": 365,
+        "y": 140,
         "wires": [],
         "__n_excludedFromValidation__": {},
         "generateNext": true
