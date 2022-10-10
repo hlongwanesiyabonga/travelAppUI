@@ -79,62 +79,6 @@ export class baseComponent {
     }
   }
 
-  showDashboard(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_OMPn9ue3g8Gtd3my(bh);
-      //appendnew_next_showDashboard
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_DReuiw3ZTOg2SZwi');
-    }
-  }
-
-  showNewRequests(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_TtxNqag23ApR1jbJ(bh);
-      //appendnew_next_showNewRequests
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_s5mglsscJoCQ6NIJ');
-    }
-  }
-
-  showDrafts(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_S086vNBfsH7Chcho(bh);
-      //appendnew_next_showDrafts
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_4dItFICpizQM3t9d');
-    }
-  }
-
-  showReports(...others) {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh.input = {};
-      bh.local = {};
-      bh = this.sd_CS8WVzwh41E069Jl(bh);
-      //appendnew_next_showReports
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_2kxG6r4rjAGFI6S6');
-    }
-  }
-
   showLogout(...others) {
     try {
       var bh: any = this.__page_injector__
@@ -179,11 +123,25 @@ export class baseComponent {
       this.page.body = undefined;
       this.page.endPoint = undefined;
       this.page.personalDetails = {};
-      bh = this.sd_RnOYjIQ1cmPEuhLI(bh);
+      this.page.navItems = [];
+      this.page.selectedNavItem = 0;
+      bh = this.sd_315d71shKnZyQHbI(bh);
       //appendnew_next_sd_qkPRetutvSxANjfB
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_qkPRetutvSxANjfB');
+    }
+  }
+
+  sd_315d71shKnZyQHbI(bh) {
+    try {
+      const page = this.page;
+      page.navItems = ['Dashboard', 'New Request', 'Drafts', 'Reports'];
+      bh = this.sd_RnOYjIQ1cmPEuhLI(bh);
+      //appendnew_next_sd_315d71shKnZyQHbI
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_315d71shKnZyQHbI');
     }
   }
 
@@ -210,67 +168,6 @@ export class baseComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_zsFN2AXhnZeooTBl');
-    }
-  }
-
-  sd_OMPn9ue3g8Gtd3my(bh) {
-    try {
-      const page = this.page;
-      page.showDashboard = true;
-      page.showReports = false;
-      page.showDrafts = false;
-      page.showNewRequests = false;
-      page.showLogout = false;
-
-      //appendnew_next_sd_OMPn9ue3g8Gtd3my
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_OMPn9ue3g8Gtd3my');
-    }
-  }
-
-  sd_TtxNqag23ApR1jbJ(bh) {
-    try {
-      const page = this.page;
-      page.showNewRequests = true;
-      page.showReports = false;
-      page.showDrafts = false;
-      page.showDashboard = false;
-      page.showLogout = false;
-      //appendnew_next_sd_TtxNqag23ApR1jbJ
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_TtxNqag23ApR1jbJ');
-    }
-  }
-
-  sd_S086vNBfsH7Chcho(bh) {
-    try {
-      const page = this.page;
-      page.showDrafts = true;
-      page.showReports = false;
-      page.showNewRequests = false;
-      page.showDashboard = false;
-      page.showLogout = false;
-      //appendnew_next_sd_S086vNBfsH7Chcho
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_S086vNBfsH7Chcho');
-    }
-  }
-
-  sd_CS8WVzwh41E069Jl(bh) {
-    try {
-      const page = this.page;
-      page.showReports = true;
-      page.showNewRequests = false;
-      page.showDrafts = false;
-      page.showDashboard = false;
-      page.showLogout = false;
-      //appendnew_next_sd_CS8WVzwh41E069Jl
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_CS8WVzwh41E069Jl');
     }
   }
 

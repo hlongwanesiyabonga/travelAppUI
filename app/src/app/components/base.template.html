@@ -3,31 +3,10 @@
     <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
       <div fxLayout="column wrap" class="sideNav-md" fxFlex="20" fxLayoutAlign="start center" [fxShow]="true" fxHide.xs="true">
         <div fxLayout="row wrap" fxLayoutAlign="center stretch" [fxShow]="true"><img imgSrc="/Web/Icons/favicon.ico.png" class="pointer marginBottom50 marginTop20"></div>
-        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
-          <div fxLayout="column wrap" class="sideNavButton pointer" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showDashboard}" (click)="showDashboard()">
+        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true" *ngFor="let nav of page.navItems; let i = index;">
+          <div fxLayout="column wrap" class="sideNavButton pointer" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" (click)="page.selectedNavItem = i" [class.sideNavButtonActive]="page.selectedNavItem === i">
             <div>
-              <p>Dashboard</p>
-            </div>
-          </div>
-        </div>
-        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
-          <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showNewRequests}" (click)="showNewRequests()">
-            <div>
-              <p>New Request</p>
-            </div>
-          </div>
-        </div>
-        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
-          <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showDrafts}" (click)="showDrafts()">
-            <div>
-              <p>Drafts</p>
-            </div>
-          </div>
-        </div>
-        <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="center stretch" [fxShow]="true">
-          <div fxLayout="column wrap" class="pointer sideNavButton" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [ngClass]="{sideNavButtonActive:page.showReports}" (click)="showReports()">
-            <div>
-              <p>Reports</p>
+              <p>{{nav}}</p>
             </div>
           </div>
         </div>
@@ -75,10 +54,10 @@
         </div>
         <div fxLayout="row wrap" class="routerBody" fxLayoutAlign="center stretch" [fxShow]="true">
           <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="start stretch" [fxShow]="true">
-            <bh-dashboard *ngIf="page.showDashboard"></bh-dashboard>
-            <bh-new_travel_request *ngIf="page.showNewRequests"></bh-new_travel_request>
-            <bh-drafts *ngIf="page.showDrafts"></bh-drafts>
-            <bh-reports *ngIf="page.showReports"></bh-reports>
+            <bh-dashboard *ngIf="page.selectedNavItem === 0"></bh-dashboard>
+            <bh-new_travel_request *ngIf="page.selectedNavItem === 1"></bh-new_travel_request>
+            <bh-drafts *ngIf="page.selectedNavItem === 2"></bh-drafts>
+            <bh-reports *ngIf="page.selectedNavItem === 3"></bh-reports>
           </div>
         </div>
       </div>
