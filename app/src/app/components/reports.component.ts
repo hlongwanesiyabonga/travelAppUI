@@ -66,6 +66,7 @@ export class reportsComponent {
   sd_HAo5i01vVffZy4Ob(bh) {
     try {
       bh = this.sd_mwKkao0Y1FGTikw6(bh);
+      bh = this.sd_XBj2unZpeIqMMK71(bh);
       //appendnew_next_sd_HAo5i01vVffZy4Ob
       return bh;
     } catch (e) {
@@ -225,6 +226,33 @@ export class reportsComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_MHUz3Qh1c6CJoDiG');
+    }
+  }
+
+  sd_XBj2unZpeIqMMK71(bh) {
+    try {
+      const page = this.page;
+      page.pieChartData = [
+        {
+          data: [300, 500, 100],
+        },
+      ];
+
+      page.pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+
+      page.pieChartOptions = {
+        responsive: true,
+      };
+      page.travelAppColors = [
+        {
+          // all colors in order
+          backgroundColor: ['', '#ec1c24'],
+        },
+      ];
+      //appendnew_next_sd_XBj2unZpeIqMMK71
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_XBj2unZpeIqMMK71');
     }
   }
 

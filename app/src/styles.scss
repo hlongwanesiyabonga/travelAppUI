@@ -105,6 +105,14 @@ bh-view_travel_requests {
 .redBackground {
     background: $red;
 }
+.reportsSubHeader{
+    font-size: smaller;
+    color: grey;
+}
+.reportsHeader{
+    font-size: large;
+    font-weight: 600;
+}
 .redBorderedButton {
     border: $red solid 1px !important;
     color:$red;

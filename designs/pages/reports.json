@@ -23,7 +23,8 @@
         "y": 61.8125,
         "wires": [
             [
-                "sd_mwKkao0Y1FGTikw6"
+                "sd_mwKkao0Y1FGTikw6",
+                "sd_XBj2unZpeIqMMK71"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -83,6 +84,7 @@
         "serviceImportPath": "./reports",
         "startName": "getTravelRequests",
         "inputParams": [],
+        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_MHUz3Qh1c6CJoDiG",
         "category": "General",
@@ -1106,6 +1108,25 @@
             [
                 "sd_tsi8P82xnxccosi9"
             ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_XBj2unZpeIqMMK71",
+        "type": "Script",
+        "z": "sd_jRDDrDywmOoNUrME",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.pieChartData = [{\n    data: [300, 500, 100]\n}\n];\n\npage.pieChartLabels = ['Download Sales', 'In-Store Sales', 'Mail Sales'];\n\npage.pieChartOptions = {\n    responsive: true\n}\npage.travelAppColors = [\n  { // all colors in order\n    backgroundColor: [\n      '', '#ec1c24'\n]\n  }\n]",
+        "functionName": "sd_XBj2unZpeIqMMK71",
+        "category": "Function",
+        "x": 120,
+        "y": 180,
+        "wires": [
+            []
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

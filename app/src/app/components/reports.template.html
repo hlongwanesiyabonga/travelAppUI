@@ -1,21 +1,51 @@
-<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-  <div class="dynamicTableContainer">
-    <table mat-table [dataSource]="page?.tableData" #tableData class="fullWidth dynamicTable" matSort>
-      <ng-container *ngFor="let column of page.tableCells; let i = index" [matColumnDef]="column">
-        <th mat-header-cell *matHeaderCellDef [mat-sort-header]="page.tableHeaders[i]" class="noWrap">
-          {{page.tableHeaders[i]}}
-        </th>
+<div fxLayout="column wrap" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div class="reportsHeader">
+        Welcome to Credit, Martyn</div>
+      <div class="reportsSubHeader">
+        Reports Generated on 08/09/2021</div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true">
+        <mat-icon>visibility</mat-icon>
+      </div>
+      <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true">
+        <mat-icon>save_alt</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="space-around center" [fxShow]="true">
+    <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxFlex="100">
+        <canvas baseChart [datasets]="page.pieChartData" [labels]="page.pieChartLabels" [options]="page.pieChartOptions" [colors]="page.travelAppColors" chartType="pie"></canvas>
+      </div>
+    </div>
+    <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxFlex="100">
+        <canvas baseChart [datasets]="page.pieChartData" [labels]="page.pieChartLabels" [options]="page.pieChartOptions" chartType="bar"></canvas>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div class="dynamicTableContainer">
+      <table mat-table [dataSource]="page?.tableData" #tableData class="fullWidth dynamicTable" matSort>
+        <ng-container *ngFor="let column of page.tableCells; let i = index" [matColumnDef]="column">
+          <th mat-header-cell *matHeaderCellDef [mat-sort-header]="page.tableHeaders[i]" class="noWrap">
+            {{page.tableHeaders[i]}}
+          </th>
 
-        <td mat-cell *matCellDef="let element; let INDEX = index;" matTooltipPosition="right" matTooltip="{{element[column]}}" class="tableCellsTruncate textAlignLeft">
-          <span *ngIf="page.tableCells[i] == &apos;dateCreated&apos;" class="noWhiteSpace">{{element[column] | date:&apos;shortDate&apos;}}</span>
-          <span *ngIf="page.tableCells[i] !== &apos;dateCreated&apos;">{{element[column]}}</span>
-          <span *ngIf="page.tableCells[i] == &apos;action&apos;"> <mat-icon class="viewTableIcon" [fxHide]="(element[&apos;status&apos;] == &apos;Rejected&apos; || element[&apos;status&apos;] == &apos;Approved&apos;) &amp;&amp; (page.currentUserDetails.designation.includes(&apos;Manager&apos;) &amp;&amp; page.currentUserDetails.email == element[&apos;owner&apos;])" (click)="openViewRequest(element._id)">visibility</mat-icon></span>
-        </td>
-      </ng-container>
+          <td mat-cell *matCellDef="let element; let INDEX = index;" matTooltipPosition="right" matTooltip="{{element[column]}}" class="tableCellsTruncate textAlignLeft">
+            <span *ngIf="page.tableCells[i] == &apos;dateCreated&apos;" class="noWhiteSpace">{{element[column] | date:&apos;shortDate&apos;}}</span>
+            <span *ngIf="page.tableCells[i] !== &apos;dateCreated&apos;">{{element[column]}}</span>
+            <span *ngIf="page.tableCells[i] == &apos;action&apos;"> <mat-icon class="viewTableIcon" [fxHide]="(element[&apos;status&apos;] == &apos;Rejected&apos; || element[&apos;status&apos;] == &apos;Approved&apos;) &amp;&amp; (page.currentUserDetails.designation.includes(&apos;Manager&apos;) &amp;&amp; page.currentUserDetails.email == element[&apos;owner&apos;])" (click)="openViewRequest(element._id)">visibility</mat-icon></span>
+          </td>
+        </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="page.tableCells; sticky:true" sticky></tr>
-      <tr mat-row #rowId *matRowDef="let row; columns: page.tableCells;" class="pointer"></tr>
-    </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+        <tr mat-header-row *matHeaderRowDef="page.tableCells; sticky:true" sticky></tr>
+        <tr mat-row #rowId *matRowDef="let row; columns: page.tableCells;" class="pointer"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+    </div>
   </div>
 </div>
