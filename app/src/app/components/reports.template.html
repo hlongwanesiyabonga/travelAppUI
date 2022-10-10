@@ -8,22 +8,22 @@
     </div>
     <div fxLayout="row wrap" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
       <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true">
-        <mat-icon>visibility</mat-icon>
+        <mat-icon class="pointer" matTooltipPosition="below" matTooltip="View Reports">visibility</mat-icon>
       </div>
       <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true">
-        <mat-icon>save_alt</mat-icon>
+        <mat-icon class="pointer" matTooltipPosition="below" matTooltip="Download As PDF">save_alt</mat-icon>
       </div>
     </div>
   </div>
   <div fxLayout="row wrap" fxLayoutAlign="space-around center" [fxShow]="true">
     <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
       <div fxFlex="100">
-        <canvas baseChart [datasets]="page.pieChartData" [labels]="page.pieChartLabels" [options]="page.pieChartOptions" [colors]="page.travelAppColors" chartType="pie"></canvas>
+        <canvas baseChart matTooltipPosition="below" matTooltip="{{page.pieChartLabels}}" [datasets]="page.pieChartData" [labels]="page.pieChartLabels" [options]="page.pieChartOptions" [colors]="page.travelAppColors" chartType="pie"></canvas>
       </div>
     </div>
     <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
       <div fxFlex="100">
-        <canvas baseChart [datasets]="page.pieChartData" [labels]="page.pieChartLabels" [options]="page.pieChartOptions" [colors]="page.travelAppColors" [legend]="true" chartType="bar"></canvas>
+        <canvas baseChart [datasets]="page.pieChartData" matTooltipPosition="below" matTooltip="{{page.pieChartLabels}}" [labels]="page.pieChartLabels" [options]="page.pieChartOptions" [colors]="page.travelAppColors" [legend]="true" chartType="bar"></canvas>
       </div>
     </div>
   </div>

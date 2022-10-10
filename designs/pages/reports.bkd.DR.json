@@ -751,7 +751,9 @@
                             },
                             {
                                 "_key": "class",
-                                "_value": "",
+                                "_value": [
+                                    "pointer"
+                                ],
                                 "_type": "dav",
                                 "_attrDef": "p"
                             },
@@ -773,6 +775,18 @@
                                 "_value": "",
                                 "_type": "kv",
                                 "_attrDef": "p"
+                            },
+                            {
+                                "_key": "matTooltipPosition",
+                                "_value": "below",
+                                "_type": "kv",
+                                "_attrDef": "c"
+                            },
+                            {
+                                "_key": "matTooltip",
+                                "_value": "View Reports",
+                                "_type": "kv",
+                                "_attrDef": "c"
                             }
                         ]
                     }
@@ -853,7 +867,9 @@
                             },
                             {
                                 "_key": "class",
-                                "_value": "",
+                                "_value": [
+                                    "pointer"
+                                ],
                                 "_type": "dav",
                                 "_attrDef": "p"
                             },
@@ -875,6 +891,18 @@
                                 "_value": "",
                                 "_type": "kv",
                                 "_attrDef": "p"
+                            },
+                            {
+                                "_key": "matTooltipPosition",
+                                "_value": "below",
+                                "_type": "kv",
+                                "_attrDef": "c"
+                            },
+                            {
+                                "_key": "matTooltip",
+                                "_value": "Download As PDF",
+                                "_type": "kv",
+                                "_attrDef": "c"
                             }
                         ]
                     }
@@ -1086,6 +1114,18 @@
                             "_value": "100",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "matTooltipPosition",
+                            "_value": "below",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "matTooltip",
+                            "_value": "{{page.pieChartLabels}}",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ]
                 }
@@ -1234,6 +1274,18 @@
                             "_value": "100",
                             "_type": "kv",
                             "_attrDef": "p"
+                        },
+                        {
+                            "_key": "matTooltipPosition",
+                            "_value": "below",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        },
+                        {
+                            "_key": "matTooltip",
+                            "_value": "{{page.pieChartLabels}}",
+                            "_type": "kv",
+                            "_attrDef": "c"
                         }
                     ]
                 }
