@@ -211,6 +211,7 @@ export class dashboardComponent {
       ];
       page.filterValue = [
         { viewvalue: 'Pending Review By LM' },
+        { viewvalue: 'Awaiting For Travel Desk To Enter Quote' },
         { viewvalue: 'Awaiting Traveler Quote Approval' },
         { viewvalue: 'Rejected' },
         { viewvalue: 'Awaiting Quote From Travel Desk' },
