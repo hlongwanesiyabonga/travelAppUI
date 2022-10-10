@@ -8,8 +8,6 @@ import {
   Input,
   Output,
   EventEmitter,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -156,11 +154,23 @@ export class loginComponent {
       );
       bh.response = outputVariables.local.result;
 
-      bh = this.sd_T0bSMd8MVkuNVyZ3(bh);
+      bh = this.sd_Tlo3K5sxMAUqpgrl(bh);
       //appendnew_next_sd_WG9jgVUhLDb5Wz3S
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_WG9jgVUhLDb5Wz3S');
+    }
+  }
+
+  sd_Tlo3K5sxMAUqpgrl(bh) {
+    try {
+      const page = this.page;
+      console.log('wdjwdj', bh.response);
+      bh = this.sd_T0bSMd8MVkuNVyZ3(bh);
+      //appendnew_next_sd_Tlo3K5sxMAUqpgrl
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Tlo3K5sxMAUqpgrl');
     }
   }
 
@@ -199,7 +209,7 @@ export class loginComponent {
   sd_2RfY3hkr8C5FDXhv(bh) {
     try {
       const page = this.page;
-      bh.currentUser = bh.local.response;
+      bh.currentUser = bh.response.user[0];
       bh = this.sd_4PQVE60xCfHXusHC(bh);
       bh = this.sd_fXMKQHS7GRdVpM5L(bh);
       //appendnew_next_sd_2RfY3hkr8C5FDXhv
@@ -228,7 +238,7 @@ export class loginComponent {
     try {
       sessionStorage.setItem(
         'currentUserDetails',
-        JSON.stringify(bh.response.user)
+        JSON.stringify(bh.currentUser)
       );
       bh = this.sd_L5IHBMJeis0D14Is(bh);
       //appendnew_next_sd_fXMKQHS7GRdVpM5L
