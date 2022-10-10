@@ -2,9 +2,9 @@
   <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
       <div class="reportsHeader">
-        Welcome to Credit, Martyn</div>
+        Welcome to Credit, {{page.currentUser.firstName}} {{page.currentUser.lastName}}</div>
       <div class="reportsSubHeader">
-        Reports Generated on 08/09/2021</div>
+        Reports Generated on {{page.generateDate}}</div>
     </div>
     <div fxLayout="row wrap" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
       <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true">

@@ -88,8 +88,8 @@
         "accept_csd": false,
         "functionName": "sd_MHUz3Qh1c6CJoDiG",
         "category": "General",
-        "x": 759,
-        "y": 61.8125,
+        "x": 845,
+        "y": 60,
         "wires": [
             []
         ],
@@ -105,14 +105,14 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = \"get\";\n// bh.endPoint = \"getTravelRequestDrafts\"\nbh.endPoint = \"travelRequests/getTravelRequest?owner=\"+ page.currentUserDetails.owner;",
+        "script": "bh.method = \"get\";\n// bh.endPoint = \"getTravelRequestDrafts\"\nbh.endPoint = \"travelRequests/getTravelRequest?owner=\"+ page.currentUserDetails.owner;\n\n// page.currentUser = sessionStorage.getItem(\"currentUserDetails\")\n// console.log(\"Current :\",page.currentUser)\npage.generateDate = new Date()",
         "functionName": "sd_OTZFXvpvhZcIAwik",
         "category": "Function",
         "x": 679,
         "y": 61.8125,
         "wires": [
             [
-                "sd_MHUz3Qh1c6CJoDiG"
+                "sd_jRsUIykBGOcQBuus"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -311,6 +311,20 @@
                 "typedIpValue": {
                     "type": "literal",
                     "value": "[]"
+                }
+            },
+            {
+                "textIp": "currentUser",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "generateDate",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
                 }
             }
         ],
@@ -1249,6 +1263,38 @@
         "y": 480,
         "wires": [
             []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_jRsUIykBGOcQBuus",
+        "type": "Storage",
+        "z": "sd_jRDDrDywmOoNUrME",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "operationType": "getItem",
+        "storageType": "sessionStorage",
+        "outputs": 1,
+        "key": {
+            "type": "str",
+            "value": "currentUserDetails"
+        },
+        "value": {},
+        "resultMapping": {
+            "type": "this.page",
+            "value": "currentUser"
+        },
+        "functionName": "sd_jRsUIykBGOcQBuus",
+        "category": "Storage",
+        "x": 765,
+        "y": 60,
+        "wires": [
+            [
+                "sd_MHUz3Qh1c6CJoDiG"
+            ]
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,

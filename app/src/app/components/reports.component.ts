@@ -226,6 +226,8 @@ export class reportsComponent {
       this.page.drafts = undefined;
       this.page.status = [];
       this.page.statusArr = [];
+      this.page.currentUser = undefined;
+      this.page.generateDate = undefined;
       bh = this.sd_OTZFXvpvhZcIAwik(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
@@ -242,11 +244,28 @@ export class reportsComponent {
       bh.endPoint =
         'travelRequests/getTravelRequest?owner=' +
         page.currentUserDetails.owner;
-      bh = this.sd_MHUz3Qh1c6CJoDiG(bh);
+
+      // page.currentUser = sessionStorage.getItem("currentUserDetails")
+      // console.log("Current :",page.currentUser)
+      page.generateDate = new Date();
+      bh = this.sd_jRsUIykBGOcQBuus(bh);
       //appendnew_next_sd_OTZFXvpvhZcIAwik
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_OTZFXvpvhZcIAwik');
+    }
+  }
+
+  sd_jRsUIykBGOcQBuus(bh) {
+    try {
+      this.page.currentUser = JSON.parse(
+        sessionStorage.getItem('currentUserDetails')
+      );
+      bh = this.sd_MHUz3Qh1c6CJoDiG(bh);
+      //appendnew_next_sd_jRsUIykBGOcQBuus
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_jRsUIykBGOcQBuus');
     }
   }
 
