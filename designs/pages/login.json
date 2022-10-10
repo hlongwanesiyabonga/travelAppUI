@@ -257,7 +257,7 @@
         "y": 260,
         "wires": [
             [
-                "sd_T0bSMd8MVkuNVyZ3"
+                "sd_Tlo3K5sxMAUqpgrl"
             ]
         ],
         "__n_excludedFromValidation__": {},
@@ -382,7 +382,7 @@
         },
         "value": {
             "type": "bh",
-            "value": "response.user"
+            "value": "currentUser"
         },
         "resultMapping": {},
         "functionName": "sd_fXMKQHS7GRdVpM5L",
@@ -441,7 +441,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.currentUser = bh.local.response",
+        "script": "bh.currentUser = bh.response.user[0]",
         "functionName": "sd_2RfY3hkr8C5FDXhv",
         "category": "Function",
         "x": 545,
@@ -450,6 +450,27 @@
             [
                 "sd_4PQVE60xCfHXusHC",
                 "sd_fXMKQHS7GRdVpM5L"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_Tlo3K5sxMAUqpgrl",
+        "type": "Script",
+        "z": "sd_oLqqWgrxFPwslUVW",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "console.log(\"wdjwdj\",bh.response)",
+        "functionName": "sd_Tlo3K5sxMAUqpgrl",
+        "category": "Function",
+        "x": 365,
+        "y": 260,
+        "wires": [
+            [
+                "sd_T0bSMd8MVkuNVyZ3"
             ]
         ],
         "__n_excludedFromValidation__": {},

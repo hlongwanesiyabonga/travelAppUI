@@ -175,7 +175,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = 'post';\nbh.endPoint = 'addFinancePage';\nbh.body = page.financeForm.value;\nconsole.log('finance',bh.body)",
+        "script": "bh.method = 'post';\nbh.endPoint = 'addFinancePage';\nbh.body = page.financeForm.value;\nbh.body.owner = page.dialogData._id;\nconsole.log('finance',bh.body)\n\n\n\n",
         "functionName": "sd_HgBUVhszeck7wdKz",
         "category": "Function",
         "x": 565,
