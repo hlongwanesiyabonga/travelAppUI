@@ -606,7 +606,7 @@
                             },
                             {
                                 "_key": "html",
-                                "_value": "Reports Generated on {{page.generateDate}}",
+                                "_value": "Reports Generated on {{page.generateDate | date:'fullDate'}}",
                                 "_type": "a",
                                 "_attrDef": "p"
                             }

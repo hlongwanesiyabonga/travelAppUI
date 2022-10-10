@@ -423,6 +423,7 @@ export class reportsComponent {
             : page.status.push(el['status']);
           let temp = {};
           temp['_id'] = el['_id'];
+          temp['owner'] = el['owner'];
           temp['status'] = el['status'];
           temp['dateCreated'] = el['dateCreated'];
           temp['tripType'] =
@@ -433,6 +434,7 @@ export class reportsComponent {
             el['requestDetails'][0]['travelDetails']['fromCity'];
           temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
           tableData.push(temp);
+          console.log('Data ID :', page.receivedTableData['owner']);
         }
 
         // }

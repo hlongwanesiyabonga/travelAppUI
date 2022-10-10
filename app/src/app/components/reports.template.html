@@ -4,7 +4,7 @@
       <div class="reportsHeader">
         Welcome to Credit, {{page.currentUser.firstName}} {{page.currentUser.lastName}}</div>
       <div class="reportsSubHeader">
-        Reports Generated on {{page.generateDate}}</div>
+        Reports Generated on {{page.generateDate | date:&apos;fullDate&apos;}}</div>
     </div>
     <div fxLayout="row wrap" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
       <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true">
