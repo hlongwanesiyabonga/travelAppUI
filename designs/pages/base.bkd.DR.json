@@ -3586,6 +3586,7 @@
                                                     "paletteKey": "html-editor",
                                                     "parentEditorKey": "dbe192ef-e5d4-b9a4-9a60-061e6928a419",
                                                     "isAdvancedChildComponent": true,
+                                                    "isCommented": "false",
                                                     "commentid": null,
                                                     "designerReference": [
                                                         {
