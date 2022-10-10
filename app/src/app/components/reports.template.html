@@ -6,14 +6,6 @@
       <div class="reportsSubHeader">
         Reports Generated on {{page.generateDate | date:&apos;fullDate&apos;}}</div>
     </div>
-    <div fxLayout="row wrap" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
-      <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true">
-        <mat-icon class="pointer" matTooltipPosition="below" matTooltip="View Reports">visibility</mat-icon>
-      </div>
-      <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true">
-        <mat-icon class="pointer" matTooltipPosition="below" matTooltip="Download As PDF">save_alt</mat-icon>
-      </div>
-    </div>
   </div>
   <div fxLayout="row wrap" fxLayoutAlign="space-around center" [fxShow]="true">
     <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
@@ -27,15 +19,25 @@
       </div>
     </div>
   </div>
-  <div fxLayout="row wrap" class="inputContainer" fxLayoutGap="1em" fxLayoutAlign="end stretch" [fxShow]="true">
-    <div fxLayout="column wrap" fxLayoutAlign="start end" [fxShow]="true">
-      <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+  <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="end stretch" [fxShow]="true">
+    <div fxLayout="column wrap" class="inputContainer" fxLayoutAlign="start end" [fxShow]="true">
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
         <input matInput placeholder="Search" [required]="false" #input (keyup)="filterMethod($event)">
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </div>
-    <div fxLayout="column wrap" fxLayoutAlign="start end" [fxShow]="true">
-      <mat-form-field [appearance]="&apos;fill&apos;" [floatLabel]="&apos;auto&apos;">
+    <div fxLayout="column wrap" class="inputContainer" fxLayoutAlign="start end" [fxShow]="true">
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+        <mat-select placeholder="Filter By Name" [required]="false" (selectionChange)="selectFilter($event)" #select>
+          <ng-template ngFor let-option [ngForOf]="page.UserNameArr" let-i="index">
+            <mat-option [value]="option">{{option}}</mat-option>
+          </ng-template>
+        </mat-select>
+
+      </mat-form-field>
+    </div>
+    <div fxLayout="column wrap" class="inputContainer" fxLayoutAlign="start end" [fxShow]="true">
+      <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
         <mat-select placeholder="Filter By Status" [required]="false" (selectionChange)="selectFilter($event)" #select>
           <ng-template ngFor let-option [ngForOf]="page.status" let-i="index">
             <mat-option [value]="option">{{option}}</mat-option>

@@ -256,6 +256,13 @@
                     "type": "literal",
                     "value": ""
                 }
+            },
+            {
+                "textIp": "designition",
+                "typedIpValue": {
+                    "type": "literal",
+                    "value": ""
+                }
             }
         ],
         "functionName": "sd_P2VT6lPYUkxBIGR8",
@@ -3304,7 +3311,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.method = 'post';\nbh.endPoint = 'addQuote';\nbh.body=page.quotesForm.value;\nconsole.log('')\npage.dialogData.status= 'Awating For Traveler Quote Approval'\nbh.body.owner = page.dialogData._id;\nconsole.log(page.quotesForm)\n",
+        "script": "bh.method = 'post';\nbh.endPoint = 'addQuote';\nbh.body=page.quotesForm.value;\nlet tempObj={\n    id:page.dialogData._id,\n    quoteSelected:page.quotesForm.selectedQuote.value\n}\n\npage.dialogData.status= 'Awating For Traveler Quote Approval'\nbh.body.owner = tempObj;\nconsole.log(page.quotesForm.selectedQuote.value)\n\n\n",
         "functionName": "sd_3zqRYOIPZOGRBtYQ",
         "category": "Function",
         "x": 1545,
@@ -3564,7 +3571,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.endPoint = \"getQuote/\" + page.dialogData._id;\nbh.method = \"get\"\nconsole.log(\"dhajfahdfaheoijfdoisejfies\")",
+        "script": "bh.endPoint = \"getQuote/\" + page.dialogData._id;\nbh.method = \"get\"\n",
         "functionName": "sd_VIF9MfKuQDGJD8fB",
         "category": "Function",
         "x": 245,
@@ -3721,7 +3728,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "if(page.qoutesvalue?.data?.length){\npage.quotesForm.patchValue(page.qoutesvalue.data[0])\n}\n",
+        "script": "if(page.qoutesvalue?.data?.length){\npage.quotesForm.patchValue(page.qoutesvalue.data[0])\n}\n\npage.designition = page.currentUserDetails.designation.includes(\"Travel Desk\")\nconsole.log(\"Function log :\",page.designition)",
         "functionName": "sd_7Q1LurtE9bgSq2Gg",
         "category": "Function",
         "x": 505,
@@ -4110,7 +4117,9 @@
             "value": "2000"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""

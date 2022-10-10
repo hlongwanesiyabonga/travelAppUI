@@ -610,6 +610,7 @@ export class travelRequestDialogComponent {
       this.page.travelRequestType = undefined;
       this.page.addLeg = false;
       this.page.qoutesvalue = undefined;
+      this.page.designition = undefined;
       bh = this.sd_53I9agaPXi6pjczn(bh);
       //appendnew_next_sd_P2VT6lPYUkxBIGR8
       return bh;
@@ -1932,10 +1933,14 @@ export class travelRequestDialogComponent {
       bh.method = 'post';
       bh.endPoint = 'addQuote';
       bh.body = page.quotesForm.value;
-      console.log('');
+      let tempObj = {
+        id: page.dialogData._id,
+        quoteSelected: page.quotesForm.selectedQuote.value,
+      };
+
       page.dialogData.status = 'Awating For Traveler Quote Approval';
-      bh.body.owner = page.dialogData._id;
-      console.log(page.quotesForm);
+      bh.body.owner = tempObj;
+      console.log(page.quotesForm.selectedQuote.value);
 
       bh = this.sd_2oarjCaiGCrLhVMF(bh);
       //appendnew_next_sd_3zqRYOIPZOGRBtYQ
@@ -2029,7 +2034,7 @@ export class travelRequestDialogComponent {
       const page = this.page;
       bh.endPoint = 'getQuote/' + page.dialogData._id;
       bh.method = 'get';
-      console.log('dhajfahdfaheoijfdoisejfies');
+
       bh = this.sd_QTzKbzXNOWjs5zFf(bh);
       //appendnew_next_sd_VIF9MfKuQDGJD8fB
       return bh;
@@ -2065,6 +2070,9 @@ export class travelRequestDialogComponent {
         page.quotesForm.patchValue(page.qoutesvalue.data[0]);
       }
 
+      page.designition =
+        page.currentUserDetails.designation.includes('Travel Desk');
+      console.log('Function log :', page.designition);
       //appendnew_next_sd_7Q1LurtE9bgSq2Gg
       return bh;
     } catch (e) {

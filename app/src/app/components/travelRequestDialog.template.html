@@ -8,7 +8,14 @@
               <mat-icon class="marginRight10">group</mat-icon>Requester
             </h1>
             <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-              <mat-icon class="pointer" (click)="closeDialog()">close</mat-icon>
+              <div fxLayout="row wrap" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true">
+                  <mat-icon class="pointer" matTooltipPosition="below" matTooltip="Download As PDF">save_alt</mat-icon>
+                </div>
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                  <mat-icon class="pointer" (click)="closeDialog()">close</mat-icon>
+                </div>
+              </div>
             </div>
           </div>
           <div fxLayout="row wrap" class="fullWidth" fxLayoutGap="2em" fxLayoutAlign="start stretch" [fxShow]="true">
@@ -511,7 +518,7 @@
         </div>
       </div>
     </form>
-    <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="(!(page.dialogData.status ==  &apos;Pending Review By LM&apos;) &amp;&amp; !(page.dialogData.status == &apos;Rejected&apos;)) ||  !(!page.designition &amp;&amp; !page.qoutesvalue?.data[0])">
       <form [formGroup]="page.quotesForm" class="fullWidth">
         <mat-radio-group formControlName="selectedQuote" [required]="false">
           <div fxLayout="column wrap" class="marginTop20" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
@@ -520,7 +527,7 @@
                 <h2>
                   Quote 1</h2>
               </div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="(!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == &apos;Approved&apos;  &amp;&amp; page.currentUserDetails.designation.includes(&apos;Travel&apos;)) || (page.currentUserDetails.email == page.dialogData.owner &amp;&amp; page.dialogData?.travelerApproval?.quoteApproved == null)">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.designition">
                 <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
                   <mat-radio-button [value]="&apos;Quote 1&apos;" [required]="false" (change)="updateTravelerQuoteRadio(&apos;Approved&apos;,page.personalDetailsForm.value,page.travelForm.value)"></mat-radio-button><label>
                     Select</label>
@@ -598,7 +605,7 @@
                 <h2>
                   Quote 2</h2>
               </div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.currentUserDetails.email == page.dialogData.email">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.designition">
                 <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
                   <mat-radio-button [value]="&apos;Quote 2&apos;" [required]="false" (change)="updateTravelerQuoteRadio(&apos;Approved&apos;,page.travelForm.value,page.personalDetailsForm.value)"></mat-radio-button><label>
                     Select</label>
@@ -676,7 +683,7 @@
                 <h2>
                   Quote 3</h2>
               </div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="(!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == &apos;Approved&apos;  &amp;&amp; page.currentUserDetails.designation.includes(&apos;Travel&apos;)) || (page.currentUserDetails.email == page.dialogData.owner &amp;&amp; page.dialogData?.travelerApproval?.quoteApproved == null)">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="false" *ngIf="!page.designition">
                 <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
                   <mat-radio-button [value]="&apos;Quote 3&apos;" [required]="false" (change)="updateTravelerQuoteRadio(&apos;Approved&apos;,page.travelForm.value,page.personalDetailsForm.value)"></mat-radio-button><label>
                     Select</label>

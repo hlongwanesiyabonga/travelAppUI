@@ -228,6 +228,7 @@ export class reportsComponent {
       this.page.statusArr = [];
       this.page.currentUser = undefined;
       this.page.generateDate = undefined;
+      this.page.UserNameArr = [];
       bh = this.sd_OTZFXvpvhZcIAwik(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
@@ -421,9 +422,14 @@ export class reportsComponent {
           page.status.includes(el['status'])
             ? ''
             : page.status.push(el['status']);
+          page.UserNameArr.includes(el?.personalDetails?.firstName) ||
+          !el?.personalDetails?.firstName
+            ? ''
+            : page.UserNameArr.push(el?.personalDetails?.firstName);
+
           let temp = {};
           temp['_id'] = el['_id'];
-          temp['owner'] = el['owner'];
+          temp['owner'] = el?.personalDetails?.firstName || 'User Undefined';
           temp['status'] = el['status'];
           temp['dateCreated'] = el['dateCreated'];
           temp['tripType'] =
@@ -434,7 +440,6 @@ export class reportsComponent {
             el['requestDetails'][0]['travelDetails']['fromCity'];
           temp['toCity'] = el['requestDetails'][0]['travelDetails']['toCity'];
           tableData.push(temp);
-          console.log('Data ID :', page.receivedTableData['owner']);
         }
 
         // }
@@ -476,7 +481,6 @@ export class reportsComponent {
         let currentCount = count_substr(page.statusArr, item);
         dataSet.push(currentCount);
       });
-      console.log(page.statusArr);
 
       page.pieChartData = [
         {
