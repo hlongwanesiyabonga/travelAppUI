@@ -511,7 +511,7 @@
         </div>
       </div>
     </form>
-    <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="(!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == &apos;Approved&apos;  &amp;&amp; page.currentUserDetails.designation.includes(&apos;Travel&apos;)) || (page.currentUserDetails.email == page.dialogData.owner &amp;&amp; page?.dialogData?.travelerApproval?.quoteApproved == null)">
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
       <form [formGroup]="page.quotesForm" class="fullWidth">
         <mat-radio-group formControlName="selectedQuote" [required]="false">
           <div fxLayout="column wrap" class="marginTop20" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">

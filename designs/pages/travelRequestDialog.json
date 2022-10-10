@@ -1030,7 +1030,6 @@
         "serviceImportPath": "./travelRequestDialog",
         "startName": "prepopulateDialogData",
         "inputParams": [],
-        "accept_bh": false,
         "accept_csd": false,
         "functionName": "sd_URlPiFkFJorKKLLm",
         "category": "General",
@@ -3563,7 +3562,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.endPoint = \"getQuote/\" + page.dialogData._id;\nbh.method = \"get\"",
+        "script": "bh.endPoint = \"getQuote/\" + page.dialogData._id;\nbh.method = \"get\"\nconsole.log(\"dhajfahdfaheoijfdoisejfies\")",
         "functionName": "sd_VIF9MfKuQDGJD8fB",
         "category": "Function",
         "x": 225,
@@ -3720,7 +3719,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "\npage.quotesForm.patchValue(page.qoutesvalue.data[0]);\nconsole.log(\"form on DB\",page.quotesForm)\nconsole.log(\"res\",page.qoutesvalue)",
+        "script": "if(page.qoutesvalue?.data?.length){\npage.quotesForm.patchValue(page.qoutesvalue.data[0])\n}\n",
         "functionName": "sd_7Q1LurtE9bgSq2Gg",
         "category": "Function",
         "x": 485,
@@ -3866,7 +3865,7 @@
         "flow_type": "sync",
         "functionName": "updateTravelerQuoteStatus",
         "category": "General",
-        "x": 105,
+        "x": 65,
         "y": 1360,
         "wires": [
             [
@@ -4078,7 +4077,7 @@
         "flow_type": "sync",
         "functionName": "updateTravelerQuoteRadio",
         "category": "General",
-        "x": 283.75,
+        "x": 225,
         "y": 1480,
         "wires": [
             [

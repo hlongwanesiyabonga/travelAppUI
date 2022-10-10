@@ -1968,6 +1968,7 @@ export class travelRequestDialogComponent {
       const page = this.page;
       bh.endPoint = 'getQuote/' + page.dialogData._id;
       bh.method = 'get';
+      console.log('dhajfahdfaheoijfdoisejfies');
       bh = this.sd_QTzKbzXNOWjs5zFf(bh);
       //appendnew_next_sd_VIF9MfKuQDGJD8fB
       return bh;
@@ -1999,9 +2000,10 @@ export class travelRequestDialogComponent {
   sd_7Q1LurtE9bgSq2Gg(bh) {
     try {
       const page = this.page;
-      page.quotesForm.patchValue(page.qoutesvalue.data[0]);
-      console.log('form on DB', page.quotesForm);
-      console.log('res', page.qoutesvalue);
+      if (page.qoutesvalue?.data?.length) {
+        page.quotesForm.patchValue(page.qoutesvalue.data[0]);
+      }
+
       //appendnew_next_sd_7Q1LurtE9bgSq2Gg
       return bh;
     } catch (e) {
