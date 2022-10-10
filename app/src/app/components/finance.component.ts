@@ -139,7 +139,9 @@ export class financeComponent {
       bh.method = 'post';
       bh.endPoint = 'addFinancePage';
       bh.body = page.financeForm.value;
+      bh.body.owner = page.dialogData._id;
       console.log('finance', bh.body);
+
       bh = this.sd_a7Ma7YjYnYYVF2Da(bh);
       //appendnew_next_sd_HgBUVhszeck7wdKz
       return bh;
