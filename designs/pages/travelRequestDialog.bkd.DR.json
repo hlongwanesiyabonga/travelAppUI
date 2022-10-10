@@ -21224,6 +21224,32 @@
                                                                                         "_attrDef": "p"
                                                                                     }
                                                                                 ]
+                                                                            },
+                                                                            "94aed6df-e393-c5e8-2e98-846647a0cc25": {
+                                                                                "paletteKey": "html-editor",
+                                                                                "parentEditorKey": "3cb57514-8c97-5bb3-86ed-db0ae0e219d7",
+                                                                                "isAdvancedChildComponent": true,
+                                                                                "commentid": null,
+                                                                                "designerReference": [
+                                                                                    {
+                                                                                        "_key": "style",
+                                                                                        "_value": "",
+                                                                                        "_type": "kv",
+                                                                                        "_attrDef": "p"
+                                                                                    },
+                                                                                    {
+                                                                                        "_key": "class",
+                                                                                        "_value": "",
+                                                                                        "_type": "dav",
+                                                                                        "_attrDef": "p"
+                                                                                    },
+                                                                                    {
+                                                                                        "_key": "html",
+                                                                                        "_value": "",
+                                                                                        "_type": "a",
+                                                                                        "_attrDef": "p"
+                                                                                    }
+                                                                                ]
                                                                             }
                                                                         }
                                                                     }
@@ -26027,7 +26053,7 @@
                     },
                     {
                         "_key": "*ngIf",
-                        "_value": "(!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved'  && page.currentUserDetails.designation.includes('Travel')) || (page.currentUserDetails.email == page.dialogData.owner && page.dialogData.status == 'Awating For LM Quote Approval') ",
+                        "_value": "(!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved'  && page.currentUserDetails.designation.includes('Travel')) || (page.currentUserDetails.email == page.dialogData.owner && page?.dialogData?.travelerApproval?.quoteApproved == null)",
                         "_type": "kv",
                         "_attrDef": "c"
                     }
@@ -26636,7 +26662,7 @@
                                         },
                                         {
                                             "_key": "*ngIf",
-                                            "_value": "page.currentUserDetails.email == page.dialogData.email",
+                                            "_value": "(!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved'  && page.currentUserDetails.designation.includes('Travel')) || (page.currentUserDetails.email == page.dialogData.owner && page.dialogData?.travelerApproval?.quoteApproved == null)",
                                             "_type": "kv",
                                             "_attrDef": "c"
                                         }
@@ -26766,9 +26792,21 @@
                                                 },
                                                 {
                                                     "_key": "(change)",
-                                                    "_value": "",
+                                                    "_value": "updateTravelerQuoteRadio('Approved',page.personalDetailsForm.value,page.travelForm.value)",
                                                     "_type": "kv",
-                                                    "_attrDef": "p"
+                                                    "_attrDef": "p",
+                                                    "_customAttributeFlag": "flowpicker",
+                                                    "objValue": {
+                                                        "nodeID": "sd_dqVhztDfggX4MVY2",
+                                                        "functionName": "updateTravelerQuoteRadio",
+                                                        "activeTree": "pages",
+                                                        "z": "sd_cL2Dk3ymewl6P3KV",
+                                                        "input": [
+                                                            "'Approved'",
+                                                            "page.personalDetailsForm.value",
+                                                            "page.travelForm.value"
+                                                        ]
+                                                    }
                                                 },
                                                 {
                                                     "_key": "[labelPosition]",
@@ -30494,9 +30532,21 @@
                                                 },
                                                 {
                                                     "_key": "(change)",
-                                                    "_value": "",
+                                                    "_value": "updateTravelerQuoteRadio('Approved',page.travelForm.value,page.personalDetailsForm.value)",
                                                     "_type": "kv",
-                                                    "_attrDef": "p"
+                                                    "_attrDef": "p",
+                                                    "_customAttributeFlag": "flowpicker",
+                                                    "objValue": {
+                                                        "nodeID": "sd_dqVhztDfggX4MVY2",
+                                                        "functionName": "updateTravelerQuoteRadio",
+                                                        "activeTree": "pages",
+                                                        "z": "sd_cL2Dk3ymewl6P3KV",
+                                                        "input": [
+                                                            "'Approved'",
+                                                            "page.travelForm.value",
+                                                            "page.personalDetailsForm.value"
+                                                        ]
+                                                    }
                                                 },
                                                 {
                                                     "_key": "[labelPosition]",
@@ -34092,7 +34142,7 @@
                                         },
                                         {
                                             "_key": "*ngIf",
-                                            "_value": "page.currentUserDetails.email == page.dialogData.email",
+                                            "_value": "(!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved'  && page.currentUserDetails.designation.includes('Travel')) || (page.currentUserDetails.email == page.dialogData.owner && page.dialogData?.travelerApproval?.quoteApproved == null)",
                                             "_type": "kv",
                                             "_attrDef": "c"
                                         }
@@ -34222,9 +34272,21 @@
                                                 },
                                                 {
                                                     "_key": "(change)",
-                                                    "_value": "",
+                                                    "_value": "updateTravelerQuoteRadio('Approved',page.travelForm.value,page.personalDetailsForm.value)",
                                                     "_type": "kv",
-                                                    "_attrDef": "p"
+                                                    "_attrDef": "p",
+                                                    "_customAttributeFlag": "flowpicker",
+                                                    "objValue": {
+                                                        "nodeID": "sd_dqVhztDfggX4MVY2",
+                                                        "functionName": "updateTravelerQuoteRadio",
+                                                        "activeTree": "pages",
+                                                        "z": "sd_cL2Dk3ymewl6P3KV",
+                                                        "input": [
+                                                            "'Approved'",
+                                                            "page.travelForm.value",
+                                                            "page.personalDetailsForm.value"
+                                                        ]
+                                                    }
                                                 },
                                                 {
                                                     "_key": "[labelPosition]",
@@ -37421,152 +37483,11 @@
                                     }
                                 }
                             },
-                            "61a18a68-7cf1-2282-85f5-b9be6cb9a460": {
-                                "paletteKey": "FlexLayoutRow",
-                                "parentEditorKey": "7d7116c5-8914-b9d0-286b-a867f709f6e3",
-                                "commentid": null,
-                                "designerReference": [
-                                    {
-                                        "_key": "componentLabel",
-                                        "_value": "travel desk",
-                                        "_type": "kv",
-                                        "_attrDef": "p",
-                                        "_useAsLabel": true
-                                    },
-                                    {
-                                        "_key": "style",
-                                        "_value": "",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "class",
-                                        "_value": [
-                                            "marginRight20"
-                                        ],
-                                        "_type": "dav",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "fxFlex",
-                                        "_value": "",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "fxLayoutGap",
-                                        "_value": "",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "wrap",
-                                        "_value": "wrap",
-                                        "_type": "a",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "layoutAlign",
-                                        "_value": "end",
-                                        "_type": "a",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "pLayoutAlign",
-                                        "_value": "stretch",
-                                        "_type": "a",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "[fxShow]",
-                                        "_value": "true",
-                                        "_type": "kv",
-                                        "_attrDef": "p"
-                                    },
-                                    {
-                                        "_key": "*ngIf",
-                                        "_value": "page.currentUserDetails.email != page.dialogData.owner",
-                                        "_type": "kv",
-                                        "_attrDef": "c"
-                                    }
-                                ],
-                                "f2515e40-429e-5067-9bc6-c6c7d73dcb16": {
-                                    "paletteKey": "NG-button",
-                                    "parentEditorKey": "61a18a68-7cf1-2282-85f5-b9be6cb9a460",
-                                    "commentid": null,
-                                    "designerReference": [
-                                        {
-                                            "_key": "style",
-                                            "_value": "",
-                                            "_type": "kv",
-                                            "_attrDef": "p"
-                                        },
-                                        {
-                                            "_key": "class",
-                                            "_value": [
-                                                "redButton"
-                                            ],
-                                            "_type": "dav",
-                                            "_attrDef": "p"
-                                        },
-                                        {
-                                            "_key": "buttonname",
-                                            "_value": "Submit",
-                                            "_type": "a",
-                                            "_attrDef": "p",
-                                            "_useAsLabel": true
-                                        },
-                                        {
-                                            "_key": "color",
-                                            "_value": "",
-                                            "_type": "kv",
-                                            "_attrDef": "p"
-                                        },
-                                        {
-                                            "_key": "(click)",
-                                            "_value": "submitQuote()",
-                                            "_type": "kv",
-                                            "_attrDef": "p",
-                                            "objValue": {
-                                                "nodeID": "sd_18AEsXYvOeqDmzBW",
-                                                "functionName": "submitQuote",
-                                                "activeTree": "pages",
-                                                "z": "sd_cL2Dk3ymewl6P3KV",
-                                                "input": []
-                                            }
-                                        },
-                                        {
-                                            "_key": "[disabled]",
-                                            "_value": "false",
-                                            "_type": "kv",
-                                            "_attrDef": "p"
-                                        },
-                                        {
-                                            "_key": "[disableRipple]",
-                                            "_value": "",
-                                            "_type": "kv",
-                                            "_attrDef": "p"
-                                        },
-                                        {
-                                            "_key": "type",
-                                            "_value": "",
-                                            "_type": "kv",
-                                            "_attrDef": "p"
-                                        },
-                                        {
-                                            "_key": "routerLink",
-                                            "_value": "",
-                                            "_type": "kv",
-                                            "_attrDef": "p"
-                                        }
-                                    ]
-                                }
-                            },
                             "1115bd11-e297-74b2-81f7-4668164b49a1": {
                                 "paletteKey": "FlexLayoutRow",
                                 "parentEditorKey": "7d7116c5-8914-b9d0-286b-a867f709f6e3",
                                 "isCommented": "true",
-                                "commentid": "1665065123653",
+                                "commentid": "1665341111522",
                                 "designerReference": [
                                     {
                                         "_key": "componentLabel",
@@ -37624,13 +37545,19 @@
                                         "_value": "true",
                                         "_type": "kv",
                                         "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "*ngIf",
+                                        "_value": "page.currentUserDetails.designation.includes('Junior')",
+                                        "_type": "kv",
+                                        "_attrDef": "c"
                                     }
                                 ],
                                 "d7ac5490-9a0e-0583-15d2-2caea09b49a8": {
                                     "paletteKey": "NG-button",
                                     "parentEditorKey": "1115bd11-e297-74b2-81f7-4668164b49a1",
                                     "isCommented": "true",
-                                    "commentid": "1665065123653",
+                                    "commentid": "1665341111522",
                                     "designerReference": [
                                         {
                                             "_key": "style",
@@ -37695,7 +37622,7 @@
                                     "paletteKey": "NG-button",
                                     "parentEditorKey": "1115bd11-e297-74b2-81f7-4668164b49a1",
                                     "isCommented": "true",
-                                    "commentid": "1665065123653",
+                                    "commentid": "1665341111522",
                                     "designerReference": [
                                         {
                                             "_key": "style",
@@ -37761,7 +37688,7 @@
                                 "paletteKey": "FlexLayoutRow",
                                 "parentEditorKey": "7d7116c5-8914-b9d0-286b-a867f709f6e3",
                                 "isCommented": "true",
-                                "commentid": "1665065125692",
+                                "commentid": "1665341115130",
                                 "designerReference": [
                                     {
                                         "_key": "componentLabel",
@@ -37819,13 +37746,19 @@
                                         "_value": "true",
                                         "_type": "kv",
                                         "_attrDef": "p"
+                                    },
+                                    {
+                                        "_key": "*ngIf",
+                                        "_value": "page.currentUserDetails.designation.includes('Line Manager')",
+                                        "_type": "kv",
+                                        "_attrDef": "c"
                                     }
                                 ],
                                 "c53b0a1a-dcd4-f571-4ddd-c05807a83ce5": {
                                     "paletteKey": "NG-button",
                                     "parentEditorKey": "e78a51b6-b3a2-db09-bbf6-29617ccfcf06",
                                     "isCommented": "true",
-                                    "commentid": "1665065125692",
+                                    "commentid": "1665341115130",
                                     "designerReference": [
                                         {
                                             "_key": "style",
@@ -37890,7 +37823,7 @@
                                     "paletteKey": "NG-button",
                                     "parentEditorKey": "e78a51b6-b3a2-db09-bbf6-29617ccfcf06",
                                     "isCommented": "true",
-                                    "commentid": "1665065125692",
+                                    "commentid": "1665341115130",
                                     "designerReference": [
                                         {
                                             "_key": "style",
@@ -38019,6 +37952,149 @@
                         "_attrDef": "p"
                     }
                 ],
+                "61a18a68-7cf1-2282-85f5-b9be6cb9a460": {
+                    "paletteKey": "FlexLayoutRow",
+                    "parentEditorKey": "8ab58d9f-0265-048e-8e5c-ecd4ca56776d",
+                    "isCommented": "false",
+                    "commentid": null,
+                    "designerReference": [
+                        {
+                            "_key": "componentLabel",
+                            "_value": "travel desk",
+                            "_type": "kv",
+                            "_attrDef": "p",
+                            "_useAsLabel": true
+                        },
+                        {
+                            "_key": "style",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "class",
+                            "_value": [
+                                "marginRight20"
+                            ],
+                            "_type": "dav",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxFlex",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "fxLayoutGap",
+                            "_value": "",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "wrap",
+                            "_value": "wrap",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "layoutAlign",
+                            "_value": "end",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "pLayoutAlign",
+                            "_value": "stretch",
+                            "_type": "a",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "[fxShow]",
+                            "_value": "true",
+                            "_type": "kv",
+                            "_attrDef": "p"
+                        },
+                        {
+                            "_key": "*ngIf",
+                            "_value": "(!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved'  && page.currentUserDetails.designation.includes('Travel')) || (page.currentUserDetails.email == page.dialogData.owner && page.dialogData.status == 'Awating For LM Quote Approval')",
+                            "_type": "kv",
+                            "_attrDef": "c"
+                        }
+                    ],
+                    "f2515e40-429e-5067-9bc6-c6c7d73dcb16": {
+                        "paletteKey": "NG-button",
+                        "parentEditorKey": "61a18a68-7cf1-2282-85f5-b9be6cb9a460",
+                        "isCommented": "false",
+                        "commentid": null,
+                        "designerReference": [
+                            {
+                                "_key": "style",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "class",
+                                "_value": [
+                                    "redButton"
+                                ],
+                                "_type": "dav",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "buttonname",
+                                "_value": "Submit",
+                                "_type": "a",
+                                "_attrDef": "p",
+                                "_useAsLabel": true
+                            },
+                            {
+                                "_key": "color",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "(click)",
+                                "_value": "submitQuote()",
+                                "_type": "kv",
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_18AEsXYvOeqDmzBW",
+                                    "functionName": "submitQuote",
+                                    "activeTree": "pages",
+                                    "z": "sd_cL2Dk3ymewl6P3KV",
+                                    "input": []
+                                }
+                            },
+                            {
+                                "_key": "[disabled]",
+                                "_value": "false",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "[disableRipple]",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "type",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            },
+                            {
+                                "_key": "routerLink",
+                                "_value": "",
+                                "_type": "kv",
+                                "_attrDef": "p"
+                            }
+                        ]
+                    }
+                },
                 "968a405b-0ca0-d04d-95ca-2a6233814aaf": {
                     "paletteKey": "FlexLayoutRow",
                     "parentEditorKey": "8ab58d9f-0265-048e-8e5c-ecd4ca56776d",
@@ -38382,7 +38458,8 @@
                 "a574f237-5e14-69ff-8549-c11662601c45": {
                     "paletteKey": "FlexLayoutRow",
                     "parentEditorKey": "8ab58d9f-0265-048e-8e5c-ecd4ca56776d",
-                    "commentid": null,
+                    "isCommented": "true",
+                    "commentid": "1665349319941",
                     "designerReference": [
                         {
                             "_key": "componentLabel",
@@ -38441,7 +38518,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "!page.dialogData.isDraft && page?.dialogData?.status == 'Approved' && (page?.dialogData?.owner == page?.currentUserDetails?.email)",
+                            "_value": "!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner == page?.currentUserDetails?.email)",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -38449,7 +38526,8 @@
                     "32e027d5-2105-7a3b-6674-af430f90256f": {
                         "paletteKey": "NG-RaisedButton",
                         "parentEditorKey": "a574f237-5e14-69ff-8549-c11662601c45",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1665349319941",
                         "designerReference": [
                             {
                                 "_key": "style",
@@ -38480,9 +38558,20 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "",
+                                "_value": "updateTravelerQuoteStatus(page,personalDetailsForm.value,page.travelForm.value,'Rejected')",
                                 "_type": "kv",
-                                "_attrDef": "p"
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_OB2cKptj4lZrqHCQ",
+                                    "functionName": "updateTravelerQuoteStatus",
+                                    "activeTree": "pages",
+                                    "z": "sd_cL2Dk3ymewl6P3KV",
+                                    "input": [
+                                        "page,personalDetailsForm.value",
+                                        "page.travelForm.value",
+                                        "'Rejected'"
+                                    ]
+                                }
                             },
                             {
                                 "_key": "[disabled]",
@@ -38513,7 +38602,8 @@
                     "c1f2206c-2661-a27b-1e0d-2909445b35bd": {
                         "paletteKey": "NG-RaisedButton",
                         "parentEditorKey": "a574f237-5e14-69ff-8549-c11662601c45",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1665349319941",
                         "designerReference": [
                             {
                                 "_key": "style",
@@ -38544,13 +38634,24 @@
                             },
                             {
                                 "_key": "(click)",
-                                "_value": "",
+                                "_value": "updateTravelerQuoteStatus(page.personalForm.value,page.travelForm.value,'Approved')",
                                 "_type": "kv",
-                                "_attrDef": "p"
+                                "_attrDef": "p",
+                                "objValue": {
+                                    "nodeID": "sd_OB2cKptj4lZrqHCQ",
+                                    "functionName": "updateTravelerQuoteStatus",
+                                    "activeTree": "pages",
+                                    "z": "sd_cL2Dk3ymewl6P3KV",
+                                    "input": [
+                                        "page.personalForm.value",
+                                        "page.travelForm.value",
+                                        "'Approved'"
+                                    ]
+                                }
                             },
                             {
                                 "_key": "[disabled]",
-                                "_value": "",
+                                "_value": "true",
                                 "_type": "kv",
                                 "_attrDef": "p"
                             },
@@ -38637,7 +38738,7 @@
                         },
                         {
                             "_key": "*ngIf",
-                            "_value": "(!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') )) || !(page.quotesForm.INVALID || page?.currentUserDetails?.designation.includes('Manager') )",
+                            "_value": "(!page.dialogData.isDraft && page?.dialogData?.managerApproval.approvedRequest == 'Approved' && (page?.dialogData?.owner != page?.currentUserDetails?.email && page?.currentUserDetails?.designation[0].includes('Manager') )) && page?.dialogData?.managerApproval?.quoteApproved != 'Approved'",
                             "_type": "kv",
                             "_attrDef": "c"
                         }
@@ -38796,7 +38897,8 @@
                 "55de08e8-5b53-4261-2e93-80e59f04850f": {
                     "paletteKey": "FlexLayoutRow",
                     "parentEditorKey": "8ab58d9f-0265-048e-8e5c-ecd4ca56776d",
-                    "commentid": null,
+                    "isCommented": "true",
+                    "commentid": "1665349670549",
                     "designerReference": [
                         {
                             "_key": "componentLabel",
@@ -38873,7 +38975,8 @@
                     "f86ecbd6-4300-d7f0-e028-2d63dfa9a415": {
                         "paletteKey": "NG-RaisedButton",
                         "parentEditorKey": "55de08e8-5b53-4261-2e93-80e59f04850f",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1665349670549",
                         "designerReference": [
                             {
                                 "_key": "style",
@@ -38944,7 +39047,8 @@
                     "d4c1c3c1-9cb9-ee46-bc8d-6391511eaa0b": {
                         "paletteKey": "NG-RaisedButton",
                         "parentEditorKey": "55de08e8-5b53-4261-2e93-80e59f04850f",
-                        "commentid": null,
+                        "isCommented": "true",
+                        "commentid": "1665349670549",
                         "designerReference": [
                             {
                                 "_key": "style",
