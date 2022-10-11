@@ -829,7 +829,11 @@ export class travelRequestDialogComponent {
     try {
       const page = this.page;
       console.log(page.showDrafts, 'showDrafts');
-
+      let bool =
+        (!(page.dialogData.status == 'Pending Review By LM') &&
+          !(page.dialogData.status == 'Rejected')) ||
+        !(!page.designition && !page.qoutesvalue.data[0]);
+      console.log('boolean :', bool);
       //appendnew_next_sd_OTQGYEVaD9R5IRGe
       return bh;
     } catch (e) {
@@ -1708,7 +1712,7 @@ export class travelRequestDialogComponent {
   sd_ZngVljrbmTSgDzVA(bh) {
     try {
       const page = this.page;
-      console.log(bh.local.result, 'status');
+      console.log(bh.local.res, 'status');
       bh = this.sd_mtwXryArY7EL8Q3c(bh);
       //appendnew_next_sd_ZngVljrbmTSgDzVA
       return bh;
@@ -1932,15 +1936,16 @@ export class travelRequestDialogComponent {
       const page = this.page;
       bh.method = 'post';
       bh.endPoint = 'addQuote';
-      bh.body = page.quotesForm.value;
+      bh.body = page?.quotesForm?.value;
+      console.log('FORM :', page?.quotesForm?.value);
       let tempObj = {
         id: page.dialogData._id,
-        quoteSelected: page.quotesForm.selectedQuote.value,
+        //  quoteSelected:page.quotesForm.selectedQuote.value
       };
 
       page.dialogData.status = 'Awating For Traveler Quote Approval';
       bh.body.owner = tempObj;
-      console.log(page.quotesForm.selectedQuote.value);
+      //console.log(page.quotesForm.selectedQuote.value)
 
       bh = this.sd_2oarjCaiGCrLhVMF(bh);
       //appendnew_next_sd_3zqRYOIPZOGRBtYQ
@@ -2069,10 +2074,17 @@ export class travelRequestDialogComponent {
       if (page.qoutesvalue?.data?.length) {
         page.quotesForm.patchValue(page.qoutesvalue.data[0]);
       }
-
       page.designition =
-        page.currentUserDetails.designation.includes('Travel Desk');
-      console.log('Function log :', page.designition);
+        page.currentUserDetails.designation[0].includes('Travel');
+      console.log(
+        'FORMssssssssssssssssssssssssssssssssssssssssss :',
+        page?.quotesForm?.value
+      );
+      console.log('page.quotesForm :', page.quotesForm);
+
+      // console.log("Function log :",page.qoutesvalue)
+      //console.log('hiii', page.qoutesvalue.data[0].selectedQuote.value)
+
       //appendnew_next_sd_7Q1LurtE9bgSq2Gg
       return bh;
     } catch (e) {
@@ -2166,8 +2178,12 @@ export class travelRequestDialogComponent {
   sd_cS9bbh1Q3Iq9hQlc(bh) {
     try {
       const page = this.page;
+      console.log(
+        'personal detail form :',
+        page.personalDetailsForm.value.email
+      );
       page.formObj = {
-        personalDetails: bh.input.personalDetailsForm,
+        personalDetails: page.personalDetailsForm.value,
         requestDetails: bh.input.form.requestDetails,
         status: page.dialogData.status,
         managerApproval: {
@@ -2181,13 +2197,13 @@ export class travelRequestDialogComponent {
           quoteComments: '',
           correctDetails: '',
         },
-        owner: bh.input.personalDetailsForm.email,
+        owner: page.dialogData.owner,
         dateCreated: page.dialogData.dateCreated,
       };
       bh.method = 'put';
       bh.endPoint = 'updateTravelerQuoteStatus/' + page.dialogData._id;
 
-      console.log(page.formObj, 'formObj');
+      console.log(page.dialogData._id, 'formObj', bh.input.status);
       bh = this.sd_qDTNYKD7VU5dG7DQ(bh);
       //appendnew_next_sd_cS9bbh1Q3Iq9hQlc
       return bh;

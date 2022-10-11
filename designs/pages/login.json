@@ -321,9 +321,7 @@
             "value": "2500"
         },
         "horizontalPosition": "center",
-        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
-        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -347,14 +345,7 @@
         "viewType": "client-pages",
         "nodeType": "flow",
         "name": "",
-        "path": "/",
-        "pathMap": "",
-        "pathparams": "",
-        "pathparamsMap": "",
-        "qparams": "",
-        "qparamsMap": "",
-        "qparamsArray": "",
-        "resultMapping": "",
+        "path": "/home/travelRequestDialog",
         "functionName": "sd_L5IHBMJeis0D14Is",
         "category": "Navigation",
         "x": 745,
