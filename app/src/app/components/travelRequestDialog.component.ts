@@ -577,6 +577,20 @@ export class travelRequestDialogComponent {
     }
   }
 
+  downloadPDf(form: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { form: form };
+      bh.local = {};
+      bh = this.sd_rzqfqWFI3ouL7q8C(bh);
+      //appendnew_next_downloadPDf
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_952rNzSmKtr5zXm9');
+    }
+  }
+
   //appendnew_flow_travelRequestDialogComponent_start
 
   sd_P2VT6lPYUkxBIGR8(bh) {
@@ -723,6 +737,8 @@ export class travelRequestDialogComponent {
         lineManagerEmail: new FormControl('', [Validators.required]),
       });
 
+      console.log('Form', page.personalDetailsForm);
+
       bh = this.formControlsCreation(bh);
       //appendnew_next_personalDetails
       return bh;
@@ -804,6 +820,7 @@ export class travelRequestDialogComponent {
       const page = this.page;
       page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`;
       //page.personalDetailsForm?.value?.requester?.patchValue(page.requester)
+      console.log('Requestser :', page.requester);
 
       bh = this.sd_URlPiFkFJorKKLLm(bh);
       //appendnew_next_sd_tSte3OpGPIhzRDnX
@@ -2293,6 +2310,18 @@ export class travelRequestDialogComponent {
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_OCNrWxbhvNANXqFv');
+    }
+  }
+
+  sd_rzqfqWFI3ouL7q8C(bh) {
+    try {
+      const page = this.page;
+      let res = bh.input.form;
+      console.log('Oooh Hi I run : ', res);
+      //appendnew_next_sd_rzqfqWFI3ouL7q8C
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_rzqfqWFI3ouL7q8C');
     }
   }
 

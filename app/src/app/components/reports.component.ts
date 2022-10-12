@@ -229,6 +229,7 @@ export class reportsComponent {
       this.page.currentUser = undefined;
       this.page.generateDate = undefined;
       this.page.UserNameArr = [];
+      this.page.onwerDetails = [];
       bh = this.sd_OTZFXvpvhZcIAwik(bh);
       //appendnew_next_sd_E9QbOlnVduPNV5MO_1
       return bh;
@@ -422,6 +423,9 @@ export class reportsComponent {
           page.status.includes(el['status'])
             ? ''
             : page.status.push(el['status']);
+          page.onwerDetails.includes(el['owner'])
+            ? ''
+            : page.onwerDetails.push(el['owner']);
           page.UserNameArr.includes(el?.personalDetails?.firstName) ||
           !el?.personalDetails?.firstName
             ? ''
@@ -429,7 +433,8 @@ export class reportsComponent {
 
           let temp = {};
           temp['_id'] = el['_id'];
-          temp['owner'] = el?.personalDetails?.firstName || 'User Undefined';
+          temp['owner'] = el['owner'];
+          el['owner'];
           temp['status'] = el['status'];
           temp['dateCreated'] = el['dateCreated'];
           temp['tripType'] =

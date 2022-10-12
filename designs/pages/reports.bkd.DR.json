@@ -1396,14 +1396,14 @@
                         },
                         {
                             "_key": "placeholder",
-                            "_value": "Filter By Name",
+                            "_value": "Filter By Email",
                             "_type": "kv",
                             "_attrDef": "p",
                             "_useAsLabel": true
                         },
                         {
                             "_key": "datasource",
-                            "_value": "page.UserNameArr",
+                            "_value": "page.onwerDetails",
                             "_type": "a",
                             "_attrDef": "p"
                         },

@@ -374,7 +374,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "personalDetails ",
-        "script": "page.personalDetailsForm = new FormGroup({\n     // requester: new FormControl (''),\n     requestedFor: new FormControl(''),\n     requestType: new FormControl(''),\n     firstName: new FormControl('', [Validators.minLength(3), Validators.required]),\n     lastName: new FormControl('', [Validators.minLength(3), Validators.required]),\n     dateOfBirth: new FormControl('', [Validators.required]),\n     gender: new FormControl('', [Validators.required]),\n     email: new FormControl('', [Validators.required, Validators.email]),\n     designation: new FormControl('', [Validators.required]),\n     idNumber: new FormControl(false, [Validators.required]),\n     panNumber: new FormControl(null, [Validators.minLength(10), Validators.pattern(\"[A-Z]{5}[0-9]{4}[A-Z]{1}\"), Validators.required]),\n     passportNumber: new FormControl('', [Validators.required]),\n     nationality: new FormControl('', [Validators.required]),\n     station: new FormControl('', [Validators.required]),\n     lineManager: new FormControl('', [Validators.required]),\n     lineManagerEmail: new FormControl('', [Validators.required]),\n})\n",
+        "script": "page.personalDetailsForm = new FormGroup({\n     // requester: new FormControl (''),\n     requestedFor: new FormControl(''),\n     requestType: new FormControl(''),\n     firstName: new FormControl('', [Validators.minLength(3), Validators.required]),\n     lastName: new FormControl('', [Validators.minLength(3), Validators.required]),\n     dateOfBirth: new FormControl('', [Validators.required]),\n     gender: new FormControl('', [Validators.required]),\n     email: new FormControl('', [Validators.required, Validators.email]),\n     designation: new FormControl('', [Validators.required]),\n     idNumber: new FormControl(false, [Validators.required]),\n     panNumber: new FormControl(null, [Validators.minLength(10), Validators.pattern(\"[A-Z]{5}[0-9]{4}[A-Z]{1}\"), Validators.required]),\n     passportNumber: new FormControl('', [Validators.required]),\n     nationality: new FormControl('', [Validators.required]),\n     station: new FormControl('', [Validators.required]),\n     lineManager: new FormControl('', [Validators.required]),\n     lineManagerEmail: new FormControl('', [Validators.required]),\n})\n\nconsole.log(\"Form\",page.personalDetailsForm)\n",
         "functionName": "personalDetails",
         "category": "Function",
         "x": 401,
@@ -962,7 +962,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`\n//page.personalDetailsForm?.value?.requester?.patchValue(page.requester)\n\n\n",
+        "script": "page.requester = `${page.requesterDetails.firstName} ${page.requesterDetails.lastName}`\n//page.personalDetailsForm?.value?.requester?.patchValue(page.requester)\nconsole.log(\"Requestser :\", page.requester)\n\n",
         "functionName": "sd_tSte3OpGPIhzRDnX",
         "category": "Function",
         "x": 1225,
@@ -1344,7 +1344,8 @@
         ],
         "__n_excludedFromValidation__": {},
         "generateNext": false,
-        "generated": true
+        "generated": true,
+        "serviceName": "travelRequestDialogComponent"
     },
     {
         "id": "sd_OlzTqwUY2HWVsU27",
@@ -2605,7 +2606,9 @@
             "value": "2000"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -4389,6 +4392,58 @@
         "category": "General",
         "x": 585,
         "y": 240,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "generated": true
+    },
+    {
+        "id": "sd_952rNzSmKtr5zXm9",
+        "type": "PageStart",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "downloadPDf",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "form",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "downloadPDf",
+        "category": "General",
+        "x": 80,
+        "y": 1660,
+        "wires": [
+            [
+                "sd_rzqfqWFI3ouL7q8C"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "travelRequestDialogComponent"
+    },
+    {
+        "id": "sd_rzqfqWFI3ouL7q8C",
+        "type": "Script",
+        "z": "sd_cL2Dk3ymewl6P3KV",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "let res = bh.input.form\nconsole.log(\"Oooh Hi I run : \",res)",
+        "functionName": "sd_rzqfqWFI3ouL7q8C",
+        "category": "Function",
+        "x": 260,
+        "y": 1660,
         "wires": [
             []
         ],

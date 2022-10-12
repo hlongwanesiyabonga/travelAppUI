@@ -763,6 +763,21 @@
                                                 "_value": "true",
                                                 "_type": "kv",
                                                 "_attrDef": "p"
+                                            },
+                                            {
+                                                "_key": "(click)",
+                                                "_value": "downloadPDf(page.personalDetailsForm.value)",
+                                                "_type": "kv",
+                                                "_attrDef": "c",
+                                                "objValue": {
+                                                    "nodeID": "sd_952rNzSmKtr5zXm9",
+                                                    "functionName": "downloadPDf",
+                                                    "activeTree": "pages",
+                                                    "z": "sd_cL2Dk3ymewl6P3KV",
+                                                    "input": [
+                                                        "page.personalDetailsForm.value"
+                                                    ]
+                                                }
                                             }
                                         ],
                                         "328b6d8f-ec8e-61f1-9bdf-67a4d5fc2a95": {

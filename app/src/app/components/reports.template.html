@@ -28,8 +28,8 @@
     </div>
     <div fxLayout="column wrap" class="inputContainer" fxLayoutAlign="start end" [fxShow]="true">
       <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
-        <mat-select placeholder="Filter By Name" [required]="false" (selectionChange)="selectFilter($event)" #select>
-          <ng-template ngFor let-option [ngForOf]="page.UserNameArr" let-i="index">
+        <mat-select placeholder="Filter By Email" [required]="false" (selectionChange)="selectFilter($event)" #select>
+          <ng-template ngFor let-option [ngForOf]="page.onwerDetails" let-i="index">
             <mat-option [value]="option">{{option}}</mat-option>
           </ng-template>
         </mat-select>

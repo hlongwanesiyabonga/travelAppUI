@@ -9,7 +9,7 @@
             </h1>
             <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
               <div fxLayout="row wrap" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
-                <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true">
+                <div fxLayout="column wrap" class="userInitials" fxLayoutAlign="center center" [fxShow]="true" (click)="downloadPDf(page.personalDetailsForm.value)">
                   <mat-icon class="pointer" matTooltipPosition="below" matTooltip="Download As PDF">save_alt</mat-icon>
                 </div>
                 <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
