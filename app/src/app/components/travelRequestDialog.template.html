@@ -520,237 +520,249 @@
     </form>
     <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="(!(page.dialogData.status ==  &apos;Pending Review By LM&apos;) &amp;&amp; !(page.dialogData.status == &apos;Rejected&apos;)) ||  !(!page.designition &amp;&amp; !page.qoutesvalue?.data[0])">
       <form [formGroup]="page.quotesForm" class="fullWidth">
-        <mat-radio-group formControlName="selectedQuote" [required]="false">
+        <mat-radio-group [required]="false">
           <div fxLayout="column wrap" class="marginTop20" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
-            <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutAlign="start stretch" [fxShow]="true">
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-                <h2>
-                  Quote 1</h2>
-              </div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="(!(page.dialogData.status ==  &apos;Pending Review By LM&apos;) &amp;&amp; !(page.dialogData.status == &apos;Rejected&apos;)) ||  !(!page.designition &amp;&amp; !page.qoutesvalue.data[0])">
-                <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
-                  <mat-radio-button [value]="&apos;Quote 1&apos;" [required]="false" (change)="updateTravelerQuoteRadio(&apos;Approved&apos;,page.travelForm.value,page.travelForm.value)"></mat-radio-button><label>
-                    Select</label>
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" formGroupName="quote1">
+              <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                  <h2>
+                    Quote 1</h2>
                 </div>
-              </div>
-            </div>
-            <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between start" [fxShow]="true">
-              <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
-                <div>
-                  <p>Time</p>
-                </div>
-                <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="space-between stretch" [fxShow]="true">
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q1dep1.open()">
-                      <input matInput placeholder="From Date" [matDatepicker]="q1dep1" formControlName="q1dep1" (dateChange)="dateChange1($event)" [min]="page.date1" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q1dep1" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q1dep1 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
-                  </div>
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q1arrival1.open()">
-                      <input matInput placeholder="To Date" [matDatepicker]="q1arrival1" formControlName="q1arrival1" (dateChange)="secondDateChange1($event)" [min]="page.futureDate1" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q1arrival1" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q1arrival1 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch">
+                  <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
+                    <mat-radio-button [value]="&apos;Quote 1&apos;" [required]="false" (change)="updateTravelerQuoteRadio(&apos;Approved&apos;,page.travelForm.value,page.travelForm.value,&apos;Quote 1&apos;)"></mat-radio-button><label>
+                      Select</label>
                   </div>
                 </div>
-                <div>
-                  <p>Airline</p>
+              </div>
+              <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between start" [fxShow]="true">
+                <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true" formGroupName="leg1">
+                  <div>
+                    <p>Leg 1</p>
+                  </div>
+                  <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="space-between stretch" [fxShow]="true">
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="departure.open()">
+                        <input matInput placeholder="From Date" [matDatepicker]="departure" formControlName="departure" (dateChange)="dateChange1($event)" [min]="page.date1" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="departure" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #departure [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="arrival.open()">
+                        <input matInput placeholder="To Date" [matDatepicker]="arrival" formControlName="arrival" (dateChange)="secondDateChange1($event)" [min]="page.futureDate1" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="arrival" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #arrival [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                  </div>
                 </div>
+                <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true" formGroupName="leg2">
+                  <div>
+                    <p>Leg 2</p>
+                  </div>
+                  <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true">
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="departure2.open()">
+                        <input matInput placeholder="From Date" [matDatepicker]="departure2" formControlName="departure" (dateChange)="thirdDateChange1($event)" [min]="page.newDate1" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="departure2" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #departure2 [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="arrival2.open()">
+                        <input matInput placeholder="To Date" [matDatepicker]="arrival2" formControlName="arrival" [min]="page.futureDate2" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="arrival2" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #arrival2 [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                 <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                  <div>
+                    <p>Airline</p>
+                  </div>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                    <input matInput placeholder="Enter Airline" [required]="false" formControlName="q1airline">
+                    <input matInput placeholder="Enter Airline" [required]="false" formControlName="airline">
 
                   </mat-form-field>
                 </div>
-              </div>
-              <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
-                <div>
-                  <p>Time</p>
-                </div>
-                <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true">
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q1dep2.open()">
-                      <input matInput placeholder="From Date" [matDatepicker]="q1dep2" formControlName="q1dep2" (dateChange)="thirdDateChange1($event)" [min]="page.newDate1" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q1dep2" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q1dep2 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
-                  </div>
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q1arrival2.open()">
-                      <input matInput placeholder="To Date" [matDatepicker]="q1arrival2" formControlName="q1arrival2" [min]="page.futureDate2" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q1arrival2" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q1arrival2 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
-                  </div>
-                </div>
-                <div>
-                  <p>Cost</p>
-                </div>
                 <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                  <div>
+                    <p>Cost</p>
+                  </div>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                    <input matInput placeholder="Enter Total Costs" [required]="false" formControlName="q1cost">
-
-                  </mat-form-field>
-                </div>
-              </div>
-            </div>
-            <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutAlign="start stretch" [fxShow]="true">
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-                <h2>
-                  Quote 2</h2>
-              </div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="(!(page.dialogData.status ==  &apos;Pending Review By LM&apos;) &amp;&amp; !(page.dialogData.status == &apos;Rejected&apos;)) &amp;&amp;  !(!page.designition &amp;&amp; !page.qoutesvalue.data[0])">
-                <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
-                  <mat-radio-button [value]="&apos;Quote 2&apos;" [required]="false" (change)="updateTravelerQuoteRadio(&apos;Approved&apos;,page.travelForm.value,page.personalDetailsForm.value)"></mat-radio-button><label>
-                    Select</label>
-                </div>
-              </div>
-            </div>
-            <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between start" [fxShow]="true">
-              <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
-                <div>
-                  <p>Time</p>
-                </div>
-                <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="space-between stretch" [fxShow]="true">
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q2dep1.open()">
-                      <input matInput placeholder="From Date" [matDatepicker]="q2dep1" formControlName="q2dep1" (dateChange)="dateChange2($event)" [min]="page.date1" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q2dep1" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q2dep1 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
-                  </div>
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q2arrival1.open()">
-                      <input matInput placeholder="To Date" [matDatepicker]="q2arrival1" formControlName="q2arrival1" (dateChange)="secondDateChange2($event)" [min]="page.futureDate3" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q2arrival1" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q2arrival1 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
-                  </div>
-                </div>
-                <div>
-                  <p>Airline</p>
-                </div>
-                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
-                  <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                    <input matInput placeholder="Enter Airline" [required]="false" formControlName="q2airline">
-
-                  </mat-form-field>
-                </div>
-              </div>
-              <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
-                <div>
-                  <p>Time</p>
-                </div>
-                <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true">
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q2dep2.open()">
-                      <input matInput placeholder="From Date" [matDatepicker]="q2dep2" formControlName="q2dep2" (dateChange)="thirdDateChange2($event)" [min]="page.newDate2" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q2dep2" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q2dep2 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
-                  </div>
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q2arrival2.open()">
-                      <input matInput placeholder="To Date" [matDatepicker]="q2arrival2" formControlName="q2arrival2" [min]="page.futureDate4" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q2arrival2" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q2arrival2 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
-                  </div>
-                </div>
-                <div>
-                  <p>Cost</p>
-                </div>
-                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
-                  <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                    <input matInput placeholder="Enter Total Costs" [required]="false" formControlName="q2cost">
+                    <input matInput placeholder="Enter Total Costs" [required]="false" formControlName="cost">
 
                   </mat-form-field>
                 </div>
               </div>
             </div>
-            <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutAlign="start stretch" [fxShow]="true">
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-                <h2>
-                  Quote 3</h2>
-              </div>
-              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="false" *ngIf="(!(page.dialogData.status ==  &apos;Pending Review By LM&apos;) &amp;&amp; !(page.dialogData.status == &apos;Rejected&apos;)) &amp;&amp;  !(!page.designition &amp;&amp; !page.qoutesvalue.data[0])">
-                <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
-                  <mat-radio-button [value]="&apos;Quote 3&apos;" [required]="false" (change)="updateTravelerQuoteRadio(&apos;Approved&apos;,page.travelForm.value,page.personalDetailsForm.value)"></mat-radio-button><label>
-                    Select</label>
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" formGroupName="quote2">
+              <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                  <h2>
+                    Quote 1</h2>
                 </div>
-              </div>
-            </div>
-            <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between start" [fxShow]="true">
-              <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
-                <div>
-                  <p>Time</p>
-                </div>
-                <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="space-between stretch" [fxShow]="true">
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q3dep1.open()">
-                      <input matInput placeholder="From Date" [matDatepicker]="q3dep1" formControlName="q3dep1" (dateChange)="dateChange3($event)" [min]="page.date1" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q3dep1" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q3dep1 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
-                  </div>
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q3arrival1.open()">
-                      <input matInput placeholder="To Date" [matDatepicker]="q3arrival1" formControlName="q3arrival1" (dateChange)="secondDateChange3($event)" [min]="page.futureDate5" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q3arrival1" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q3arrival1 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" *ngIf="page.quotesForm[&apos;valid&apos;] &amp;&amp; !page.currentUserDetails.designation.includes(&apos;Travel&apos;)">
+                  <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
+                    <mat-radio-button [value]="&apos;Quote 1&apos;" [required]="false" (change)="updateTravelerQuoteRadio(&apos;Approved&apos;,page.travelForm.value,page.travelForm.value,&apos;Quote 2&apos;)"></mat-radio-button><label>
+                      Select</label>
                   </div>
                 </div>
-                <div>
-                  <p>Airline</p>
+              </div>
+              <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between start" [fxShow]="true">
+                <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true" formGroupName="leg1">
+                  <div>
+                    <p>Leg 1</p>
+                  </div>
+                  <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="space-between stretch" [fxShow]="true">
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="departure3.open()">
+                        <input matInput placeholder="From Date" [matDatepicker]="departure3" formControlName="departure" (dateChange)="dateChange2($event)" [min]="page.date1" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="departure3" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #departure3 [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="arrival3.open()">
+                        <input matInput placeholder="To Date" [matDatepicker]="arrival3" formControlName="arrival" (dateChange)="secondDateChange2($event)" [min]="page.futureDate3" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="arrival3" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #arrival3 [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true" formGroupName="leg2">
+                  <div>
+                    <p>Leg 2</p>
+                  </div>
+                  <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true">
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="departure4.open()">
+                        <input matInput placeholder="From Date" [matDatepicker]="departure4" formControlName="departure" (dateChange)="thirdDateChange2($event)" [min]="page.newDate2" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="departure4" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #departure4 [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="arrival4.open()">
+                        <input matInput placeholder="To Date" [matDatepicker]="arrival4" formControlName="arrival" [min]="page.futureDate4" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="arrival4" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #arrival4 [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                  <div>
+                    <p>Airline</p>
+                  </div>
+                  <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                    <input matInput placeholder="Enter Airline" [required]="false" formControlName="airline">
+
+                  </mat-form-field>
                 </div>
                 <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                  <div>
+                    <p>Cost</p>
+                  </div>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                    <input matInput placeholder="Enter Airline" [required]="false" formControlName="q3airline">
+                    <input matInput placeholder="Enter Total Costs" [required]="false" formControlName="cost">
 
                   </mat-form-field>
                 </div>
               </div>
-              <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true">
-                <div>
-                  <p>Time</p>
+            </div>
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" formGroupName="quote3">
+              <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                  <h2>
+                    Quote 1</h2>
                 </div>
-                <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true">
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q3dep2.open()">
-                      <input matInput placeholder="From Date" [matDatepicker]="q3dep2" formControlName="q3dep2" (dateChange)="thirdDateChange3($event)" [min]="page.newDate3" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q3dep2" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q3dep2 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
-                  </div>
-                  <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
-                    <mat-form-field [appearance]="&apos;outline&apos;" (click)="q3arrival2.open()">
-                      <input matInput placeholder="To Date" [matDatepicker]="q3arrival2" formControlName="q3arrival2" [min]="page.futureDate6" [required]="false" [disabled]="false" readonly="true">
-                      <mat-datepicker-toggle matSuffix [for]="q3arrival2" disabled="false"></mat-datepicker-toggle>
-                      <mat-datepicker #q3arrival2 [disabled]="false"></mat-datepicker>
-
-                    </mat-form-field>
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" *ngIf="page.quotesForm[&apos;valid&apos;] &amp;&amp; !page.currentUserDetails.designation.includes(&apos;Travel&apos;)">
+                  <div fxLayout="row wrap" class="groupedInput" fxLayoutGap=".25em" fxLayoutAlign="space-between center" [fxShow]="true">
+                    <mat-radio-button [value]="&apos;Quote 1&apos;" [required]="false" (change)="updateTravelerQuoteRadio(&apos;Approved&apos;,page.travelForm.value,page.travelForm.value,&apos;Quote 3&apos;)"></mat-radio-button><label>
+                      Select</label>
                   </div>
                 </div>
-                <div>
-                  <p>Cost</p>
+              </div>
+              <div fxLayout="row wrap" class="fullWidth" fxLayoutAlign="space-between start" [fxShow]="true">
+                <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true" formGroupName="leg1">
+                  <div>
+                    <p>Leg 1</p>
+                  </div>
+                  <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="space-between stretch" [fxShow]="true">
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="departure5.open()">
+                        <input matInput placeholder="From Date" [matDatepicker]="departure5" formControlName="departure" (dateChange)="dateChange3($event)" [min]="page.date1" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="departure5" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #departure5 [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="arrival5.open()">
+                        <input matInput placeholder="To Date" [matDatepicker]="arrival5" formControlName="arrival" (dateChange)="secondDateChange3($event)" [min]="page.futureDate5" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="arrival5" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #arrival5 [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="column wrap" fxFlex="47" fxLayoutAlign="start stretch" [fxShow]="true" formGroupName="leg2">
+                  <div>
+                    <p>Leg 2</p>
+                  </div>
+                  <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true">
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="departure6.open()">
+                        <input matInput placeholder="From Date" [matDatepicker]="departure6" formControlName="departure" (dateChange)="thirdDateChange3($event)" [min]="page.newDate3" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="departure6" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #departure6 [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                    <div fxLayout="column wrap" fxFlex="48" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                      <mat-form-field [appearance]="&apos;outline&apos;" (click)="arrival6.open()">
+                        <input matInput placeholder="To Date" [matDatepicker]="arrival6" formControlName="arrival" [min]="page.futureDate6" [required]="false" [disabled]="false" readonly="true">
+                        <mat-datepicker-toggle matSuffix [for]="arrival6" disabled="false"></mat-datepicker-toggle>
+                        <mat-datepicker #arrival6 [disabled]="false"></mat-datepicker>
+
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                  <div>
+                    <p>Airline</p>
+                  </div>
+                  <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                    <input matInput placeholder="Enter Airline" [required]="false" formControlName="airline">
+
+                  </mat-form-field>
                 </div>
                 <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="49" fxFlex.xs="100">
+                  <div>
+                    <p>Cost</p>
+                  </div>
                   <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                    <input matInput placeholder="Enter Total Costs" [required]="false" formControlName="q3cost">
+                    <input matInput placeholder="Enter Total Costs" [required]="false" formControlName="cost">
 
                   </mat-form-field>
                 </div>
@@ -797,7 +809,7 @@
       </form>
     </div>
     <div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="end end" [fxShow]="true">
-      <div fxLayout="row wrap" class="marginRight20" fxLayoutAlign="end stretch" [fxShow]="true" *ngIf="!(page.designition &amp;&amp; page.quotesForm.status == &apos;VALID&apos;)"><button mat-button class="redButton" (click)="submitQuote()" [disabled]="false">Submit</button></div>
+      <div fxLayout="row wrap" class="marginRight20" fxLayoutAlign="end stretch" [fxShow]="true" *ngIf="!(page.designition &amp;&amp; page.quotesForm.status == &apos;VALID&apos;)"><button mat-button class="redButton" (click)="submitQuote()" [disabled]="false">SubmitQuote</button></div>
       <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="(page?.dialogData?.status!= &apos;Awating For Traveler Quote Approval&apos;) &amp;&amp; !page.dialogData.isDraft &amp;&amp; ( (page?.dialogData?.owner == page?.currentUserDetails?.email ))"><button mat-raised-button class="redButton" (click)="updateForm(page.travelForm.value,page.personalDetailsForm)">Update</button></div>
       <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == null &amp;&amp;(page?.dialogData?.owner != page?.currentUserDetails?.email &amp;&amp; page?.currentUserDetails?.designation[0].includes(&apos;Manager&apos;) || page?.currentUserDetails?.designation.includes(&apos;Manager&apos;))"><button mat-raised-button class="redButton" (click)="changeRequestStatus(page.personalDetailsForm.value,page.travelForm.value,&apos;Rejected&apos;)">Reject</button><button mat-raised-button class="greenButton" (click)="changeRequestStatus(page.personalDetailsForm.value,page.travelForm.value,&apos;Approved&apos;)" [disabled]="false">Approve</button></div>
       <div fxLayout="row wrap" fxLayoutGap="1em" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="(!page.dialogData.isDraft &amp;&amp; page?.dialogData?.managerApproval.approvedRequest == &apos;Approved&apos; &amp;&amp; (page?.dialogData?.owner != page?.currentUserDetails?.email &amp;&amp; page?.currentUserDetails?.designation[0].includes(&apos;Manager&apos;) )) &amp;&amp; page?.dialogData?.managerApproval?.quoteApproved != &apos;Approved&apos; &amp;&amp; page.quotesForm.status == &apos;VALID&apos;"><button mat-raised-button class="redBorderedButton" (click)="changeQuoteStatus(&apos;Rejected&apos;,page.travelForm.value,page.personalDetailsForm.value)">Reject Quote LM</button><button mat-raised-button class="greenBorderButton" (click)="changeQuoteStatus(&apos;Approved&apos;,page.travelForm.value,page.personalDetailsForm.value)">Approve Quote LM</button></div>

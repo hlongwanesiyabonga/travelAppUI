@@ -1743,7 +1743,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "page.dialogData['dateOfBirth'] = new Date(page.dialogData['dateOfBirth'])\npage.personalDetailsForm.patchValue(page.dialogData.personalDetails);\npage.personalDetailsForm.patchValue(page.personalDetailsForm.controls.requestType.value)\n//console.log(page.personalDetailsForm.controls.requestType.value)\n//page.personalDetailsForm.controls.requestType.value= page.personalDetailsForm.requestType\n//page.travelForm.controls.requestDetails.controls[0].controls.accommodationDetails.controls.checkInDate.value = page.travelForm.value.requestDetails[0].travelDetails['fromDate']\n\n//console.log(page.dialogData.personalDetails.requestType.value,\"page.personalDetailsForm.requestType\")\n\n// page.dialogData.personalDetailsForm.forEach(personalDetailsForm => {\n//    page.personalDetailsForm =new FormGroup({\n//        requestType : (personalDetailsForm.requestType)\n//     })\n// })\n\npage.travelForm.patchValue(page.dialogData.requestDetails[0].travelDetails);\npage.travelRequestType = page.dialogData['travelRequestType']\npage.dialogData.requestDetails.forEach(requestDetail => {\n    page.travelForm.get('requestDetails').push(new FormGroup({\n        travelDetails: page.Fb.group({\n            travelMode: [requestDetail.travelDetails.travelMode, [Validators.required]],\n            travelType: [requestDetail.travelDetails.travelType, [Validators.required]],\n            travelRequestType: [false, [Validators.required]],\n            travelPurpose: [requestDetail.travelDetails.travelPurpose, [Validators.required]],\n            projectID: [requestDetail.travelDetails.projectID, [Validators.required]],\n            fromCity: [requestDetail.travelDetails.fromCity, [Validators.required]],\n            toCity: [requestDetail.travelDetails.toCity, [Validators.required]],\n            fromDate: [requestDetail.travelDetails.fromDate, [Validators.required]],\n            toDate: [requestDetail.travelDetails.toDate, [Validators.required]],\n            tripType: [requestDetail.travelDetails.tripType, [Validators.required]],\n            preferredTime: [requestDetail.travelDetails.preferredTime, [Validators.required]],\n            travelerComments: [requestDetail.travelDetails.travelerComments],\n            passportDocument: [requestDetail.travelDetails.passportDocument],\n            visaRequired: [requestDetail.travelDetails.visaRequired, [Validators.required]],\n            covidCertificate: [requestDetail.travelDetails.covidCertificate, page.showVisa ? [Validators.required] : []],\n            passport: [requestDetail.travelDetails.passport],\n            needvehicle: [requestDetail.travelDetails.needvehicle, [Validators.required]],\n            needAccommodation: [requestDetail.travelDetails.needAccommodation, [Validators.required]]\n        }),\n        accommodationDetails: page.Fb.group({\n            accommodationPreference: [requestDetail.accommodationDetails.accommodationPreference, [Validators.required]],\n            city: [requestDetail.accommodationDetails.city, [Validators.required]],\n            checkInDate: [requestDetail.accommodationDetails.checkInDate],\n            checkOutDate: [requestDetail.accommodationDetails.checkOutDate],\n            checkInTime: [requestDetail.accommodationDetails.checkInTime, [Validators.required]],\n            checkOutTime: [requestDetail.accommodationDetails.checkOutTime],\n            employeeComments: [requestDetail.accommodationDetails.employeeComments]\n        })\n    }));\n})\n\n",
+        "script": "\n\nconsole.log(77777, page.currentUserDetails.designation[0].includes('Travel'))\n\npage.dialogData['dateOfBirth'] = new Date(page.dialogData['dateOfBirth'])\npage.personalDetailsForm.patchValue(page.dialogData.personalDetails);\npage.personalDetailsForm.patchValue(page.personalDetailsForm.controls.requestType.value)\n//console.log(page.personalDetailsForm.controls.requestType.value)\n//page.personalDetailsForm.controls.requestType.value= page.personalDetailsForm.requestType\n//page.travelForm.controls.requestDetails.controls[0].controls.accommodationDetails.controls.checkInDate.value = page.travelForm.value.requestDetails[0].travelDetails['fromDate']\n\n//console.log(page.dialogData.personalDetails.requestType.value,\"page.personalDetailsForm.requestType\")\n\n// page.dialogData.personalDetailsForm.forEach(personalDetailsForm => {\n//    page.personalDetailsForm =new FormGroup({\n//        requestType : (personalDetailsForm.requestType)\n//     })\n// })\n\npage.travelForm.patchValue(page.dialogData.requestDetails[0].travelDetails);\npage.travelRequestType = page.dialogData['travelRequestType']\npage.dialogData.requestDetails.forEach(requestDetail => {\n    page.travelForm.get('requestDetails').push(new FormGroup({\n        travelDetails: page.Fb.group({\n            travelMode: [requestDetail.travelDetails.travelMode, [Validators.required]],\n            travelType: [requestDetail.travelDetails.travelType, [Validators.required]],\n            travelRequestType: [false, [Validators.required]],\n            travelPurpose: [requestDetail.travelDetails.travelPurpose, [Validators.required]],\n            projectID: [requestDetail.travelDetails.projectID, [Validators.required]],\n            fromCity: [requestDetail.travelDetails.fromCity, [Validators.required]],\n            toCity: [requestDetail.travelDetails.toCity, [Validators.required]],\n            fromDate: [requestDetail.travelDetails.fromDate, [Validators.required]],\n            toDate: [requestDetail.travelDetails.toDate, [Validators.required]],\n            tripType: [requestDetail.travelDetails.tripType, [Validators.required]],\n            preferredTime: [requestDetail.travelDetails.preferredTime, [Validators.required]],\n            travelerComments: [requestDetail.travelDetails.travelerComments],\n            passportDocument: [requestDetail.travelDetails.passportDocument],\n            visaRequired: [requestDetail.travelDetails.visaRequired, [Validators.required]],\n            covidCertificate: [requestDetail.travelDetails.covidCertificate, page.showVisa ? [Validators.required] : []],\n            passport: [requestDetail.travelDetails.passport],\n            needvehicle: [requestDetail.travelDetails.needvehicle, [Validators.required]],\n            needAccommodation: [requestDetail.travelDetails.needAccommodation, [Validators.required]]\n        }),\n        accommodationDetails: page.Fb.group({\n            accommodationPreference: [requestDetail.accommodationDetails.accommodationPreference, [Validators.required]],\n            city: [requestDetail.accommodationDetails.city, [Validators.required]],\n            checkInDate: [requestDetail.accommodationDetails.checkInDate],\n            checkOutDate: [requestDetail.accommodationDetails.checkOutDate],\n            checkInTime: [requestDetail.accommodationDetails.checkInTime, [Validators.required]],\n            checkOutTime: [requestDetail.accommodationDetails.checkOutTime],\n            employeeComments: [requestDetail.accommodationDetails.employeeComments]\n        })\n    }));\n})",
         "functionName": "sd_wMYU8X4lRNJtGwOu",
         "category": "Function",
         "x": 625,
@@ -2605,7 +2605,9 @@
             "value": "2000"
         },
         "horizontalPosition": "center",
+        "horizontalPositionMap": "",
         "verticalPosition": "bottom",
+        "verticalPositionMap": "",
         "panelClass": {
             "type": "str",
             "value": ""
@@ -2775,7 +2777,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "quotesForm",
-        "script": "page.quotesForm = new FormGroup({\n  // quote 1 \n    selectedQuote: new FormControl(''),\n    q1dep1: new FormControl(''),\n    q1arrival1: new FormControl(''),\n    q1dep2: new FormControl(''),\n    q1arrival2: new FormControl(''),\n    q1airline: new FormControl('', [Validators.required]),\n    q1cost: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")]),\n      // quote 2 \n    q2dep1: new FormControl(''),\n    q2arrival1: new FormControl(''),\n    q2dep2: new FormControl(''),\n    q2arrival2: new FormControl(''),\n    q2airline: new FormControl('', [Validators.required]),\n    q2cost: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")]),\n      // quote 3 \n    q3dep1: new FormControl(''),\n    q3arrival1: new FormControl(''),\n    q3dep2: new FormControl(''),\n    q3arrival2: new FormControl(''),\n    q3airline: new FormControl('', [Validators.required]),\n    q3cost: new FormControl('',[Validators.required, Validators.pattern(\"^[0-9]*$\")]),\n  });",
+        "script": "page.quotesForm = new FormGroup({\n  selectedQuote: new FormControl(''),\n  quote1: new FormGroup({\n    leg1: new FormGroup({\n      departure: new FormControl(null),\n      arrival: new FormControl(null),\n    }),\n    leg2: new FormGroup({\n      departure: new FormControl(null),\n      arrival: new FormControl(null),\n    }),\n    airline: new FormControl('', [Validators.required]),\n    cost: new FormControl('', [Validators.required, Validators.pattern(\"^[0-9]*$\")])\n  }),\n  quote2: new FormGroup({\n    leg1: new FormGroup({\n      departure: new FormControl(null),\n      arrival: new FormControl(null),\n    }),\n    leg2: new FormGroup({\n      departure: new FormControl(null),\n      arrival: new FormControl(null),\n    }),\n    airline: new FormControl('', [Validators.required]),\n    cost: new FormControl('', [Validators.required, Validators.pattern(\"^[0-9]*$\")])\n  }),\n  quote3: new FormGroup({\n    leg1: new FormGroup({\n      departure: new FormControl(null),\n      arrival: new FormControl(null),\n    }),\n    leg2: new FormGroup({\n      departure: new FormControl(null),\n      arrival: new FormControl(null),\n    }),\n    airline: new FormControl('', [Validators.required]),\n    cost: new FormControl('', [Validators.required, Validators.pattern(\"^[0-9]*$\")])\n  })\n});",
         "functionName": "quotesForm",
         "category": "Function",
         "x": 325,
@@ -3388,7 +3390,7 @@
         "accept_csd": true,
         "functionName": "sd_2oarjCaiGCrLhVMF",
         "category": "General",
-        "x": 1625,
+        "x": 1645,
         "y": 1000,
         "wires": [
             [
@@ -3430,7 +3432,7 @@
         "data": "bh.local.res",
         "functionName": "sd_COqINmYm48JNCN24",
         "category": "Dialog",
-        "x": 1805,
+        "x": 1825,
         "y": 1000,
         "wires": [
             []
@@ -3456,8 +3458,8 @@
         "script": "bh.method = 'put';\nbh.endPoint = 'updateStatus/' + page.dialogData._id;\npage.dialogData.status= 'Awating For Traveler Quote Approval'\nbh.body = page.dialogData.status;\n\n",
         "functionName": "sd_XAtNIcqoDVYBgePG",
         "category": "Function",
-        "x": 1585,
-        "y": 1120,
+        "x": 1545,
+        "y": 1100,
         "wires": [
             [
                 "sd_HtpAPthaRPtdFhKv"
@@ -3530,8 +3532,8 @@
         "accept_csd": true,
         "functionName": "sd_HtpAPthaRPtdFhKv",
         "category": "General",
-        "x": 1685,
-        "y": 1120,
+        "x": 1645,
+        "y": 1100,
         "wires": [
             []
         ],
@@ -3570,7 +3572,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "bh.endPoint = \"getQuote/\" + page.dialogData._id;\nbh.method = \"get\"\n",
+        "script": "bh.endPoint = \"getQuote/\" + page.dialogData._id;\nbh.method = \"get\"\nconsole.log('id',page.dialogData._id)",
         "functionName": "sd_VIF9MfKuQDGJD8fB",
         "category": "Function",
         "x": 245,
@@ -3707,10 +3709,10 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "\nconsole.log(bh.local.result)\n",
+        "script": "\nconsole.log('result', bh.local.result)\n",
         "functionName": "sd_hrRR4OefVtIk4X1U",
         "category": "Function",
-        "x": 1705,
+        "x": 1725,
         "y": 1000,
         "wires": [
             [
@@ -3728,7 +3730,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "if(page.qoutesvalue?.data?.length){\npage.quotesForm.patchValue(page.qoutesvalue.data[0])\n}\npage.designition = page.currentUserDetails.designation[0].includes(\"Travel\")\nconsole.log(\"FORMssssssssssssssssssssssssssssssssssssssssss :\",page?.quotesForm?.value)\nconsole.log(\"page.quotesForm :\",page.quotesForm)\n\n// console.log(\"Function log :\",page.qoutesvalue)\n//console.log('hiii', page.qoutesvalue.data[0].selectedQuote.value)\n\n",
+        "script": "if(page.qoutesvalue?.data?.length){\npage.quotesForm.patchValue(page.qoutesvalue.data[0])\n}\npage.designition = page.currentUserDetails.designation[0].includes(\"Travel\")\nlet x =(!(page.dialogData.status ==  'Pending Review By LM') && !(page.dialogData.status == 'Rejected')) &&  !(!page.designition && !page.qoutesvalue.data[0])\n\n// console.log(\"FORMssssssssssssssssssssssssssssssssssssssssss :\",x)\nconsole.log(\"page.hi hoe;' :\",page.qoutesvalue)",
         "functionName": "sd_7Q1LurtE9bgSq2Gg",
         "category": "Function",
         "x": 505,
@@ -3750,8 +3752,8 @@
         "script": "page.formObj = {\n   \"personalDetails\" : bh.input.personalDetailsForm,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":page.dialogData.status,\n    \"managerApproval\": {\n        \"approvedRequest\": page.dialogData.managerApproval.approvedRequest,\n        \"comments\": \"\",\n        \"quoteApproved\": page.dialogData.managerApproval.quoteApproved,\n        \"quoteComments\": \"\"\n    },\n        \"travelerApproval\":{\n            \"quoteApproved\":null,\n            \"quoteComments\":\"\",\n            \"correctDetails\":\"\"\n        },\n    \"owner\": bh.input.personalDetailsForm.email,\n    \"dateCreated\": page.dialogData.dateCreated\n    };\nbh.method = 'put';\nbh.endPoint = \"updateTravelerQuoteStatus/\" + page.dialogData._id;\n\nconsole.log(page.formObj,\"formObj\")",
         "functionName": "sd_DQygbheYDOvfBqFe",
         "category": "Function",
-        "x": 190,
-        "y": 1462.265625,
+        "x": 225,
+        "y": 1460,
         "wires": [
             [
                 "sd_3JYOTImWI5sw3o3d"
@@ -3825,8 +3827,8 @@
         "accept_csd": true,
         "functionName": "sd_PkzQwFNzxFWWS1yn",
         "category": "General",
-        "x": 390,
-        "y": 1462.265625,
+        "x": 425,
+        "y": 1460,
         "wires": [
             [
                 "sd_fJOY11vL075P0GVY"
@@ -3915,8 +3917,8 @@
         "direction": "ltr",
         "functionName": "sd_3JYOTImWI5sw3o3d",
         "category": "General",
-        "x": 290,
-        "y": 1462.265625,
+        "x": 325,
+        "y": 1460,
         "wires": [
             [
                 "sd_PkzQwFNzxFWWS1yn"
@@ -3936,8 +3938,8 @@
         "data": "bh.local.result",
         "functionName": "sd_fJOY11vL075P0GVY",
         "category": "Dialog",
-        "x": 490,
-        "y": 1462.265625,
+        "x": 525,
+        "y": 1460,
         "wires": [
             []
         ],
@@ -3959,7 +3961,7 @@
         "viewType": "common",
         "nodeType": "flow",
         "name": "",
-        "script": "\nconsole.log(\"personal detail form :\",page.personalDetailsForm.value.email)\npage.formObj = {\n   \"personalDetails\" : page.personalDetailsForm.value,\n    \"requestDetails\" : bh.input.form.requestDetails,\n    \"status\":page.dialogData.status,\n    \"managerApproval\": {\n        \"approvedRequest\": page.dialogData.managerApproval.approvedRequest,\n        \"comments\": \"\",\n        \"quoteApproved\": page.dialogData.managerApproval.quoteApproved,\n        \"quoteComments\": \"\"\n    },\n        \"travelerApproval\":{\n            \"quoteApproved\":bh.input.status,\n            \"quoteComments\":\"\",\n            \"correctDetails\":\"\"\n        },\n    \"owner\": page.dialogData.owner,\n    \"dateCreated\": page.dialogData.dateCreated\n    };\nbh.method = 'put';\nbh.endPoint = \"updateTravelerQuoteStatus/\" + page.dialogData._id;\n\nconsole.log(page.dialogData._id,\"formObj\",bh.input.status)",
+        "script": "page.quotesForm.patchValue({\n    selectedQuote: bh.input.selectedQuote\n})\n\nconsole.log(\"quotesForm :\", page.quotesForm.value)\n\npage.formObj = {\n    \"personalDetails\": page.personalDetailsForm.value,\n    \"requestDetails\": bh.input.form.requestDetails,\n    \"status\": page.dialogData.status,\n    \"managerApproval\": {\n        \"approvedRequest\": page.dialogData.managerApproval.approvedRequest,\n        \"comments\": \"\",\n        \"quoteApproved\": page.dialogData.managerApproval.quoteApproved,\n        \"quoteComments\": \"\"\n    },\n    \"travelerApproval\": {\n        \"quoteApproved\": bh.input.status,\n        \"quoteComments\": \"\",\n        \"correctDetails\": \"\"\n    },\n    \"owner\": page.dialogData.owner,\n    \"dateCreated\": page.dialogData.dateCreated\n};\nbh.method = 'put';\nbh.endPoint = \"updateTravelerQuoteStatus/\" + page.dialogData._id;",
         "functionName": "sd_cS9bbh1Q3Iq9hQlc",
         "category": "Function",
         "x": 368.75,
@@ -4077,6 +4079,14 @@
                 "key": "personalDetailsForm",
                 "defaultValue": {
                     "type": "any",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "selectedQuote",
+                "defaultValue": {
+                    "type": "str",
                     "value": ""
                 },
                 "output": false

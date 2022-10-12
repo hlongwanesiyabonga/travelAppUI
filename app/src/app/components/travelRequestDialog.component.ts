@@ -544,6 +544,7 @@ export class travelRequestDialogComponent {
     status: any = undefined,
     form: any = undefined,
     personalDetailsForm: any = undefined,
+    selectedQuote = '',
     ...others
   ) {
     try {
@@ -554,6 +555,7 @@ export class travelRequestDialogComponent {
         status: status,
         form: form,
         personalDetailsForm: personalDetailsForm,
+        selectedQuote: selectedQuote,
       };
       bh.local = {};
       bh = this.sd_cS9bbh1Q3Iq9hQlc(bh);
@@ -874,37 +876,52 @@ export class travelRequestDialogComponent {
     try {
       const page = this.page;
       page.quotesForm = new FormGroup({
-        // quote 1
         selectedQuote: new FormControl(''),
-        q1dep1: new FormControl(''),
-        q1arrival1: new FormControl(''),
-        q1dep2: new FormControl(''),
-        q1arrival2: new FormControl(''),
-        q1airline: new FormControl('', [Validators.required]),
-        q1cost: new FormControl('', [
-          Validators.required,
-          Validators.pattern('^[0-9]*$'),
-        ]),
-        // quote 2
-        q2dep1: new FormControl(''),
-        q2arrival1: new FormControl(''),
-        q2dep2: new FormControl(''),
-        q2arrival2: new FormControl(''),
-        q2airline: new FormControl('', [Validators.required]),
-        q2cost: new FormControl('', [
-          Validators.required,
-          Validators.pattern('^[0-9]*$'),
-        ]),
-        // quote 3
-        q3dep1: new FormControl(''),
-        q3arrival1: new FormControl(''),
-        q3dep2: new FormControl(''),
-        q3arrival2: new FormControl(''),
-        q3airline: new FormControl('', [Validators.required]),
-        q3cost: new FormControl('', [
-          Validators.required,
-          Validators.pattern('^[0-9]*$'),
-        ]),
+        quote1: new FormGroup({
+          leg1: new FormGroup({
+            departure: new FormControl(null),
+            arrival: new FormControl(null),
+          }),
+          leg2: new FormGroup({
+            departure: new FormControl(null),
+            arrival: new FormControl(null),
+          }),
+          airline: new FormControl('', [Validators.required]),
+          cost: new FormControl('', [
+            Validators.required,
+            Validators.pattern('^[0-9]*$'),
+          ]),
+        }),
+        quote2: new FormGroup({
+          leg1: new FormGroup({
+            departure: new FormControl(null),
+            arrival: new FormControl(null),
+          }),
+          leg2: new FormGroup({
+            departure: new FormControl(null),
+            arrival: new FormControl(null),
+          }),
+          airline: new FormControl('', [Validators.required]),
+          cost: new FormControl('', [
+            Validators.required,
+            Validators.pattern('^[0-9]*$'),
+          ]),
+        }),
+        quote3: new FormGroup({
+          leg1: new FormGroup({
+            departure: new FormControl(null),
+            arrival: new FormControl(null),
+          }),
+          leg2: new FormGroup({
+            departure: new FormControl(null),
+            arrival: new FormControl(null),
+          }),
+          airline: new FormControl('', [Validators.required]),
+          cost: new FormControl('', [
+            Validators.required,
+            Validators.pattern('^[0-9]*$'),
+          ]),
+        }),
       });
       bh = this.newDate(bh);
       //appendnew_next_quotesForm
@@ -1456,6 +1473,12 @@ export class travelRequestDialogComponent {
   sd_wMYU8X4lRNJtGwOu(bh) {
     try {
       const page = this.page;
+
+      console.log(
+        77777,
+        page.currentUserDetails.designation[0].includes('Travel')
+      );
+
       page.dialogData['dateOfBirth'] = new Date(page.dialogData['dateOfBirth']);
       page.personalDetailsForm.patchValue(page.dialogData.personalDetails);
       page.personalDetailsForm.patchValue(
@@ -1565,7 +1588,6 @@ export class travelRequestDialogComponent {
           })
         );
       });
-
       //appendnew_next_sd_wMYU8X4lRNJtGwOu
       return bh;
     } catch (e) {
@@ -1978,7 +2000,7 @@ export class travelRequestDialogComponent {
   sd_hrRR4OefVtIk4X1U(bh) {
     try {
       const page = this.page;
-      console.log(bh.local.result);
+      console.log('result', bh.local.result);
 
       bh = this.sd_COqINmYm48JNCN24(bh);
       //appendnew_next_sd_hrRR4OefVtIk4X1U
@@ -2039,7 +2061,7 @@ export class travelRequestDialogComponent {
       const page = this.page;
       bh.endPoint = 'getQuote/' + page.dialogData._id;
       bh.method = 'get';
-
+      console.log('id', page.dialogData._id);
       bh = this.sd_QTzKbzXNOWjs5zFf(bh);
       //appendnew_next_sd_VIF9MfKuQDGJD8fB
       return bh;
@@ -2076,15 +2098,13 @@ export class travelRequestDialogComponent {
       }
       page.designition =
         page.currentUserDetails.designation[0].includes('Travel');
-      console.log(
-        'FORMssssssssssssssssssssssssssssssssssssssssss :',
-        page?.quotesForm?.value
-      );
-      console.log('page.quotesForm :', page.quotesForm);
+      let x =
+        !(page.dialogData.status == 'Pending Review By LM') &&
+        !(page.dialogData.status == 'Rejected') &&
+        !(!page.designition && !page.qoutesvalue.data[0]);
 
-      // console.log("Function log :",page.qoutesvalue)
-      //console.log('hiii', page.qoutesvalue.data[0].selectedQuote.value)
-
+      // console.log("FORMssssssssssssssssssssssssssssssssssssssssss :",x)
+      console.log("page.hi hoe;' :", page.qoutesvalue);
       //appendnew_next_sd_7Q1LurtE9bgSq2Gg
       return bh;
     } catch (e) {
@@ -2178,10 +2198,12 @@ export class travelRequestDialogComponent {
   sd_cS9bbh1Q3Iq9hQlc(bh) {
     try {
       const page = this.page;
-      console.log(
-        'personal detail form :',
-        page.personalDetailsForm.value.email
-      );
+      page.quotesForm.patchValue({
+        selectedQuote: bh.input.selectedQuote,
+      });
+
+      console.log('quotesForm :', page.quotesForm.value);
+
       page.formObj = {
         personalDetails: page.personalDetailsForm.value,
         requestDetails: bh.input.form.requestDetails,
@@ -2202,8 +2224,6 @@ export class travelRequestDialogComponent {
       };
       bh.method = 'put';
       bh.endPoint = 'updateTravelerQuoteStatus/' + page.dialogData._id;
-
-      console.log(page.dialogData._id, 'formObj', bh.input.status);
       bh = this.sd_qDTNYKD7VU5dG7DQ(bh);
       //appendnew_next_sd_cS9bbh1Q3Iq9hQlc
       return bh;
